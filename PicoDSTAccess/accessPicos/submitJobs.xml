@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<!-- Job parameters -->
+<job maxFilesPerProcess="20" filesPerHour="1" fileListSyntax="xrootd">
+
+  <!-- Task list -->
+  <command>
+    starver SL20d
+    basicAccess $INPUTFILE0 $JOBID 
+  </command>
+
+
+  <!-- Necessary files -->
+  <SandBox installer="ZIP">
+    <Package>
+        <File>file:/star/u/mcgordon/PicoDSTAccess/accessPicos/basicAccess</File>
+        <File>file:/star/u/mcgordon/PicoDSTAccess/accessPicos/StRoot/</File>
+    </Package>
+  </SandBox>
+
+
+  <!-- Get input files from get_file_lis.pl -->
+  <input URL="filelist:/star/u/mcgordon/PicoDSTAccess/accessPicos/fxt_3p0GeV_SL20d_nTracksErrorFixed_afterDuplication_file.list" nFiles="all"/>
+  
+  <!-- Run log & error messages -->
+  <stdout URL="file:/star/data01/pwg/mcgordon/$JOBID.out" />
+  <stderr URL="file:/star/data01/pwg/mcgordon/$JOBID.err" />
+  <output fromScratch="*.root" toURL="file:/star/data01/pwg/mcgordon/"/>
+  
+</job>

@@ -1,0 +1,1 @@
+../../../../StRoot/StarClassLibrary/StMemoryInfo.hh
