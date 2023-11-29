@@ -38,20 +38,20 @@ ROOT.gInterpreter.Declare("""
 
 
 nPsi = 1
-nV = 5
+nV = 3
 
 
 
-if(os.path.exists("/star/data01/pwg/mcgordon/VnFromEPD/V" + str(nV) + "Histograms/HistogramThirdPass.root")):
-    RunIteration = 4
-elif(os.path.exists("/star/data01/pwg/mcgordon/VnFromEPD/V" + str(nV) + "Histograms/HistogramSecondPass.root")):
-    RunIteration = 3
-elif(os.path.exists("/star/data01/pwg/mcgordon/VnFromEPD/V" + str(nV) +"Histograms/HistogramFirstPass.root")):
-    RunIteration = 2
-else:
-    RunIteration = 1
+# if(os.path.exists("/star/data01/pwg/mcgordon/VnFromEPD/V" + str(nV) + "Histograms/HistogramThirdPass.root")):
+#     RunIteration = 4
+# elif(os.path.exists("/star/data01/pwg/mcgordon/VnFromEPD/V" + str(nV) + "Histograms/HistogramSecondPass.root")):
+#     RunIteration = 3
+# elif(os.path.exists("/star/data01/pwg/mcgordon/VnFromEPD/V" + str(nV) +"Histograms/HistogramFirstPass.root")):
+#     RunIteration = 2
+# else:
+#     RunIteration = 1
 
-
+RunIteration = 4
 
 
 
@@ -63,8 +63,23 @@ NumberOfGoodTracksOuterEPD = 9
 NumberOfGoodTracksTPC = 5
 TPCUpperLimit = 0
 TPCLowerLimit = -1
-ProtonLowerMSquared = 0.6
-ProtonUpperMSquared = 1.2
+
+
+
+RVertexBound = 1.5
+ZVertexLowerBound = 198
+ZVertexUpperBound = 202
+DCABound = 3
+
+
+
+NHitsBound = 15
+NHitsdEdxBound = 5
+NHitsFitOverNHitsPossBound = 0.52
+InnerEPDHighRing = 8
+OuterEPDLowRing = 9
+# ProtonLowerMSquared = 0.6
+# ProtonUpperMSquared = 1.2
 KaonLowerMSquared = 0.15
 KaonUpperMSquared = 0.34
 PionLowerMSquared = -0.1
@@ -83,10 +98,126 @@ DeuteronUpperPt = 2.0
 TritonLowerPt = 1.2
 TritonUpperPt = 3.0
 LowerYMinusYCM = 0
-UpperYMinusYCM = 0.5
+UpperYMinusYCM = 1
+
+
 
 QBounds = 100
 FourierCorrectionTerms = 10
+
+
+if sys.argv[3] == "Normal":
+    QBounds = 100
+    FourierCorrectionTerms = 10
+elif sys.argv[3] == "RVertex20Low":
+    RVertexBound = 1.2
+elif sys.argv[3] == "RVertex30Low":
+    RVertexBound = 1.05
+elif sys.argv[3] == "RVertex20High":
+    RVertexBound = 1.8
+elif sys.argv[3] == "RVertex30High":
+    RVertexBound = 1.95
+elif sys.argv[3] == "ZVertex20Low":
+    ZVertexLowerBound = 198.4
+    ZVertexUpperBound = 201.6
+elif sys.argv[3] == "ZVertex20High":
+    ZVertexLowerBound = 197.6
+    ZVertexUpperBound = 202.4
+elif sys.argv[3] == "ZVertex30Low":
+    ZVertexLowerBound = 198.6
+    ZVertexUpperBound = 201.4
+elif sys.argv[3] == "ZVertex30High":
+    ZVertexLowerBound = 197.4
+    ZVertexUpperBound = 202.6
+elif sys.argv[3] == "DCA20Low":
+    DCABound = 2.4
+elif sys.argv[3] == "DCA20High":
+    DCABound = 3.6
+elif sys.argv[3] == "DCA30Low":
+    DCABound = 2.1
+elif sys.argv[3] == "DCA30High":
+    DCABound = 3.9
+elif sys.argv[3] == "NHits20Low":
+    NHitsBound = 12
+elif sys.argv[3] == "NHits20High":
+    NHitsBound = 18
+elif sys.argv[3] == "NHits30Low":
+    NHitsBound = 10
+elif sys.argv[3] == "NHits30High":
+    NHitsBound = 20
+elif sys.argv[3] == "NHitsdEdx20High":
+    NHitsdEdxBound = 9     
+elif sys.argv[3] == "NHitsdEdx30High":
+    NHitsdEdxBound = 12
+elif sys.argv[3] == "NHitsFitOverNHitsPoss20Low":
+    NHitsFitOverNHitsPossBound = 0.416
+elif sys.argv[3] == "NHitsFitOverNHitsPoss20High":
+    NHitsFitOverNHitsPossBound = 0.624
+elif sys.argv[3] == "NHitsFitOverNHitsPoss30Low":
+    NHitsFitOverNHitsPossBound = 0.364
+elif sys.argv[3] == "NHitsFitOverNHitsPoss30High":
+    NHitsFitOverNHitsPossBound = 0.676
+elif sys.argv[3] == "NSigmaPion20Low":
+    NSigmaPiBound = 2.4
+elif sys.argv[3] == "NSigmaPion20High":
+    NSigmaPiBound = 3.6    
+elif sys.argv[3] == "NSigmaPion30Low":
+    NSigmaPiBound = 2.1  
+elif sys.argv[3] == "NSigmaPion30High":
+    NSigmaPiBound = 3.9
+elif sys.argv[3] == "NSigmaKaon20Low":
+    NSigmaKaBound = 2.4
+elif sys.argv[3] == "NSigmaKaon20High":
+    NSigmaKaBound = 3.6    
+elif sys.argv[3] == "NSigmaKaon30Low":
+    NSigmaKaBound = 2.1  
+elif sys.argv[3] == "NSigmaKaon30High":
+    NSigmaKaBound = 3.9    
+elif sys.argv[3] == "NSigmaProton20Low":
+    NSigmaPrBound = 1.6
+elif sys.argv[3] == "NSigmaProton20High":
+    NSigmaPrBound = 2.4    
+elif sys.argv[3] == "NSigmaProton30Low":
+    NSigmaPrBound = 1.4
+elif sys.argv[3] == "NSigmaProton30High":
+    NSigmaPrBound = 2.6
+elif sys.argv[3] == "MSquaredPion20Low":
+    PionLowerMSquared = -0.08
+    PionUpperMSquared = 0.08
+elif sys.argv[3] == "MSquaredPion20High":
+    PionLowerMSquared = -0.12
+    PionUpperMSquared = 0.12
+elif sys.argv[3] == "MSquaredPion30Low":
+    PionLowerMSquared = -0.07
+    PionUpperMSquared = 0.07
+elif sys.argv[3] == "MSquaredPion30High":
+    PionLowerMSquared = -0.13
+    PionUpperMSquared = 0.13
+elif sys.argv[3] == "MSquaredKaon20Low":
+    KaonLowerMSquared = 0.169
+    KaonUpperMSquared = 0.321
+elif sys.argv[3] == "MSquaredKaon20High":
+    KaonLowerMSquared = 0.131
+    KaonUpperMSquared = 0.359
+elif sys.argv[3] == "MSquaredKaon30Low":
+    KaonLowerMSquared = 0.1785
+    KaonUpperMSquared = 0.3115
+elif sys.argv[3] == "MSquaredKaon30High":
+    KaonLowerMSquared = 0.1215
+    KaonUpperMSquared = 0.3685
+elif sys.argv[3] == "OuterEPDLow":
+    InnerEPDHighRing = 12
+    OuterEPDLowRing = 13
+elif sys.argv[3] == "OuterEPDHigh":
+    InnterEPDHighRing = 9
+    OuterEPDLowRing = 10
+else:
+    print("No Matching Systematic Error type (or Normal)")
+    sys.exit(0)
+
+
+    
+    
 
 cpp_code = """
 #include <cmath>
@@ -103,10 +234,12 @@ class EPDKinematics
         float vx;
         float vy;
         float vz;
+        int InnerEPDHighRing;
+        int OuterEPDLowRing;
     
     public:
         EPDKinematics();
-        EPDKinematics(int EPDID, float vx, float vy, float vz);
+        EPDKinematics(int EPDID, float vx, float vy, float vz, int InnerEPDHighRing, int OuterEPDLowRing);
         
         float EPDEta();
         float EPDPhi();
@@ -123,14 +256,18 @@ EPDKinematics::EPDKinematics()
     this->vx = 0;
     this->vy = 0;
     this->vz = 0;
+    this->InnerEPDHighRing = 0;
+    this->OuterEPDLowRing = 0;
 }
 
-EPDKinematics::EPDKinematics(int EPDID, float vx, float vy, float vz)
+EPDKinematics::EPDKinematics(int EPDID, float vx, float vy, float vz, int InnerEPDHighRing, int OuterEPDLowRing)
 {
     this->EPDID = EPDID;
     this->vx = vx;
     this->vy = vy;
     this->vz = vz;
+    this->InnerEPDHighRing = InnerEPDHighRing;
+    this->OuterEPDLowRing = OuterEPDLowRing;
 }
 
 float EPDKinematics::EPDEta()
@@ -194,14 +331,14 @@ bool EPDKinematics::IsInnerEPD()
 {
     int RowNum = EPDRow();
     
-    return ((RowNum >= 1) && (RowNum <= 8));
+    return ((RowNum >= 1) && (RowNum <= this->InnerEPDHighRing));
 }
 
 bool EPDKinematics::IsOuterEPD()
 {
     int RowNum = EPDRow();
     
-    return ((RowNum >= 9) && (RowNum <= 16));
+    return ((RowNum >= this->OuterEPDLowRing) && (RowNum <= 16));
 }
 
 
@@ -432,9 +569,21 @@ if(RunIteration == 1):
     HistoTPCQyRaw = ROOT.TH1D("TPCQyRaw", "Qy Raw for TPC; Qy; Events", 250, -QBounds, QBounds)
 
     
+
+    HistoDA = ROOT.TH1F("DataNSigmaProtonAll", "All NSigmaProton Values; NSigmaProton; Events", 10, -5, 5)
+    HistoDA.Sumw2()
+    
+    HistoDB = ROOT.TH1F("DataNSigmaProtonUsed", "Used NSigmaProton Values; NSigmaProton; Events", 10, -5, 5)
+    HistoDB.Sumw2()
+    
+
     
     
     
+    
+    
+    HistoD0 = ROOT.TH2F("DataVxVy","Target Vx and Vy; Vx; Vy", 500, -5, 5, 500, -5, 5)
+    HistoD0.Sumw2()
     
     HistoD1 = ROOT.TH1F("DataPt", "Pt (Data); Pt (GeV); Events", 500, 0, 2)
     HistoD1.Sumw2()
@@ -598,6 +747,25 @@ if(RunIteration == 1):
         vz = AutreeData.Vz
         EPDnMIP = AutreeData.EPDnMip
         EPDID = AutreeData.EPDid
+        DCA = AutreeData.DCA
+        NHits = AutreeData.nHits
+        NHitsdEdx = AutreeData.nHitsDedx
+        NHitsFit = AutreeData.nHitsFit
+        NHitsPoss = AutreeData.nHitsPoss
+        
+        
+        vr = sqrt(pow(vx, 2) + pow(vy + 2, 2))
+        HistoD0.Fill(vx, vy)
+
+
+        if (vr >= RVertexBound):
+            continue
+        
+        
+        if (vz <= ZVertexLowerBound) or (vz >= ZVertexUpperBound):
+            continue
+
+        
 
         ProtonMass = 0.938
         KaonMass = 0.494
@@ -615,6 +783,20 @@ if(RunIteration == 1):
         TPCQy = 0
 
         for index in range(len(px)):
+            if (DCA[index] > DCABound):
+                continue
+            if (NHits[index] < NHitsBound):
+                continue
+            if (NHitsdEdx[index] < NHitsdEdxBound):
+                continue
+            if (NHitsFit[index] / NHitsPoss[index] < NHitsFitOverNHitsPossBound):
+                continue
+   
+            
+            
+            
+            TrackIsIDed = False
+            
             pt = Pt(px[index], py[index])
 
             p = P(px[index], py[index], pz[index])
@@ -630,49 +812,40 @@ if(RunIteration == 1):
             IsDeuteron = DAndT.IsDeuteron()
             IsTriton = DAndT.IsTriton()
             
-            if(IsDeuteron):
+            if((not TrackIsIDed) and IsDeuteron):
                 mass = DeuteronMass
 
                 energy = Energy(px[index], py[index], pz[index], mass)
 
                 y = Y(px[index], py[index], pz[index], mass)
+                
+                TrackIsIDed = True
 
                 HistoD16.Fill(p, dEdx[index])
                 HistoD27A.Fill(y - yCMShift, pt)
 
-            elif(IsTriton):
+            elif((not TrackIsIDed) and IsTriton):
                 mass = TritonMass
 
                 energy = Energy(px[index], py[index], pz[index], mass)
 
                 y = Y(px[index], py[index], pz[index], mass)
+                
+                TrackIsIDed = True
 
                 HistoD17.Fill(p, dEdx[index])
                 HistoD27B.Fill(y - yCMShift, pt)
                 
-            if(tofBeta[index] <= 0):
-                HistoD24.Fill(qp, NSigmaPr[index])
-                HistoD25.Fill(qp, NSigmaKa[index])
-                HistoD26.Fill(qp, NSigmaPi[index])
-                    
-                if((abs(NSigmaPr[index]) < NSigmaPrBound) and (pt > ProtonLowerPt) and (pt < ProtonUpperPt)):
-                    mass = ProtonMass
-                    
-                    energy = Energy(px[index], py[index], pz[index], mass)
 
-                    y = Y(px[index], py[index], pz[index], mass)
                     
-                    HistoD5.Fill(y - yCMShift)
-                    HistoD8.Fill(pt)
-                    HistoD15.Fill(p, dEdx[index])
-                    
-                    HistoD21.Fill(pt)
-
-                    HistoD27.Fill(y - yCMShift, pt)
 
             if(tofBeta[index] > 0):
 
                 msquared = MSquared(px[index], py[index], pz[index], tofBeta[index])
+                
+#                 IsProtonToF = (abs(NSigmaPr[index]) < NSigmaPrBound) and (msquared > ProtonLowerMSquared) and (msquared < ProtonUpperMSquared) and (p > 2.0)
+                IsKaon = (abs(NSigmaKa[index]) < NSigmaKaBound) and (msquared > KaonLowerMSquared) and (msquared < KaonUpperMSquared)
+                IsPion = (abs(NSigmaPi[index]) < NSigmaPiBound) and (msquared > PionLowerMSquared) and (msquared < PionUpperMSquared)
 
                 HistoD4.Fill(qp, msquared)
                 HistoD4A.Fill(qp, msquared)
@@ -682,24 +855,26 @@ if(RunIteration == 1):
                 HistoD26.Fill(qp, NSigmaPi[index])
 
                 # Proton criteria
-                if((abs(NSigmaPr[index]) < NSigmaPrBound) and (pt > ProtonLowerPt) and (pt < ProtonUpperPt)): 
-                    mass = ProtonMass
+#                 if((not TrackIsIDed) and IsProtonToF): 
+#                     mass = ProtonMass
 
-                    energy = Energy(px[index], py[index], pz[index], mass)
+#                     energy = Energy(px[index], py[index], pz[index], mass)
 
-                    y = Y(px[index], py[index], pz[index], mass)
+#                     y = Y(px[index], py[index], pz[index], mass)
 
-                    HistoD5.Fill(y - yCMShift)
-                    HistoD8.Fill(pt)
-                    HistoD15.Fill(p, dEdx[index])
-                    HistoD18.Fill(qp, msquared)
+#                     HistoD5.Fill(y - yCMShift)
+#                     HistoD8.Fill(pt)
+#                     HistoD15.Fill(p, dEdx[index])
+#                     HistoD18.Fill(qp, msquared)
 
-                    HistoD21.Fill(pt)
+#                     HistoD21.Fill(pt)
 
-                    HistoD27.Fill(y - yCMShift, pt)
+#                     HistoD27.Fill(y - yCMShift, pt)
+                    
+#                     TrackIsIDed = True
 
                 # Kaon criteria
-                elif((abs(NSigmaKa[index]) < NSigmaKaBound) and (msquared > KaonLowerMSquared) and (msquared < KaonUpperMSquared)):
+                if((not TrackIsIDed) and IsKaon):
                     mass = KaonMass
 
                     energy = Energy(px[index], py[index], pz[index], mass)
@@ -712,6 +887,8 @@ if(RunIteration == 1):
                     HistoD9.Fill(pt)
                     HistoD14.Fill(p, dEdx[index])
                     HistoD19.Fill(qp, msquared)
+                    
+                    TrackIsIDed = True
 
                     if(q[index] > 0):
                         HistoD28.Fill(y - yCMShift, pt)
@@ -720,7 +897,7 @@ if(RunIteration == 1):
                         HistoD29.Fill(y - yCMShift, pt)
 
                 # Pion criteria
-                elif((abs(NSigmaPi[index]) < NSigmaPiBound) and (msquared > PionLowerMSquared) and (msquared < PionUpperMSquared)):
+                elif((not TrackIsIDed) and IsPion):
                     mass = PionMass
 
                     energy = Energy(px[index], py[index], pz[index], mass)
@@ -733,12 +910,35 @@ if(RunIteration == 1):
                     HistoD10.Fill(pt)
                     HistoD13.Fill(p, dEdx[index])
                     HistoD20.Fill(qp, msquared)
+                    
+                    TrackIsIDed = True
 
                     if(q[index] > 0):
                         HistoD30.Fill(y - yCMShift, pt)
 
                     elif(q[index] < 0):
                         HistoD31.Fill(y - yCMShift, pt)
+                        
+
+                        
+                IsProtonTPC = (abs(NSigmaPr[index]) < NSigmaPrBound)
+
+                if((not TrackIsIDed) and IsProtonTPC):
+                        mass = ProtonMass
+
+                        energy = Energy(px[index], py[index], pz[index], mass)
+
+                        y = Y(px[index], py[index], pz[index], mass)
+
+                        HistoD5.Fill(y - yCMShift)
+                        HistoD8.Fill(pt)
+                        HistoD15.Fill(p, dEdx[index])
+
+                        HistoD21.Fill(pt)
+
+                        HistoD27.Fill(y - yCMShift, pt)
+
+                        TrackIsIDed = True
 
             HistoD1.Fill(pt)
             HistoD2.Fill(eta)
@@ -752,6 +952,15 @@ if(RunIteration == 1):
         GoodTracksCounterTPC = 0
 
         for index in range(len(px)):
+            if (DCA[index] > DCABound):
+                continue
+            if (NHits[index] < NHitsBound):
+                continue
+            if (NHitsdEdx[index] < NHitsdEdxBound):
+                continue
+            if (NHitsFit[index] / NHitsPoss[index] < NHitsFitOverNHitsPossBound):
+                continue
+                
             p = P(px[index], py[index], pz[index])
 
             eta = Eta(px[index], py[index], pz[index])
@@ -763,7 +972,7 @@ if(RunIteration == 1):
             if(EPDID[index] > 0):
                 continue
 
-            TileVector = ROOT.EPDKinematics(EPDID[index], vx, vy, vz)
+            TileVector = ROOT.EPDKinematics(EPDID[index], vx, vy, vz, InnerEPDHighRing, OuterEPDLowRing)
 
             eta = TileVector.EPDEta()
 
@@ -781,6 +990,15 @@ if(RunIteration == 1):
             continue
 
         for index in range(len(px)):
+            if (DCA[index] > DCABound):
+                continue
+            if (NHits[index] < NHitsBound):
+                continue
+            if (NHitsdEdx[index] < NHitsdEdxBound):
+                continue
+            if (NHitsFit[index] / NHitsPoss[index] < NHitsFitOverNHitsPossBound):
+                continue
+                
             pt = Pt(px[index], py[index])
 
             p = P(px[index], py[index], pz[index])
@@ -797,7 +1015,7 @@ if(RunIteration == 1):
             if(EPDID[index] > 0):
                 continue
 
-            TileVector = ROOT.EPDKinematics(EPDID[index], vx, vy, vz)
+            TileVector = ROOT.EPDKinematics(EPDID[index], vx, vy, vz, InnerEPDHighRing, OuterEPDLowRing)
 
             phi = TileVector.EPDPhi()
 
@@ -852,6 +1070,17 @@ if(RunIteration == 1):
         HistoD39.Fill(PsiTPCRaw)
 
         for index in range(len(px)):
+            if (DCA[index] > DCABound):
+                continue
+            if (NHits[index] < NHitsBound):
+                continue
+            if (NHitsdEdx[index] < NHitsdEdxBound):
+                continue
+            if (NHitsFit[index] / NHitsPoss[index] < NHitsFitOverNHitsPossBound):
+                continue
+                
+            
+            TrackIsIDed = False
             
             pt = Pt(px[index], py[index])
 
@@ -866,7 +1095,7 @@ if(RunIteration == 1):
             IsDeuteron = DAndT.IsDeuteron()
             IsTriton = DAndT.IsTriton()
             
-            if((IsDeuteron) and (pt > DeuteronLowerPt) and (pt < DeuteronUpperPt)):
+            if((not TrackIsIDed) and (IsDeuteron)):
                 mass = DeuteronMass
 
                 energy = Energy(px[index], py[index], pz[index], mass)
@@ -874,11 +1103,15 @@ if(RunIteration == 1):
                 y = Y(px[index], py[index], pz[index], mass)
 
                 VnInnerEPDRaw = V_n(nV, px[index], py[index], PsiInnerEPDRaw)
+                
+                IsGoodDeuteron = (pt > DeuteronLowerPt) and (pt < DeuteronUpperPt) and ((y - yCMShift) > LowerYMinusYCM) and ((y - yCMShift) < UpperYMinusYCM)
+                
+                TrackIsIDed = True
 
-                if(((y - yCMShift) > LowerYMinusYCM) and ((y - yCMShift) < UpperYMinusYCM)):
+                if(IsGoodDeuteron):
                     HistoD42A.Fill(y - yCMShift, VnInnerEPDRaw)
 
-            elif((IsTriton) and (pt > TritonLowerPt) and (pt < TritonUpperPt)):
+            elif((not TrackIsIDed) and (IsTriton)):
                 mass = TritonMass
 
                 energy = Energy(px[index], py[index], pz[index], mass)
@@ -886,43 +1119,43 @@ if(RunIteration == 1):
                 y = Y(px[index], py[index], pz[index], mass)
 
                 VnInnerEPDRaw = V_n(nV, px[index], py[index], PsiInnerEPDRaw)
-
-                if(((y - yCMShift) > LowerYMinusYCM) and ((y - yCMShift) < UpperYMinusYCM)):
-                    HistoD42B.Fill(y - yCMShift, VnInnerEPDRaw)
-                    
-            
-            if(tofBeta[index] <= 0):
                 
-                if((abs(NSigmaPr[index]) < NSigmaPrBound) and (pt > ProtonLowerPt) and (pt < ProtonUpperPt)): 
-                    mass = ProtonMass
-
-                    energy = Energy(px[index], py[index], pz[index], mass)
-
-                    y = Y(px[index], py[index], pz[index], mass)
-
-                    VnInnerEPDRaw = V_n(nV, px[index], py[index], PsiInnerEPDRaw)
-                    
-                    if(((y - yCMShift) > LowerYMinusYCM) and ((y - yCMShift) < UpperYMinusYCM)):
-                        HistoD42.Fill(y - yCMShift, VnInnerEPDRaw)
-
+                IsGoodTriton = (pt > TritonLowerPt) and (pt < TritonUpperPt) and ((y - yCMShift) > LowerYMinusYCM) and ((y - yCMShift) < UpperYMinusYCM)
+                
+                TrackIsIDed = True
+                
+                if(IsGoodTriton):
+                    HistoD42B.Fill(y - yCMShift, VnInnerEPDRaw)
+                        
+            
+            
+            
 
             if(tofBeta[index] > 0):
 
                 msquared = MSquared(px[index], py[index], pz[index], tofBeta[index])
+                
+#                 IsProtonToF = (abs(NSigmaPr[index]) < NSigmaPrBound) and (msquared > ProtonLowerMSquared) and (msquared < ProtonUpperMSquared) and (p > 2.0)
+                IsKaon = (abs(NSigmaKa[index]) < NSigmaKaBound) and (msquared > KaonLowerMSquared) and (msquared < KaonUpperMSquared)
+                IsPion = (abs(NSigmaPi[index]) < NSigmaPiBound) and (msquared > PionLowerMSquared) and (msquared < PionUpperMSquared)
 
-                if((abs(NSigmaPr[index]) < NSigmaPrBound) and (pt > ProtonLowerPt) and (pt < ProtonUpperPt)): 
-                    mass = ProtonMass
+#                 if((not TrackIsIDed) and IsProtonToF): 
+#                     mass = ProtonMass
 
-                    energy = Energy(px[index], py[index], pz[index], mass)
+#                     energy = Energy(px[index], py[index], pz[index], mass)
 
-                    y = Y(px[index], py[index], pz[index], mass)
+#                     y = Y(px[index], py[index], pz[index], mass)
 
-                    VnInnerEPDRaw = V_n(nV, px[index], py[index], PsiInnerEPDRaw)
+#                     VnInnerEPDRaw = V_n(nV, px[index], py[index], PsiInnerEPDRaw)
                     
-                    if(((y - yCMShift) > LowerYMinusYCM) and ((y - yCMShift) < UpperYMinusYCM)):
-                        HistoD42.Fill(y - yCMShift, VnInnerEPDRaw)
+#                     IsGoodProton = (pt > ProtonLowerPt) and (pt < ProtonUpperPt) and ((y - yCMShift) > LowerYMinusYCM) and ((y - yCMShift) < UpperYMinusYCM)
+                    
+#                     TrackIsIDed = True
+                    
+#                     if(IsGoodProton):
+#                         HistoD42.Fill(y - yCMShift, VnInnerEPDRaw)
 
-                if((abs(NSigmaKa[index]) < NSigmaKaBound) and (msquared > KaonLowerMSquared) and (msquared < KaonUpperMSquared) and (pt > KaonLowerPt) and (pt < KaonUpperPt)): 
+                if((not TrackIsIDed) and IsKaon): 
                     mass = KaonMass
 
                     energy = Energy(px[index], py[index], pz[index], mass)
@@ -931,14 +1164,18 @@ if(RunIteration == 1):
 
                     VnInnerEPDRaw = V_n(nV, px[index], py[index], PsiInnerEPDRaw)
                     
-                    if(((y - yCMShift) > LowerYMinusYCM) and ((y - yCMShift) < UpperYMinusYCM)):
+                    IsGoodKaon = (pt > KaonLowerPt) and (pt < KaonUpperPt) and ((y - yCMShift) > LowerYMinusYCM) and ((y - yCMShift) < UpperYMinusYCM)
+                    
+                    TrackIsIDed = True
+                    
+                    if(IsGoodKaon):
                         if(q[index] > 0):
                             HistoD45.Fill(y - yCMShift, VnInnerEPDRaw)
 
                         if(q[index] < 0):
                             HistoD45A.Fill(y - yCMShift, VnInnerEPDRaw)
 
-                if((abs(NSigmaPi[index]) < NSigmaPiBound) and (msquared > PionLowerMSquared) and (msquared < PionUpperMSquared)  and (pt > PionLowerPt) and (pt < PionUpperPt)): 
+                elif((not TrackIsIDed) and IsPion): 
                     mass = PionMass
 
                     energy = Energy(px[index], py[index], pz[index], mass)
@@ -946,13 +1183,36 @@ if(RunIteration == 1):
                     y = Y(px[index], py[index], pz[index], mass)
 
                     VnInnerEPDRaw = V_n(nV, px[index], py[index], PsiInnerEPDRaw)
+                    
+                    IsGoodPion = (pt > PionLowerPt) and (pt < PionUpperPt) and ((y - yCMShift) > LowerYMinusYCM) and ((y - yCMShift) < UpperYMinusYCM)
+                    
+                    TrackIsIDed = True
 
-                    if(((y - yCMShift) > LowerYMinusYCM) and ((y - yCMShift) < UpperYMinusYCM)):
+                    if(IsGoodPion):
                         if(q[index] > 0):
                             HistoD48.Fill(y - yCMShift, VnInnerEPDRaw)
 
                         if(q[index] < 0):
                             HistoD48A.Fill(y - yCMShift, VnInnerEPDRaw)
+
+
+                IsProtonTPC = (abs(NSigmaPr[index]) < NSigmaPrBound)
+
+                if((not TrackIsIDed) and IsProtonTPC): 
+                    mass = ProtonMass
+
+                    energy = Energy(px[index], py[index], pz[index], mass)
+
+                    y = Y(px[index], py[index], pz[index], mass)
+
+                    VnInnerEPDRaw = V_n(nV, px[index], py[index], PsiInnerEPDRaw)
+
+                    IsGoodProton = (pt > ProtonLowerPt) and (pt < ProtonUpperPt) and ((y - yCMShift) > LowerYMinusYCM) and ((y - yCMShift) < UpperYMinusYCM)
+
+                    TrackIsIDed = True
+
+                    if(IsGoodProton):
+                        HistoD42.Fill(y - yCMShift, VnInnerEPDRaw)
 
     HistoInnerEPDQxRaw.SetDirectory(0)
     HistoInnerEPDQyRaw.SetDirectory(0)
@@ -960,6 +1220,9 @@ if(RunIteration == 1):
     HistoOuterEPDQyRaw.SetDirectory(0)
     HistoTPCQxRaw.SetDirectory(0)
     HistoTPCQyRaw.SetDirectory(0)
+    HistoDA.SetDirectory(0)
+    HistoDB.SetDirectory(0)
+    HistoD0.SetDirectory(0)
     HistoD1.SetDirectory(0)
     HistoD2.SetDirectory(0)
     HistoD3.SetDirectory(0)
@@ -1015,6 +1278,9 @@ if(RunIteration == 1):
     QVectorHistograms.append(HistoOuterEPDQyRaw)
     QVectorHistograms.append(HistoTPCQxRaw)
     QVectorHistograms.append(HistoTPCQyRaw)
+    Histograms.append(HistoDA)
+    Histograms.append(HistoDB)
+    Histograms.append(HistoD0)
     Histograms.append(HistoD1)
     Histograms.append(HistoD2)
     Histograms.append(HistoD3)
@@ -1066,8 +1332,8 @@ if(RunIteration == 1):
     
     Data.Close()
 
-    #QVectorHistogramRootFile = ROOT.TFile.Open("/star/u/mcgordon/VnFromEPD/QVectorHistogramTest.root", "RECREATE")
-    QVectorHistogramRootFile = ROOT.TFile.Open("/star/data01/pwg/mcgordon/VnFromEPD/V" + str(nV) + "Histograms/QVectorFirstPass" + sys.argv[2] + ".root", "RECREATE")
+    #QVectorHistogramRootFile = ROOT.TFile.Open("/star/u/mcgordon/VnFromEPD/QVectorFirstPassTest.root", "RECREATE")
+    QVectorHistogramRootFile = ROOT.TFile.Open("/star/data01/pwg/mcgordon/VnFromEPD/V" + str(nV) + "Histograms/QVectorFirstPass" + sys.argv[3] + sys.argv[2] + ".root", "RECREATE")
     QVectorHistogramRootFile.cd()
 
     for index in range(0,len(QVectorHistograms)):
@@ -1077,8 +1343,9 @@ if(RunIteration == 1):
 
     
     
-    #HistogramRootFile = ROOT.TFile.Open("/star/u/mcgordon/VnFromEPD/HistogramTest.root", "RECREATE")
-    HistogramRootFile = ROOT.TFile.Open("/star/data01/pwg/mcgordon/VnFromEPD/V" + str(nV) + "Histograms/HistogramFirstPass" + sys.argv[2] + ".root", "RECREATE")
+    
+    #HistogramRootFile = ROOT.TFile.Open("/star/u/mcgordon/VnFromEPD/HistogramFirstPassTest.root", "RECREATE")
+    HistogramRootFile = ROOT.TFile.Open("/star/data01/pwg/mcgordon/VnFromEPD/V" + str(nV) + "Histograms/HistogramFirstPass" + sys.argv[3] + sys.argv[2] + ".root", "RECREATE")
     HistogramRootFile.cd()
 
     for index in range(0,len(Histograms)):
@@ -1091,7 +1358,7 @@ if(RunIteration == 1):
 ################################################################################################################
 if(RunIteration == 2):
     Data = ROOT.TFile.Open(sys.argv[1])
-    #Data = ROOT.TFile.Open("/star/data01/pwg/cracz/Data_3p0GeV_FXT/FXT_3p0GeV_SL20d_2018_127.root")
+    #Data = ROOT.TFile.Open("/star/data01/pwg/cracz/Data_3p0GeV_FXT/FXT_3p0GeV_SL20d_2018_11.root")
 
     AutreeData = Data.Get("Autree")
 
@@ -1101,10 +1368,10 @@ if(RunIteration == 2):
         
         
         
-    #QVectorHistogramFile = ROOT.TFile.Open("/star/data01/pwg/mcgordon/VnFromEPD/QVectorHistogramTest.root")
-    QVectorHistogramFile = ROOT.TFile.Open("/star/data01/pwg/mcgordon/VnFromEPD/V" + str(nV) + "Histograms/QVectorFirstPass.root")
-    #HistogramFile = ROOT.TFile.Open("/star/data01/pwg/mcgordon/VnFromEPD/HistogramTest.root")
-    HistogramFile = ROOT.TFile.Open("/star/data01/pwg/mcgordon/VnFromEPD/V" + str(nV) + "Histograms/HistogramFirstPass.root")
+    #QVectorHistogramFile = ROOT.TFile.Open("/star/u/mcgordon/VnFromEPD/QVectorFirstPassTest.root")
+    QVectorHistogramFile = ROOT.TFile.Open("/star/data01/pwg/mcgordon/VnFromEPD/V" + str(nV) + "Histograms/QVectorFirstPass" + sys.argv[3] + ".root")
+    #HistogramFile = ROOT.TFile.Open("/star/u/mcgordon/VnFromEPD/HistogramFirstPassTest.root")
+    HistogramFile = ROOT.TFile.Open("/star/data01/pwg/mcgordon/VnFromEPD/V" + str(nV) + "Histograms/HistogramFirstPass" + sys.argv[3] + ".root")
     
     
     HistoInnerEPDQxRecentered = ROOT.TH1D("InnerEPDQxRecentered", "Qx Recentered for Inner EPD; Qx; Events", 250, -QBounds, QBounds)
@@ -1179,6 +1446,22 @@ if(RunIteration == 2):
         vz = AutreeData.Vz
         EPDnMIP = AutreeData.EPDnMip
         EPDID = AutreeData.EPDid
+        DCA = AutreeData.DCA
+        NHits = AutreeData.nHits
+        NHitsdEdx = AutreeData.nHitsDedx
+        NHitsFit = AutreeData.nHitsFit
+        NHitsPoss = AutreeData.nHitsPoss
+        
+        
+        
+        vr = sqrt(pow(vx, 2) + pow(vy + 2, 2))
+        
+        if (vr >= RVertexBound):
+            continue
+        if (vz <= ZVertexLowerBound) or (vz >= ZVertexUpperBound):
+            continue
+            
+            
 
         ProtonID = 2212
         KaonPlusID = 321
@@ -1209,6 +1492,15 @@ if(RunIteration == 2):
         GoodTracksCounterTPC = 0
 
         for index in range(len(px)):
+            if (DCA[index] > DCABound):
+                continue
+            if (NHits[index] < NHitsBound):
+                continue
+            if (NHitsdEdx[index] < NHitsdEdxBound):
+                continue
+            if (NHitsFit[index] / NHitsPoss[index] < NHitsFitOverNHitsPossBound):
+                continue
+                
             p = P(px[index], py[index], pz[index])
 
             eta = Eta(px[index], py[index], pz[index])
@@ -1220,7 +1512,7 @@ if(RunIteration == 2):
             if(EPDID[index] > 0):
                 continue
 
-            TileVector = ROOT.EPDKinematics(EPDID[index], vx, vy, vz)
+            TileVector = ROOT.EPDKinematics(EPDID[index], vx, vy, vz, InnerEPDHighRing, OuterEPDLowRing)
 
             if (TileVector.IsInnerEPD() and not(TileVector.IsOuterEPD())):
                 GoodTracksCounterInnerEPD += 1
@@ -1232,6 +1524,15 @@ if(RunIteration == 2):
             continue
             
         for index in range(len(px)):
+            if (DCA[index] > DCABound):
+                continue
+            if (NHits[index] < NHitsBound):
+                continue
+            if (NHitsdEdx[index] < NHitsdEdxBound):
+                continue
+            if (NHitsFit[index] / NHitsPoss[index] < NHitsFitOverNHitsPossBound):
+                continue
+                
             pt = Pt(px[index], py[index])
 
             p = P(px[index], py[index], pz[index])
@@ -1248,7 +1549,7 @@ if(RunIteration == 2):
             if(EPDID[index] > 0):
                 continue
 
-            TileVector = ROOT.EPDKinematics(EPDID[index], vx, vy, vz)
+            TileVector = ROOT.EPDKinematics(EPDID[index], vx, vy, vz, InnerEPDHighRing, OuterEPDLowRing)
 
             phi = TileVector.EPDPhi()
 
@@ -1311,6 +1612,19 @@ if(RunIteration == 2):
             HistoTPCCosineAverages.Fill(j, cos(j*nPsi*PsiTPCRecentered))
 
         for index in range(len(px)):
+            if (DCA[index] > DCABound):
+                continue
+            if (NHits[index] < NHitsBound):
+                continue
+            if (NHitsdEdx[index] < NHitsdEdxBound):
+                continue
+            if (NHitsFit[index] / NHitsPoss[index] < NHitsFitOverNHitsPossBound):
+                continue
+                
+                
+                
+            TrackIsIDed = False
+                
             pt = Pt(px[index], py[index])
 
             p = P(px[index], py[index], pz[index])
@@ -1324,7 +1638,7 @@ if(RunIteration == 2):
             IsDeuteron = DAndT.IsDeuteron()
             IsTriton = DAndT.IsTriton()
             
-            if((IsDeuteron) and (pt > DeuteronLowerPt) and (pt < DeuteronUpperPt)):
+            if((not TrackIsIDed) and (IsDeuteron)):
                 mass = DeuteronMass
 
                 energy = Energy(px[index], py[index], pz[index], mass)
@@ -1332,11 +1646,15 @@ if(RunIteration == 2):
                 y = Y(px[index], py[index], pz[index], mass)
 
                 VnInnerEPDRecentered = V_n(nV, px[index], py[index], PsiInnerEPDRecentered)
+                
+                IsGoodDeuteron = (pt > DeuteronLowerPt) and (pt < DeuteronUpperPt) and ((y - yCMShift) > LowerYMinusYCM) and ((y - yCMShift) < UpperYMinusYCM)
+                
+                TrackIsIDed = True
 
-                if(((y - yCMShift) > LowerYMinusYCM) and ((y - yCMShift) < UpperYMinusYCM)):
+                if(IsGoodDeuteron):
                     HistoD43A.Fill(y - yCMShift, VnInnerEPDRecentered)
 
-            elif((IsTriton) and (pt > TritonLowerPt) and (pt < TritonUpperPt)):
+            elif((not TrackIsIDed) and (IsTriton)):
                 mass = TritonMass
 
                 energy = Energy(px[index], py[index], pz[index], mass)
@@ -1344,45 +1662,42 @@ if(RunIteration == 2):
                 y = Y(px[index], py[index], pz[index], mass)
 
                 VnInnerEPDRecentered = V_n(nV, px[index], py[index], PsiInnerEPDRecentered)
+                
+                IsGoodTriton = (pt > TritonLowerPt) and (pt < TritonUpperPt) and ((y - yCMShift) > LowerYMinusYCM) and ((y - yCMShift) < UpperYMinusYCM)
+                
+                TrackIsIDed = True
 
-                if(((y - yCMShift) > LowerYMinusYCM) and ((y - yCMShift) < UpperYMinusYCM)):
+                if(IsGoodTriton):
                     HistoD43B.Fill(y - yCMShift, VnInnerEPDRecentered)
                 
-
-                
-            if(tofBeta[index] < 0):
-                
-                if((abs(NSigmaPr[index]) < NSigmaPrBound) and (pt > ProtonLowerPt) and (pt < ProtonUpperPt)): 
-                    mass = ProtonMass
-
-                    energy = Energy(px[index], py[index], pz[index], mass)
-
-                    y = Y(px[index], py[index], pz[index], mass)
-
-                    VnInnerEPDRecentered = V_n(nV, px[index], py[index], PsiInnerEPDRecentered)
-                    
-                    if(((y - yCMShift) > LowerYMinusYCM) and ((y - yCMShift) < UpperYMinusYCM)):
-                        HistoD43.Fill(y - yCMShift, VnInnerEPDRecentered)
 
             
 
             if(tofBeta[index] > 0):
 
                 msquared = MSquared(px[index], py[index], pz[index], tofBeta[index])
+                
+#                 IsProtonToF = (abs(NSigmaPr[index]) < NSigmaPrBound) and (msquared > ProtonLowerMSquared) and (msquared < ProtonUpperMSquared) and (p > 2.0)
+                IsKaon = (abs(NSigmaKa[index]) < NSigmaKaBound) and (msquared > KaonLowerMSquared) and (msquared < KaonUpperMSquared)
+                IsPion = (abs(NSigmaPi[index]) < NSigmaPiBound) and (msquared > PionLowerMSquared) and (msquared < PionUpperMSquared)
 
-                if((abs(NSigmaPr[index]) < NSigmaPrBound) and (pt > ProtonLowerPt) and (pt < ProtonUpperPt)): 
-                    mass = ProtonMass
+#                 if((not TrackIsIDed) and IsProtonToF): 
+#                     mass = ProtonMass
 
-                    energy = Energy(px[index], py[index], pz[index], mass)
+#                     energy = Energy(px[index], py[index], pz[index], mass)
 
-                    y = Y(px[index], py[index], pz[index], mass)
+#                     y = Y(px[index], py[index], pz[index], mass)
 
-                    VnInnerEPDRecentered = V_n(nV, px[index], py[index], PsiInnerEPDRecentered)
+#                     VnInnerEPDRecentered = V_n(nV, px[index], py[index], PsiInnerEPDRecentered)
                     
-                    if(((y - yCMShift) > LowerYMinusYCM) and ((y - yCMShift) < UpperYMinusYCM)):
-                        HistoD43.Fill(y - yCMShift, VnInnerEPDRecentered)
+#                     IsGoodProton = (pt > ProtonLowerPt) and (pt < ProtonUpperPt) and ((y - yCMShift) > LowerYMinusYCM) and ((y - yCMShift) < UpperYMinusYCM)
+                    
+#                     TrackIsIDed = True
+                    
+#                     if(IsGoodProton):
+#                         HistoD43.Fill(y - yCMShift, VnInnerEPDRecentered)
 
-                if((abs(NSigmaKa[index]) < NSigmaKaBound) and (msquared > KaonLowerMSquared) and (msquared < KaonUpperMSquared) and (pt > KaonLowerPt) and (pt < KaonUpperPt)): 
+                if((not TrackIsIDed) and IsKaon): 
                     mass = KaonMass
 
                     energy = Energy(px[index], py[index], pz[index], mass)
@@ -1391,14 +1706,18 @@ if(RunIteration == 2):
 
                     VnInnerEPDRecentered = V_n(nV, px[index], py[index], PsiInnerEPDRecentered)
                     
-                    if(((y - yCMShift) > LowerYMinusYCM) and ((y - yCMShift) < UpperYMinusYCM)):
+                    IsGoodKaon = (pt > KaonLowerPt) and (pt < KaonUpperPt) and ((y - yCMShift) > LowerYMinusYCM) and ((y - yCMShift) < UpperYMinusYCM)
+                    
+                    TrackIsIDed = True
+                    
+                    if(IsGoodKaon):
                         if(q[index] > 0):
                             HistoD46.Fill(y - yCMShift, VnInnerEPDRecentered)
 
                         if(q[index] < 0):
                             HistoD46A.Fill(y - yCMShift, VnInnerEPDRecentered)
 
-                if((abs(NSigmaPi[index]) < NSigmaPiBound) and (msquared > PionLowerMSquared) and (msquared < PionUpperMSquared) and (pt > PionLowerPt) and (pt < PionUpperPt)): 
+                elif((not TrackIsIDed) and IsPion): 
                     mass = PionMass
 
                     energy = Energy(px[index], py[index], pz[index], mass)
@@ -1406,13 +1725,37 @@ if(RunIteration == 2):
                     y = Y(px[index], py[index], pz[index], mass)
 
                     VnInnerEPDRecentered = V_n(nV, px[index], py[index], PsiInnerEPDRecentered)
+                    
+                    IsGoodPion = (pt > PionLowerPt) and (pt < PionUpperPt) and ((y - yCMShift) > LowerYMinusYCM) and ((y - yCMShift) < UpperYMinusYCM)
+                    
+                    TrackIsIDed = True
 
-                    if(((y - yCMShift) > LowerYMinusYCM) and ((y - yCMShift) < UpperYMinusYCM)):                    
+                    if(IsGoodPion):                    
                         if(q[index] > 0):
                             HistoD49.Fill(y - yCMShift, VnInnerEPDRecentered)
 
                         if(q[index] < 0):
                             HistoD49A.Fill(y - yCMShift, VnInnerEPDRecentered)
+                            
+                            
+                            
+            IsProtonTPC = (abs(NSigmaPr[index]) < NSigmaPrBound)
+                            
+            if((not TrackIsIDed) and IsProtonTPC): 
+                mass = ProtonMass
+
+                energy = Energy(px[index], py[index], pz[index], mass)
+
+                y = Y(px[index], py[index], pz[index], mass)
+
+                VnInnerEPDRecentered = V_n(nV, px[index], py[index], PsiInnerEPDRecentered)
+                
+                IsGoodProton = (pt > ProtonLowerPt) and (pt < ProtonUpperPt) and ((y - yCMShift) > LowerYMinusYCM) and ((y - yCMShift) < UpperYMinusYCM)
+                
+                TrackIsIDed = True
+
+                if(IsGoodProton):
+                    HistoD43.Fill(y - yCMShift, VnInnerEPDRecentered)
 
     HistoInnerEPDQxRecentered.SetDirectory(0)
     HistoInnerEPDQyRecentered.SetDirectory(0)
@@ -1466,8 +1809,8 @@ if(RunIteration == 2):
     HistogramFile.Close()
     
 
-    #QVectorHistogramRootFile = ROOT.TFile.Open("/star/u/mcgordon/mcgordon/VnFromEPD/QVectorHistogramTest.root", "RECREATE")
-    QVectorHistogramRootFile = ROOT.TFile.Open("/star/data01/pwg/mcgordon/VnFromEPD/V" + str(nV) + "Histograms/QVectorSecondPass" + sys.argv[2] + ".root", "RECREATE")
+    #QVectorHistogramRootFile = ROOT.TFile.Open("/star/u/mcgordon/VnFromEPD/QVectorSecondPassTest.root", "RECREATE")
+    QVectorHistogramRootFile = ROOT.TFile.Open("/star/data01/pwg/mcgordon/VnFromEPD/V" + str(nV) + "Histograms/QVectorSecondPass" + sys.argv[3] + sys.argv[2] + ".root", "RECREATE")
     QVectorHistogramRootFile.cd()
 
     for index in range(0,len(QVectorHistograms)):
@@ -1477,8 +1820,8 @@ if(RunIteration == 2):
 
     
     
-    #HistogramRootFile = ROOT.TFile.Open("/star/u/mcgordon/mcgordon/VnFromEPD/HistogramTest.root", "RECREATE")
-    HistogramRootFile = ROOT.TFile.Open("/star/data01/pwg/mcgordon/VnFromEPD/V" + str(nV) + "Histograms/HistogramSecondPass" + sys.argv[2] + ".root", "RECREATE")
+    #HistogramRootFile = ROOT.TFile.Open("/star/u/mcgordon/VnFromEPD/HistogramSecondPassTest.root", "RECREATE")
+    HistogramRootFile = ROOT.TFile.Open("/star/data01/pwg/mcgordon/VnFromEPD/V" + str(nV) + "Histograms/HistogramSecondPass" + sys.argv[3] + sys.argv[2] + ".root", "RECREATE")
     HistogramRootFile.cd()
 
     for index in range(0,len(Histograms)):
@@ -1490,7 +1833,7 @@ if(RunIteration == 2):
 #############################################################################################################
 if(RunIteration == 3):
     Data = ROOT.TFile.Open(sys.argv[1])
-    #Data = ROOT.TFile.Open("/star/data01/pwg/cracz/Data_3p0GeV_FXT/FXT_3p0GeV_SL20d_2018_127.root")
+    #Data = ROOT.TFile.Open("/star/data01/pwg/cracz/Data_3p0GeV_FXT/FXT_3p0GeV_SL20d_2018_11.root")
     # MonteCarlo = ROOT.TFile.Open("/eos/user/m/migordon/SWAN_projects/HeavyIonStuff/CombinedMonteCarloFiles.root")
 
     AutreeData = Data.Get("Autree")
@@ -1498,11 +1841,12 @@ if(RunIteration == 3):
     Histograms = []
         
 
-    #QVectorHistogramFile = ROOT.TFile.Open("/star/data01/pwg/mcgordon/VnFromEPD/QVectorHistogramTest.root")
-    QVectorHistogramFileFirst = ROOT.TFile.Open("/star/data01/pwg/mcgordon/VnFromEPD/V" + str(nV) + "Histograms/QVectorFirstPass.root")
-    QVectorHistogramFileSecond = ROOT.TFile.Open("/star/data01/pwg/mcgordon/VnFromEPD/V" + str(nV) + "Histograms/QVectorSecondPass.root")
-    #HistogramFile = ROOT.TFile.Open("/star/data01/pwg/mcgordon/VnFromEPD/HistogramTest.root")
-    HistogramFile = ROOT.TFile.Open("/star/data01/pwg/mcgordon/VnFromEPD/V" + str(nV) + "Histograms/HistogramSecondPass.root")
+    #QVectorHistogramFileFirst = ROOT.TFile.Open("/star/u/mcgordon/VnFromEPD/QVectorFirstPassTest.root")
+    #QVectorHistogramFileSecond = ROOT.TFile.Open("/star/u/mcgordon/VnFromEPD/QVectorSecondPassTest.root")
+    QVectorHistogramFileFirst = ROOT.TFile.Open("/star/data01/pwg/mcgordon/VnFromEPD/V" + str(nV) + "Histograms/QVectorFirstPass" + sys.argv[3] + ".root")
+    QVectorHistogramFileSecond = ROOT.TFile.Open("/star/data01/pwg/mcgordon/VnFromEPD/V" + str(nV) + "Histograms/QVectorSecondPass" + sys.argv[3] + ".root")
+    #HistogramFile = ROOT.TFile.Open("/star/u/mcgordon/VnFromEPD/HistogramSecondPassTest.root")
+    HistogramFile = ROOT.TFile.Open("/star/data01/pwg/mcgordon/VnFromEPD/V" + str(nV) + "Histograms/HistogramSecondPass" + sys.argv[3] + ".root")
         
         
     HistoD35 = ROOT.TH1F("DataPsi1RecenteredAndShiftedInnerEPD", "Reaction Plane Angle, Psi_1 Inner EPD (Data); Psi; Events", 500, -3.5, 3.5)
@@ -1567,6 +1911,22 @@ if(RunIteration == 3):
         Centrality = AutreeData.centrality
         EPDnMIP = AutreeData.EPDnMip
         EPDID = AutreeData.EPDid
+        DCA = AutreeData.DCA
+        NHits = AutreeData.nHits
+        NHitsdEdx = AutreeData.nHitsDedx
+        NHitsFit = AutreeData.nHitsFit
+        NHitsPoss = AutreeData.nHitsPoss
+        
+        
+        
+        vr = sqrt(pow(vx, 2) + pow(vy + 2, 2))
+        
+        if (vr >= RVertexBound):
+            continue
+        if (vz <= ZVertexLowerBound) or (vz >= ZVertexUpperBound):
+            continue
+            
+            
 
         ProtonID = 2212
         KaonPlusID = 321
@@ -1603,6 +1963,15 @@ if(RunIteration == 3):
         GoodTracksCounterTPC = 0
 
         for index in range(len(px)):
+            if (DCA[index] > DCABound):
+                continue
+            if (NHits[index] < NHitsBound):
+                continue
+            if (NHitsdEdx[index] < NHitsdEdxBound):
+                continue
+            if (NHitsFit[index] / NHitsPoss[index] < NHitsFitOverNHitsPossBound):
+                continue
+            
             p = P(px[index], py[index], pz[index])
 
             eta = Eta(px[index], py[index], pz[index])
@@ -1614,7 +1983,7 @@ if(RunIteration == 3):
             if(EPDID[index] > 0):
                 continue
 
-            TileVector = ROOT.EPDKinematics(EPDID[index], vx, vy, vz)
+            TileVector = ROOT.EPDKinematics(EPDID[index], vx, vy, vz, InnerEPDHighRing, OuterEPDLowRing)
 
             if (TileVector.IsInnerEPD() and not(TileVector.IsOuterEPD())):
                 GoodTracksCounterInnerEPD += 1
@@ -1626,6 +1995,15 @@ if(RunIteration == 3):
             continue
 
         for index in range(len(px)):
+            if (DCA[index] > DCABound):
+                continue
+            if (NHits[index] < NHitsBound):
+                continue
+            if (NHitsdEdx[index] < NHitsdEdxBound):
+                continue
+            if (NHitsFit[index] / NHitsPoss[index] < NHitsFitOverNHitsPossBound):
+                continue
+                
             pt = Pt(px[index], py[index])
 
             p = P(px[index], py[index], pz[index])
@@ -1642,7 +2020,7 @@ if(RunIteration == 3):
             if(EPDID[index] > 0):
                 continue
 
-            TileVector = ROOT.EPDKinematics(EPDID[index], vx, vy, vz)
+            TileVector = ROOT.EPDKinematics(EPDID[index], vx, vy, vz, InnerEPDHighRing, OuterEPDLowRing)
 
             phi = TileVector.EPDPhi()
 
@@ -1704,6 +2082,19 @@ if(RunIteration == 3):
         HistoD41.Fill(PsiTPCFourierCorrected)
 
         for index in range(len(px)):
+            if (DCA[index] > DCABound):
+                continue            
+            if (NHits[index] < NHitsBound):
+                continue
+            if (NHitsdEdx[index] < NHitsdEdxBound):
+                continue
+            if (NHitsFit[index] / NHitsPoss[index] < NHitsFitOverNHitsPossBound):
+                continue
+                
+                
+            
+            TrackIsIDed = False
+            
             pt = Pt(px[index], py[index])
 
             p = P(px[index], py[index], pz[index])
@@ -1717,7 +2108,7 @@ if(RunIteration == 3):
             IsDeuteron = DAndT.IsDeuteron()
             IsTriton = DAndT.IsTriton()
             
-            if((IsDeuteron) and (pt > DeuteronLowerPt) and (pt < DeuteronUpperPt)):
+            if((not TrackIsIDed) and (IsDeuteron)):
                 mass = DeuteronMass
 
                 energy = Energy(px[index], py[index], pz[index], mass)
@@ -1725,11 +2116,15 @@ if(RunIteration == 3):
                 y = Y(px[index], py[index], pz[index], mass)
 
                 VnInnerEPDFourierCorrected = V_n(nV, px[index], py[index], PsiInnerEPDFourierCorrected)
+                
+                IsGoodDeuteron = (pt > DeuteronLowerPt) and (pt < DeuteronUpperPt) and ((y - yCMShift) > LowerYMinusYCM) and ((y - yCMShift) < UpperYMinusYCM)
+                
+                TrackIsIDed = True
 
-                if(((y - yCMShift) > LowerYMinusYCM) and ((y - yCMShift) < UpperYMinusYCM)):
+                if(IsGoodDeuteron):
                     HistoD44A.Fill(y - yCMShift, VnInnerEPDFourierCorrected)
 
-            elif((IsTriton) and (pt > TritonLowerPt) and (pt < TritonUpperPt)):
+            elif((not TrackIsIDed) and (IsTriton)):
                 mass = TritonMass
 
                 energy = Energy(px[index], py[index], pz[index], mass)
@@ -1737,45 +2132,43 @@ if(RunIteration == 3):
                 y = Y(px[index], py[index], pz[index], mass)
 
                 VnInnerEPDFourierCorrected = V_n(nV, px[index], py[index], PsiInnerEPDFourierCorrected)
+                
+                IsGoodTriton = (pt > TritonLowerPt) and (pt < TritonUpperPt) and ((y - yCMShift) > LowerYMinusYCM) and ((y - yCMShift) < UpperYMinusYCM)
+                
+                TrackIsIDed = True
 
-                if(((y - yCMShift) > LowerYMinusYCM) and ((y - yCMShift) < UpperYMinusYCM)):
+                if(IsGoodTriton):
                     HistoD44B.Fill(y - yCMShift, VnInnerEPDFourierCorrected)
                     
-                    
-                    
-            
-            if(tofBeta[index] < 0):
-                if((abs(NSigmaPr[index]) < NSigmaPrBound) and (pt > ProtonLowerPt) and (pt < ProtonUpperPt)): 
-                    mass = ProtonMass
 
-                    energy = Energy(px[index], py[index], pz[index], mass)
-
-                    y = Y(px[index], py[index], pz[index], mass)
-
-                    VnInnerEPDFourierCorrected = V_n(nV, px[index], py[index], PsiInnerEPDFourierCorrected)
-
-                    if(((y - yCMShift) > LowerYMinusYCM) and ((y - yCMShift) < UpperYMinusYCM)):
-                        HistoD44.Fill(y - yCMShift, VnInnerEPDFourierCorrected)
                         
                         
 
             if(tofBeta[index] > 0):
 
                 msquared = MSquared(px[index], py[index], pz[index], tofBeta[index])
+                
+#                 IsProtonToF = (abs(NSigmaPr[index]) < NSigmaPrBound) and (msquared > ProtonLowerMSquared) and (msquared < ProtonUpperMSquared) and (p > 2.0)
+                IsKaon = (abs(NSigmaKa[index]) < NSigmaKaBound) and (msquared > KaonLowerMSquared) and (msquared < KaonUpperMSquared)
+                IsPion = (abs(NSigmaPi[index]) < NSigmaPiBound) and (msquared > PionLowerMSquared) and (msquared < PionUpperMSquared)
 
-                if((abs(NSigmaPr[index]) < 3) and (pt > ProtonLowerPt) and (pt < ProtonUpperPt)): 
-                    mass = ProtonMass
+#                 if((not TrackIsIDed) and IsProtonToF): 
+#                     mass = ProtonMass
 
-                    energy = Energy(px[index], py[index], pz[index], mass)
+#                     energy = Energy(px[index], py[index], pz[index], mass)
 
-                    y = Y(px[index], py[index], pz[index], mass)
+#                     y = Y(px[index], py[index], pz[index], mass)
 
-                    VnInnerEPDFourierCorrected = V_n(nV, px[index], py[index], PsiInnerEPDFourierCorrected)
+#                     VnInnerEPDFourierCorrected = V_n(nV, px[index], py[index], PsiInnerEPDFourierCorrected)
+                    
+#                     IsGoodProton = (pt > ProtonLowerPt) and (pt < ProtonUpperPt) and ((y - yCMShift) > LowerYMinusYCM) and ((y - yCMShift) < UpperYMinusYCM)
+                    
+#                     TrackIsIDed = True
 
-                    if(((y - yCMShift) > LowerYMinusYCM) and ((y - yCMShift) < UpperYMinusYCM)):
-                        HistoD44.Fill(y - yCMShift, VnInnerEPDFourierCorrected)
+#                     if(IsGoodProton):
+#                         HistoD44.Fill(y - yCMShift, VnInnerEPDFourierCorrected)
 
-                if((abs(NSigmaKa[index]) < 3) and (msquared > KaonLowerMSquared) and (msquared < KaonUpperMSquared) and (pt > KaonLowerPt) and (pt < KaonUpperPt)): 
+                if((not TrackIsIDed) and IsKaon): 
                     mass = KaonMass
 
                     energy = Energy(px[index], py[index], pz[index], mass)
@@ -1783,15 +2176,19 @@ if(RunIteration == 3):
                     y = Y(px[index], py[index], pz[index], mass)
 
                     VnInnerEPDFourierCorrected = V_n(nV, px[index], py[index], PsiInnerEPDFourierCorrected)
+                    
+                    IsGoodKaon = (pt > KaonLowerPt) and (pt < KaonUpperPt) and ((y - yCMShift) > LowerYMinusYCM) and ((y - yCMShift) < UpperYMinusYCM)
+                    
+                    TrackIsIDed = True
 
-                    if(((y - yCMShift) > LowerYMinusYCM) and ((y - yCMShift) < UpperYMinusYCM)):
+                    if(IsGoodKaon):
                         if(q[index] > 0):
                             HistoD47.Fill(y - yCMShift, VnInnerEPDFourierCorrected)
 
                         elif(q[index] < 0):
                             HistoD47A.Fill(y - yCMShift, VnInnerEPDFourierCorrected)
 
-                if((abs(NSigmaPi[index]) < 3) and (msquared > PionLowerMSquared) and (msquared < PionUpperMSquared) and (pt > PionLowerPt) and (pt < PionUpperPt)): 
+                elif((not TrackIsIDed) and IsPion): 
                     mass = PionMass
 
                     energy = Energy(px[index], py[index], pz[index], mass)
@@ -1799,13 +2196,36 @@ if(RunIteration == 3):
                     y = Y(px[index], py[index], pz[index], mass)
 
                     VnInnerEPDFourierCorrected = V_n(nV, px[index], py[index], PsiInnerEPDFourierCorrected)
+                    
+                    IsGoodPion = (pt > PionLowerPt) and (pt < PionUpperPt) and ((y - yCMShift) > LowerYMinusYCM) and ((y - yCMShift) < UpperYMinusYCM)
+                    
+                    TrackIsIDed = True
 
-                    if(((y - yCMShift) > LowerYMinusYCM) and ((y - yCMShift) < UpperYMinusYCM)):
+                    if(IsGoodPion):
                         if(q[index] > 0):
                             HistoD50.Fill(y - yCMShift, VnInnerEPDFourierCorrected)
 
                         elif(q[index] < 0):
                             HistoD50A.Fill(y - yCMShift, VnInnerEPDFourierCorrected)
+                            
+                            
+            IsProtonTPC = (abs(NSigmaPr[index]) < NSigmaPrBound)
+                            
+            if((not TrackIsIDed) and IsProtonTPC): 
+                mass = ProtonMass
+
+                energy = Energy(px[index], py[index], pz[index], mass)
+
+                y = Y(px[index], py[index], pz[index], mass)
+
+                VnInnerEPDFourierCorrected = V_n(nV, px[index], py[index], PsiInnerEPDFourierCorrected)
+                
+                IsGoodProton = (pt > ProtonLowerPt) and (pt < ProtonUpperPt) and ((y - yCMShift) > LowerYMinusYCM) and ((y - yCMShift) < UpperYMinusYCM)
+
+                TrackIsIDed = True
+
+                if(IsGoodProton):
+                    HistoD44.Fill(y - yCMShift, VnInnerEPDFourierCorrected)
 
                         
         R11TopLeftTerm = cos(nV*(PsiInnerEPDFourierCorrected - PsiOuterEPDFourierCorrected))
@@ -1864,8 +2284,8 @@ if(RunIteration == 3):
 
 
 
-    #HistogramRootFile = ROOT.TFile.Open("/star/u/mcgordon/VnFromEPD/HistogramTest.root", "UPDATE")
-    HistogramRootFile = ROOT.TFile.Open("/star/data01/pwg/mcgordon/VnFromEPD/V" + str(nV) + "Histograms/HistogramThirdPass" + sys.argv[2] + ".root", "RECREATE")
+    #HistogramRootFile = ROOT.TFile.Open("/star/u/mcgordon/VnFromEPD/HistogramThirdPassTest.root", "UPDATE")
+    HistogramRootFile = ROOT.TFile.Open("/star/data01/pwg/mcgordon/VnFromEPD/V" + str(nV) + "Histograms/HistogramThirdPass" + sys.argv[3] + sys.argv[2] + ".root", "RECREATE")
     HistogramRootFile.cd()
 
     for index in range(0,len(Histograms)):
@@ -1885,21 +2305,105 @@ if(RunIteration == 4):
     Histograms = []
         
 
-    #QVectorHistogramFile = ROOT.TFile.Open("/star/data01/pwg/mcgordon/VnFromEPD/QVectorHistogramTest.root")
-    QVectorHistogramFile = ROOT.TFile.Open("/star/data01/pwg/mcgordon/VnFromEPD/V" + str(nV) + "Histograms/QVectorFirstPass.root")
-    QVectorHistogramFileSecond = ROOT.TFile.Open("/star/data01/pwg/mcgordon/VnFromEPD/V" + str(nV) + "Histograms/QVectorSecondPass.root")
-    #HistogramFile = ROOT.TFile.Open("/star/data01/pwg/mcgordon/VnFromEPD/HistogramTest.root")
-    HistogramFile = ROOT.TFile.Open("/star/data01/pwg/mcgordon/VnFromEPD/V" + str(nV) + "Histograms/HistogramThirdPass.root")
+    #QVectorHistogramFileFirst = ROOT.TFile.Open("/star/u/mcgordon/VnFromEPD/QVectorFirstPassTest.root")
+    #QVectorHistogramFileSecond = ROOT.TFile.Open("/star/u/mcgordon/VnFromEPD/QVectorSecondPassTest.root")
+    QVectorHistogramFileFirst = ROOT.TFile.Open("/star/data01/pwg/mcgordon/VnFromEPD/V" + str(nV) + "Histograms/QVectorFirstPass" + sys.argv[3] + ".root")
+    QVectorHistogramFileSecond = ROOT.TFile.Open("/star/data01/pwg/mcgordon/VnFromEPD/V" + str(nV) + "Histograms/QVectorSecondPass" + sys.argv[3] + ".root")
+    #HistogramFile = ROOT.TFile.Open("/star/u/mcgordon/VnFromEPD/HistogramThirdPassTest.root")
+    HistogramFile = ROOT.TFile.Open("/star/data01/pwg/mcgordon/VnFromEPD/V" + str(nV) + "Histograms/HistogramThirdPass" + sys.argv[3] + ".root")
     
     
     TPCEfficiencyFile = ROOT.TFile.Open("/star/u/mcgordon/VnFromEPD/TPCEfficiency.root","READ")
     ToFEfficiencyFile = ROOT.TFile.Open("/star/u/mcgordon/VnFromEPD/ToFEfficiency.root","READ")  
-            
+
+
+    
+    
+    
+    OverallTrackCheckLabels = ["No Track Cuts", "After QA Cuts", "IDed as a Particle"]
+    ProtonTrackLabels = ["IDed as Any Particle", "IDed as a Proton", "IDed as a Good Proton"]
+    KaonPlusTrackLabels = ["IDed as Any Particle", "IDed as a K-", "IDed as a Good K+"]    
+    KaonMinusTrackLabels = ["IDed as Any Particle", "IDed as a K+", "IDed as a Good K-"]    
+    PionPlusTrackLabels = ["IDed as Any Particle", "IDed as a Pi+", "IDed as a Good Pi+"]    
+    PionMinusTrackLabels = ["IDed as Any Particle", "IDed as a Pi-", "IDed as a Good Pi-"]    
+    DeuteronTrackLabels = ["IDed as Any Particle", "IDed as a d", "IDed as a Good d"]     
+    TritonTrackLabels = ["IDed as Any Particle", "IDed as a t", "IDed as a Good t"]     
+    
+    
+
+    EventCheck = Data.Get("h_eventCheck")
+    EventCheck.GetXaxis().SetBinLabel(6,"Min Hits Cut")
+    
+    OverallTrackCheck = ROOT.TH1F("OverallTrackCheck","Overall Tracks After Each Cut; Cut; Tracks", 3, 0.5, 3.5)
+    OverallTrackCheck.Sumw2()
+
+    for i in range(1, OverallTrackCheck.GetNbinsX() + 1):
+        OverallTrackCheck.GetXaxis().SetBinLabel(i, OverallTrackCheckLabels[i - 1])
+    
+    ProtonTrackCheck = ROOT.TH1F("ProtonTrackCheck","Proton Tracks After Each Cut; Cut; Tracks", 3, 0.5, 3.5)
+    ProtonTrackCheck.Sumw2()
+    
+    for i in range(1, ProtonTrackCheck.GetNbinsX() + 1):
+        ProtonTrackCheck.GetXaxis().SetBinLabel(i, ProtonTrackLabels[i - 1])
+
+    KaonPlusTrackCheck = ROOT.TH1F("KaonPlusTrackCheck","Kaon Plus Tracks After Each Cut; Cut; Tracks", 3, 0.5, 3.5)
+    KaonPlusTrackCheck.Sumw2()
+    
+    for i in range(1, KaonPlusTrackCheck.GetNbinsX() + 1):
+        KaonPlusTrackCheck.GetXaxis().SetBinLabel(i, KaonPlusTrackLabels[i - 1])
+    
+    KaonMinusTrackCheck = ROOT.TH1F("KaonMinusTrackCheck","Kaon Minus Tracks After Each Cut; Cut; Tracks", 3, 0.5, 3.5)
+    KaonMinusTrackCheck.Sumw2()
+    
+    for i in range(1, KaonMinusTrackCheck.GetNbinsX() + 1):
+        KaonMinusTrackCheck.GetXaxis().SetBinLabel(i, KaonMinusTrackLabels[i - 1])
+    
+    PionPlusTrackCheck = ROOT.TH1F("PionPlusTrackCheck","Pion Plus Tracks After Each Cut; Cut; Tracks", 3, 0.5, 3.5)
+    PionPlusTrackCheck.Sumw2()
+    
+    for i in range(1, PionPlusTrackCheck.GetNbinsX() + 1):
+        PionPlusTrackCheck.GetXaxis().SetBinLabel(i, PionPlusTrackLabels[i - 1])
+    
+    PionMinusTrackCheck = ROOT.TH1F("PionMinusTrackCheck","Pion Minus Tracks After Each Cut; Cut; Tracks", 3, 0.5, 3.5)
+    PionMinusTrackCheck.Sumw2()
+    
+    for i in range(1, PionMinusTrackCheck.GetNbinsX() + 1):
+        PionMinusTrackCheck.GetXaxis().SetBinLabel(i, PionMinusTrackLabels[i - 1])
+    
+    DeuteronTrackCheck = ROOT.TH1F("DeuteronTrackCheck","Deuteron Tracks After Each Cut; Cut; Tracks", 3, 0.5, 3.5)
+    DeuteronTrackCheck.Sumw2()
+    
+    for i in range(1, DeuteronTrackCheck.GetNbinsX() + 1):
+        DeuteronTrackCheck.GetXaxis().SetBinLabel(i, DeuteronTrackLabels[i - 1])
+    
+    TritonTrackCheck = ROOT.TH1F("TritonTrackCheck","Triton Tracks After Each Cut; Cut; Tracks", 3, 0.5, 3.5)
+    TritonTrackCheck.Sumw2()
+    
+    for i in range(1, TritonTrackCheck.GetNbinsX() + 1):
+        TritonTrackCheck.GetXaxis().SetBinLabel(i, TritonTrackLabels[i - 1])    
+
+    
+    
+    
+    
+    
+    HistoDC = ROOT.TH1F("Cos(3(Phi-Psi_1)) for Protons at 35-40% Centrality, No Weighting or Resolution Correction", "Cos(3(Phi-Psi_1)) for Protons, No Weighting or Resolution Correction; Cos(3(Phi-Psi_1)); Protons", 350, -7.0, 7.0)
+    HistoDC.Sumw2()
+    
+    HistoDD = ROOT.TH1F("Cos(3(Phi-Psi_1)) for Protons at 35-40% Centrality, Resolution Corrected but no Weighting", "Cos(3(Phi-Psi_1)) for Protons, Resolution Corrected but no Weighting; Cos(3(Phi-Psi_1))/R_31; Protons", 350, -7.0, 7.0)
+    HistoDD.Sumw2()
+    
+    HistoDE = ROOT.TH1F("Cos(3(Phi-Psi_1)) for Protons at 35-40% Centrality, Weighted and Resolution Corrected", "Cos(3(Phi-Psi_1)) for Protons, Weighted and Resolution Corrected; Cos(3(Phi-Psi_1))/R_31 and Weighted; Protons", 350, -7.0, 7.0)
+    HistoDE.Sumw2()
+
+
+    
 
     
     HistoD54 = HistogramFile.Get("DataResolution")
     
     CentralityXLabels = ["0-5", "5-10", "10-15", "15-20", "20-25", "25-30", "30-35", "35-40", "40-45", "45-50", "50-55", "55-60"]
+    CentralityXLabelsKaon = ["0-10", "10-20", "20-30", "30-40", "40-50", "50-60"]
     
     HistoD44C= ROOT.TProfile("DataVnVsYPsi1ResolutionCorrectedProton", "V" + str(nV) + " (Resolution Corrected) vs Y for Protons, Calculated using Inner EPD (Data); Y - Y_CM; V" + str(nV) +"", 75, -0.3, 0.95)
     HistoD44C.Sumw2()
@@ -1924,25 +2428,46 @@ if(RunIteration == 4):
 
     HistoD54A = ROOT.TProfile("DataVnVsCentralityProtonCorrected", "V" + str(nV) + " vs Centrality for Protons (Data); Centrality; V" + str(nV) +"", 12, 0, 12)
     HistoD54A.Sumw2()
+    
+    for i in range(1, HistoD54A.GetNbinsX() + 1):
+        HistoD54A.GetXaxis().SetBinLabel(i, CentralityXLabels[i - 1])
 
-    HistoD54B = ROOT.TProfile("DataVnVsCentralityKaonPlusCorrected", "V" + str(nV) + " vs Centrality for Kaon+ (Data); Centrality; V" + str(nV) +"", 12, 0, 12)
+    HistoD54B = ROOT.TProfile("DataVnVsCentralityKaonPlusCorrected", "V" + str(nV) + " vs Centrality for Kaon+ (Data); Centrality; V" + str(nV) +"", 6, 0, 6)
     HistoD54B.Sumw2()
+    
+    for i in range(1, HistoD54B.GetNbinsX() + 1):
+        HistoD54B.GetXaxis().SetBinLabel(i, CentralityXLabelsKaon[i - 1])
 
-    HistoD54C = ROOT.TProfile("DataVnVsCentralityKaonMinusCorrected", "V" + str(nV) + " vs Centrality for Kaon- (Data); Centrality; V" + str(nV) +"", 12, 0, 12)
+    HistoD54C = ROOT.TProfile("DataVnVsCentralityKaonMinusCorrected", "V" + str(nV) + " vs Centrality for Kaon- (Data); Centrality; V" + str(nV) +"", 6, 0, 6)
     HistoD54C.Sumw2()
+    
+    for i in range(1, HistoD54C.GetNbinsX() + 1):
+        HistoD54C.GetXaxis().SetBinLabel(i, CentralityXLabelsKaon[i - 1])
 
     HistoD54D = ROOT.TProfile("DataVnVsCentralityPionPlusCorrected", "V" + str(nV) + " vs Centrality for Pion+ (Data); Centrality; V" + str(nV) +"", 12, 0, 12)
     HistoD54D.Sumw2()
+    
+    for i in range(1, HistoD54D.GetNbinsX() + 1):
+        HistoD54D.GetXaxis().SetBinLabel(i, CentralityXLabels[i - 1])
 
     HistoD54E = ROOT.TProfile("DataVnVsCentralityPionMinusCorrected", "V" + str(nV) + " vs Centrality for Pion- (Data); Centrality; V" + str(nV) +"", 12, 0, 12)
     HistoD54E.Sumw2()
+
+    for i in range(1, HistoD54E.GetNbinsX() + 1):
+        HistoD54E.GetXaxis().SetBinLabel(i, CentralityXLabels[i - 1])
     
     HistoD54F = ROOT.TProfile("DataVnVsCentralityDeuteronCorrected", "V" + str(nV) + " vs Centrality for Deuterons (Data); Centrality; V" + str(nV) +"", 12, 0, 12)
     HistoD54F.Sumw2()
+    
+    for i in range(1, HistoD54F.GetNbinsX() + 1):
+        HistoD54F.GetXaxis().SetBinLabel(i, CentralityXLabels[i - 1])  
 
     HistoD54G = ROOT.TProfile("DataVnVsCentralityTritonCorrected", "V" + str(nV) + " vs Centrality for Tritons (Data); Centrality; V" + str(nV) +"", 12, 0, 12)
     HistoD54G.Sumw2()
 
+    for i in range(1, HistoD54G.GetNbinsX() + 1):
+        HistoD54G.GetXaxis().SetBinLabel(i, CentralityXLabels[i - 1])    
+    
     HistoD79 = ROOT.TProfile2D("DataVnCorrectedVsPtDifferentCentralitiesProton", "V" + str(nV) + " (Resolution Corrected) vs Pt for Protons for Different Centralities (Data); Centrality; Pt", 12, 0, 12, 20, 0, 2)
     HistoD79.Sumw2()
 
@@ -1989,7 +2514,7 @@ if(RunIteration == 4):
     # Calculation of Fourier correction terms
     for entryNum in range (0, AutreeData.GetEntries()):
         if (entryNum % 5000 == 0):
-            print("Data Fourth Pass (V1 Corrected for Resolution)", entryNum)
+            print("Data Fourth Pass (Vn Corrected for Resolution)", entryNum)
 
         AutreeData.GetEntry(entryNum)
 
@@ -2008,6 +2533,25 @@ if(RunIteration == 4):
         Centrality = AutreeData.centrality
         EPDnMIP = AutreeData.EPDnMip
         EPDID = AutreeData.EPDid
+        DCA = AutreeData.DCA
+        NHits = AutreeData.nHits
+        NHitsdEdx = AutreeData.nHitsDedx
+        NHitsFit = AutreeData.nHitsFit
+        NHitsPoss = AutreeData.nHitsPoss
+        
+        
+        
+        vr = sqrt(pow(vx, 2) + pow(vy + 2, 2))
+        
+        if (vz <= ZVertexLowerBound) or (vz >= ZVertexUpperBound):
+            continue
+        
+        EventCheck.Fill(3)
+
+        if (vr >= RVertexBound):
+            continue
+
+        EventCheck.Fill(4)
 
         ProtonID = 2212
         KaonPlusID = 321
@@ -2028,12 +2572,12 @@ if(RunIteration == 4):
         TPCQx = 0
         TPCQy = 0
         
-        InnerEPDQxMean = QVectorHistogramFile.Get("InnerEPDQxRaw").GetMean()
-        InnerEPDQyMean = QVectorHistogramFile.Get("InnerEPDQyRaw").GetMean()
-        OuterEPDQxMean = QVectorHistogramFile.Get("OuterEPDQxRaw").GetMean()
-        OuterEPDQyMean = QVectorHistogramFile.Get("OuterEPDQyRaw").GetMean()
-        TPCQxMean = QVectorHistogramFile.Get("TPCQxRaw").GetMean()
-        TPCQyMean = QVectorHistogramFile.Get("TPCQyRaw").GetMean()
+        InnerEPDQxMean = QVectorHistogramFileFirst.Get("InnerEPDQxRaw").GetMean()
+        InnerEPDQyMean = QVectorHistogramFileFirst.Get("InnerEPDQyRaw").GetMean()
+        OuterEPDQxMean = QVectorHistogramFileFirst.Get("OuterEPDQxRaw").GetMean()
+        OuterEPDQyMean = QVectorHistogramFileFirst.Get("OuterEPDQyRaw").GetMean()
+        TPCQxMean = QVectorHistogramFileFirst.Get("TPCQxRaw").GetMean()
+        TPCQyMean = QVectorHistogramFileFirst.Get("TPCQyRaw").GetMean()
 
         FourierCorrectionTermInnerEPD = 0
         FourierCorrectionTermOuterEPD = 0
@@ -2043,10 +2587,28 @@ if(RunIteration == 4):
         GoodTracksCounterOuterEPD = 0
         GoodTracksCounterTPC = 0
 
+        
+        
+        if(Centrality == -99):
+            continue
+            
+        #EventCheck.Fill(5)
+
+        
+        
         if(Centrality < 4):
             continue
 
         for index in range(len(px)):
+            if (DCA[index] > DCABound):
+                continue
+            if (NHits[index] < NHitsBound):
+                continue
+            if (NHitsdEdx[index] < NHitsdEdxBound):
+                continue
+            if (NHitsFit[index] / NHitsPoss[index] < NHitsFitOverNHitsPossBound):
+                continue
+                
             p = P(px[index], py[index], pz[index])
 
             eta = Eta(px[index], py[index], pz[index])
@@ -2058,7 +2620,7 @@ if(RunIteration == 4):
             if(EPDID[index] > 0):
                 continue
 
-            TileVector = ROOT.EPDKinematics(EPDID[index], vx, vy, vz)
+            TileVector = ROOT.EPDKinematics(EPDID[index], vx, vy, vz, InnerEPDHighRing, OuterEPDLowRing)
 
             if (TileVector.IsInnerEPD() and not(TileVector.IsOuterEPD())):
                 GoodTracksCounterInnerEPD += 1
@@ -2068,8 +2630,19 @@ if(RunIteration == 4):
 
         if((GoodTracksCounterInnerEPD < NumberOfGoodTracksInnerEPD) or (GoodTracksCounterOuterEPD < NumberOfGoodTracksOuterEPD) or (GoodTracksCounterTPC < NumberOfGoodTracksTPC)):
             continue
-
+        
+        EventCheck.Fill(5)
+        
         for index in range(len(px)):
+            if (DCA[index] > DCABound):
+                continue
+            if (NHits[index] < NHitsBound):
+                continue
+            if (NHitsdEdx[index] < NHitsdEdxBound):
+                continue
+            if (NHitsFit[index] / NHitsPoss[index] < NHitsFitOverNHitsPossBound):
+                continue
+                
             pt = Pt(px[index], py[index])
 
             p = P(px[index], py[index], pz[index])
@@ -2086,7 +2659,7 @@ if(RunIteration == 4):
             if(EPDID[index] > 0):
                 continue
 
-            TileVector = ROOT.EPDKinematics(EPDID[index], vx, vy, vz)
+            TileVector = ROOT.EPDKinematics(EPDID[index], vx, vy, vz, InnerEPDHighRing, OuterEPDLowRing)
 
             phi = TileVector.EPDPhi()
 
@@ -2150,6 +2723,33 @@ if(RunIteration == 4):
         ResolutionCorrectionFactor = HistoD54.GetBinContent(Centrality + 1)
 
         for index in range(len(px)):
+            OverallTrackCheck.Fill(1)
+            
+            if (DCA[index] > DCABound):
+                continue
+            if (NHits[index] < NHitsBound):
+                continue
+            if (NHitsdEdx[index] < NHitsdEdxBound):
+                continue
+            if (NHitsFit[index] / NHitsPoss[index] < NHitsFitOverNHitsPossBound):
+                continue
+                
+            OverallTrackCheck.Fill(2)
+            ProtonTrackCheck.Fill(1)
+            KaonPlusTrackCheck.Fill(1)
+            KaonMinusTrackCheck.Fill(1)
+            PionPlusTrackCheck.Fill(1)
+            PionMinusTrackCheck.Fill(1)
+            DeuteronTrackCheck.Fill(1)
+            TritonTrackCheck.Fill(1)
+            
+            if ResolutionCorrectionFactor == 0:
+                continue
+                
+                
+            
+            TrackIsIDed = False
+            
             pt = Pt(px[index], py[index])
 
             p = P(px[index], py[index], pz[index])
@@ -2163,7 +2763,7 @@ if(RunIteration == 4):
             IsDeuteron = DAndT.IsDeuteron()
             IsTriton = DAndT.IsTriton()
             
-            if((IsDeuteron) and (pt > DeuteronLowerPt) and (pt < DeuteronUpperPt)):
+            if((not TrackIsIDed) and (IsDeuteron)):
                 mass = DeuteronMass
 
                 energy = Energy(px[index], py[index], pz[index], mass)
@@ -2171,17 +2771,25 @@ if(RunIteration == 4):
                 y = Y(px[index], py[index], pz[index], mass)
 
                 VnInnerEPDFourierCorrected = V_n(nV, px[index], py[index], PsiInnerEPDFourierCorrected)
-
-                if(((y - yCMShift) > LowerYMinusYCM) and ((y - yCMShift) < UpperYMinusYCM)):
-                    HistoD50D.Fill(y - yCMShift, VnInnerEPDFourierCorrected / ResolutionCorrectionFactor)
-                    HistoD54F.Fill(Centrality, VnInnerEPDFourierCorrected / ResolutionCorrectionFactor)
-                    HistoD88A.Fill(Centrality, pt, VnInnerEPDFourierCorrected / ResolutionCorrectionFactor)
-                    HistoD88B.Fill(Centrality, y - yCMShift, VnInnerEPDFourierCorrected / ResolutionCorrectionFactor)
                 
-                for i in range(1, HistoD54F.GetNbinsX() + 1):
-                    HistoD54F.GetXaxis().SetBinLabel(i, CentralityXLabels[i - 1])
+                IsGoodDeuteron = (pt > DeuteronLowerPt) and (pt < DeuteronUpperPt) and ((y - yCMShift) > LowerYMinusYCM) and ((y - yCMShift) < UpperYMinusYCM)
+                
+                TrackIsIDed = True
+                
+                OverallTrackCheck.Fill(3)
+                DeuteronTrackCheck.Fill(2)
 
-            elif((IsTriton) and (pt > TritonLowerPt) and (pt < TritonUpperPt)):
+                if(IsGoodDeuteron):
+                    HistoD50D.Fill(y - yCMShift, VnInnerEPDFourierCorrected / ResolutionCorrectionFactor)
+                    HistoD88B.Fill(Centrality, y - yCMShift, VnInnerEPDFourierCorrected / ResolutionCorrectionFactor)
+                    
+                    DeuteronTrackCheck.Fill(3)
+                    
+                    if((y - yCMShift) < (UpperYMinusYCM / 2)):
+                        HistoD54F.Fill(Centrality, VnInnerEPDFourierCorrected / ResolutionCorrectionFactor)
+                        HistoD88A.Fill(Centrality, pt, VnInnerEPDFourierCorrected / ResolutionCorrectionFactor)
+
+            if((not TrackIsIDed) and (IsTriton)):
                 mass = TritonMass
 
                 energy = Energy(px[index], py[index], pz[index], mass)
@@ -2189,92 +2797,73 @@ if(RunIteration == 4):
                 y = Y(px[index], py[index], pz[index], mass)
 
                 VnInnerEPDFourierCorrected = V_n(nV, px[index], py[index], PsiInnerEPDFourierCorrected)
+                
+                IsGoodTriton = (pt > TritonLowerPt) and (pt < TritonUpperPt) and ((y - yCMShift) > LowerYMinusYCM) and ((y - yCMShift) < UpperYMinusYCM)
+                
+                TrackIsIDed = True
+                
+                OverallTrackCheck.Fill(3)
+                TritonTrackCheck.Fill(2)
 
-                if(((y - yCMShift) > LowerYMinusYCM) and ((y - yCMShift) < UpperYMinusYCM)):
+                if(IsGoodTriton):
                     HistoD50E.Fill(y - yCMShift, VnInnerEPDFourierCorrected / ResolutionCorrectionFactor)
-                    HistoD54G.Fill(Centrality, VnInnerEPDFourierCorrected / ResolutionCorrectionFactor)
-                    HistoD88C.Fill(Centrality, pt, VnInnerEPDFourierCorrected / ResolutionCorrectionFactor)
                     HistoD88D.Fill(Centrality, y - yCMShift, VnInnerEPDFourierCorrected / ResolutionCorrectionFactor)
-                
-                for i in range(1, HistoD54G.GetNbinsX() + 1):
-                    HistoD54G.GetXaxis().SetBinLabel(i, CentralityXLabels[i - 1])
                     
+                    TritonTrackCheck.Fill(3)
                     
-                    
-            
-            if(tofBeta[index] < 0):
-                
-                if((abs(NSigmaPr[index]) < NSigmaPrBound) and (pt > ProtonLowerPt) and (pt < ProtonUpperPt)): 
-                    mass = ProtonMass
+                    if((y - yCMShift) < (UpperYMinusYCM / 2)):
+                        HistoD54G.Fill(Centrality, VnInnerEPDFourierCorrected / ResolutionCorrectionFactor)
+                        HistoD88C.Fill(Centrality, pt, VnInnerEPDFourierCorrected / ResolutionCorrectionFactor)
 
-                    energy = Energy(px[index], py[index], pz[index], mass)
 
-                    y = Y(px[index], py[index], pz[index], mass)
-
-                    VnInnerEPDFourierCorrected = V_n(nV, px[index], py[index], PsiInnerEPDFourierCorrected)
-                    
-                    TPCEfficiencyHistogram = TPCEfficiencyFile.Get("h2_ratio_pr")
-                    ToFEfficiencyHistogram = ToFEfficiencyFile.Get("h2_ratio_tof")
-                    
-                    TPCEfficiencyBin = TPCEfficiencyHistogram.FindBin(y, pt)
-                    ToFEfficiencyBin = ToFEfficiencyHistogram.FindBin(y, pt)
-                    
-                    TPCEfficiency = TPCEfficiencyHistogram.GetBinContent(TPCEfficiencyBin)
-                    ToFEfficiency = ToFEfficiencyHistogram.GetBinContent(ToFEfficiencyBin)
-                    
-                    if((TPCEfficiency == 0) or (TPCEfficiency > 1.3) or (ToFEfficiency == 0)):
-                        continue
-                    
-                    if(((y - yCMShift) > LowerYMinusYCM) and ((y - yCMShift) < UpperYMinusYCM)):
-                        HistoD44C.Fill(y - yCMShift, VnInnerEPDFourierCorrected / ResolutionCorrectionFactor, 1.0/(TPCEfficiency * ToFEfficiency))
-                        HistoD54A.Fill(Centrality, VnInnerEPDFourierCorrected / ResolutionCorrectionFactor, 1.0/(TPCEfficiency * ToFEfficiency))
-                        HistoD79.Fill(Centrality, pt, VnInnerEPDFourierCorrected / ResolutionCorrectionFactor, 1.0/(TPCEfficiency * ToFEfficiency))
-                        HistoD80.Fill(Centrality, y - yCMShift, VnInnerEPDFourierCorrected / ResolutionCorrectionFactor, 1.0/(TPCEfficiency * ToFEfficiency))
-
-                    for i in range(1, HistoD54A.GetNbinsX() + 1):
-                        HistoD54A.GetXaxis().SetBinLabel(i, CentralityXLabels[i - 1])
-                        
-                        
-                        
-        
                         
                         
 
             if(tofBeta[index] > 0):
 
                 msquared = MSquared(px[index], py[index], pz[index], tofBeta[index])
+                
+#                 IsProtonToF = (abs(NSigmaPr[index]) < NSigmaPrBound) and (msquared > ProtonLowerMSquared) and (msquared < ProtonUpperMSquared) and (p > 2.0)
+                IsKaon = (abs(NSigmaKa[index]) < NSigmaKaBound) and (msquared > KaonLowerMSquared) and (msquared < KaonUpperMSquared)
+                IsPion = (abs(NSigmaPi[index]) < NSigmaPiBound) and (msquared > PionLowerMSquared) and (msquared < PionUpperMSquared)
 
-                if((abs(NSigmaPr[index]) < 3) and (pt > ProtonLowerPt) and (pt < ProtonUpperPt)): 
-                    mass = ProtonMass
+#                 if((not TrackIsIDed) and IsProtonToF): 
+#                     mass = ProtonMass
 
-                    energy = Energy(px[index], py[index], pz[index], mass)
+#                     energy = Energy(px[index], py[index], pz[index], mass)
 
-                    y = Y(px[index], py[index], pz[index], mass)
+#                     y = Y(px[index], py[index], pz[index], mass)
 
-                    VnInnerEPDFourierCorrected = V_n(nV, px[index], py[index], PsiInnerEPDFourierCorrected)
+#                     VnInnerEPDFourierCorrected = V_n(nV, px[index], py[index], PsiInnerEPDFourierCorrected)
                     
-                    TPCEfficiencyHistogram = TPCEfficiencyFile.Get("h2_ratio_pr")
-                    ToFEfficiencyHistogram = ToFEfficiencyFile.Get("h2_ratio_tof")
+#                     IsGoodProton = (pt > ProtonLowerPt) and (pt < ProtonUpperPt) and ((y - yCMShift) > LowerYMinusYCM) and ((y - yCMShift) < UpperYMinusYCM)
                     
-                    TPCEfficiencyBin = TPCEfficiencyHistogram.FindBin(y, pt)
-                    ToFEfficiencyBin = ToFEfficiencyHistogram.FindBin(y, pt)
+#                     TrackIsIDed = True
                     
-                    TPCEfficiency = TPCEfficiencyHistogram.GetBinContent(TPCEfficiencyBin)
-                    ToFEfficiency = ToFEfficiencyHistogram.GetBinContent(ToFEfficiencyBin)
+#                     TPCEfficiencyHistogram = TPCEfficiencyFile.Get("h2_ratio_pr")
+#                     ToFEfficiencyHistogram = ToFEfficiencyFile.Get("h2_ratio_tof")
                     
-                    if((TPCEfficiency == 0) or (TPCEfficiency > 1.3) or (ToFEfficiency == 0)):
-                        continue
+#                     TPCEfficiencyBinX = TPCEfficiencyHistogram.GetXaxis().FindBin(y - yCMShift)
+#                     TPCEfficiencyBinY = TPCEfficiencyHistogram.GetYaxis().FindBin(pt)
+#                     ToFEfficiencyBinX = ToFEfficiencyHistogram.GetXaxis().FindBin(eta)
+#                     ToFEfficiencyBinY = ToFEfficiencyHistogram.GetYaxis().FindBin(pt)
                     
-                    if(((y - yCMShift) > LowerYMinusYCM) and ((y - yCMShift) < UpperYMinusYCM)):
-                        HistoD44C.Fill(y - yCMShift, VnInnerEPDFourierCorrected / ResolutionCorrectionFactor)
-                        HistoD54A.Fill(Centrality, VnInnerEPDFourierCorrected / ResolutionCorrectionFactor)
-                        HistoD79.Fill(Centrality, pt, VnInnerEPDFourierCorrected / ResolutionCorrectionFactor)
-                        HistoD80.Fill(Centrality, y - yCMShift, VnInnerEPDFourierCorrected / ResolutionCorrectionFactor)
+#                     TPCEfficiency = TPCEfficiencyHistogram.GetBinContent(TPCEfficiencyBinX, TPCEfficiencyBinY)
+#                     ToFEfficiency = ToFEfficiencyHistogram.GetBinContent(ToFEfficiencyBinX, ToFEfficiencyBinY)
+# #                     print("Proton ToF", TPCEfficiency, ToFEfficiency)
+#                     if((TPCEfficiency == 0) or (TPCEfficiency > 1.3) or (ToFEfficiency == 0)):
+#                         continue
+                            
+#                     if(IsGoodProton):
+#                         HistoD44C.Fill(y - yCMShift, VnInnerEPDFourierCorrected / ResolutionCorrectionFactor, 1.0 / (TPCEfficiency * ToFEfficiency))
+#                         HistoD54A.Fill(Centrality, VnInnerEPDFourierCorrected / ResolutionCorrectionFactor, 1.0 / (TPCEfficiency * ToFEfficiency))
+#                         HistoD79.Fill(Centrality, pt, VnInnerEPDFourierCorrected / ResolutionCorrectionFactor, 1.0 / (TPCEfficiency * ToFEfficiency))
+#                         HistoD80.Fill(Centrality, y - yCMShift, VnInnerEPDFourierCorrected / ResolutionCorrectionFactor, 1.0 / (TPCEfficiency * ToFEfficiency))
 
-                    for i in range(1, HistoD54A.GetNbinsX() + 1):
-                        HistoD54A.GetXaxis().SetBinLabel(i, CentralityXLabels[i - 1])
+#                     for i in range(1, HistoD54A.GetNbinsX() + 1):
+#                         HistoD54A.GetXaxis().SetBinLabel(i, CentralityXLabels[i - 1])
 
-                if((abs(NSigmaKa[index]) < 3) and (msquared > KaonLowerMSquared) and (msquared < KaonUpperMSquared) and (pt > KaonLowerPt) and (pt < KaonUpperPt)): 
+                if((not TrackIsIDed) and (IsKaon)): 
                     mass = KaonMass
 
                     energy = Energy(px[index], py[index], pz[index], mass)
@@ -2282,52 +2871,68 @@ if(RunIteration == 4):
                     y = Y(px[index], py[index], pz[index], mass)
 
                     VnInnerEPDFourierCorrected = V_n(nV, px[index], py[index], PsiInnerEPDFourierCorrected)
+                    
+                    IsGoodKaon = (pt > KaonLowerPt) and (pt < KaonUpperPt) and ((y - yCMShift) > LowerYMinusYCM) and ((y - yCMShift) < UpperYMinusYCM)
+                    
+                    TrackIsIDed = True
+                    
+                    OverallTrackCheck.Fill(3)
             
                     if(q[index] > 0):
+                        KaonPlusTrackCheck.Fill(2)
+                        
                         TPCEfficiencyHistogram = TPCEfficiencyFile.Get("h2_ratio_kp")
                         ToFEfficiencyHistogram = ToFEfficiencyFile.Get("h2_ratio_tof")
 
-                        TPCEfficiencyBin = TPCEfficiencyHistogram.FindBin(y, pt)
-                        ToFEfficiencyBin = ToFEfficiencyHistogram.FindBin(y, pt)
+                        TPCEfficiencyBinX = TPCEfficiencyHistogram.GetXaxis().FindBin(y - yCMShift)
+                        TPCEfficiencyBinY = TPCEfficiencyHistogram.GetYaxis().FindBin(pt)
+                        ToFEfficiencyBinX = ToFEfficiencyHistogram.GetXaxis().FindBin(eta)
+                        ToFEfficiencyBinY = ToFEfficiencyHistogram.GetYaxis().FindBin(pt)
 
-                        TPCEfficiency = TPCEfficiencyHistogram.GetBinContent(TPCEfficiencyBin)
-                        ToFEfficiency = ToFEfficiencyHistogram.GetBinContent(ToFEfficiencyBin)
-                        
+                        TPCEfficiency = TPCEfficiencyHistogram.GetBinContent(TPCEfficiencyBinX, TPCEfficiencyBinY)
+                        ToFEfficiency = ToFEfficiencyHistogram.GetBinContent(ToFEfficiencyBinX, ToFEfficiencyBinY)
+
                         if((TPCEfficiency == 0) or (TPCEfficiency > 1.3) or (ToFEfficiency == 0)):
                             continue
                         
-                        if(((y - yCMShift) > LowerYMinusYCM) and ((y - yCMShift) < UpperYMinusYCM)):
-                            HistoD47B.Fill(y - yCMShift, VnInnerEPDFourierCorrected / ResolutionCorrectionFactor)
-                            HistoD54B.Fill(Centrality, VnInnerEPDFourierCorrected / ResolutionCorrectionFactor)
-                            HistoD81.Fill(Centrality, pt, VnInnerEPDFourierCorrected / ResolutionCorrectionFactor)
-                            HistoD82.Fill(Centrality, y - yCMShift, VnInnerEPDFourierCorrected / ResolutionCorrectionFactor)
+                        if(IsGoodKaon):
+                            HistoD47B.Fill(y - yCMShift, VnInnerEPDFourierCorrected / ResolutionCorrectionFactor, 1.0 / (TPCEfficiency * ToFEfficiency))
+                            HistoD82.Fill(Centrality, y - yCMShift, VnInnerEPDFourierCorrected / ResolutionCorrectionFactor, 1.0 / (TPCEfficiency * ToFEfficiency))
+                            
+                            KaonPlusTrackCheck.Fill(3)
+                            
+                            if((y - yCMShift) < (UpperYMinusYCM / 2)):
+                                HistoD54B.Fill(Centrality, VnInnerEPDFourierCorrected / ResolutionCorrectionFactor, 1.0 / (TPCEfficiency * ToFEfficiency))
+                                HistoD81.Fill(Centrality, pt, VnInnerEPDFourierCorrected / ResolutionCorrectionFactor, 1.0 / (TPCEfficiency * ToFEfficiency))
 
-                        for i in range(1, HistoD54B.GetNbinsX() + 1):
-                            HistoD54B.GetXaxis().SetBinLabel(i, CentralityXLabels[i - 1])
-
-                    elif(q[index] < 0):
+                    elif(q[index] < 0): 
+                        KaonMinusTrackCheck.Fill(2)
+                            
                         TPCEfficiencyHistogram = TPCEfficiencyFile.Get("h2_ratio_km")
                         ToFEfficiencyHistogram = ToFEfficiencyFile.Get("h2_ratio_tof")
 
-                        TPCEfficiencyBin = TPCEfficiencyHistogram.FindBin(y, pt)
-                        ToFEfficiencyBin = ToFEfficiencyHistogram.FindBin(y, pt)
+                        TPCEfficiencyBinX = TPCEfficiencyHistogram.GetXaxis().FindBin(y - yCMShift)
+                        TPCEfficiencyBinY = TPCEfficiencyHistogram.GetYaxis().FindBin(pt)
+                        ToFEfficiencyBinX = ToFEfficiencyHistogram.GetXaxis().FindBin(eta)
+                        ToFEfficiencyBinY = ToFEfficiencyHistogram.GetYaxis().FindBin(pt)
 
-                        TPCEfficiency = TPCEfficiencyHistogram.GetBinContent(TPCEfficiencyBin)
-                        ToFEfficiency = ToFEfficiencyHistogram.GetBinContent(ToFEfficiencyBin)
+                        TPCEfficiency = TPCEfficiencyHistogram.GetBinContent(TPCEfficiencyBinX, TPCEfficiencyBinY)
+                        ToFEfficiency = ToFEfficiencyHistogram.GetBinContent(ToFEfficiencyBinX, ToFEfficiencyBinY)
 
                         if((TPCEfficiency == 0) or (TPCEfficiency > 1.3) or (ToFEfficiency == 0)):
                             continue
                         
-                        if(((y - yCMShift) > LowerYMinusYCM) and ((y - yCMShift) < UpperYMinusYCM)):
-                            HistoD47C.Fill(y - yCMShift, VnInnerEPDFourierCorrected / ResolutionCorrectionFactor)
-                            HistoD54C.Fill(Centrality, VnInnerEPDFourierCorrected / ResolutionCorrectionFactor)
-                            HistoD83.Fill(Centrality, pt, VnInnerEPDFourierCorrected / ResolutionCorrectionFactor)
-                            HistoD84.Fill(Centrality, y - yCMShift, VnInnerEPDFourierCorrected / ResolutionCorrectionFactor)
-
-                        for i in range(1, HistoD54C.GetNbinsX() + 1):
-                            HistoD54C.GetXaxis().SetBinLabel(i, CentralityXLabels[i - 1])
-
-                if((abs(NSigmaPi[index]) < 3) and (msquared > PionLowerMSquared) and (msquared < PionUpperMSquared) and (pt > PionLowerPt) and (pt < PionUpperPt)): 
+                        if(IsGoodKaon):
+                            HistoD47C.Fill(y - yCMShift, VnInnerEPDFourierCorrected / ResolutionCorrectionFactor, 1.0 / (TPCEfficiency * ToFEfficiency))
+                            HistoD84.Fill(Centrality, y - yCMShift, VnInnerEPDFourierCorrected / ResolutionCorrectionFactor, 1.0 / (TPCEfficiency * ToFEfficiency))
+                            
+                            KaonMinusTrackCheck.Fill(3)
+                            
+                            if((y - yCMShift) < (UpperYMinusYCM / 2)):
+                                HistoD54C.Fill(Centrality, VnInnerEPDFourierCorrected / ResolutionCorrectionFactor, 1.0 / (TPCEfficiency * ToFEfficiency))
+                                HistoD83.Fill(Centrality, pt, VnInnerEPDFourierCorrected / ResolutionCorrectionFactor, 1.0 / (TPCEfficiency * ToFEfficiency))                                     
+                
+                if((not TrackIsIDed) and (IsPion)): 
                     mass = PionMass
 
                     energy = Energy(px[index], py[index], pz[index], mass)
@@ -2335,52 +2940,113 @@ if(RunIteration == 4):
                     y = Y(px[index], py[index], pz[index], mass)
 
                     VnInnerEPDFourierCorrected = V_n(nV, px[index], py[index], PsiInnerEPDFourierCorrected)
+                    
+                    IsGoodPion = (pt > PionLowerPt) and (pt < PionUpperPt) and ((y - yCMShift) > LowerYMinusYCM) and ((y - yCMShift) < UpperYMinusYCM)
+
+                    TrackIsIDed = True
+                    
+                    OverallTrackCheck.Fill(3)
 
                     if(q[index] > 0):
+                        PionPlusTrackCheck.Fill(2)
+                        
                         TPCEfficiencyHistogram = TPCEfficiencyFile.Get("h2_ratio_pp")
                         ToFEfficiencyHistogram = ToFEfficiencyFile.Get("h2_ratio_tof")
 
-                        TPCEfficiencyBin = TPCEfficiencyHistogram.FindBin(y, pt)
-                        ToFEfficiencyBin = ToFEfficiencyHistogram.FindBin(y, pt)
+                        TPCEfficiencyBinX = TPCEfficiencyHistogram.GetXaxis().FindBin(y - yCMShift)
+                        TPCEfficiencyBinY = TPCEfficiencyHistogram.GetYaxis().FindBin(pt)
+                        ToFEfficiencyBinX = ToFEfficiencyHistogram.GetXaxis().FindBin(eta)
+                        ToFEfficiencyBinY = ToFEfficiencyHistogram.GetYaxis().FindBin(pt)
 
-                        TPCEfficiency = TPCEfficiencyHistogram.GetBinContent(TPCEfficiencyBin)
-                        ToFEfficiency = ToFEfficiencyHistogram.GetBinContent(ToFEfficiencyBin)
-                        
+                        TPCEfficiency = TPCEfficiencyHistogram.GetBinContent(TPCEfficiencyBinX, TPCEfficiencyBinY)
+                        ToFEfficiency = ToFEfficiencyHistogram.GetBinContent(ToFEfficiencyBinX, ToFEfficiencyBinY)
+
                         if((TPCEfficiency == 0) or (TPCEfficiency > 1.3) or (ToFEfficiency == 0)):
                             continue
                         
-                        if(((y - yCMShift) > LowerYMinusYCM) and ((y - yCMShift) < UpperYMinusYCM)):
-                            HistoD50B.Fill(y - yCMShift, VnInnerEPDFourierCorrected / ResolutionCorrectionFactor) 
-                            HistoD54D.Fill(Centrality, VnInnerEPDFourierCorrected / ResolutionCorrectionFactor)
-                            HistoD85.Fill(Centrality, pt, VnInnerEPDFourierCorrected / ResolutionCorrectionFactor)
-                            HistoD86.Fill(Centrality, y - yCMShift, VnInnerEPDFourierCorrected / ResolutionCorrectionFactor)
-
-                        for i in range(1, HistoD54D.GetNbinsX() + 1):
-                            HistoD54D.GetXaxis().SetBinLabel(i, CentralityXLabels[i - 1])
+                        if(IsGoodPion):
+                            HistoD50B.Fill(y - yCMShift, VnInnerEPDFourierCorrected / ResolutionCorrectionFactor, 1.0 / (TPCEfficiency * ToFEfficiency)) 
+                            HistoD86.Fill(Centrality, y - yCMShift, VnInnerEPDFourierCorrected / ResolutionCorrectionFactor, 1.0 / (TPCEfficiency * ToFEfficiency))
+                            
+                            PionPlusTrackCheck.Fill(3)
+        
+                            if((y - yCMShift) < (UpperYMinusYCM / 2)):
+                                HistoD54D.Fill(Centrality, VnInnerEPDFourierCorrected / ResolutionCorrectionFactor, 1.0 / (TPCEfficiency * ToFEfficiency))
+                                HistoD85.Fill(Centrality, pt, VnInnerEPDFourierCorrected / ResolutionCorrectionFactor, 1.0 / (TPCEfficiency * ToFEfficiency))                            
 
                     elif(q[index] < 0):
+                        PionMinusTrackCheck.Fill(2)
+                            
                         TPCEfficiencyHistogram = TPCEfficiencyFile.Get("h2_ratio_pm")
                         ToFEfficiencyHistogram = ToFEfficiencyFile.Get("h2_ratio_tof")
 
-                        TPCEfficiencyBin = TPCEfficiencyHistogram.FindBin(y, pt)
-                        ToFEfficiencyBin = ToFEfficiencyHistogram.FindBin(y, pt)
+                        TPCEfficiencyBinX = TPCEfficiencyHistogram.GetXaxis().FindBin(y - yCMShift)
+                        TPCEfficiencyBinY = TPCEfficiencyHistogram.GetYaxis().FindBin(pt)
+                        ToFEfficiencyBinX = ToFEfficiencyHistogram.GetXaxis().FindBin(eta)
+                        ToFEfficiencyBinY = ToFEfficiencyHistogram.GetYaxis().FindBin(pt)
 
-                        TPCEfficiency = TPCEfficiencyHistogram.GetBinContent(TPCEfficiencyBin)
-                        ToFEfficiency = ToFEfficiencyHistogram.GetBinContent(ToFEfficiencyBin)
-                        
+                        TPCEfficiency = TPCEfficiencyHistogram.GetBinContent(TPCEfficiencyBinX, TPCEfficiencyBinY)
+                        ToFEfficiency = ToFEfficiencyHistogram.GetBinContent(ToFEfficiencyBinX, ToFEfficiencyBinY)
+
                         if((TPCEfficiency == 0) or (TPCEfficiency > 1.3) or (ToFEfficiency == 0)):
                             continue
                         
-                        if(((y - yCMShift) > LowerYMinusYCM) and ((y - yCMShift) < UpperYMinusYCM)):
-                            HistoD50C.Fill(y - yCMShift, VnInnerEPDFourierCorrected / ResolutionCorrectionFactor)
-                            HistoD54E.Fill(Centrality, VnInnerEPDFourierCorrected / ResolutionCorrectionFactor)
-                            HistoD87.Fill(Centrality, pt, VnInnerEPDFourierCorrected / ResolutionCorrectionFactor)
-                            HistoD88.Fill(Centrality, y - yCMShift, VnInnerEPDFourierCorrected / ResolutionCorrectionFactor)
+                        if(IsGoodPion):
+                            HistoD50C.Fill(y - yCMShift, VnInnerEPDFourierCorrected / ResolutionCorrectionFactor, 1.0 / (TPCEfficiency * ToFEfficiency))
+                            HistoD88.Fill(Centrality, y - yCMShift, VnInnerEPDFourierCorrected / ResolutionCorrectionFactor, 1.0 / (TPCEfficiency * ToFEfficiency))
+                            
+                            PionMinusTrackCheck.Fill(3)
+                            
+                            if((y - yCMShift) < (UpperYMinusYCM / 2)):
+                                HistoD54E.Fill(Centrality, VnInnerEPDFourierCorrected / ResolutionCorrectionFactor, 1.0 / (TPCEfficiency * ToFEfficiency))
+                                HistoD87.Fill(Centrality, pt, VnInnerEPDFourierCorrected / ResolutionCorrectionFactor, 1.0 / (TPCEfficiency * ToFEfficiency))                            
 
-                        for i in range(1, HistoD54E.GetNbinsX() + 1):
-                            HistoD54E.GetXaxis().SetBinLabel(i, CentralityXLabels[i - 1])
 
+            IsProtonTPC = (abs(NSigmaPr[index]) < NSigmaPrBound)
 
+            if((not TrackIsIDed) and (IsProtonTPC)): 
+                mass = ProtonMass
+
+                energy = Energy(px[index], py[index], pz[index], mass)
+
+                y = Y(px[index], py[index], pz[index], mass)
+
+                VnInnerEPDFourierCorrected = V_n(nV, px[index], py[index], PsiInnerEPDFourierCorrected)
+                
+                IsGoodProton = (pt > ProtonLowerPt) and (pt < ProtonUpperPt) and ((y - yCMShift) > LowerYMinusYCM) and ((y - yCMShift) < (UpperYMinusYCM))
+
+                TrackIsIDed = True
+                
+                OverallTrackCheck.Fill(3)
+                ProtonTrackCheck.Fill(2)
+
+                TPCEfficiencyHistogram = TPCEfficiencyFile.Get("h2_ratio_pr")
+
+                TPCEfficiencyBinX = TPCEfficiencyHistogram.GetXaxis().FindBin(y - yCMShift)
+                TPCEfficiencyBinY = TPCEfficiencyHistogram.GetYaxis().FindBin(pt)
+
+                TPCEfficiency = TPCEfficiencyHistogram.GetBinContent(TPCEfficiencyBinX, TPCEfficiencyBinY)
+
+                if((TPCEfficiency == 0) or (TPCEfficiency > 1.3)):
+                    continue
+
+                if(IsGoodProton):
+                    if(Centrality == 8):
+                        HistoDC.Fill(VnInnerEPDFourierCorrected)
+                        HistoDD.Fill(VnInnerEPDFourierCorrected / ResolutionCorrectionFactor)
+                        HistoDE.Fill(VnInnerEPDFourierCorrected / ResolutionCorrectionFactor, 1.0 / (TPCEfficiency))
+
+                    HistoD44C.Fill(y - yCMShift, VnInnerEPDFourierCorrected / ResolutionCorrectionFactor, 1.0 / (TPCEfficiency))
+                    HistoD80.Fill(Centrality, y - yCMShift, VnInnerEPDFourierCorrected / ResolutionCorrectionFactor, 1.0 / (TPCEfficiency))
+                    
+                    ProtonTrackCheck.Fill(3)
+                    
+                    if((y - yCMShift) < (UpperYMinusYCM / 2)):
+                        HistoD54A.Fill(Centrality, VnInnerEPDFourierCorrected / ResolutionCorrectionFactor, 1.0 / (TPCEfficiency))
+                        HistoD79.Fill(Centrality, pt, VnInnerEPDFourierCorrected / ResolutionCorrectionFactor, 1.0 / (TPCEfficiency))
+
+  
+    
     HistoD89 = HistoD79.ProfileY("DataV" + str(nV) +"VsPtForProtonsCentrality0-10", 1, 2)
     HistoD89.SetXTitle("Pt")
     HistoD89.SetYTitle("V" + str(nV) +"")
@@ -2402,52 +3068,64 @@ if(RunIteration == 4):
 
 
     HistoD95 = HistoD81.ProfileY("DataV" + str(nV) +"VsPtForKaonsPlusCentrality0-10", 1, 2)
+    HistoD95.Sumw2(ROOT.kFALSE)
     HistoD95.Rebin()
     HistoD95.SetXTitle("Pt")
     HistoD95.SetYTitle("V" + str(nV) +"")
     HistoD96 = HistoD81.ProfileY("DataV" + str(nV) +"VsPtForKaonsPlusCentrality10-40", 3, 8)
+    HistoD96.Sumw2(ROOT.kFALSE)
     HistoD96.Rebin()
     HistoD96.SetXTitle("Pt")
     HistoD96.SetYTitle("V" + str(nV) +"")
     HistoD97 = HistoD81.ProfileY("DataV" + str(nV) +"VsPtForKaonsPlusCentrality40-60", 9, 12)
+    HistoD97.Sumw2(ROOT.kFALSE)
     HistoD97.Rebin()
     HistoD97.SetXTitle("Pt")
     HistoD97.SetYTitle("V" + str(nV) +"")
     HistoD98 = HistoD82.ProfileY("DataV" + str(nV) +"VsYForKaonsPlusCentrality0-10", 1, 2)
+    HistoD98.Sumw2(ROOT.kFALSE)
     HistoD98.Rebin()
     HistoD98.SetXTitle("Y - Y_CM")
     HistoD98.SetYTitle("V" + str(nV) +"")
     HistoD99 = HistoD82.ProfileY("DataV" + str(nV) +"VsYForKaonsPlusCentrality10-40", 3, 8)
+    HistoD99.Sumw2(ROOT.kFALSE)
     HistoD99.Rebin()
     HistoD99.SetXTitle("Y - Y_CM")
     HistoD99.SetYTitle("V" + str(nV) +"")
     HistoD100 = HistoD82.ProfileY("DataV" + str(nV) +"VsYForKaonsPlusCentrality40-60", 9, 12)
+    HistoD100.Sumw2(ROOT.kFALSE)
     HistoD100.Rebin()
     HistoD100.SetXTitle("Y - Y_CM")
     HistoD100.SetYTitle("V" + str(nV) +"")
 
 
     HistoD101 = HistoD83.ProfileY("DataV" + str(nV) +"VsPtForKaonsMinusCentrality0-10", 1, 2)
+    HistoD101.Sumw2(ROOT.kFALSE)
     HistoD101.Rebin()
     HistoD101.SetXTitle("Pt")
     HistoD101.SetYTitle("V" + str(nV) +"")
     HistoD102 = HistoD83.ProfileY("DataV" + str(nV) +"VsPtForKaonsMinusCentrality10-40", 3, 8)
+    HistoD102.Sumw2(ROOT.kFALSE)
     HistoD102.Rebin()
     HistoD102.SetXTitle("Pt")
     HistoD102.SetYTitle("V" + str(nV) +"")
     HistoD103 = HistoD83.ProfileY("DataV" + str(nV) +"VsPtForKaonsMinusCentrality40-60", 9, 12)
+    HistoD103.Sumw2(ROOT.kFALSE)
     HistoD103.Rebin()
     HistoD103.SetXTitle("Pt")
     HistoD103.SetYTitle("V" + str(nV) +"")
     HistoD104 = HistoD84.ProfileY("DataV" + str(nV) +"VsYForKaonsMinusCentrality0-10", 1, 2)
+    HistoD104.Sumw2(ROOT.kFALSE)
     HistoD104.Rebin()
     HistoD104.SetXTitle("Y - Y_CM")
     HistoD104.SetYTitle("V" + str(nV) +"")
     HistoD105 = HistoD84.ProfileY("DataV" + str(nV) +"VsYForKaonsMinusCentrality10-40", 3, 8)
+    HistoD105.Sumw2(ROOT.kFALSE)
     HistoD105.Rebin()
     HistoD105.SetXTitle("Y - Y_CM")
     HistoD105.SetYTitle("V" + str(nV) +"")
     HistoD106 = HistoD84.ProfileY("DataV" + str(nV) +"VsYForKaonsMinusCentrality40-60", 9, 12)
+    HistoD106.Sumw2(ROOT.kFALSE)
     HistoD106.Rebin()
     HistoD106.SetXTitle("Y - Y_CM")
     HistoD106.SetYTitle("V" + str(nV) +"")
@@ -2455,41 +3133,65 @@ if(RunIteration == 4):
 
 
     HistoD107 = HistoD85.ProfileY("DataV" + str(nV) +"VsPtForPionsPlusCentrality0-10", 1, 2)
+    if(nV >= 4):
+        HistoD107.Rebin()
     HistoD107.SetXTitle("Pt")
     HistoD107.SetYTitle("V" + str(nV) +"")
     HistoD108 = HistoD85.ProfileY("DataV" + str(nV) +"VsPtForPionsPlusCentrality10-40", 3, 8)
+    if(nV >= 4):
+        HistoD108.Rebin()
     HistoD108.SetXTitle("Pt")
     HistoD108.SetYTitle("V" + str(nV) +"")
     HistoD109 = HistoD85.ProfileY("DataV" + str(nV) +"VsPtForPionsPlusCentrality40-60", 9, 12)
+    if(nV >= 4):
+        HistoD109.Rebin()
     HistoD109.SetXTitle("Pt")
     HistoD109.SetYTitle("V" + str(nV) +"")
     HistoD110 = HistoD86.ProfileY("DataV" + str(nV) +"VsYForPionsPlusCentrality0-10", 1, 2)
+    if(nV >= 4):
+        HistoD110.Rebin()
     HistoD110.SetXTitle("Y - Y_CM")
     HistoD110.SetYTitle("V" + str(nV) +"")
     HistoD111 = HistoD86.ProfileY("DataV" + str(nV) +"VsYForPionsPlusCentrality10-40", 3, 8)
+    if(nV >= 4):
+        HistoD111.Rebin()
     HistoD111.SetXTitle("Y - Y_CM")
     HistoD111.SetYTitle("V" + str(nV) +"")
     HistoD112 = HistoD86.ProfileY("DataV" + str(nV) +"VsYForPionsPlusCentrality40-60", 9, 12)
+    if(nV >= 4):
+        HistoD112.Rebin()
     HistoD112.SetXTitle("Y - Y_CM")
     HistoD112.SetYTitle("V" + str(nV) +"")
 
 
     HistoD113 = HistoD87.ProfileY("DataV" + str(nV) +"VsPtForPionsMinusCentrality0-10", 1, 2)
+    if(nV >= 4):
+        HistoD113.Rebin()
     HistoD113.SetXTitle("Pt")
     HistoD113.SetYTitle("V" + str(nV) +"")
     HistoD114 = HistoD87.ProfileY("DataV" + str(nV) +"VsPtForPionsMinusCentrality10-40", 3, 8)
+    if(nV >= 4):
+        HistoD114.Rebin()
     HistoD114.SetXTitle("Pt")
     HistoD114.SetYTitle("V" + str(nV) +"")
     HistoD115 = HistoD87.ProfileY("DataV" + str(nV) +"VsPtForPionsMinusCentrality40-60", 9, 12)
+    if(nV >= 4):
+        HistoD115.Rebin()
     HistoD115.SetXTitle("Pt")
     HistoD115.SetYTitle("V" + str(nV) +"")
     HistoD116 = HistoD88.ProfileY("DataV" + str(nV) +"VsYForPionsMinusCentrality0-10", 1, 2)
+    if(nV >= 4):
+        HistoD116.Rebin()
     HistoD116.SetXTitle("Y - Y_CM")
     HistoD116.SetYTitle("V" + str(nV) +"")
     HistoD117 = HistoD88.ProfileY("DataV" + str(nV) +"VsYForPionsMinusCentrality10-40", 3, 8)
+    if(nV >= 4):
+        HistoD117.Rebin()
     HistoD117.SetXTitle("Y - Y_CM")
     HistoD117.SetYTitle("V" + str(nV) +"")
     HistoD118 = HistoD88.ProfileY("DataV" + str(nV) +"VsYForPionsMinusCentrality40-60", 9, 12)
+    if(nV >= 4):
+        HistoD118.Rebin()
     HistoD118.SetXTitle("Y - Y_CM")
     HistoD118.SetYTitle("V" + str(nV) +"")
 
@@ -2535,7 +3237,18 @@ if(RunIteration == 4):
 
 
 
-
+    EventCheck.SetDirectory(0)
+    OverallTrackCheck.SetDirectory(0)
+    ProtonTrackCheck.SetDirectory(0)
+    KaonPlusTrackCheck.SetDirectory(0)
+    KaonMinusTrackCheck.SetDirectory(0)
+    PionPlusTrackCheck.SetDirectory(0)
+    PionMinusTrackCheck.SetDirectory(0)
+    DeuteronTrackCheck.SetDirectory(0)
+    TritonTrackCheck.SetDirectory(0)
+    HistoDC.SetDirectory(0)
+    HistoDD.SetDirectory(0)
+    HistoDE.SetDirectory(0)
     HistoD44C.SetDirectory(0)
     HistoD47B.SetDirectory(0)
     HistoD47C.SetDirectory(0)
@@ -2608,7 +3321,18 @@ if(RunIteration == 4):
     HistoD130.SetDirectory(0)
 
 
-
+    Histograms.append(EventCheck)
+    Histograms.append(OverallTrackCheck)
+    Histograms.append(ProtonTrackCheck)
+    Histograms.append(KaonPlusTrackCheck)
+    Histograms.append(KaonMinusTrackCheck)
+    Histograms.append(PionPlusTrackCheck)
+    Histograms.append(PionMinusTrackCheck)
+    Histograms.append(DeuteronTrackCheck)
+    Histograms.append(TritonTrackCheck)
+    Histograms.append(HistoDC)
+    Histograms.append(HistoDD)
+    Histograms.append(HistoDE)
     Histograms.append(HistoD44C)
     Histograms.append(HistoD47B)
     Histograms.append(HistoD47C)
@@ -2681,15 +3405,16 @@ if(RunIteration == 4):
     Histograms.append(HistoD130)
     
     Data.Close()
-    QVectorHistogramFile.Close()
+    QVectorHistogramFileFirst.Close()
+    QVectorHistogramFileSecond.Close()
     HistogramFile.Close()
     TPCEfficiencyFile.Close()
     ToFEfficiencyFile.Close()
 
 
 
-    #HistogramRootFile = ROOT.TFile.Open("/star/u/mcgordon/VnFromEPD/HistogramTest.root", "UPDATE")
-    HistogramRootFile = ROOT.TFile.Open("/star/data01/pwg/mcgordon/VnFromEPD/V" + str(nV) + "Histograms/HistogramFourthPass" + sys.argv[2] + ".root", "RECREATE")
+    #HistogramRootFile = ROOT.TFile.Open("/star/u/mcgordon/VnFromEPD/HistogramFourthPassTest.root", "UPDATE")
+    HistogramRootFile = ROOT.TFile.Open("/star/data01/pwg/mcgordon/VnFromEPD/V" + str(nV) + "Histograms/HistogramFourthPass" + sys.argv[3] + sys.argv[2] + ".root", "RECREATE")
     HistogramRootFile.cd()
 
     for index in range(0,len(Histograms)):

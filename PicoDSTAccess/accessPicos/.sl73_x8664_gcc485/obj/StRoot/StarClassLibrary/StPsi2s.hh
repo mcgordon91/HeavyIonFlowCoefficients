@@ -1,0 +1,1 @@
+../../../../StRoot/StarClassLibrary/StPsi2s.hh

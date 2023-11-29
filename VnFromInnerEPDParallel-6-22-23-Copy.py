@@ -38,7 +38,7 @@ ROOT.gInterpreter.Declare("""
 
 
 nPsi = 1
-nV = 2
+nV = 1
 
 
 
@@ -50,8 +50,6 @@ elif(os.path.exists("/star/data01/pwg/mcgordon/VnFromEPD/V" + str(nV) +"Histogra
     RunIteration = 2
 else:
     RunIteration = 1
-
-
 
 
 

@@ -1,0 +1,3 @@
+[ libVariation.so ]
+# List of selected classes
+class Variation
