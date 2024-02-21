@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<job maxFilesPerProcess="20" filesPerHour="1" fileListSyntax="xrootd" simulateSubmission="false">
+  
+  <command>
+    starver SL20d
+    cons
+    root4star -q -b -l MakeTrees.C\(0,$INPUTFILECOUNT,\"$FILELIST\",\"$SCRATCH\",\"$JOBID\",\"config_3p0GeV.txt\",0\)
+  </command>
+  
+  <SandBox installer="ZIP">
+    <Package>
+      <File>file:/star/u/mcgordon/VnFromEPD/TreeBuilder/MakeTrees.C</File>
+      <File>file:/star/u/mcgordon/VnFromEPD/TreeBuilder/config_3p0GeV.txt</File>
+      <File>file:/star/u/mcgordon/VnFromEPD/TreeBuilder/StRoot</File>
+    </Package>
+  </SandBox>
+
+  <!-- Get input files from get_file_lis.pl -->
+  <!--<input URL="catalog:star.bnl.gov?production=P19ie,library=SL20d,filetype=daq_reco_PicoDst,trgsetupname=production_3p85GeV_fixedTarget_2018,tpx=1,sname2=st_physics,sanity=1,storage!=HPSS" singleCopy="true" nFiles="all"/>-->
+  <input URL="filelist:/star/u/mcgordon/VnFromEPD/TreeBuilder/fxt_3p0GeV_SL20d_nTracksErrorFixed_afterDuplication_file.list" nFiles="40"/>
+  
+  <!-- Run log & error messages -->
+  <stdout URL="file:/star/data01/pwg/mcgordon/Logs/Trees/$JOBID.out" />
+  <stderr URL="file:/star/data01/pwg/mcgordon/Logs/Trees/$JOBID.err" />
+  <output fromScratch="$JOBID.root" toURL="file:/star/data01/pwg/mcgordon/Trees/"/>
+
+</job>

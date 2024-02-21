@@ -1770,6 +1770,7 @@ if(RunIteration == 4):
         Centrality = AutreeData.centrality
         EPDnMIP = AutreeData.EPDnMip
         EPDID = AutreeData.EPDid
+        tracknumber = AutreeData.tracknumber
 
         ProtonID = 2212
         KaonPlusID = 321

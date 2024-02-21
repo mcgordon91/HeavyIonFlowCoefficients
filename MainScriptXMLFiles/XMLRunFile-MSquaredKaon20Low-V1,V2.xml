@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<!-- Job parameters -->
+<job maxFilesPerProcess="1" filesPerHour="1" fileListSyntax="paths">
+
+  <!-- Task list -->
+  <command>
+    starver SL20d
+    setup 64b
+    setup root 6.20.08
+    python VnFromInnerEPDParallel-V1,V2-Parameters.py $INPUTFILE0 $JOBID MSquaredKaon20Low
+  </command>
+    
+  <ResourceUsage> 
+    <Memory> 
+        <MinMemory>2048</MinMemory> 
+    </Memory> 
+  </ResourceUsage> 
+
+
+  <!-- Necessary files -->
+  <SandBox installer="ZIP">
+    <Package>
+      <File>file:/star/u/mcgordon/VnFromEPD/VnFromInnerEPDParallel-V1,V2-Parameters.py</File>
+      <File>file:/star/u/mcgordon/VnFromEPD/KinematicFunctions.py</File>
+      <File>file:/star/u/mcgordon/VnFromEPD/StEpdGeom.cxx</File>
+      <File>file:/star/u/mcgordon/VnFromEPD/StEpdGeom.h</File>
+      <File>file:/star/u/mcgordon/VnFromEPD/StRoot/StBichsel/dEdxParameterization.cxx</File>
+      <File>file:/star/u/mcgordon/VnFromEPD/StRoot/StBichsel/Bichsel.h</File>
+      <File>file:/star/u/mcgordon/VnFromEPD/StRoot/StBichsel/Bichsel.cxx</File>
+      <File>file:/star/u/mcgordon/VnFromEPD/bichselComparison.cxx</File>
+    </Package>
+  </SandBox>
+
+
+  <!-- Get input files from get_file_lis.pl -->
+  <input URL="filelist:/star/u/mcgordon/VnFromEPD/tree_fxt_3p0GeV_SL20d_nTracksErrorFixed_afterDuplication_file.list" nFiles="all"/>
+  
+  <!-- Run log & error messages -->
+  <stdout URL="file:/star/data01/pwg/mcgordon/Logs/VnFromEPD/$JOBID.out" />
+  <stderr URL="file:/star/data01/pwg/mcgordon/Logs/VnFromEPD/$JOBID.err" />
+  <output fromScratch="*.root" toURL="file:/star/data01/pwg/mcgordon/Logs/VnFromEPD/"/>
+  
+</job>

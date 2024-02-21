@@ -1,1 +1,0 @@
-../../../../StRoot/StarClassLibrary/StKaonZeroMode0809.cc

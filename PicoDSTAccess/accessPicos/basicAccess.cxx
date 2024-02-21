@@ -1,6 +1,8 @@
 // C++ headers
 #include <iostream>
 #include <vector>
+#include <fstream>
+#include <string>
 
 // ROOT headers
 #include "TROOT.h"
@@ -26,6 +28,8 @@
 
 
 
+
+
 //void basicAccess(TString inFile, TString jobID)
 int main(int argc, char *argv[])
 {
@@ -34,12 +38,14 @@ int main(int argc, char *argv[])
   TString inFile = argv[1];
   TString jobID  = argv[2];
 
-  if (gSystem->AccessPathName(inFile)) { std::cout << "Error reading input file!" << std::endl; return 1;}
+  TString FailString = "/star/data01/pwg/mcgordon/PicoDSTs/" + jobID + ".fail";
+
+  if (gSystem->AccessPathName(inFile)) { ofstream FailFile; std::cout << "Error reading input file!" << std::endl;  FailFile.open (FailString); FailFile.close(); return 1;}
 
   //=========================================================
   //          Set up various files
   //=========================================================
-
+    
   //=== INITIALIZE PICOREADER
   StPicoDstReader* picoReader = new StPicoDstReader(inFile);
   picoReader->Init();
@@ -66,7 +72,7 @@ int main(int argc, char *argv[])
 
 
   // MAIN OUTPUT FILE
-  TString outFile = jobID+".picoDst.result.root";
+  TString outFile = "/star/data01/pwg/mcgordon/PicoDSTs/"+jobID+".picoDst.result.root";
   TFile *outputFile = new TFile(outFile,"RECREATE");
   outputFile->cd();
   //=========================================================
@@ -75,16 +81,12 @@ int main(int argc, char *argv[])
 
 
 
-
   // HISTOGRAMS
 
-  TH1F *EventCounter = new TH1F("EventCounter", "Event Counter; Counter; Counts", 2, 0, 2);
+  TH1F *EventCounter = new TH1F("EventCounter", "Event Counter; Counter; Counts", 3, 0, 3); 
     
-  TH1D *h_pT = new TH1D("h_pT", "p_{T};p_{T} (GeV);", 100, 0, 5);
-
-
-
-
+  TH2D *dEdxVsP = new TH2D("dEdxVsP", "dEdx Vs p; p (Gev); dEdx (Gev/fm)", 1000, 0, 2, 1000, 0, 10);
+    
 
   std::cout << "Setup complete, beginning analysis..." << std::endl;
 
@@ -95,7 +97,7 @@ int main(int argc, char *argv[])
     {
       Bool_t readEvent = picoReader->readPicoEvent(ievent);
       if( !readEvent ) { std::cout << "Event could not be read; aborting analysis." << std::endl; break; }
-        
+ 
       StPicoDst *dst = picoReader->picoDst();
       StPicoEvent *event = dst->event();
       if( !event ) { std::cout << "No event found; aborting analysis." << std::endl; break; }
@@ -109,7 +111,6 @@ int main(int argc, char *argv[])
       ////
       // Event level code here
       ////
-
       EventCounter->Fill(1);
           
       Int_t nTracks = dst->numberOfTracks();
@@ -157,11 +158,10 @@ int main(int argc, char *argv[])
 
 	  ////
 	  // TPC track level code here
-	  h_pT->Fill(d_pT);
+	  dEdxVsP->Fill(d_mom, d_dEdx);
 	  ////
 
 	}//End TPC track loop
-
 
       //=========================================================
       //                EPD STUFF
@@ -198,9 +198,15 @@ int main(int argc, char *argv[])
       //            END EPD STUFF
       //=========================================================
     }// END EVENT LOOP
-
+    
   outputFile->cd();
-  outputFile->Write();
+    
+  EventCounter->Write();
+  dEdxVsP->Write();
+  //outputFile->Write();
+
+  delete EventCounter;
+  delete dEdxVsP;
 
   gROOT->GetListOfFiles()->Remove(outputFile);
   outputFile->Close();

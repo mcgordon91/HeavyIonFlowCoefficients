@@ -41,18 +41,18 @@ ROOT.gInterpreter.Declare("""
 
 
 
-if(not os.path.exists("/star/u/mcgordon/VnFromEPD/QVectorHistogramTest.root")):
-    RunIteration = 1
+# if(not os.path.exists("/star/u/mcgordon/VnFromEPD/QVectorHistogramTest.root")):
+#     RunIteration = 1
     
-else:
-    if(isinstance(ROOT.TFile.Open("/star/u/mcgordon/VnFromEPD/HistogramTest.root").Get("DataPsi1RecenteredAndShiftedOuterEPD"), ROOT.TH1F)):
-        RunIteration = 4
-    elif(isinstance(ROOT.TFile.Open("/star/u/mcgordon/VnFromEPD/HistogramTest.root").Get("DataPsi1RecenteredOuterEPD"), ROOT.TH1F)):
-        RunIteration = 3
-    else:
-        RunIteration = 2
+# else:
+#     if(isinstance(ROOT.TFile.Open("/star/u/mcgordon/VnFromEPD/HistogramTest.root").Get("DataPsi1RecenteredAndShiftedOuterEPD"), ROOT.TH1F)):
+#         RunIteration = 4
+#     elif(isinstance(ROOT.TFile.Open("/star/u/mcgordon/VnFromEPD/HistogramTest.root").Get("DataPsi1RecenteredOuterEPD"), ROOT.TH1F)):
+#         RunIteration = 3
+#     else:
+#         RunIteration = 2
 
-
+RunIteration = 1
 
 
 
@@ -765,8 +765,8 @@ if(RunIteration == 1):
     print("Done")
 ################################################################################################################
 if(RunIteration == 2):
-    #Data = ROOT.TFile.Open(sys.argv[1])
-    Data = ROOT.TFile.Open("/star/data01/pwg/cracz/Data_3p0GeV_FXT/FXT_3p0GeV_SL20d_2018_127.root")
+    Data = ROOT.TFile.Open(sys.argv[1])
+    #Data = ROOT.TFile.Open("/star/data01/pwg/cracz/Data_3p0GeV_FXT/FXT_3p0GeV_SL20d_2018_127.root")
 
     AutreeData = Data.Get("Autree")
 
@@ -1088,8 +1088,8 @@ if(RunIteration == 2):
     print("Done")
 #############################################################################################################
 if(RunIteration == 3):
-    #Data = ROOT.TFile.Open(sys.argv[1])
-    Data = ROOT.TFile.Open("/star/data01/pwg/cracz/Data_3p0GeV_FXT/FXT_3p0GeV_SL20d_2018_127.root")
+    Data = ROOT.TFile.Open(sys.argv[1])
+    #Data = ROOT.TFile.Open("/star/data01/pwg/cracz/Data_3p0GeV_FXT/FXT_3p0GeV_SL20d_2018_127.root")
     # MonteCarlo = ROOT.TFile.Open("/eos/user/m/migordon/SWAN_projects/HeavyIonStuff/CombinedMonteCarloFiles.root")
 
     AutreeData = Data.Get("Autree")
@@ -1395,8 +1395,8 @@ if(RunIteration == 3):
     print("Done")                                    
 ################################################################################################################################################                        
 if(RunIteration == 4):
-    #Data = ROOT.TFile.Open(sys.argv[1])
-    Data = ROOT.TFile.Open("/star/data01/pwg/cracz/Data_3p0GeV_FXT/FXT_3p0GeV_SL20d_2018_127.root")
+    Data = ROOT.TFile.Open(sys.argv[1])
+    #Data = ROOT.TFile.Open("/star/data01/pwg/cracz/Data_3p0GeV_FXT/FXT_3p0GeV_SL20d_2018_127.root")
     # MonteCarlo = ROOT.TFile.Open("/eos/user/m/migordon/SWAN_projects/HeavyIonStuff/CombinedMonteCarloFiles.root")
 
     AutreeData = Data.Get("Autree")

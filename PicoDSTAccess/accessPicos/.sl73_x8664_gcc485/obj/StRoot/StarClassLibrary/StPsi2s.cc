@@ -1,1 +1,0 @@
-../../../../StRoot/StarClassLibrary/StPsi2s.cc

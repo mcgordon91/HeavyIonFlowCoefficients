@@ -1,1 +1,0 @@
-../../../../StRoot/StarClassLibrary/StSigmaPlus1385.hh

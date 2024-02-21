@@ -1,0 +1,1 @@
+../../../../../StRoot/StEvent/.ipynb_checkpoints/StEmcDetector-checkpoint.cxx

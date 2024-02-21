@@ -2,11 +2,14 @@ import ROOT
 import sys
 from math import sqrt
 
-nV = 1
+nPsi = 1
+nV = 3
 
-HistogramFile = ROOT.TFile.Open("/star/u/mcgordon/VnFromEPD/HistogramThirdPassTest.root", "UPDATE")
+#HistogramFile = ROOT.TFile.Open("/star/u/mcgordon/VnFromEPD/HistogramThirdPassTest.root", "UPDATE")
 #HistogramFile = ROOT.TFile.Open("/star/data01/pwg/mcgordon/VnFromEPD/V" + str(nV) + "Histograms/HistogramThirdPass" + sys.argv[1] + ".root", "UPDATE")
-#HistogramFile = ROOT.TFile.Open("/star/data01/pwg/mcgordon/VnFromEPD/V" + str(nV) + "Histograms/HistogramThirdPassNormal.root", "UPDATE")
+HistogramFile = ROOT.TFile.Open("/star/data01/pwg/mcgordon/VnFromEPD/V" + str(nV) + "Histograms/HistogramThirdPassNormal.root", "READ")
+
+ResolutionFile = ROOT.TFile.Open("/star/data01/pwg/mcgordon/VnFromEPD/V" + str(nV) + "Histograms/R_" + str(nV) + str(nPsi) + "_" + sys.argv[1] + ".root", "RECREATE")
 
 HistoD51 = HistogramFile.Get("DataResolutionTopLeftTerm")
 HistoD52 = HistogramFile.Get("DataResolutionTopRightTerm")
@@ -74,11 +77,11 @@ for index in range(1, HistoD51.GetNbinsX() + 1):
 
 HistoD54.SetDirectory(0)
 
-HistogramFile.cd()
-
+ResolutionFile.cd()
 
 HistoD54.Write()
 
 HistogramFile.Close()
+ResolutionFile.Close()
 
 print("DONE")

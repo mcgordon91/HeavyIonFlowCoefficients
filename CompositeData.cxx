@@ -4,7 +4,7 @@
 #include "TProfile2D.h"
 #include "PlotUtils.h"
 #include "CompositeData.h"
-
+using namespace std;
 
 // Constructor for one variation.
 CompositeData::CompositeData(TString prefix, Variation* normalData, Variation* var1Data)
@@ -185,8 +185,8 @@ void CompositeData::initialize()
   // Centrality
   barlow_vn_pp = new TH1D("barlow_vn_pp_"+ID, "pp vs cent;Centrality;#Delta/#sigma_{#Delta}", 12, 0, 12);
   barlow_vn_pm = new TH1D("barlow_vn_pm_"+ID, "pm vs cent;Centrality;#Delta/#sigma_{#Delta}", 12, 0, 12);
-  barlow_vn_kp = new TH1D("barlow_vn_kp_"+ID, "kp vs cent;Centrality;#Delta/#sigma_{#Delta}", 12, 0, 12);
-  barlow_vn_km = new TH1D("barlow_vn_km_"+ID, "km vs cent;Centrality;#Delta/#sigma_{#Delta}", 12, 0, 12);
+  barlow_vn_kp = new TH1D("barlow_vn_kp_"+ID, "kp vs cent;Centrality;#Delta/#sigma_{#Delta}", 6, 0, 6);
+  barlow_vn_km = new TH1D("barlow_vn_km_"+ID, "km vs cent;Centrality;#Delta/#sigma_{#Delta}", 6, 0, 6);
   barlow_vn_pr = new TH1D("barlow_vn_pr_"+ID, "pr vs cent;Centrality;#Delta/#sigma_{#Delta}", 12, 0, 12);
   barlow_vn_de = new TH1D("barlow_vn_de_"+ID, "de vs cent;Centrality;#Delta/#sigma_{#Delta}", 12, 0, 12);
   barlow_vn_tr = new TH1D("barlow_vn_tr_"+ID, "tr vs cent;Centrality;#Delta/#sigma_{#Delta}", 12, 0, 12);
@@ -364,7 +364,7 @@ void CompositeData::addRawValuesToFile(TFile* file, TString histogramName, std::
 void CompositeData::addBarlowValuesToFile(TFile* file, TH1D* barlowHistogram, std::vector<DataPoint> vectorOfPoints)
 {
   for (int i = 1; i <= vectorOfPoints.size(); i++)
-    { barlowHistogram->SetBinContent(i, vectorOfPoints.at(i-1).deltaByDeltaError); }
+    {barlowHistogram->SetBinContent(i, vectorOfPoints.at(i-1).deltaByDeltaError); }
 
   file->cd();
   barlowHistogram->Write();
@@ -657,7 +657,7 @@ void CompositeData::mergePoints(TH1D* normalHisto, TH1D* var1Histo, std::vector<
     
     point.var1Value = var1Histo->GetBinContent(i);
     point.var1Error = var1Histo->GetBinError(i);
-    
+
     point.delta = TMath::Abs(point.var1Value - point.normalValue);
     point.deltaError = TMath::Sqrt(TMath::Abs(TMath::Power(point.var1Error, 2) - TMath::Power(point.normalError, 2)));
     point.deltaByDeltaError = (point.deltaError == 0.0)?0.0:point.delta/point.deltaError;

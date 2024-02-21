@@ -1,1 +1,0 @@
-../../../../StRoot/StarClassLibrary/StSigmacZero.hh

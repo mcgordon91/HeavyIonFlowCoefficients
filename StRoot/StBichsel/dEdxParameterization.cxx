@@ -14,7 +14,7 @@
 #include "TError.h" 
 #include "TMath.h"
 
-#define  PrP(A)  cout << "\t" << (#A) << " = \t" << ( A )
+#define  PrP(A)  std::cout << "\t" << (#A) << " = \t" << ( A )
 
 ClassImp(dEdxParameterization)
 //________________________________________________________________________________
@@ -68,7 +68,7 @@ dEdxParameterization::dEdxParameterization(const Char_t *Tag, Int_t keep3D,
     fnBins[i] = fAXYZ[i]->GetNbins(); 
     fbinW[i]  = fAXYZ[i]->GetBinWidth(1);
 #ifdef PRINT0
-    PrP(i); PrP(fnBins[i]); PrP(fbinW[i]); cout << endl;
+    PrP(i); PrP(fnBins[i]); PrP(fbinW[i]); std::cout << std::endl;
     assert(fnBins[i] !=1);
 #endif
   }
@@ -108,19 +108,19 @@ dEdxParameterization::~dEdxParameterization() {
 }    
 //________________________________________________________________________________
 void dEdxParameterization::Print() {
-  PrP(fTag); cout << endl;
-  PrP(fP); if (fP) PrP(fP->GetTitle()); cout << endl;
-  PrP(fA); if (fA) PrP(fA->GetTitle()); cout << endl;
-  PrP(fI70); if (fI70) PrP(fI70->GetTitle()); cout << endl;
-  PrP(fI60); if (fI60) PrP(fI60->GetTitle()); cout << endl;
-  PrP(fD); if (fD) PrP(fD->GetTitle()); cout << endl;
-  PrP(fRms); if (fRms) PrP(fRms->GetTitle()); cout << endl;
-  PrP(fW); if (fW) PrP(fW->GetTitle()); cout << endl;
-  PrP(fPhi); if (fPhi) PrP(fPhi->GetTitle()); cout << endl;
-  PrP(fMostProbableZShift); cout << endl;
-  PrP(fAverageZShift); cout << endl;
-  PrP(fI70Shift); cout << endl;
-  PrP(fI60Shift); cout << endl;
+  PrP(fTag); std::cout << std::endl;
+  PrP(fP); if (fP) PrP(fP->GetTitle()); std::cout << std::endl;
+  PrP(fA); if (fA) PrP(fA->GetTitle()); std::cout << std::endl;
+  PrP(fI70); if (fI70) PrP(fI70->GetTitle()); std::cout << std::endl;
+  PrP(fI60); if (fI60) PrP(fI60->GetTitle()); std::cout << std::endl;
+  PrP(fD); if (fD) PrP(fD->GetTitle()); std::cout << std::endl;
+  PrP(fRms); if (fRms) PrP(fRms->GetTitle()); std::cout << std::endl;
+  PrP(fW); if (fW) PrP(fW->GetTitle()); std::cout << std::endl;
+  PrP(fPhi); if (fPhi) PrP(fPhi->GetTitle()); std::cout << std::endl;
+  PrP(fMostProbableZShift); std::cout << std::endl;
+  PrP(fAverageZShift); std::cout << std::endl;
+  PrP(fI70Shift); std::cout << std::endl;
+  PrP(fI60Shift); std::cout << std::endl;
 } 
 //________________________________________________________________________________
 Double_t dEdxParameterization::MostProbableZCorrection(Double_t log10bg) {

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 
 <!-- Job parameters -->
-<job maxFilesPerProcess="20" filesPerHour="1" fileListSyntax="xrootd">
+<job maxFilesPerProcess="1" filesPerHour="1" fileListSyntax="xrootd">
 
   <!-- Task list -->
   <command>
@@ -14,17 +14,17 @@
   <SandBox installer="ZIP">
     <Package>
       <File>file:/star/u/mcgordon/VnFromEPD/PicoDSTAccess/accessPicos/basicAccess</File>
-      <File>file:/star/u/mcgordon/VnFromEPD/accessPicos/StRoot/</File>
+      <File>file:/star/u/mcgordon/VnFromEPD/PicoDSTAccess/accessPicos/StRoot/</File>
     </Package>
   </SandBox>
 
 
   <!-- Get input files from get_file_lis.pl -->
-  <input URL="filelist:/star/u/mcgordon/VnFromEPD/fxt_3p0GeV_SL20d_nTracksErrorFixed_afterDuplication_file.list" nFiles="40"/>
+  <input URL="filelist:/star/u/mcgordon/VnFromEPD/fxt_3p0GeV_SL20d_nTracksErrorFixed_afterDuplication_file.list" nFiles="all"/>
   
   <!-- Run log & error messages -->
   <stdout URL="file:/star/data01/pwg/mcgordon/Logs/PicoDSTs/$JOBID.out" />
   <stderr URL="file:/star/data01/pwg/mcgordon/Logs/PicoDSTs/$JOBID.err" />
-  <output fromScratch="*.root" toURL="file:/star/data01/pwg/mcgordon/Logs/VnFromEPD/"/>
+  <output fromScratch="*.root" toURL="file:/star/data01/pwg/mcgordon/Logs/PicoDSTs/"/>
   
 </job>

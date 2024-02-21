@@ -1,1 +1,0 @@
-../../../../StRoot/StarClassLibrary/StHelium3.cc

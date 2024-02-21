@@ -1,1 +1,0 @@
-../../../../StRoot/StarClassLibrary/StUpsilon2S.cc

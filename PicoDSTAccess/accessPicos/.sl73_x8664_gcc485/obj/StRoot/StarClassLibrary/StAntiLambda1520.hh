@@ -1,1 +1,0 @@
-../../../../StRoot/StarClassLibrary/StAntiLambda1520.hh
