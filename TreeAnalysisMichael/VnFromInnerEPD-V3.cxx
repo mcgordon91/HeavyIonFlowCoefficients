@@ -66,42 +66,38 @@ int main(int argc, char *argv[])
 
     
     
-//     Int_t RunIteration;
+    Int_t RunIteration;
     
-//     std::string FirstPassString = "/star/data01/pwg/mcgordon/VnFromEPD/V" + std::to_string(nV) + "Histograms/HistogramFirstPass" + argv[3] + ".root";
-//     char *FirstPassChar = &FirstPassString[0];
+    std::string FirstPassString = "/star/data01/pwg/mcgordon/VnFromEPD/V" + std::to_string(nV) + "Histograms/HistogramFirstPass" + argv[3] + ".root";
+    char *FirstPassChar = &FirstPassString[0];
     
-//     std::string SecondPassString = "/star/data01/pwg/mcgordon/VnFromEPD/V" + std::to_string(nV) + "Histograms/HistogramSecondPass" + argv[3] + ".root";
-//     char *SecondPassChar = &SecondPassString[0];
+    std::string SecondPassString = "/star/data01/pwg/mcgordon/VnFromEPD/V" + std::to_string(nV) + "Histograms/HistogramSecondPass" + argv[3] + ".root";
+    char *SecondPassChar = &SecondPassString[0];
     
-//     std::string ThirdPassString = "/star/data01/pwg/mcgordon/VnFromEPD/V" + std::to_string(nV) + "Histograms/HistogramThirdPass" + argv[3] + ".root";
-//     char *ThirdPassChar = &ThirdPassString[0];
+    std::string ThirdPassString = "/star/data01/pwg/mcgordon/VnFromEPD/V" + std::to_string(nV) + "Histograms/HistogramThirdPass" + argv[3] + ".root";
+    char *ThirdPassChar = &ThirdPassString[0];
 
-//     TFile *LastHistogramFile = TFile::Open(ThirdPassChar);
-//     if(!LastHistogramFile)
-//     {
-//         TFile *LastHistogramFile = TFile::Open(SecondPassChar);
-//         if(!LastHistogramFile)
-//         {
-//             TFile *LastHistogramFile = TFile::Open(FirstPassChar);
-//             {
-//                 if(!LastHistogramFile)
-//                 {
-//                     RunIteration = 1;
-//                 }
-                
-//                 RunIteration = 2;
-//             }
-            
-//             RunIteration = 3;
-            
-//         }
-        
-//         RunIteration = 4;
-//     }
-
-
-    Int_t RunIteration = 1;
+    if(ifstream(ThirdPassChar).good())
+    {
+        RunIteration = 4;
+    }
+    
+    else if(ifstream(SecondPassChar).good())
+    {
+        RunIteration = 3;
+    }
+    
+    else if(ifstream(FirstPassChar).good())
+    {
+        RunIteration = 2;
+    }
+    
+    else
+    {
+        RunIteration = 1;
+    }
+    
+//     Int_t RunIteration = 2;
 
     
     
@@ -377,7 +373,7 @@ int main(int argc, char *argv[])
         std::string QVectorHistogramFirstString = "/star/data01/pwg/mcgordon/VnFromEPD/V" + std::to_string(nV) + "Histograms/QVectorFirstPass" + argv[3] + ".root";
         char *QVectorHistogramFirstChar = &QVectorHistogramFirstString[0];
 
-        QVectorHistogramFileFirst = TFile::Open(QVectorHistogramFirstChar);
+        QVectorHistogramFileFirst = TFile::Open(QVectorHistogramFirstChar, "READ");
     }
     
     if(RunIteration == 3)
@@ -385,12 +381,12 @@ int main(int argc, char *argv[])
         std::string QVectorHistogramFirstString = "/star/data01/pwg/mcgordon/VnFromEPD/V" + std::to_string(nV) + "Histograms/QVectorFirstPass" + argv[3] + ".root";
         char *QVectorHistogramFirstChar = &QVectorHistogramFirstString[0];
 
-        QVectorHistogramFileFirst = TFile::Open(QVectorHistogramFirstChar);
+        QVectorHistogramFileFirst = TFile::Open(QVectorHistogramFirstChar, "READ");
         
         std::string QVectorHistogramSecondString = "/star/data01/pwg/mcgordon/VnFromEPD/V" + std::to_string(nV) + "Histograms/QVectorSecondPass" + argv[3] + ".root";
         char *QVectorHistogramSecondChar = &QVectorHistogramSecondString[0];
     
-        QVectorHistogramFileSecond = TFile::Open(QVectorHistogramSecondChar);
+        QVectorHistogramFileSecond = TFile::Open(QVectorHistogramSecondChar, "READ");
     }
     
     if(RunIteration == 4)
@@ -398,23 +394,68 @@ int main(int argc, char *argv[])
         std::string QVectorHistogramFirstString = "/star/data01/pwg/mcgordon/VnFromEPD/V" + std::to_string(nV) + "Histograms/QVectorFirstPass" + argv[3] + ".root";
         char *QVectorHistogramFirstChar = &QVectorHistogramFirstString[0];
 
-        QVectorHistogramFileFirst = TFile::Open(QVectorHistogramFirstChar);
+        QVectorHistogramFileFirst = TFile::Open(QVectorHistogramFirstChar, "READ");
         
         std::string QVectorHistogramSecondString = "/star/data01/pwg/mcgordon/VnFromEPD/V" + std::to_string(nV) + "Histograms/QVectorSecondPass" + argv[3] + ".root";
         char *QVectorHistogramSecondChar = &QVectorHistogramSecondString[0];
     
-        QVectorHistogramFileSecond = TFile::Open(QVectorHistogramSecondChar);
+        QVectorHistogramFileSecond = TFile::Open(QVectorHistogramSecondChar, "READ");
         
         std::string ResolutionFileString = "/star/data01/pwg/mcgordon/VnFromEPD/V" + std::to_string(nV) + "Histograms/R_" + std::to_string(nV) + std::to_string(nPsi) + "_" + argv[3] + ".root";
         const char* ResolutionFileChar = &ResolutionFileString[0];
     
-        ResolutionFile = TFile::Open(ResolutionFileChar);
+        ResolutionFile = TFile::Open(ResolutionFileChar, "READ");
         
         TPCEfficiencyFile = TFile::Open("/star/u/mcgordon/VnFromEPD/TPCEfficiency.root","READ");
         ToFEfficiencyFile = TFile::Open("/star/u/mcgordon/VnFromEPD/ToFEfficiency.root","READ");
         TPCEfficiencyFileDandT = TFile::Open("/star/u/mcgordon/VnFromEPD/TPCEfficiencyDandT.root","READ");
     }
     
+    
+    
+    Double_t InnerEPDQxMean = 0;
+    Double_t InnerEPDQyMean = 0;
+    Double_t OuterEPDQxMean = 0;
+    Double_t OuterEPDQyMean = 0;
+    Double_t OuterTPCQxMean = 0;
+    Double_t OuterTPCQyMean = 0;
+        
+    if(RunIteration >= 2)
+    {
+        TH1D *InnerEPDQxMeanHisto = (TH1D*)QVectorHistogramFileFirst->Get("InnerEPDQxRaw");
+        TH1D *InnerEPDQyMeanHisto = (TH1D*)QVectorHistogramFileFirst->Get("InnerEPDQyRaw");
+        TH1D *OuterEPDQxMeanHisto = (TH1D*)QVectorHistogramFileFirst->Get("OuterEPDQxRaw");
+        TH1D *OuterEPDQyMeanHisto = (TH1D*)QVectorHistogramFileFirst->Get("OuterEPDQyRaw");
+        TH1D *OuterTPCQxMeanHisto = (TH1D*)QVectorHistogramFileFirst->Get("OuterTPCQxRaw");
+        TH1D *OuterTPCQyMeanHisto = (TH1D*)QVectorHistogramFileFirst->Get("OuterTPCQyRaw");
+
+        InnerEPDQxMean = InnerEPDQxMeanHisto->GetMean();
+        InnerEPDQyMean = InnerEPDQyMeanHisto->GetMean();
+        OuterEPDQxMean = OuterEPDQxMeanHisto->GetMean();
+        OuterEPDQyMean = OuterEPDQyMeanHisto->GetMean();
+        OuterTPCQxMean = OuterTPCQxMeanHisto->GetMean();
+        OuterTPCQyMean = OuterTPCQyMeanHisto->GetMean();
+    }
+    
+    TProfile *InnerEPDSineAverageProfile;
+    TProfile *InnerEPDCosineAverageProfile;
+    TProfile *OuterEPDSineAverageProfile;
+    TProfile *OuterEPDCosineAverageProfile;
+    TProfile *OuterTPCSineAverageProfile;
+    TProfile *OuterTPCCosineAverageProfile;
+    
+    if(RunIteration >= 3)
+    {
+        InnerEPDSineAverageProfile = (TProfile*)QVectorHistogramFileSecond->Get("InnerEPDSineAverages");
+        InnerEPDCosineAverageProfile = (TProfile*)QVectorHistogramFileSecond->Get("InnerEPDCosineAverages");
+        OuterEPDSineAverageProfile = (TProfile*)QVectorHistogramFileSecond->Get("OuterEPDSineAverages");
+        OuterEPDCosineAverageProfile = (TProfile*)QVectorHistogramFileSecond->Get("OuterEPDCosineAverages");
+        OuterTPCSineAverageProfile = (TProfile*)QVectorHistogramFileSecond->Get("OuterTPCSineAverages");
+        OuterTPCCosineAverageProfile = (TProfile*)QVectorHistogramFileSecond->Get("OuterTPCCosineAverages");
+    }
+    
+
+                
     Int_t MaxTracks = 195;
     
     //Tree Setup
@@ -663,7 +704,7 @@ int main(int argc, char *argv[])
     TProfile *HistoD48A = new TProfile("DataVnVsYPsi1RawInnerEPDPionMinus", CharD48A, 75, -0.3, 0.95);
     HistoD48A->Sumw2();
     
-   
+
     //Second Pass Histograms
     
     TH1D *HistoInnerEPDQxRecentered = new TH1D("InnerEPDQxRecentered", "Qx Recentered for Inner EPD; Qx; Events", 250, -QBounds, QBounds);
@@ -673,17 +714,26 @@ int main(int argc, char *argv[])
     TH1D *HistoOuterTPCQxRecentered = new TH1D("OuterTPCQxRecentered", "Qx Recentered for TPC; Qx; Events", 250, -QBounds, QBounds);
     TH1D *HistoOuterTPCQyRecentered = new TH1D("OuterTPCQyRecentered", "Qy Recentered for TPC; Qy; Events", 250, -QBounds, QBounds);
     
-    
-    TProfile *HistoInnerEPDSineAverages = new TProfile("InnerEPDSineAverages", "Inner EPD Sine Averages; j; Sine Correction Term", FourierCorrectionTerms, 1, FourierCorrectionTerms + 1);
-    TProfile *HistoInnerEPDCosineAverages = new TProfile("InnerEPDCosineAverages", "Inner EPD Cosine Averages; j; Cosine Correction Term", FourierCorrectionTerms, 1, FourierCorrectionTerms + 1);
-    TProfile *HistoOuterEPDSineAverages = new TProfile("OuterEPDSineAverages", "Outer EPD Sine Averages; j; Sine Correction Term", FourierCorrectionTerms, 1, FourierCorrectionTerms + 1);
-    TProfile *HistoOuterEPDCosineAverages = new TProfile("OuterEPDCosineAverages", "Outer EPD Cosine Averages; j; Cosine Correction Term", FourierCorrectionTerms, 1, FourierCorrectionTerms + 1);
-    TProfile *HistoOuterTPCSineAverages = new TProfile("OuterTPCSineAverages", "Outer TPC Sine Averages; j; Sine Correction Term", FourierCorrectionTerms, 1, FourierCorrectionTerms + 1);
-    TProfile *HistoOuterTPCCosineAverages = new TProfile("OuterTPCCosineAverages", "Outer TPC Cosine Averages; j; Cosine Correction Term", FourierCorrectionTerms, 1, FourierCorrectionTerms + 1);
-    
-   
-    
 
+    
+    TProfile *HistoInnerEPDSineAverages = 0;
+    TProfile *HistoInnerEPDCosineAverages = 0;
+    TProfile *HistoOuterEPDSineAverages = 0;
+    TProfile *HistoOuterEPDCosineAverages = 0;
+    TProfile *HistoOuterTPCSineAverages = 0;
+    TProfile *HistoOuterTPCCosineAverages = 0;
+    
+    if(RunIteration == 2)
+    {
+        HistoInnerEPDSineAverages = new TProfile("InnerEPDSineAverages", "Inner EPD Sine Averages; j; Sine Correction Term", FourierCorrectionTerms, 1, FourierCorrectionTerms + 1);
+        HistoInnerEPDCosineAverages = new TProfile("InnerEPDCosineAverages", "Inner EPD Cosine Averages; j; Cosine Correction Term", FourierCorrectionTerms, 1, FourierCorrectionTerms + 1);
+        HistoOuterEPDSineAverages = new TProfile("OuterEPDSineAverages", "Outer EPD Sine Averages; j; Sine Correction Term", FourierCorrectionTerms, 1, FourierCorrectionTerms + 1);
+        HistoOuterEPDCosineAverages = new TProfile("OuterEPDCosineAverages", "Outer EPD Cosine Averages; j; Cosine Correction Term", FourierCorrectionTerms, 1, FourierCorrectionTerms + 1);
+        HistoOuterTPCSineAverages = new TProfile("OuterTPCSineAverages", "Outer TPC Sine Averages; j; Sine Correction Term", FourierCorrectionTerms, 1, FourierCorrectionTerms + 1);
+        HistoOuterTPCCosineAverages = new TProfile("OuterTPCCosineAverages", "Outer TPC Cosine Averages; j; Cosine Correction Term", FourierCorrectionTerms, 1, FourierCorrectionTerms + 1);
+    }
+    
+    
     TH1F *HistoD34 = new TH1F("DataPsi1RecenteredInnerEPD", "Reaction Plane Angle, Psi_1, Inner EPD (Data); Psi; Events", 500, -3.5, 3.5);
     HistoD34->Sumw2();
     
@@ -1151,7 +1201,7 @@ int main(int argc, char *argv[])
 
 
     std::cout << "Setup Complete" << std::endl;
-
+    
 
     // Event Loop
     for (Long64_t EventNum = 0; EventNum < AutreeData->GetEntries(); EventNum++)
@@ -1259,8 +1309,6 @@ int main(int argc, char *argv[])
                 Int_t NHitsFit = nHitsFit[TrackNum];
                 Int_t NHitsPoss = nHitsPoss[TrackNum]; 
                 
-                OverallTrackCheckNoCuts->Fill(1);
-                
                 if (DCA >= DCABound)
                 {
                     continue;
@@ -1281,9 +1329,7 @@ int main(int argc, char *argv[])
                 if(q == 0)
                 {
                     continue;
-                }
-
-                OverallTrackCheckQACuts->Fill(1);  
+                } 
                 
                 Double_t pt = FlowFunctions::Pt(px, py);
 
@@ -1401,13 +1447,11 @@ int main(int argc, char *argv[])
                         if(q > 0)
                         {
                             HistoD28->Fill(y - yCMShift, pt);
-                            KaonPlusTrackCheck->Fill(1);
                         }
 
                         else if(q < 0)
                         {
                             HistoD29->Fill(y - yCMShift, pt);
-                            KaonMinusTrackCheck->Fill(1);
                         }
                     }
 
@@ -1428,13 +1472,11 @@ int main(int argc, char *argv[])
                         if(q > 0)
                         {
                             HistoD30->Fill(y - yCMShift, pt);
-                            PionPlusTrackCheck->Fill(1);
                         }
 
                         else if(q < 0)
                         {
                             HistoD31->Fill(y - yCMShift, pt);
-                            PionMinusTrackCheck->Fill(1);
                         }
                     }
                 }
@@ -1447,8 +1489,6 @@ int main(int argc, char *argv[])
 
                     HistoD16->Fill(p, dEdx);
                     HistoD27A->Fill(y - yCMShift, pt);
-                    
-                    DeuteronTrackCheck->Fill(1);
                 }
 
                 if(IsTriton)
@@ -1459,8 +1499,6 @@ int main(int argc, char *argv[])
 
                     HistoD17->Fill(p, dEdx);
                     HistoD27B->Fill(y - yCMShift, pt);
-                    
-                    TritonTrackCheck->Fill(1);
                 }
 
                 if(IsProtonTPC)
@@ -1476,8 +1514,6 @@ int main(int argc, char *argv[])
                         HistoD21->Fill(pt);
 
                         HistoD27->Fill(y - yCMShift, pt);
-                    
-                        ProtonTrackCheck->Fill(1);
                 }
 
                 HistoD1->Fill(pt);
@@ -1488,37 +1524,7 @@ int main(int argc, char *argv[])
                 HistoD32->Fill(phi);
             }
         }//End of Kinematics Track Loop
-
-        Double_t InnerEPDQxMean = 0;
-        Double_t InnerEPDQyMean = 0;
-        Double_t OuterEPDQxMean = 0;
-        Double_t OuterEPDQyMean = 0;
-        Double_t OuterTPCQxMean = 0;
-        Double_t OuterTPCQyMean = 0;  
-            
-        if(RunIteration >= 2)
-        {
-            TH1D *InnerEPDQxMeanHisto = (TH1D*)QVectorHistogramFileFirst->Get("InnerEPDQxRaw");
-            TH1D *InnerEPDQyMeanHisto = (TH1D*)QVectorHistogramFileFirst->Get("InnerEPDQyRaw");
-            TH1D *OuterEPDQxMeanHisto = (TH1D*)QVectorHistogramFileFirst->Get("OuterEPDQxRaw");
-            TH1D *OuterEPDQyMeanHisto = (TH1D*)QVectorHistogramFileFirst->Get("OuterEPDQyRaw");
-            TH1D *OuterTPCQxMeanHisto = (TH1D*)QVectorHistogramFileFirst->Get("OuterTPCQxRaw");
-            TH1D *OuterTPCQyMeanHisto = (TH1D*)QVectorHistogramFileFirst->Get("OuterTPCQyRaw");
-
-            InnerEPDQxMean = InnerEPDQxMeanHisto->GetMean();
-            InnerEPDQyMean = InnerEPDQyMeanHisto->GetMean();
-            OuterEPDQxMean = OuterEPDQxMeanHisto->GetMean();
-            OuterEPDQyMean = OuterEPDQyMeanHisto->GetMean();
-            OuterTPCQxMean = OuterTPCQxMeanHisto->GetMean();
-            OuterTPCQyMean = OuterTPCQyMeanHisto->GetMean();
-            
-//             std::cout << InnerEPDQxMean << std::endl;
-//             std::cout << InnerEPDQyMean << std::endl;
-//             std::cout << OuterEPDQxMean << std::endl;
-//             std::cout << OuterEPDQyMean << std::endl;
-//             std::cout << OuterTPCQxMean << std::endl;
-//             std::cout << OuterTPCQyMean << std::endl;
-        }
+        
         
         Double_t FourierCorrectionTermInnerEPD = 0;
         Double_t FourierCorrectionTermOuterEPD = 0;
@@ -1794,7 +1800,7 @@ int main(int argc, char *argv[])
             continue;
         }
  
-        EventCheck->Fill(5);
+        //EventCheck->Fill(5);
         
         Double_t PsiInnerEPDRaw = 0;
         Double_t PsiOuterEPDRaw = 0;
@@ -1868,40 +1874,55 @@ int main(int argc, char *argv[])
                 HistoOuterTPCCosineAverages->Fill(j, cos(j*nPsi*PsiOuterTPCRecentered));
             }
         }
-        
+
         if(RunIteration >= 3)
         {
-            for (int j = 0; j < FourierCorrectionTerms + 1; j++)
-            {
-                TProfile *InnerEPDSineAverageJthProfile = (TProfile*)QVectorHistogramFileSecond->Get("InnerEPDSineAverages");
-                TProfile *InnerEPDCosineAverageJthProfile = (TProfile*)QVectorHistogramFileSecond->Get("InnerEPDCosineAverages");
-                TProfile *OuterEPDSineAverageJthProfile = (TProfile*)QVectorHistogramFileSecond->Get("OuterEPDSineAverages");
-                TProfile *OuterEPDCosineAverageJthProfile = (TProfile*)QVectorHistogramFileSecond->Get("OuterEPDCosineAverages");
-                TProfile *OuterTPCSineAverageJthProfile = (TProfile*)QVectorHistogramFileSecond->Get("OuterTPCSineAverages");
-                TProfile *OuterTPCCosineAverageJthProfile = (TProfile*)QVectorHistogramFileSecond->Get("OuterTPCCosineAverages");
+            for (int j = 1; j < FourierCorrectionTerms + 1; j++)
+            {   
+                InnerEPDSineAverageJth = InnerEPDSineAverageProfile->GetBinContent(j);
+                InnerEPDCosineAverageJth = InnerEPDCosineAverageProfile->GetBinContent(j);
+                OuterEPDSineAverageJth = OuterEPDSineAverageProfile->GetBinContent(j);
+                OuterEPDCosineAverageJth = OuterEPDCosineAverageProfile->GetBinContent(j);
+                OuterTPCSineAverageJth = OuterTPCSineAverageProfile->GetBinContent(j);
+                OuterTPCCosineAverageJth = OuterTPCCosineAverageProfile->GetBinContent(j);
                 
-                InnerEPDSineAverageJth = InnerEPDSineAverageJthProfile->GetBinContent(j);
-                InnerEPDCosineAverageJth = InnerEPDCosineAverageJthProfile->GetBinContent(j);
-                OuterEPDSineAverageJth = OuterEPDSineAverageJthProfile->GetBinContent(j);
-                OuterEPDCosineAverageJth = OuterEPDCosineAverageJthProfile->GetBinContent(j);
-                OuterTPCSineAverageJth = OuterTPCSineAverageJthProfile->GetBinContent(j);
-                OuterTPCCosineAverageJth = OuterTPCCosineAverageJthProfile->GetBinContent(j);
-
-                FourierCorrectionTermInnerEPD += (2/(j*nPsi))*(InnerEPDSineAverageJth*cos(j*nPsi*PsiInnerEPDRecentered) + InnerEPDCosineAverageJth*sin(j*nPsi*PsiInnerEPDRecentered));
-                FourierCorrectionTermOuterEPD += (2/(j*nPsi))*(OuterEPDSineAverageJth*cos(j*nPsi*PsiOuterEPDRecentered) + OuterEPDCosineAverageJth*sin(j*nPsi*PsiOuterEPDRecentered));
-                FourierCorrectionTermOuterTPC += (2/(j*nPsi))*(OuterTPCSineAverageJth*cos(j*nPsi*PsiOuterTPCRecentered) + OuterTPCCosineAverageJth*sin(j*nPsi*PsiOuterTPCRecentered));
+                FourierCorrectionTermInnerEPD += (2.0/(j*(Double_t)nPsi))*(InnerEPDSineAverageJth*cos(j*nPsi*PsiInnerEPDRecentered) + InnerEPDCosineAverageJth*sin(j*nPsi*PsiInnerEPDRecentered));
+                FourierCorrectionTermOuterEPD += (2.0/(j*(Double_t)nPsi))*(OuterEPDSineAverageJth*cos(j*nPsi*PsiOuterEPDRecentered) + OuterEPDCosineAverageJth*sin(j*nPsi*PsiOuterEPDRecentered));
+                FourierCorrectionTermOuterTPC += (2.0/(j*(Double_t)nPsi))*(OuterTPCSineAverageJth*cos(j*nPsi*PsiOuterTPCRecentered) + OuterTPCCosineAverageJth*sin(j*nPsi*PsiOuterTPCRecentered));
             }
-            
+
             PsiInnerEPDFourierCorrected = PsiInnerEPDRecentered + FourierCorrectionTermInnerEPD;
             PsiOuterEPDFourierCorrected = PsiOuterEPDRecentered + FourierCorrectionTermOuterEPD;
             PsiOuterTPCFourierCorrected = PsiOuterTPCRecentered + FourierCorrectionTermOuterTPC;
         }
-        
+
         if(RunIteration == 3)
         {   
             HistoD35->Fill(PsiInnerEPDFourierCorrected);
             HistoD38->Fill(PsiOuterEPDFourierCorrected);
             HistoD41->Fill(PsiOuterTPCFourierCorrected);
+            
+            Double_t R11TopLeftTerm = cos(nV*(PsiInnerEPDFourierCorrected - PsiOuterEPDFourierCorrected));
+            Double_t R11TopRightTerm = cos(nV*(PsiInnerEPDFourierCorrected - PsiOuterTPCFourierCorrected));
+            Double_t R11BottomTerm = cos(nV*(PsiOuterEPDFourierCorrected - PsiOuterTPCFourierCorrected));
+
+            Centrality = 15 - Centrality;
+
+            HistoD51->Fill(Centrality, R11TopLeftTerm);
+            HistoD52->Fill(Centrality, R11TopRightTerm);
+            HistoD53->Fill(Centrality, R11BottomTerm);
+        
+            const char* CentralityXLabels[12] = {"0-5", "5-10", "10-15", "15-20", "20-25", "25-30", "30-35", "35-40", "40-45", "45-50", "50-55", "55-60"};
+
+            Double_t R11 = 0;
+            Double_t R11Error = 0;
+
+            for (int index = 1; index < HistoD51->GetNbinsX() + 1; index++)
+            {
+                HistoD51->GetXaxis()->SetBinLabel(index, CentralityXLabels[index - 1]);
+                HistoD52->GetXaxis()->SetBinLabel(index, CentralityXLabels[index - 1]);
+                HistoD53->GetXaxis()->SetBinLabel(index, CentralityXLabels[index - 1]);
+            }
         }
         
 
@@ -1913,7 +1934,7 @@ int main(int argc, char *argv[])
 
         
         Double_t ResolutionCorrectionFactor = 0;
-        
+
         if(RunIteration == 4)
         {
             Centrality = 15 - Centrality;
@@ -1925,11 +1946,17 @@ int main(int argc, char *argv[])
                 continue;
             }
         }
+
+        EventCheck->Fill(5);
+
+
         
         
         //Flow Calulator loop
         for (int TrackNum = 0; TrackNum < TotalTracks; TrackNum++)
         {
+            OverallTrackCheckNoCuts->Fill(1);
+            
             Double_t px = Px[TrackNum];
             Double_t py = Py[TrackNum];
             Double_t pz = Pz[TrackNum];
@@ -1943,10 +1970,10 @@ int main(int argc, char *argv[])
             Int_t NHits = nHits[TrackNum];
             Int_t NHitsdEdx = nHitsdEdx[TrackNum];
             Int_t NHitsFit = nHitsFit[TrackNum];
-            Int_t NHitsPoss = nHitsPoss[TrackNum]; 
+            Int_t NHitsPoss = nHitsPoss[TrackNum];
 
 
-            if (DCA > DCABound)
+            if (DCA >= DCABound)
             {
                 continue;
             }
@@ -1954,11 +1981,11 @@ int main(int argc, char *argv[])
             {
                 continue;
             }
-            if (NHitsdEdx < NHitsdEdxBound)
+            if (NHitsdEdx <= NHitsdEdxBound)
             {
                 continue;
             }
-            if (NHitsFit / NHitsPoss < NHitsFitOverNHitsPossBound)
+            if ((Double_t)NHitsFit / (Double_t)NHitsPoss <= NHitsFitOverNHitsPossBound)
             {
                 continue;
             }
@@ -1968,6 +1995,9 @@ int main(int argc, char *argv[])
                 continue;
             }
 
+            
+            OverallTrackCheckQACuts->Fill(1);
+            
             
             Double_t pt = FlowFunctions::Pt(px, py);
 
@@ -2485,7 +2515,7 @@ int main(int argc, char *argv[])
                             {
                                 continue;
                             }
-                            
+
                             KaonPlusTrackCheck->Fill(1);
 
                             if(IsGoodKaon)
@@ -2645,7 +2675,7 @@ int main(int argc, char *argv[])
 
                     Bool_t IsGoodDeuteron = (pt > DeuteronLowerPt) && (pt < DeuteronUpperPt) && ((y - yCMShift) > LowerYMinusYCMShift) && ((y - yCMShift) < UpperYMinusYCMShift);
 
-                    TH2D *TPCEfficiencyHistogram = (TH2D*)TPCEfficiencyFile->Get("h2_ratio_de");
+                    TH2D *TPCEfficiencyHistogram = (TH2D*)TPCEfficiencyFileDandT->Get("h2_ratio_de");
 
                     Int_t TPCEfficiencyBinX = TPCEfficiencyHistogram->GetXaxis()->FindBin(y - yCMShift);
                     Int_t TPCEfficiencyBinY = TPCEfficiencyHistogram->GetYaxis()->FindBin(pt);
@@ -2686,7 +2716,7 @@ int main(int argc, char *argv[])
 
                     Bool_t IsGoodTriton = (pt > TritonLowerPt) && (pt < TritonUpperPt) && ((y - yCMShift) > LowerYMinusYCMShift) && ((y - yCMShift) < UpperYMinusYCMShift);
 
-                    TH2D *TPCEfficiencyHistogram = (TH2D*)TPCEfficiencyFile->Get("h2_ratio_tr");
+                    TH2D *TPCEfficiencyHistogram = (TH2D*)TPCEfficiencyFileDandT->Get("h2_ratio_tr");
 
                     Int_t TPCEfficiencyBinX = TPCEfficiencyHistogram->GetXaxis()->FindBin(y - yCMShift);
                     Int_t TPCEfficiencyBinY = TPCEfficiencyHistogram->GetYaxis()->FindBin(pt);
@@ -2839,17 +2869,7 @@ int main(int argc, char *argv[])
         HistoD48->SetDirectory(0);
         HistoD48A->SetDirectory(0);
         
-        
-        EventCheck->SetDirectory(0);        
-        OverallTrackCheckNoCuts->SetDirectory(0);
-        OverallTrackCheckQACuts->SetDirectory(0);        
-        ProtonTrackCheck->SetDirectory(0);
-        KaonPlusTrackCheck->SetDirectory(0);
-        KaonMinusTrackCheck->SetDirectory(0);
-        PionPlusTrackCheck->SetDirectory(0);
-        PionMinusTrackCheck->SetDirectory(0);
-        DeuteronTrackCheck->SetDirectory(0);
-        TritonTrackCheck->SetDirectory(0);
+
         
 
         std::string QVectorHistogramFileString = "/star/data01/pwg/mcgordon/VnFromEPD/V" + std::to_string(nV) + "Histograms/QVectorFirstPass" + argv[3] + argv[2] +".root";
@@ -2926,20 +2946,11 @@ int main(int argc, char *argv[])
         HistoD45A->Write();
         HistoD48->Write();
         HistoD48A->Write();
+
         
         
-        EventCheck->Write();      
-        OverallTrackCheckNoCuts->Write();
-        OverallTrackCheckQACuts->Write();
-        ProtonTrackCheck->Write();
-        KaonPlusTrackCheck->Write();
-        KaonMinusTrackCheck->Write();
-        PionPlusTrackCheck->Write();
-        PionMinusTrackCheck->Write();
-        DeuteronTrackCheck->Write();
-        TritonTrackCheck->Write();
-
-
+        
+        
         HistogramRootFile->Close();
     }
     

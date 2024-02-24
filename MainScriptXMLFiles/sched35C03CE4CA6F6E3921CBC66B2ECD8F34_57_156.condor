@@ -1,0 +1,1500 @@
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_156.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_156.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_156.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_155.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_155.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_155.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_154.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_154.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_154.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_153.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_153.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_153.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_152.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_152.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_152.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_151.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_151.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_151.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_150.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_150.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_150.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_149.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_149.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_149.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_148.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_148.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_148.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_147.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_147.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_147.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_146.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_146.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_146.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_145.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_145.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_145.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_144.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_144.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_144.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_143.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_143.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_143.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_142.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_142.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_142.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_141.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_141.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_141.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_140.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_140.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_140.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_139.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_139.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_139.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_138.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_138.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_138.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_137.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_137.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_137.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_136.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_136.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_136.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_135.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_135.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_135.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_134.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_134.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_134.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_133.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_133.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_133.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_132.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_132.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_132.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_131.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_131.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_131.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_130.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_130.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_130.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_129.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_129.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_129.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_128.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_128.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_128.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_127.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_127.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_127.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_126.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_126.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_126.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_125.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_125.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_125.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_124.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_124.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_124.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_123.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_123.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_123.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_122.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_122.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_122.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_121.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_121.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_121.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_120.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_120.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_120.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_119.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_119.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_119.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_118.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_118.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_118.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_117.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_117.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_117.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_116.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_116.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_116.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_115.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_115.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_115.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_114.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_114.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_114.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_113.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_113.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_113.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_112.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_112.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_112.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_111.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_111.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_111.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_110.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_110.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_110.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_109.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_109.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_109.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_108.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_108.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_108.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_107.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_107.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_107.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_106.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_106.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_106.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_105.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_105.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_105.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_104.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_104.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_104.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_103.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_103.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_103.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_102.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_102.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_102.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_101.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_101.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_101.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_100.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_100.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_100.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_99.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_99.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_99.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_98.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_98.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_98.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_97.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_97.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_97.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_96.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_96.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_96.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_95.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_95.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_95.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_94.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_94.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_94.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_93.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_93.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_93.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_92.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_92.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_92.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_91.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_91.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_91.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_90.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_90.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_90.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_89.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_89.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_89.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_88.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_88.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_88.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_87.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_87.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_87.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_86.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_86.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_86.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_85.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_85.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_85.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_84.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_84.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_84.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_83.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_83.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_83.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_82.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_82.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_82.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_81.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_81.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_81.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_80.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_80.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_80.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_79.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_79.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_79.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_78.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_78.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_78.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_77.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_77.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_77.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_76.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_76.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_76.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_75.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_75.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_75.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_74.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_74.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_74.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_73.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_73.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_73.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_72.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_72.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_72.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_71.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_71.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_71.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_70.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_70.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_70.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_69.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_69.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_69.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_68.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_68.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_68.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_67.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_67.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_67.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_66.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_66.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_66.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_65.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_65.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_65.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_64.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_64.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_64.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_63.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_63.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_63.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_62.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_62.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_62.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_61.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_61.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_61.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_60.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_60.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_60.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_59.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_59.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_59.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_58.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_58.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_58.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
+Universe         = vanilla
+Notification     = never
+Executable       = /bin/sh
+Arguments        = "-c 'exec /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles/sched35C03CE4CA6F6E3921CBC66B2ECD8F34_57.csh'"
+Output           = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_57.out
+Error            = /star/data01/pwg/mcgordon/Logs/VnFromEPD/35C03CE4CA6F6E3921CBC66B2ECD8F34_57.err
+request_memory   = 2048
+Log              = /tmp/mcgordon/sched35C03CE4CA6F6E3921CBC66B2ECD8F34.condor.log
+Initialdir       = /star/u/mcgordon/VnFromEPD/MainScriptXMLFiles
+kill_sig         = SIGINT
+PeriodicRemove   = (NumJobStarts >=1 && JobStatus==1) || (JobStatus == 2 && (CurrentTime - JobCurrentStartDate > (54000)) && ((RemoteUserCpu+RemoteSysCpu)/(CurrentTime-JobCurrentStartDate) < 0.10)) || (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5) || (JobRunCount >= 1 && JobStatus == 1)
+Accounting_group = group_star.cas
+Priority         = +10
+Queue
+
