@@ -211,33 +211,33 @@ void calculateSystematics(TString order_n_str = "3")
   Variation* epd_high = new Variation("/star/data01/pwg/mcgordon/VnFromEPD/V3Histograms/1-23-24-V3-HistogramOuterEPDHigh.root", order_n_str);
   Variation* epd_low = new Variation("/star/data01/pwg/mcgordon/VnFromEPD/V3Histograms/1-23-24-V3-HistogramOuterEPDLow.root", order_n_str);
 
-  //Variation* nSigPi_high_20 = new Variation("/star/data01/pwg/mcgordon/VnFromEPD/V3Histograms/10-30-23-V3-HistogramsNSigmaPion20High.root", order_n_str);
-  //Variation* nSigPi_low_20  = new Variation("/star/data01/pwg/mcgordon/VnFromEPD/V3Histograms/10-30-23-V3-HistogramsNSigmaPion20Low.root", order_n_str);
-  //Variation* nSigKa_high_20 = new Variation("/star/data01/pwg/mcgordon/VnFromEPD/V3Histograms/10-30-23-V3-HistogramsNSigmaKaon20High.root", order_n_str);
-  //Variation* nSigKa_low_20  = new Variation("/star/data01/pwg/mcgordon/VnFromEPD/V3Histograms/10-30-23-V3-HistogramsNSigmaKaon20Low.root", order_n_str);
+  //Variation* nSigPi_high_20 = new Variation("", order_n_str);
+  //Variation* nSigPi_low_20  = new Variation("", order_n_str);
+  //Variation* nSigKa_high_20 = new Variation("", order_n_str);
+  //Variation* nSigKa_low_20  = new Variation("", order_n_str);
   Variation* nSigPr_high_20 = new Variation("/star/data01/pwg/mcgordon/VnFromEPD/V3Histograms/1-23-24-V3-HistogramNSigmaProton20High.root", order_n_str);
   Variation* nSigPr_low_20  = new Variation("/star/data01/pwg/mcgordon/VnFromEPD/V3Histograms/1-23-24-V3-HistogramNSigmaProton20Low.root", order_n_str);
-  //Variation* rvtx_high_20 = new Variation("/star/data01/pwg/mcgordon/VnFromEPD/V3Histograms/10-30-23-V3-HistogramsRVertex20High.root", order_n_str);
-  //Variation* rvtx_low_20  = new Variation("/star/data01/pwg/mcgordon/VnFromEPD/V3Histograms/10-30-23-V3-HistogramsRVertex20Low.root", order_n_str);
-  //Variation* zvtx_high_20 = new Variation("/star/data01/pwg/mcgordon/VnFromEPD/V3Histograms/10-30-23-V3-HistogramsZVertex20High.root", order_n_str);
-  //Variation* zvtx_low_20  = new Variation("/star/data01/pwg/mcgordon/VnFromEPD/V3Histograms/10-30-23-V3-HistogramsZVertex20Low.root", order_n_str);
-  //Variation* dca_high_20 = new Variation("/star/data01/pwg/mcgordon/VnFromEPD/V3Histograms/10-30-23-V3-HistogramsDCA20High.root", order_n_str);
-  //Variation* dca_low_20  = new Variation("/star/data01/pwg/mcgordon/VnFromEPD/V3Histograms/10-30-23-V3-HistogramsDCA20Low.root", order_n_str);
-  //Variation* nhits_high_20 = new Variation("/star/data01/pwg/mcgordon/VnFromEPD/V3Histograms/10-30-23-V3-HistogramsNHits20High.root", order_n_str);
-  //Variation* nhits_low_20 = new Variation("/star/data01/pwg/mcgordon/VnFromEPD/V3Histograms/10-30-23-V3-HistogramsNHits20Low.root", order_n_str);
-  //Variation* nhitsdEdx_high_20 = new Variation("/star/data01/pwg/mcgordon/VnFromEPD/V3Histograms/10-30-23-V3-HistogramsNHitsdEdx20High.root", order_n_str);
+  //Variation* rvtx_high_20 = new Variation("", order_n_str);
+  //Variation* rvtx_low_20  = new Variation("", order_n_str);
+  //Variation* zvtx_high_20 = new Variation("", order_n_str);
+  //Variation* zvtx_low_20  = new Variation("", order_n_str);
+  //Variation* dca_high_20 = new Variation("", order_n_str);
+  //Variation* dca_low_20  = new Variation("", order_n_str);
+  //Variation* nhits_high_20 = new Variation("", order_n_str);
+  //Variation* nhits_low_20 = new Variation("", order_n_str);
+  //Variation* nhitsdEdx_high_20 = new Variation("", order_n_str);
   //Variation* nhitsdEdx_low_20  = new Variation(directory20Percent+"nhitsdEdx_low", order_n_str);
-  //Variation* nhitsratio_high_20 = new Variation("/star/data01/pwg/mcgordon/VnFromEPD/V3Histograms/10-30-23-V3-HistogramsNHitsFitOverNHitsPoss20High.root", order_n_str);
-  //Variation* nhitsratio_low_20  = new Variation("/star/data01/pwg/mcgordon/VnFromEPD/V3Histograms/10-30-23-V3-HistogramsNHitsFitOverNHitsPoss20Low.root", order_n_str);
-  //Variation* m2Pi_high_20 = new Variation("/star/data01/pwg/mcgordon/VnFromEPD/V3Histograms/10-30-23-V3-HistogramsMSquaredPion20High.root", order_n_str);
-  //Variation* m2Pi_low_20  = new Variation("/star/data01/pwg/mcgordon/VnFromEPD/V3Histograms/10-30-23-V3-HistogramsMSquaredPion20Low.root", order_n_str);
-  //Variation* m2Ka_high_20 = new Variation("/star/data01/pwg/mcgordon/VnFromEPD/V3Histograms/10-30-23-V3-HistogramsMSquaredKaon20High.root", order_n_str);
-  //Variation* m2Ka_low_20  = new Variation("/star/data01/pwg/mcgordon/VnFromEPD/V3Histograms/10-30-23-V3-HistogramsMSquaredKaon20Low.root", order_n_str);
+  //Variation* nhitsratio_high_20 = new Variation("", order_n_str);
+  //Variation* nhitsratio_low_20  = new Variation("", order_n_str);
+  //Variation* m2Pi_high_20 = new Variation("", order_n_str);
+  //Variation* m2Pi_low_20  = new Variation("", order_n_str);
+  //Variation* m2Ka_high_20 = new Variation("", order_n_str);
+  //Variation* m2Ka_low_20  = new Variation("", order_n_str);
 
-  //Variation* nSigPi_high_30 = new Variation("/star/data01/pwg/mcgordon/VnFromEPD/V3Histograms/10-30-23-V3-HistogramsNSigmaPion30High.root", order_n_str);
-  //Variation* nSigPi_low_30  = new Variation("/star/data01/pwg/mcgordon/VnFromEPD/V3Histograms/10-30-23-V3-HistogramsNSigmaPion30Low.root", order_n_str);
-  //Variation* nSigKa_high_30 = new Variation("/star/data01/pwg/mcgordon/VnFromEPD/V3Histograms/10-30-23-V3-HistogramsNSigmaKaon30High.root", order_n_str);
-  //Variation* nSigKa_low_30  = new Variation("/star/data01/pwg/mcgordon/VnFromEPD/V3Histograms/10-30-23-V3-HistogramsNSigmaKaon30Low.root", order_n_str);
+  //Variation* nSigPi_high_30 = new Variation("", order_n_str);
+  //Variation* nSigPi_low_30  = new Variation("", order_n_str);
+  //Variation* nSigKa_high_30 = new Variation("", order_n_str);
+  //Variation* nSigKa_low_30  = new Variation("", order_n_str);
   //Variation* zDe_high_30 = new Variation(directory30Percent+"08132023v1AveRes_zDe_high/08132023v1AveRes_zDe_high", order_n_str);
   //Variation* zDe_low_30  = new Variation(directory30Percent+"08132023v1AveRes_zDe_low/08132023v1AveRes_zDe_low", order_n_str);
   //Variation* zTr_high_30 = new Variation(directory30Percent+"08132023v1AveRes_zTr_high/08132023v1AveRes_zTr_high", order_n_str);
@@ -248,22 +248,22 @@ void calculateSystematics(TString order_n_str = "3")
   //Variation* zHe4_low_30  = new Variation(directory30Percent+"08132023v1AveRes_zHe4_low/08132023v1AveRes_zHe4_low", order_n_str);
   Variation* nSigPr_high_30 = new Variation("/star/data01/pwg/mcgordon/VnFromEPD/V3Histograms/1-23-24-V3-HistogramNSigmaProton30High.root", order_n_str);
   Variation* nSigPr_low_30  = new Variation("/star/data01/pwg/mcgordon/VnFromEPD/V3Histograms/1-23-24-V3-HistogramNSigmaProton30Low.root", order_n_str);
-  //Variation* rvtx_high_30 = new Variation("/star/data01/pwg/mcgordon/VnFromEPD/V3Histograms/10-30-23-V3-HistogramsRVertex30High.root", order_n_str);
-  //Variation* rvtx_low_30  = new Variation("/star/data01/pwg/mcgordon/VnFromEPD/V3Histograms/10-30-23-V3-HistogramsRVertex30Low.root", order_n_str);
-  //Variation* zvtx_high_30 = new Variation("/star/data01/pwg/mcgordon/VnFromEPD/V3Histograms/10-30-23-V3-HistogramsZVertex30High.root", order_n_str);
-  //Variation* zvtx_low_30  = new Variation("/star/data01/pwg/mcgordon/VnFromEPD/V3Histograms/10-30-23-V3-HistogramsZVertex30Low.root", order_n_str);
-  //Variation* dca_high_30 = new Variation("/star/data01/pwg/mcgordon/VnFromEPD/V3Histograms/10-30-23-V3-HistogramsDCA30High.root", order_n_str);
-  //Variation* dca_low_30  = new Variation("/star/data01/pwg/mcgordon/VnFromEPD/V3Histograms/10-30-23-V3-HistogramsDCA30Low.root", order_n_str);
-  //Variation* nhits_high_30 = new Variation("/star/data01/pwg/mcgordon/VnFromEPD/V3Histograms/10-30-23-V3-HistogramsNHits30High.root", order_n_str);
-  //Variation* nhits_low_30 = new Variation("/star/data01/pwg/mcgordon/VnFromEPD/V3Histograms/10-30-23-V3-HistogramsNHits30Low.root", order_n_str);
-  //Variation* nhitsdEdx_high_30 = new Variation("/star/data01/pwg/mcgordon/VnFromEPD/V3Histograms/10-30-23-V3-HistogramsNHitsdEdx30High.root", order_n_str);
+  //Variation* rvtx_high_30 = new Variation("", order_n_str);
+  //Variation* rvtx_low_30  = new Variation("", order_n_str);
+  //Variation* zvtx_high_30 = new Variation("", order_n_str);
+  //Variation* zvtx_low_30  = new Variation("", order_n_str);
+  //Variation* dca_high_30 = new Variation("", order_n_str);
+  //Variation* dca_low_30  = new Variation("", order_n_str);
+  //Variation* nhits_high_30 = new Variation("", order_n_str);
+  //Variation* nhits_low_30 = new Variation("", order_n_str);
+  //Variation* nhitsdEdx_high_30 = new Variation("", order_n_str);
   //Variation* nhitsdEdx_low_30  = new Variation(directory30Percent+"nhitsdEdx_low", order_n_str);
-  //Variation* nhitsratio_high_30 = new Variation("/star/data01/pwg/mcgordon/VnFromEPD/V3Histograms/10-30-23-V3-HistogramsNHitsFitOverNHitsPoss30High.root", order_n_str);
-  //Variation* nhitsratio_low_30  = new Variation("/star/data01/pwg/mcgordon/VnFromEPD/V3Histograms/10-30-23-V3-HistogramsNHitsFitOverNHitsPoss30Low.root", order_n_str);
-  //Variation* m2Pi_high_30 = new Variation("/star/data01/pwg/mcgordon/VnFromEPD/V3Histograms/10-30-23-V3-HistogramsMSquaredPion30High.root", order_n_str);
-  //Variation* m2Pi_low_30  = new Variation("/star/data01/pwg/mcgordon/VnFromEPD/V3Histograms/10-30-23-V3-HistogramsMSquaredPion30Low.root", order_n_str);
-  //Variation* m2Ka_high_30 = new Variation("/star/data01/pwg/mcgordon/VnFromEPD/V3Histograms/10-30-23-V3-HistogramsMSquaredKaon30High.root", order_n_str);
-  //Variation* m2Ka_low_30  = new Variation("/star/data01/pwg/mcgordon/VnFromEPD/V3Histograms/10-30-23-V3-HistogramsMSquaredKaon30Low.root", order_n_str);
+  //Variation* nhitsratio_high_30 = new Variation("", order_n_str);
+  //Variation* nhitsratio_low_30  = new Variation("", order_n_str);
+  //Variation* m2Pi_high_30 = new Variation("", order_n_str);
+  //Variation* m2Pi_low_30  = new Variation("", order_n_str);
+  //Variation* m2Ka_high_30 = new Variation("", order_n_str);
+  //Variation* m2Ka_low_30  = new Variation("", order_n_str);
 
 
   //CompositeData* epd = new CompositeData("epd", Normal, epd_scaled, epd_high);
@@ -697,8 +697,7 @@ void calculateSystematics(TString order_n_str = "3")
     quadSum = 0.0;
     //quadSum += epd->v_vn_yCM_00to10_pr.at(ithBin).variance;
  
-    if (ithBin <= 1)
-        avgTracker_00to10.addContribution(epd->ID, epd->v_vn_yCM_00to10_pr.at(ithBin).stdDevPercentage);
+    avgTracker_00to10.addContribution(epd->ID, epd->v_vn_yCM_00to10_pr.at(ithBin).stdDevPercentage);
 
     for (int jthCut = 0; jthCut < composites.size(); jthCut++)
     {
@@ -727,8 +726,7 @@ void calculateSystematics(TString order_n_str = "3")
     quadSum = 0.0;
     quadSum += epd->v_vn_yCM_10to40_pr.at(ithBin).variance;
     
-    if (ithBin >= 2 && ithBin <= 7)
-      avgTracker_10to40.addContribution(epd->ID, epd->v_vn_yCM_10to40_pr.at(ithBin).stdDevPercentage);
+    avgTracker_10to40.addContribution(epd->ID, epd->v_vn_yCM_10to40_pr.at(ithBin).stdDevPercentage);
  
     for (int jthCut = 0; jthCut < composites.size(); jthCut++)
     {
@@ -756,8 +754,7 @@ void calculateSystematics(TString order_n_str = "3")
     quadSum = 0.0;
     quadSum += epd->v_vn_yCM_40to60_pr.at(ithBin).variance;
     
-    if (ithBin >= 8 && ithBin <= 11)
-      avgTracker_40to60.addContribution(epd->ID, epd->v_vn_yCM_40to60_pr.at(ithBin).stdDevPercentage);
+    avgTracker_40to60.addContribution(epd->ID, epd->v_vn_yCM_40to60_pr.at(ithBin).stdDevPercentage);
 
     for (int jthCut = 0; jthCut < composites.size(); jthCut++)
     {
@@ -785,8 +782,7 @@ void calculateSystematics(TString order_n_str = "3")
     quadSum = 0.0;
     quadSum += epd->v_vn_yCM_00to10_kp.at(ithBin).variance;
 
-    if (ithBin <= 1)
-      avgTracker_00to10.addContribution(epd->ID, epd->v_vn_yCM_00to10_kp.at(ithBin).stdDevPercentage);
+    avgTracker_00to10.addContribution(epd->ID, epd->v_vn_yCM_00to10_kp.at(ithBin).stdDevPercentage);
 
     for (int jthCut = 0; jthCut < composites.size(); jthCut++)
     {
@@ -815,8 +811,7 @@ void calculateSystematics(TString order_n_str = "3")
     quadSum = 0.0;
     quadSum += epd->v_vn_yCM_10to40_kp.at(ithBin).variance;
     
-    if (ithBin >= 2 && ithBin <= 4)
-      avgTracker_10to40.addContribution(epd->ID, epd->v_vn_yCM_10to40_kp.at(ithBin).stdDevPercentage);
+    avgTracker_10to40.addContribution(epd->ID, epd->v_vn_yCM_10to40_kp.at(ithBin).stdDevPercentage);
  
     for (int jthCut = 0; jthCut < composites.size(); jthCut++)
     {
@@ -844,8 +839,7 @@ void calculateSystematics(TString order_n_str = "3")
     quadSum = 0.0;
     quadSum += epd->v_vn_yCM_40to60_kp.at(ithBin).variance;
     
-    if (ithBin >= 5)
-      avgTracker_40to60.addContribution(epd->ID, epd->v_vn_yCM_40to60_kp.at(ithBin).stdDevPercentage);
+    avgTracker_40to60.addContribution(epd->ID, epd->v_vn_yCM_40to60_kp.at(ithBin).stdDevPercentage);
 
     for (int jthCut = 0; jthCut < composites.size(); jthCut++)
     {
@@ -873,8 +867,7 @@ void calculateSystematics(TString order_n_str = "3")
     quadSum = 0.0;
     quadSum += epd->v_vn_yCM_00to10_km.at(ithBin).variance;
 
-    if (ithBin <= 1)
-      avgTracker_00to10.addContribution(epd->ID, epd->v_vn_yCM_00to10_km.at(ithBin).stdDevPercentage);
+    avgTracker_00to10.addContribution(epd->ID, epd->v_vn_yCM_00to10_km.at(ithBin).stdDevPercentage);
 
     for (int jthCut = 0; jthCut < composites.size(); jthCut++)
     {
@@ -903,8 +896,7 @@ void calculateSystematics(TString order_n_str = "3")
     quadSum = 0.0;
     quadSum += epd->v_vn_yCM_10to40_km.at(ithBin).variance;
     
-    if (ithBin >= 2 && ithBin <= 4)
-      avgTracker_10to40.addContribution(epd->ID, epd->v_vn_yCM_10to40_km.at(ithBin).stdDevPercentage);
+    avgTracker_10to40.addContribution(epd->ID, epd->v_vn_yCM_10to40_km.at(ithBin).stdDevPercentage);
  
     for (int jthCut = 0; jthCut < composites.size(); jthCut++)
     {
@@ -932,8 +924,7 @@ void calculateSystematics(TString order_n_str = "3")
     quadSum = 0.0;
     quadSum += epd->v_vn_yCM_40to60_km.at(ithBin).variance;
     
-    if (ithBin >= 5)
-      avgTracker_40to60.addContribution(epd->ID, epd->v_vn_yCM_40to60_km.at(ithBin).stdDevPercentage);
+    avgTracker_40to60.addContribution(epd->ID, epd->v_vn_yCM_40to60_km.at(ithBin).stdDevPercentage);
 
     for (int jthCut = 0; jthCut < composites.size(); jthCut++)
     {
@@ -961,8 +952,7 @@ void calculateSystematics(TString order_n_str = "3")
     quadSum = 0.0;
     quadSum += epd->v_vn_yCM_00to10_pp.at(ithBin).variance;
 
-    if (ithBin <= 2)
-      avgTracker_00to10.addContribution(epd->ID, epd->v_vn_yCM_00to10_pp.at(ithBin).stdDevPercentage);
+    avgTracker_00to10.addContribution(epd->ID, epd->v_vn_yCM_00to10_pp.at(ithBin).stdDevPercentage);
 
     for (int jthCut = 0; jthCut < composites.size(); jthCut++)
     {
@@ -991,8 +981,7 @@ void calculateSystematics(TString order_n_str = "3")
     quadSum = 0.0;
     quadSum += epd->v_vn_yCM_10to40_pp.at(ithBin).variance;
     
-    if (ithBin >= 3 && ithBin <= 8)
-      avgTracker_10to40.addContribution(epd->ID, epd->v_vn_yCM_10to40_pp.at(ithBin).stdDevPercentage);
+    avgTracker_10to40.addContribution(epd->ID, epd->v_vn_yCM_10to40_pp.at(ithBin).stdDevPercentage);
  
     for (int jthCut = 0; jthCut < composites.size(); jthCut++)
     {
@@ -1020,8 +1009,7 @@ void calculateSystematics(TString order_n_str = "3")
     quadSum = 0.0;
     quadSum += epd->v_vn_yCM_40to60_pp.at(ithBin).variance;
     
-    if (ithBin >= 9)
-      avgTracker_40to60.addContribution(epd->ID, epd->v_vn_yCM_40to60_pp.at(ithBin).stdDevPercentage);
+    avgTracker_40to60.addContribution(epd->ID, epd->v_vn_yCM_40to60_pp.at(ithBin).stdDevPercentage);
 
     for (int jthCut = 0; jthCut < composites.size(); jthCut++)
     {
@@ -1048,8 +1036,7 @@ void calculateSystematics(TString order_n_str = "3")
     quadSum = 0.0;
     quadSum += epd->v_vn_yCM_00to10_pm.at(ithBin).variance;
 
-    if (ithBin <= 2)
-      avgTracker_00to10.addContribution(epd->ID, epd->v_vn_yCM_00to10_pm.at(ithBin).stdDevPercentage);
+    avgTracker_00to10.addContribution(epd->ID, epd->v_vn_yCM_00to10_pm.at(ithBin).stdDevPercentage);
 
     for (int jthCut = 0; jthCut < composites.size(); jthCut++)
     {
@@ -1077,9 +1064,8 @@ void calculateSystematics(TString order_n_str = "3")
   {
     quadSum = 0.0;
     quadSum += epd->v_vn_yCM_10to40_pm.at(ithBin).variance;
-    
-    if (ithBin >= 3 && ithBin <= 8)
-      avgTracker_10to40.addContribution(epd->ID, epd->v_vn_yCM_10to40_pm.at(ithBin).stdDevPercentage);
+
+    avgTracker_10to40.addContribution(epd->ID, epd->v_vn_yCM_10to40_pm.at(ithBin).stdDevPercentage);
  
     for (int jthCut = 0; jthCut < composites.size(); jthCut++)
     {
@@ -1107,8 +1093,7 @@ void calculateSystematics(TString order_n_str = "3")
     quadSum = 0.0;
     quadSum += epd->v_vn_yCM_40to60_pm.at(ithBin).variance;
     
-    if (ithBin >= 9)
-      avgTracker_40to60.addContribution(epd->ID, epd->v_vn_yCM_40to60_pm.at(ithBin).stdDevPercentage);
+    avgTracker_40to60.addContribution(epd->ID, epd->v_vn_yCM_40to60_pm.at(ithBin).stdDevPercentage);
 
     for (int jthCut = 0; jthCut < composites.size(); jthCut++)
     {
@@ -1165,8 +1150,7 @@ void calculateSystematics(TString order_n_str = "3")
     quadSum = 0.0;
     quadSum += epd->v_vn_yCM_00to10_de.at(ithBin).variance;
 
-    if (ithBin > 9)
-      avgTracker_00to10.addContribution(epd->ID, epd->v_vn_yCM_00to10_de.at(ithBin).stdDevPercentage);
+    avgTracker_00to10.addContribution(epd->ID, epd->v_vn_yCM_00to10_de.at(ithBin).stdDevPercentage);
 
     for (int jthCut = 0; jthCut < composites.size(); jthCut++)
     {
@@ -1194,9 +1178,8 @@ void calculateSystematics(TString order_n_str = "3")
   {
     quadSum = 0.0;
     quadSum += epd->v_vn_yCM_10to40_de.at(ithBin).variance;
-    
-    if (ithBin > 9)
-      avgTracker_10to40.addContribution(epd->ID, epd->v_vn_yCM_10to40_de.at(ithBin).stdDevPercentage);
+
+    avgTracker_10to40.addContribution(epd->ID, epd->v_vn_yCM_10to40_de.at(ithBin).stdDevPercentage);
  
     for (int jthCut = 0; jthCut < composites.size(); jthCut++)
     {
@@ -1224,9 +1207,8 @@ void calculateSystematics(TString order_n_str = "3")
   {
     quadSum = 0.0;
     quadSum += epd->v_vn_yCM_40to60_de.at(ithBin).variance;
-    
-    if (ithBin > 9)
-      avgTracker_40to60.addContribution(epd->ID, epd->v_vn_yCM_40to60_de.at(ithBin).stdDevPercentage);
+
+    avgTracker_40to60.addContribution(epd->ID, epd->v_vn_yCM_40to60_de.at(ithBin).stdDevPercentage);
 
     for (int jthCut = 0; jthCut < composites.size(); jthCut++)
     {
@@ -1255,8 +1237,7 @@ void calculateSystematics(TString order_n_str = "3")
     quadSum = 0.0;
     quadSum += epd->v_vn_yCM_00to10_tr.at(ithBin).variance;
 
-    if (ithBin > 9)
-      avgTracker_00to10.addContribution(epd->ID, epd->v_vn_yCM_00to10_tr.at(ithBin).stdDevPercentage);
+    avgTracker_00to10.addContribution(epd->ID, epd->v_vn_yCM_00to10_tr.at(ithBin).stdDevPercentage);
 
     for (int jthCut = 0; jthCut < composites.size(); jthCut++)
     {
@@ -1284,9 +1265,8 @@ void calculateSystematics(TString order_n_str = "3")
   {
     quadSum = 0.0;
     quadSum += epd->v_vn_yCM_10to40_tr.at(ithBin).variance;
-    
-    if (ithBin > 9)
-      avgTracker_10to40.addContribution(epd->ID, epd->v_vn_yCM_10to40_tr.at(ithBin).stdDevPercentage);
+
+    avgTracker_10to40.addContribution(epd->ID, epd->v_vn_yCM_10to40_tr.at(ithBin).stdDevPercentage);
  
     for (int jthCut = 0; jthCut < composites.size(); jthCut++)
     {
@@ -1314,9 +1294,8 @@ void calculateSystematics(TString order_n_str = "3")
   {
     quadSum = 0.0;
     quadSum += epd->v_vn_yCM_40to60_tr.at(ithBin).variance;
-    
-    if (ithBin > 9)
-      avgTracker_40to60.addContribution(epd->ID, epd->v_vn_yCM_40to60_tr.at(ithBin).stdDevPercentage);
+
+    avgTracker_40to60.addContribution(epd->ID, epd->v_vn_yCM_40to60_tr.at(ithBin).stdDevPercentage);
 
     for (int jthCut = 0; jthCut < composites.size(); jthCut++)
     {

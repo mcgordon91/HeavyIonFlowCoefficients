@@ -52,7 +52,7 @@ nV = 3
 # else:
 #     RunIteration = 1
 
-RunIteration = 1
+RunIteration = 4
 
 
 
@@ -545,8 +545,8 @@ ROOT.gInterpreter.Declare(cpp_code)
 
 
 if(RunIteration == 1):
-    #Data = ROOT.TFile.Open(sys.argv[1])
-    Data = ROOT.TFile.Open("/star/data01/pwg/cracz/Data_3p0GeV_FXT/FXT_3p0GeV_SL20d_2018_11.root")
+    Data = ROOT.TFile.Open(sys.argv[1])
+    #Data = ROOT.TFile.Open("/star/data01/pwg/cracz/Data_3p0GeV_FXT/FXT_3p0GeV_SL20d_2018_11.root")
 
 #     print(Data.ls())
     
@@ -786,8 +786,7 @@ if(RunIteration == 1):
         InnerTPCQy = 0
         OuterTPCQx = 0
         OuterTPCQy = 0
-        if(EventNum > 2):
-            sys.exit(0)
+
         for index in range(TotalTracks):
             
             if (DCA[index] > DCABound):
@@ -825,10 +824,10 @@ if(RunIteration == 1):
                 
             if(tofBeta[index] > 0):
                 msquared = MSquared(px[index], py[index], pz[index], tofBeta[index])
-                print(index, tofBeta[index], msquared, NSigmaKa[index], NSigmaPi[index])
+
                 IsKaon = (abs(NSigmaKa[index]) < NSigmaKaBound) and (msquared > KaonLowerMSquared) and (msquared < KaonUpperMSquared)
                 IsPion = (abs(NSigmaPi[index]) < NSigmaPiBound) and (msquared > PionLowerMSquared) and (msquared < PionUpperMSquared)
-                print(IsKaon, IsPion)
+
             
             DAndT = ROOT.DeuteronsAndTritons(p, dEdx[index], tofBeta[index])
             
@@ -982,8 +981,7 @@ if(RunIteration == 1):
 
             if ((eta > OuterTPCLowerLimit) and (eta < OuterTPCUpperLimit)):
                 GoodTracksCounterOuterTPC += 1
-        if(EventNum > 1):
-            sys.exit(0)
+
         for index in range(len(EPDID)):
             if(EPDID[index] > 0):
                 continue
@@ -2444,8 +2442,8 @@ if(RunIteration == 3):
     print("Done")                                    
 ################################################################################################################################################                        
 if(RunIteration == 4):
-    Data = ROOT.TFile.Open(sys.argv[1])
-    #Data = ROOT.TFile.Open("/star/data01/pwg/cracz/Data_3p0GeV_FXT/FXT_3p0GeV_SL20d_2018_11.root")
+    #Data = ROOT.TFile.Open(sys.argv[1])
+    Data = ROOT.TFile.Open("/star/data01/pwg/cracz/Data_3p0GeV_FXT/FXT_3p0GeV_SL20d_2018_11.root")
     # MonteCarlo = ROOT.TFile.Open("/eos/user/m/migordon/SWAN_projects/HeavyIonStuff/CombinedMonteCarloFiles.root")
 
     AutreeData = Data.Get("Autree")
@@ -2820,9 +2818,7 @@ if(RunIteration == 4):
         
        
 
-
         for index in range(TotalTracks):
-            OverallTrackCheckNoCuts.Fill(1) 
         
             if (DCA[index] >= DCABound):
                 continue
@@ -2832,8 +2828,7 @@ if(RunIteration == 4):
                 continue
             if (NHitsFit[index] / NHitsPoss[index] <= NHitsFitOverNHitsPossBound):
                 continue
-
-            OverallTrackCheckQACuts.Fill(1)    
+    
                 
             eta = Eta(px[index], py[index], pz[index])
             
@@ -2992,7 +2987,9 @@ if(RunIteration == 4):
 
         if(Centrality < 4):
             continue
+            
         EventCheck.Fill(5)
+        
         Centrality = 15 - Centrality
 
         ResolutionCorrectionFactor = HistoD54.GetBinContent(Centrality + 1)
@@ -3000,7 +2997,11 @@ if(RunIteration == 4):
         if ResolutionCorrectionFactor == 0:
             continue
 
+            
+            
         for index in range(TotalTracks):
+            OverallTrackCheckNoCuts.Fill(1) 
+            
             if (DCA[index] >= DCABound):
                 continue
             if (NHits[index] < NHitsBound):
@@ -3011,7 +3012,9 @@ if(RunIteration == 4):
                 continue
                 
             if(q[index] == 0):
-                continue   
+                continue
+            
+            OverallTrackCheckQACuts.Fill(1)
              
             pt = Pt(px[index], py[index])
             
@@ -3125,12 +3128,12 @@ if(RunIteration == 4):
 
                         if((TPCEfficiency == 0.0) or (TPCEfficiency > 1.3) or (ToFEfficiency == 0.0)):
                             continue
-                            
+
                         KaonPlusTrackCheck.Fill(1)
 
                         if(IsGoodKaon):
                             MostlyGoodKaonPlusTrackCheck.Fill(1)
-                            #print("K+:", VnInnerEPDFourierCorrected)
+
                             HistoD47B.Fill(y - yCMShift, VnInnerEPDFourierCorrected / ResolutionCorrectionFactor, 1.0 / (TPCEfficiency * ToFEfficiency))
                             HistoD82.Fill(Centrality, y - yCMShift, VnInnerEPDFourierCorrected / ResolutionCorrectionFactor, 1.0 / (TPCEfficiency * ToFEfficiency))
                             
@@ -3154,12 +3157,12 @@ if(RunIteration == 4):
 
                         if((TPCEfficiency == 0.0) or (TPCEfficiency > 1.3) or (ToFEfficiency == 0.0)):
                             continue    
-                            
+                          
                         KaonMinusTrackCheck.Fill(1)
                         
                         if(IsGoodKaon):
                             MostlyGoodKaonMinusTrackCheck.Fill(1)
-                            #print("K-:", VnInnerEPDFourierCorrected)
+
                             HistoD47C.Fill(y - yCMShift, VnInnerEPDFourierCorrected / ResolutionCorrectionFactor, 1.0 / (TPCEfficiency * ToFEfficiency))
                             HistoD84.Fill(Centrality, y - yCMShift, VnInnerEPDFourierCorrected / ResolutionCorrectionFactor, 1.0 / (TPCEfficiency * ToFEfficiency))
                             
@@ -3199,7 +3202,7 @@ if(RunIteration == 4):
                        
                         if(IsGoodPion):
                             MostlyGoodPionPlusTrackCheck.Fill(1)
-                            #print("Pi+:",VnInnerEPDFourierCorrected)
+
                             HistoD50B.Fill(y - yCMShift, VnInnerEPDFourierCorrected / ResolutionCorrectionFactor, 1.0 / (TPCEfficiency * ToFEfficiency)) 
                             HistoD86.Fill(Centrality, y - yCMShift, VnInnerEPDFourierCorrected / ResolutionCorrectionFactor, 1.0 / (TPCEfficiency * ToFEfficiency))
         
@@ -3223,12 +3226,12 @@ if(RunIteration == 4):
 
                         if((TPCEfficiency == 0.0) or (TPCEfficiency > 1.3) or (ToFEfficiency == 0.0)):
                             continue
-                            
+                           
                         PionMinusTrackCheck.Fill(1)
                         
                         if(IsGoodPion):
                             MostlyGoodPionMinusTrackCheck.Fill(1)
-                            #print("Pi-:", VnInnerEPDFourierCorrected)
+
                             HistoD50C.Fill(y - yCMShift, VnInnerEPDFourierCorrected / ResolutionCorrectionFactor, 1.0 / (TPCEfficiency * ToFEfficiency))
                             HistoD88.Fill(Centrality, y - yCMShift, VnInnerEPDFourierCorrected / ResolutionCorrectionFactor, 1.0 / (TPCEfficiency * ToFEfficiency))
                             
@@ -3297,7 +3300,7 @@ if(RunIteration == 4):
                     continue
 
                 TritonTrackCheck.Fill(1)
-    
+
                 if(IsGoodTriton):
                     MostlyGoodTritonTrackCheck.Fill(1)
                     
@@ -3336,7 +3339,7 @@ if(RunIteration == 4):
                     continue
                     
                 ProtonTrackCheck.Fill(1)
-                     
+
                 if(IsGoodProton):
                     if(Centrality == 8):
                         HistoDC.Fill(VnInnerEPDFourierCorrected)

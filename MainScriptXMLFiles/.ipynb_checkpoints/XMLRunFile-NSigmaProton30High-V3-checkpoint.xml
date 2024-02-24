@@ -6,9 +6,7 @@
   <!-- Task list -->
   <command>
     starver SL20d
-    setup 64b
-    setup root 6.20.08
-    python VnFromInnerEPDParallel-V3-Parameters.py $INPUTFILE0 $JOBID NSigmaProton30High
+    VnFromInnerEPD-V3 $INPUTFILE0 $JOBID NSigmaProton30High
   </command>
     
   <ResourceUsage> 
@@ -21,14 +19,11 @@
   <!-- Necessary files -->
   <SandBox installer="ZIP">
     <Package>
-      <File>file:/star/u/mcgordon/VnFromEPD/VnFromInnerEPDParallel-V3-Parameters.py</File>
-      <File>file:/star/u/mcgordon/VnFromEPD/KinematicFunctions.py</File>
-      <File>file:/star/u/mcgordon/VnFromEPD/StEpdGeom.cxx</File>
-      <File>file:/star/u/mcgordon/VnFromEPD/StEpdGeom.h</File>
-      <File>file:/star/u/mcgordon/VnFromEPD/StRoot/StBichsel/dEdxParameterization.cxx</File>
-      <File>file:/star/u/mcgordon/VnFromEPD/StRoot/StBichsel/Bichsel.h</File>
-      <File>file:/star/u/mcgordon/VnFromEPD/StRoot/StBichsel/Bichsel.cxx</File>
-      <File>file:/star/u/mcgordon/VnFromEPD/bichselComparison.cxx</File>
+      <File>file:/star/u/mcgordon/TreeAnalysisMichael/VnFromInnerEPD-V3</File>
+      <File>file:/star/u/mcgordon/TreeAnalysisMichael/FlowFunctions.h</File>
+      <File>file:/star/u/mcgordon/TreeAnalysisMichael/DeuteronsAndTritons.h</File>
+      <File>file:/star/u/mcgordon/TreeAnalysisMichael/TileVector.h</File>
+      <File>file:/star/u/mcgordon/TreeAnalysisMichael/libs/</File>
     </Package>
   </SandBox>
 
