@@ -6,6 +6,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <algorithm>
 
 #include "TROOT.h"
 #include "TObject.h"
@@ -19,6 +20,7 @@
 #include "TString.h"
 #include "TKey.h"
 #include "TF1.h"
+#include "TMath.h"
 #include "../StRoot/StBichsel/Bichsel.h"
 #include "../StRoot/StEpdUtil/StEpdGeom.h"
 #include "FlowFunctions.h"
@@ -26,6 +28,7 @@
 #include "TileVector.h"
 
 
+ 
 //Bichsel function
 Double_t BichselZ(Double_t *p, Double_t *parameters) 
 {
@@ -97,7 +100,7 @@ int main(int argc, char *argv[])
         RunIteration = 1;
     }
     
-//     Int_t RunIteration = 2;
+    RunIteration = 1;
 
     
     
@@ -153,209 +156,228 @@ int main(int argc, char *argv[])
     Int_t FourierCorrectionTerms = 10;
 
 
+
     
     // Parameter changes for systematic runs
-    if (strcmp(argv[3], "Normal") == 0)
+    if (std::string(argv[3]) == "Normal")
     {
         QBounds = 100;
         FourierCorrectionTerms = 10;
     }
-    else if (strcmp(argv[3], "RVertex20Low") == 0)
+    if (std::string(argv[3]) == "RVertex20Low")
     {
         RVertexBound = 1.2;
     }
-    else if (strcmp(argv[3], "RVertex30Low") == 0)
+    if (std::string(argv[3]) == "RVertex30Low")
     {
         RVertexBound = 1.05;
     }
-    else if (strcmp(argv[3], "RVertex20High") == 0)
+    if (std::string(argv[3]) == "RVertex20High")
     {
         RVertexBound = 1.8;
     }
-    else if(strcmp(argv[3], "RVertex30High") == 0)
+    if(std::string(argv[3]) == "RVertex30High")
     {
         RVertexBound = 1.95;
     }
-    else if (strcmp(argv[3], "ZVertex20Low") == 0)
+    if (std::string(argv[3]) == "ZVertex20Low")
     {
         ZVertexLowerBound = 198.4;
         ZVertexUpperBound = 201.6;
     }
-    else if (strcmp(argv[3], "ZVertex20High") == 0)
+    if (std::string(argv[3]) == "ZVertex20High")
     {
         ZVertexLowerBound = 197.6;
         ZVertexUpperBound = 202.4;
     }
-    else if (strcmp(argv[3], "ZVertex30Low") == 0)
+    if (std::string(argv[3]) == "ZVertex30Low")
     {
         ZVertexLowerBound = 198.6;
         ZVertexUpperBound = 201.4;
     }
-    else if (strcmp(argv[3], "ZVertex30High") == 0)
+    if (std::string(argv[3]) == "ZVertex30High")
     {
         ZVertexLowerBound = 197.4;
         ZVertexUpperBound = 202.6;
     }
-    else if (strcmp(argv[3], "DCA20Low") == 0)
+    if (std::string(argv[3]) == "DCA20Low")
     {
         DCABound = 2.4;
     }
-    else if (strcmp(argv[3], "DCA20High") == 0)
+    if (std::string(argv[3]) == "DCA20High")
     {
         DCABound = 3.6;
     }
-    else if (strcmp(argv[3], "DCA30Low") == 0)
+    if (std::string(argv[3]) == "DCA30Low")
     {
         DCABound = 2.1;
     }
-    else if (strcmp(argv[3], "DCA30High") == 0)
+    if (std::string(argv[3]) == "DCA30High")
     {
         DCABound = 3.9;
     }
-    else if (strcmp(argv[3], "NHits20Low") == 0)
+    if (std::string(argv[3]) == "NHits20Low")
     {
         NHitsBound = 12;
     }
-    else if (strcmp(argv[3], "NHits20High") == 0)
+    if (std::string(argv[3]) == "NHits20High")
     {
         NHitsBound = 18;
     }
-    else if (strcmp(argv[3], "NHits30Low") == 0)
+    if (std::string(argv[3]) == "NHits30Low")
     {
         NHitsBound = 10;
     }
-    else if (strcmp(argv[3], "NHits30High") == 0)
+    if (std::string(argv[3]) == "NHits30High")
     {
         NHitsBound = 20;
     }
-    else if (strcmp(argv[3], "NHitsdEdx20High") == 0)
+    if (std::string(argv[3]) == "NHitsdEdx20High")
     {
         NHitsdEdxBound = 9;
     }
-    else if (strcmp(argv[3], "NHitsdEdx30High") == 0)
+    if (std::string(argv[3]) == "NHitsdEdx30High")
     {
         NHitsdEdxBound = 12;
     }
-    else if (strcmp(argv[3], "NHitsFitOverNHitsPoss20Low") == 0)
+    if (std::string(argv[3]) == "NHitsFitOverNHitsPoss20Low")
     {
         NHitsFitOverNHitsPossBound = 0.416;
     }
-    else if (strcmp(argv[3], "NHitsFitOverNHitsPoss20High") == 0)
+    if (std::string(argv[3]) == "NHitsFitOverNHitsPoss20High")
     {
         NHitsFitOverNHitsPossBound = 0.624;
     }
-    else if (strcmp(argv[3], "NHitsFitOverNHitsPoss30Low") == 0)
+    if (std::string(argv[3]) == "NHitsFitOverNHitsPoss30Low")
     {
         NHitsFitOverNHitsPossBound = 0.364;
     }
-    else if (strcmp(argv[3], "NHitsFitOverNHitsPoss30High") == 0)
+    if (std::string(argv[3]) == "NHitsFitOverNHitsPoss30High")
     {
         NHitsFitOverNHitsPossBound = 0.676;
     }
-    else if (strcmp(argv[3], "NSigmaPion20Low") == 0)
+    if (std::string(argv[3]) == "NSigmaPion20Low")
     {
         NSigmaPiBound = 2.4;
     }
-    else if (strcmp(argv[3], "NSigmaPion20High") == 0)
+    if (std::string(argv[3]) == "NSigmaPion20High")
     {
         NSigmaPiBound = 3.6;
     }
-    else if (strcmp(argv[3], "NSigmaPion30Low") == 0)
+    if (std::string(argv[3]) == "NSigmaPion30Low")
     {
         NSigmaPiBound = 2.1;
     }
-    else if (strcmp(argv[3], "NSigmaPion30High") == 0)
+    if (std::string(argv[3]) == "NSigmaPion30High")
     {
         NSigmaPiBound = 3.9;
     }
-    else if (strcmp(argv[3], "NSigmaKaon20Low") == 0)
+    if (std::string(argv[3]) == "NSigmaKaon20Low")
     {
         NSigmaKaBound = 2.4;
     }
-    else if (strcmp(argv[3], "NSigmaKaon20High") == 0)
+    if (std::string(argv[3]) == "NSigmaKaon20High")
     {
         NSigmaKaBound = 3.6;
     }
-    else if (strcmp(argv[3], "NSigmaKaon30Low") == 0)
+    if (std::string(argv[3]) == "NSigmaKaon30Low")
     {
         NSigmaKaBound = 2.1;
     }
-    else if (strcmp(argv[3], "NSigmaKaon30High") == 0)
+    if (std::string(argv[3]) == "NSigmaKaon30High")
     {
         NSigmaKaBound = 3.9;
     }
-    else if (strcmp(argv[3], "NSigmaProton20Low") == 0)
+    if (std::string(argv[3]) == "NSigmaProton20Low")
     {
         NSigmaPrBound = 1.6;
     }
-    else if (strcmp(argv[3], "NSigmaProton20High") == 0)
+    if (std::string(argv[3]) == "NSigmaProton20High")
     {
         NSigmaPrBound = 2.4;
     }
-    else if (strcmp(argv[3], "NSigmaProton30Low") == 0)
+    if (std::string(argv[3]) == "NSigmaProton30Low")
     {
         NSigmaPrBound = 1.4;
     }
-    else if (strcmp(argv[3], "NSigmaProton30High") == 0)
+    if (std::string(argv[3]) == "NSigmaProton30High")
     {
         NSigmaPrBound = 2.6;
     }
-    else if (strcmp(argv[3], "MSquaredPion20Low") == 0)
+    if (std::string(argv[3]) == "MSquaredPion20Low")
     {
         PionLowerMSquared = -0.08;
         PionUpperMSquared = 0.08;
     }
-    else if (strcmp(argv[3], "MSquaredPion20High") == 0)
+    if (std::string(argv[3]) == "MSquaredPion20High")
     {
         PionLowerMSquared = -0.12;
         PionUpperMSquared = 0.12;
     }
-    else if (strcmp(argv[3], "MSquaredPion30Low") == 0)
+    if (std::string(argv[3]) == "MSquaredPion30Low")
     {
         PionLowerMSquared = -0.07;
         PionUpperMSquared = 0.07;
     }
-    else if (strcmp(argv[3], "MSquaredPion30High") == 0)
+    if (std::string(argv[3]) == "MSquaredPion30High")
     {
         PionLowerMSquared = -0.13;
         PionUpperMSquared = 0.13;
     }
-    else if (strcmp(argv[3], "MSquaredKaon20Low") == 0)
+    if (std::string(argv[3]) == "MSquaredKaon20Low")
     {
         KaonLowerMSquared = 0.169;
         KaonUpperMSquared = 0.321;
     }
-    else if (strcmp(argv[3], "MSquaredKaon20High") == 0)
+    if (std::string(argv[3]) == "MSquaredKaon20High")
     {
         KaonLowerMSquared = 0.131;
         KaonUpperMSquared = 0.359;
     }
-    else if (strcmp(argv[3], "MSquaredKaon30Low") == 0)
+    if (std::string(argv[3]) == "MSquaredKaon30Low")
     {
         KaonLowerMSquared = 0.1785;
         KaonUpperMSquared = 0.3115;
     }
-    else if (strcmp(argv[3], "MSquaredKaon30High") == 0)
+    if (std::string(argv[3]) == "MSquaredKaon30High")
     {
         KaonLowerMSquared = 0.1215;
         KaonUpperMSquared = 0.3685;
     }
-    else if (strcmp(argv[3], "OuterEPDLow") == 0)
+    if (std::string(argv[3]) == "OuterEPDLow")
     {
-        InnerEPDHighRing = 12;
         OuterEPDLowRing = 13;
     }
-    else if (strcmp(argv[3], "OuterEPDHigh") == 0)
+    if (std::string(argv[3]) == "OuterEPDHigh")
     {
-        InnerEPDHighRing = 9;
         OuterEPDLowRing = 10;
     }
-    else
-    {
-        std::cout << "No Matching Systematic Error type (or Normal)" << std::endl;
-        exit(0);
-    }
-    
+//     else
+//     {
+//         std::cout << "No Matching Systematic Error type (or Normal)" << std::endl;
+//         exit(0);
+//     }
+
+//     std::cout << RVertexBound << std::endl;
+//     std::cout << ZVertexLowerBound << std::endl;
+//     std::cout << ZVertexUpperBound << std::endl;
+//     std::cout << DCABound << std::endl;
+
+
+
+//     std::cout << NHitsBound << std::endl;
+//     std::cout << NHitsdEdxBound << std::endl;
+//     std::cout << NHitsFitOverNHitsPossBound << std::endl;
+//     std::cout << InnerEPDHighRing << std::endl;
+//     std::cout << OuterEPDLowRing << std::endl;
+//     std::cout << KaonLowerMSquared << std::endl;
+//     std::cout << KaonUpperMSquared << std::endl;
+//     std::cout << PionLowerMSquared << std::endl;
+//     std::cout << PionUpperMSquared << std::endl;
+//     std::cout << NSigmaPrBound << std::endl;
+//     std::cout << NSigmaKaBound << std::endl;
+//     std::cout << NSigmaPiBound << std::endl;
+
     
     //Input files
     TFile *Data = TFile::Open(argv[1]);
@@ -366,7 +388,8 @@ int main(int argc, char *argv[])
     TFile *TPCEfficiencyFile;
     TFile *ToFEfficiencyFile;
     TFile *TPCEfficiencyFileDandT;
-
+//     TH1D *HistoD54;
+    
     
     if(RunIteration == 2)
     {
@@ -406,12 +429,27 @@ int main(int argc, char *argv[])
     
         ResolutionFile = TFile::Open(ResolutionFileChar, "READ");
         
+//         std::string ResolutionFileString = "/star/u/mcgordon/VnFromEPD/resolutionInfo_INPUT_epd_high.root";
+//         const char* ResolutionFileChar = &ResolutionFileString[0];
+    
+//         ResolutionFile = TFile::Open(ResolutionFileChar, "READ");
+        
+//         TH1D *ResolutionPlot = (TH1D*)ResolutionFile->Get("h_resolutions");
+        
+//         HistoD54 = new TH1D("ResolutionRescaledAverage", " ; ; ", 12, 0, 12);
+
+//         for (int index = 0; index < ResolutionPlot->GetNbinsX() + 1; index++)
+//         {
+//             HistoD54->SetBinContent(17 - index, ResolutionPlot->GetBinContent(index));
+//             HistoD54->SetBinError(17 - index, ResolutionPlot->GetBinError(index));
+//         }
+        
         TPCEfficiencyFile = TFile::Open("/star/u/mcgordon/VnFromEPD/TPCEfficiency.root","READ");
         ToFEfficiencyFile = TFile::Open("/star/u/mcgordon/VnFromEPD/ToFEfficiency.root","READ");
         TPCEfficiencyFileDandT = TFile::Open("/star/u/mcgordon/VnFromEPD/TPCEfficiencyDandT.root","READ");
     }
     
-    
+
     
     Double_t InnerEPDQxMean = 0;
     Double_t InnerEPDQyMean = 0;
@@ -436,7 +474,7 @@ int main(int argc, char *argv[])
         OuterTPCQxMean = OuterTPCQxMeanHisto->GetMean();
         OuterTPCQyMean = OuterTPCQyMeanHisto->GetMean();
     }
-    
+
     TProfile *InnerEPDSineAverageProfile;
     TProfile *InnerEPDCosineAverageProfile;
     TProfile *OuterEPDSineAverageProfile;
@@ -459,6 +497,8 @@ int main(int argc, char *argv[])
     Int_t MaxTracks = 195;
     
     //Tree Setup
+    Int_t runId;
+    Int_t eventId;
     UShort_t tracknumber;
     Float_t Px[MaxTracks];
     Float_t Py[MaxTracks];
@@ -485,6 +525,8 @@ int main(int argc, char *argv[])
     
     
     TTree *AutreeData = (TTree*)Data->Get("Autree");
+    AutreeData->SetBranchAddress("runId", &runId);
+    AutreeData->SetBranchAddress("eventId", &eventId);
     AutreeData->SetBranchAddress("tracknumber", &tracknumber);
     AutreeData->SetBranchAddress("Px", &Px);
     AutreeData->SetBranchAddress("Py", &Py);
@@ -507,11 +549,11 @@ int main(int argc, char *argv[])
     AutreeData->SetBranchAddress("nEPDhits", &nEPDhits);
     AutreeData->SetBranchAddress("EPDnMip", &EPDnMip);
     AutreeData->SetBranchAddress("EPDid", &EPDid);
-    
-    //print(Data.ls())
 
-    //print(AutreeData.Print())    
     
+//     std::cout << Data->ls() << std::endl;
+
+//     std::cout << AutreeData->Print() << std::endl;   
     
 
     
@@ -534,7 +576,78 @@ int main(int argc, char *argv[])
     HistoDB->Sumw2();
     
     
+    TH1D *ZVertexValues = new TH1D("ZVertexValues", "ZVertex Values; Z Vertex (cm); Counts", 120, 197, 203);
+    ZVertexValues->Sumw2();
+    
+    TH1D *RVertexValues = new TH1D("RVertexValues", "RVertex Values; R Vertex (cm); Counts", 80, 0, 2);
+    RVertexValues->Sumw2();
+    
+    TH1D *DCAValues = new TH1D("DCAValues", "DCA Values; DCA (cm); Counts", 80, 0, 4);
+    DCAValues->Sumw2();
+    
+    TH1D *NHitsValues = new TH1D("NHitsValues", "NHits Values; NHits; Counts", 40, 10, 50);
+    NHitsValues->Sumw2();
+    
+    TH1D *NHitsdEdxValues = new TH1D("NHitsdEdxValues", "NHitsdEdx Values; NHitsdEdx; Counts", 90, 5, 50);
+    NHitsdEdxValues->Sumw2();
+    
+    TH1D *NHitsFitOverNHitsPossValues = new TH1D("NHitsFitOverNHitsPossValues", "NHitsFitOverNHitsPoss Values; NHitsFitOverNHitsPoss; Counts", 70, 0.3, 1);
+    NHitsFitOverNHitsPossValues->Sumw2();
+    
 
+    
+//     vector<int> RunIDs {22179020,22179021,22179022,22178002,22178003,22178004,22178005,22178006,22178007,22178008,22178009,22178010,22178011,22178012,22178013,22177002,22177003,22177004,22177005,22177006,22177007,22177008,22177012,22177013,22177014,22176001,22176002,22176003,22176004,22176005,22176006,22176007,22176008,22176009,22176011,22176012,22175001,22175002,22175003,22175004,22175005,22175006,22175007,22175008,22175010,22175011,22175013,22175031,22175032,22174002,22174003,22174004,22174005,22174006,22174007,22174010,22174011,22174012,22174013,22174014,22174018,22174019,22174046,22174047,22174048,22174049,22174050,22174054,22174055,22174056,22174057,22174058,22174059,22174060,22174061,22174062,22173001,22173002,22173003,22173004,22173005,22173006,22173009,22173010,22173011,22173012,22173013,22173014,22173015,22173016,22173017,22173018,22173019,22173020,22173023,22173024,22173025,22173026,22173027,22173028,22173029,22173030,22173031,22173032,22173033,22173034,22173035,22172001,22172002,22172003,22172004,22172005,22172006,22172007,22172008,22172009,22172010,22172022,22172024,22172025,22171021,22171022,22171023,22171024,22171025,22171026,22171027,22171028,22171029,22171030,22171031,22171032,22171033,22170001,22170002,22170003,22170004,22170005,22170006,22170007,22170008,22170009,22170014,22170015,22170016,22170017,22170018,22170019,22170020,22170021,22170022,22169001,22169002,22169003,22169004,22169005,22169006,22169007,22169008,22169009,22169010,22169011,22169018,22169022,22169023,22168003,22168004,22168005,22168006,22168007,22168008,22168009,22168010,22168015,22167001,22167002,22167003,22167004,22167005,22167006,22167007,22167008,22167009,22167010,22167011,22167012,22167016,22167017,22167021,22167022,22167023,22167024,22167025,22167027,22167028,22167029,22166001,22166002,22166003,22166004,22166005,22166006,22166009,22166010,22166013,22166014,22166015,22166016,22166017,22166018,22166019,22166020,22166023,22166024,22166026,22166028,22166029,22166030,22166031,22166034,22166035,22166036,22166037,22166038,22166039,22165001,22165002,22165003,22165004,22165005,22165006,22165007,22165008,22165009,22165010,22165012,22165013,22165014,22165015,22165016,22165017,22165018,22165019,22165021,22165024,22165025,22165026,22165027,22165028,22165029,22165031,22165032,22165033,22165034,22165035,22164001,22164002,22164003,22164004,22164005,22164006,22164007,22164008,22164009,22164010,22164011,22164012,22164013,22164014,22164015,22164016,22164017,22164018,22164019,22164022,22164024,22164025,22164026,22164027,22164028,22164029,22164030,22164031,22164032,22164033,22163002,22163003,22163004,22163005,22163006,22163007,22163008,22163009,22163010,22163011,22163012,22163013,22163014,22163015,22163016,22163017,22163018,22163019,22163020,22163026,22163027,22163028,22163029,22163030,22163031,22163032,22163034,22163035,22163036,22162001,22162003,22162006,22162007,22162008,22162009,22162015,22162018,22162019,22162021,22162022,22162023,22161001,22161002,22161003,22161004,22161005,22161006,22161009,22161010,22161012,22161013,22161014,22161015,22161016,22161018,22161019,22161020,22161023,22161024,22161025,22161026,22161027,22161028,22161029,22161030,22161031,22161032,22161033,22160001,22160002,22160003,22160004,22160005,22160006,22160007,22160008,22160009,22160010,22160011,22160012,22160013,22160014,22160015,22160016,22160017,22160018,22160019,22160020,22160021,22160022,22160024,22160025,22160026,22160027,22160028,22160029,22160030,22160031,22160032,22160046,22160047,22160048,22160049,22160050,22160051,22160052,22160053,22159001,22159003,22159008,22159009,22159010,22159011,22159012,22159013,22159015,22159051,22159052,22159053,22158032,22158033,22158036,22125001,22125002,22125003,22125004,22125005,22125006,22125007,22125008,22125009,22125010,22125011,22124002,22124003,22124004,22124005,22124006,22124007,22124008,22124011,22124012,22124013,22124014,22124018,22124027,22124028,22124031,22123001,22123002,22123003,22123004,22123005,22123006,22123007,22123008,22123009,22123010,22123011,22123012,22123013,22123014,22123015,22123016,22123017,22123018,22123020,22123021,22123025,22123026,22123027,22123028,22123030,22123031,22123032,22123034,22123035,22123037,22123038,22123040,22123041,22122001,22122002,22122003,22122004,22122005,22122006,22122007,22122008,22122009,22122010,22122011,22122014,22122016,22122017,22122018,22122019,22122020,22122021,22122024,22122025,22122026,22122027,22122028,22122029,22122031,22122032,22122034,22122035,22121033,22121036,22121037,22121038,22121039,22121040,22121041,22121044,22121045,22121046,22121048,22121049,22121050,22121052,22121053};
+   
+//     int RunIndex = 4;
+    
+    
+    
+    TH2D *pVx = new TH2D("pVx", "Vx for Primary Tracks; Run Index; Vx", 509, 0, 509, 1200, -1.0, 0.2);
+    pVx->Sumw2();
+    
+    TH2D *pVy = new TH2D("pVy", "Vy for Primary Tracks; Run Index; Vy", 509, 0, 509, 800, -2.3, -1.5);
+    pVy->Sumw2();
+    
+    TH2D *pVz = new TH2D("pVz", "Vz for Primary Tracks; Run Index; Vz", 509, 0, 509, 1000, 199.7, 200.7);
+    pVz->Sumw2();
+    
+    TH2D *pPt = new TH2D("pPt", "Pt for Primary Tracks; Run Index; Pt (GeV)", 509, 0, 509, 1000, 0.52, 0.62);
+    pPt->Sumw2();
+    
+    TH2D *pEta = new TH2D("pEta", "Eta for Primary Tracks; Run Index; Eta", 509, 0, 509, 1000, -1.4, -0.9);
+    pEta->Sumw2();
+    
+    TH2D *pQxEPDA = new TH2D("pQxEPDA", "Qx for EPDA for Primary Tracks; Run Index; Qx", 509, 0, 509, 1000, -0.02, 0.03);
+    pQxEPDA->Sumw2();
+    
+    TH2D *pQyEPDA = new TH2D("pQyEPDA", "Qy for EPDA for Primary Tracks; Run Index; Qy", 509, 0, 509, 800, -0.02, 0.0);
+    pQyEPDA->Sumw2();
+    
+    TH2D *pQxEPDB = new TH2D("pQxEPDB", "Qx for EPDB for Primary Tracks; Run Index; Qx", 509, 0, 509, 600, -0.01, 0.02);
+    pQxEPDB->Sumw2();
+    
+    TH2D *pQyEPDB = new TH2D("pQyEPDB", "Qy for EPDB for Primary Tracks; Run Index; Qy", 509, 0, 509, 800, -0.02, 0.02);
+    pQyEPDB->Sumw2();
+
+    TH2D *pQxTPCA = new TH2D("pQxTPCA", "Qx for TPCA for Primary Tracks; Run Index; Qx", 509, 0, 509, 600, -0.03, 0.03);
+    pQxTPCA->Sumw2();
+    
+    TH2D *pQyTPCA = new TH2D("pQyTPCA", "Qy for TPCA for Primary Tracks; Run Index; Qy", 509, 0, 509, 1000, -0.06, 0.04);
+    pQyTPCA->Sumw2();
+    
+    TH2D *pQxTPCB = new TH2D("pQxTPCB", "Qx for TPCB for Primary Tracks; Run Index; Qx", 509, 0, 509, 600, -0.01, 0.02);
+    pQxTPCB->Sumw2();
+    
+    TH2D *pQyTPCB = new TH2D("pQyTPCB", "Qy for TPCB for Primary Tracks; Run Index; Qy", 509, 0, 509, 600, -0.01, 0.02);
+    pQyTPCB->Sumw2();
+    
+
+    
+
+    
+    TH2D *h2_zd_vs_mom = new TH2D("h2_zd_vs_mom", ";|p| (GeV/c);z_{d}", 50, 0.0, 5.0, 140, -0.7, 0.7);
+    
+    TH2D *h2_zt_vs_mom  = new TH2D("h2_zt_vs_mom", ";|p| (GeV/c);z_{t}", 50, 0.0, 5.0, 140, -0.7, 0.7);
     
     
     
@@ -785,7 +898,7 @@ int main(int argc, char *argv[])
     TProfile *HistoD49A = new TProfile("DataVnVsYPsi1RecenteredInnerEPDPionMinus", D49AChar, 75, -0.3, 0.95);
     HistoD49A->Sumw2();
     
- 
+
     
     //Third Pass Histograms        
         
@@ -865,7 +978,6 @@ int main(int argc, char *argv[])
     
 
     TH1D *EventCheck = (TH1D*)Data->Get("h_eventCheck");
-    EventCheck->GetXaxis()->SetBinLabel(6,"Min Hits Cut");
     
     TH1F *OverallTrackCheckNoCuts = new TH1F("OverallTrackCheckNoCuts","Overall Tracks No Cut; One; Tracks", 2, 0, 2);
     OverallTrackCheckNoCuts->Sumw2();
@@ -984,16 +1096,15 @@ int main(int argc, char *argv[])
 
     
     
-    
+
     TProfile *HistoD54;
 
     if(RunIteration == 4)
     {
         HistoD54 = (TProfile*)ResolutionFile->Get("DataResolution");
     }
-    
+
     const char* CentralityXLabels[12] = {"0-5", "5-10", "10-15", "15-20", "20-25", "25-30", "30-35", "35-40", "40-45", "45-50", "50-55", "55-60"};
-    const char* CentralityXLabelsKaon[6] = {"0-10", "10-20", "20-30", "30-40", "40-50", "50-60"};
     
     std::string D44CString = "V" + std::to_string(nV) + " (Resolution Corrected) vs Y for Protons, Calculated using Inner EPD (Data); y_{CM}; V" + std::to_string(nV) +"";
     const char *D44CChar = &D44CString[0];
@@ -1051,7 +1162,7 @@ int main(int argc, char *argv[])
     std::string D54BString = "V" + std::to_string(nV) + " vs Centrality for Kaon+ (Data); Centrality; V" + std::to_string(nV) +"";
     const char *D54BChar = &D54BString[0];
     
-    TProfile *HistoD54B = new TProfile("DataVnVsCentralityKaonPlusCorrected", D54BChar, 6, 0, 6);
+    TProfile *HistoD54B = new TProfile("DataVnVsCentralityKaonPlusCorrected", D54BChar, 12, 0, 12);
     HistoD54B->Sumw2();
     
     for (int i = 1; i < HistoD54B->GetNbinsX() + 1; i++)
@@ -1059,16 +1170,28 @@ int main(int argc, char *argv[])
         HistoD54B->GetXaxis()->SetBinLabel(i, CentralityXLabels[i - 1]);
     }
     
+    std::string D54BBString = "V" + std::to_string(nV) + " vs Centrality for Kaon+ (Data) Rebined; Centrality; V" + std::to_string(nV) +"";
+    const char *D54BBChar = &D54BBString[0];
+    
+    TProfile *HistoD54BB = new TProfile("DataVnVsCentralityKaonPlusCorrectedRebined", D54BBChar, 6, 0, 6);
+    HistoD54BB->Sumw2();    
+    
     std::string D54CString = "V" + std::to_string(nV) + " vs Centrality for Kaon- (Data); Centrality; V" + std::to_string(nV) +"";
     const char *D54CChar = &D54CString[0];
 
-    TProfile *HistoD54C = new TProfile("DataVnVsCentralityKaonMinusCorrected", D54CChar, 6, 0, 6);
+    TProfile *HistoD54C = new TProfile("DataVnVsCentralityKaonMinusCorrected", D54CChar, 12, 0, 12);
     HistoD54C->Sumw2();
     
     for (int i = 1; i < HistoD54C->GetNbinsX() + 1; i++)
     {
         HistoD54C->GetXaxis()->SetBinLabel(i, CentralityXLabels[i - 1]);
     }
+    
+    std::string D54CCString = "V" + std::to_string(nV) + " vs Centrality for Kaon+ (Data) Rebined; Centrality; V" + std::to_string(nV) +"";
+    const char *D54CCChar = &D54BBString[0];
+    
+    TProfile *HistoD54CC = new TProfile("DataVnVsCentralityKaonMinusCorrectedRebined", D54CCChar, 6, 0, 6);
+    HistoD54CC->Sumw2();    
     
     std::string D54DString = "V" + std::to_string(nV) + " vs Centrality for Pion+ (Data); Centrality; V" + std::to_string(nV) +"";
     const char *D54DChar = &D54DString[0];
@@ -1197,15 +1320,28 @@ int main(int argc, char *argv[])
 
     TProfile2D *HistoD88D = new TProfile2D("DataVnCorrectedVsYDifferentCentralitiesTritons", D88DChar, 12, 0, 12, 10, 0, 1);
     HistoD88D->Sumw2();
+    
+    
+    
+    
+    
+    std::string VnVsYSymmetricProtonString = "V" + std::to_string(nV) + " (Resolution Corrected) vs Y (Symmetric) for Protons for Different Centralities (Data) ; Centrality; y_{CM}";
+    const char *VnVsYSymmetricProtonChar = &VnVsYSymmetricProtonString[0];
+
+    TProfile2D *VnVsYSymmetricProton = new TProfile2D("DataVnCorrectedVsYSymmetricDifferentCentralitiesProtons", VnVsYSymmetricProtonChar, 12, 0, 12, 10, -0.5, 0.5);
+    VnVsYSymmetricProton->Sumw2();
+    
+
 
 
 
     std::cout << "Setup Complete" << std::endl;
     
+    StEpdGeom* epdGeom = new StEpdGeom();
 
     // Event Loop
     for (Long64_t EventNum = 0; EventNum < AutreeData->GetEntries(); EventNum++)
-    {
+    { 
         if (RunIteration == 1)
         {
             if (EventNum % 5000 == 0)
@@ -1246,29 +1382,63 @@ int main(int argc, char *argv[])
         Double_t vy = Vy;
         Double_t vz = Vz;
         Int_t Centrality = (Int_t)centrality;
+        Int_t RunId = (Int_t)runId;
+  
+//         auto iterator = std::find(RunIDs.begin(), RunIDs.end(), RunId);
+        
+//         if(iterator != RunIDs.end())
+//         {
+//             RunIndex = std::distance(RunIDs.begin(), iterator);
+//         }
+
+        pVx->Fill(RunId, Vx);
+        pVy->Fill(RunId, Vy);
+        pVz->Fill(RunId, Vz);
+
+        HistoD0->Fill(Vx, Vy);
 
         Double_t vr = sqrt(pow(vx, 2) + pow(vy + 2, 2));
 
-        if (vz <= ZVertexLowerBound || vz >= ZVertexUpperBound)
-        {
-            continue;
-        }
-
-        //EventCheck->Fill(3);
-
-        if (vr >= RVertexBound)
-        {
-            continue;
-        }
-
-        //EventCheck->Fill(4);
+        ZVertexValues->Fill(vz);
+    
+        RVertexValues->Fill(vr);
         
-        if(Centrality == -99)
+        for (Int_t TrackNum = 0; TrackNum < TotalTracks; TrackNum++)
         {
-            continue;
+            Double_t DCA = dca[TrackNum];
+            Int_t NHits = nHits[TrackNum];
+            Int_t NHitsdEdx = nHitsdEdx[TrackNum];
+            Int_t NHitsFit = nHitsFit[TrackNum];
+            Int_t NHitsPoss = nHitsPoss[TrackNum];
+
+            DCAValues->Fill(DCA);
+
+            NHitsValues->Fill(NHits);
+
+            NHitsdEdxValues->Fill(NHitsdEdx);
+
+            NHitsFitOverNHitsPossValues->Fill((Double_t)NHitsFit / (Double_t)NHitsPoss);
         }
-        
-        EventCheck->Fill(3);
+
+//         if (vz <= ZVertexLowerBound || vz >= ZVertexUpperBound)
+//         {
+//             continue;
+//         }
+
+        if(RunIteration == 4)
+        {
+            EventCheck->Fill(3);
+        }
+
+//         if (vr >= RVertexBound)
+//         {
+//             continue;
+//         }
+
+        if(RunIteration == 4)
+        {
+            EventCheck->Fill(4);
+        }
 
         Int_t Multiplicity = TotalTracks;
 
@@ -1288,7 +1458,7 @@ int main(int argc, char *argv[])
         Double_t OuterTPCQy = 0;
 
 
-       
+
         if(RunIteration == 1)
         {
             //Kinematics Track Loop
@@ -1307,29 +1477,33 @@ int main(int argc, char *argv[])
                 Int_t NHits = nHits[TrackNum];
                 Int_t NHitsdEdx = nHitsdEdx[TrackNum];
                 Int_t NHitsFit = nHitsFit[TrackNum];
-                Int_t NHitsPoss = nHitsPoss[TrackNum]; 
-                
-                if (DCA >= DCABound)
-                {
-                    continue;
-                }
-                if (NHits < NHitsBound)
-                {
-                    continue;
-                }
-                if (NHitsdEdx <= NHitsdEdxBound)
-                {
-                    continue;
-                }
-                if ((Double_t)NHitsFit / (Double_t)NHitsPoss <= NHitsFitOverNHitsPossBound)
-                {
-                    continue;
-                }
+                Int_t NHitsPoss = nHitsPoss[TrackNum];
 
+               
+//                 if (DCA >= DCABound)
+//                 {
+//                     continue;
+//                 }
+//                 if (NHits < NHitsBound)
+//                 {
+//                     continue;
+//                 }
+//                 if (NHitsdEdx <= NHitsdEdxBound)
+//                 {
+//                     continue;
+//                 }
+//                 if ((Double_t)NHitsFit / (Double_t)NHitsPoss <= NHitsFitOverNHitsPossBound)
+//                 {
+//                     continue;
+//                 }
+                
                 if(q == 0)
                 {
                     continue;
                 } 
+
+
+
                 
                 Double_t pt = FlowFunctions::Pt(px, py);
 
@@ -1340,12 +1514,24 @@ int main(int argc, char *argv[])
                 Double_t qp = FlowFunctions::QP(q, px, py, pz);
 
                 Double_t phi = FlowFunctions::Phi(px, py);
+                
+                
+                
+                
+                if(std::isnan(p))
+                {
+                    continue;
+                }
+                
 
-
+                pPt->Fill(RunId, pt);
+                pEta->Fill(RunId, eta);
+                
 
                 //Particle Identification
                 Bool_t IsKaon = false;
                 Bool_t IsPion = false;
+                //bool IsProtonToF = false;
                 Bool_t IsDeuteron = false;
                 Bool_t IsTriton = false;
                 Bool_t IsProtonTPC = (abs(NSigmaPr) < NSigmaPrBound) and (q == 1);
@@ -1356,19 +1542,26 @@ int main(int argc, char *argv[])
                 {
                     Double_t msquared = FlowFunctions::MSquared(px, py, pz, tofBeta);
 
-                    IsKaon = (abs(NSigmaKa) < NSigmaKaBound) and (msquared > KaonLowerMSquared) and (msquared < KaonUpperMSquared);
-                    IsPion = (abs(NSigmaPi) < NSigmaPiBound) and (msquared > PionLowerMSquared) and (msquared < PionUpperMSquared);
+                    IsKaon = (abs(NSigmaKa) < NSigmaKaBound) && (msquared > KaonLowerMSquared) && (msquared < KaonUpperMSquared);
+                    IsPion = (abs(NSigmaPi) < NSigmaPiBound) && (msquared > PionLowerMSquared) && (msquared < PionUpperMSquared);
+                    //IsProtonToF = (abs(NSigmaPr) < NSigmaPrBound) && (msquared > ProtonLowerMSquared) && (msquared < ProtonUpperMSquared) && (p > 2.0));
                 }
 
                 Double_t zDeuteron = TMath::Log(dEdx / BichselZDeuteron->Eval(p));
                 Double_t zTriton = TMath::Log(dEdx / BichselZTriton->Eval(p));
-                
+
                 DeuteronsAndTritons DAndT (p, dEdx, tofBeta, zDeuteron, zTriton);
 
                 if(!(IsKaon) && !(IsPion))
                 {
                     IsDeuteron = DAndT.IsDeuteron() and (q == 1);
                     IsTriton = DAndT.IsTriton() and (q == 1);
+                    
+                    if(q == 1)
+                    {
+                        h2_zd_vs_mom->Fill(p, zDeuteron);
+                        h2_zt_vs_mom->Fill(p, zTriton);
+                    }
                 }
 
                 if((IsDeuteron) && (IsTriton))
@@ -1404,14 +1597,12 @@ int main(int argc, char *argv[])
 
                     Double_t msquared = FlowFunctions::MSquared(px, py, pz, tofBeta);
 
-    //                bool IsProtonToF = (abs(NSigmaPr) < NSigmaPrBound) && (msquared > ProtonLowerMSquared) && (msquared < ProtonUpperMSquared) && (p > 2.0));
-
                     HistoD4->Fill(qp, msquared);
-                    HistoD4A->Fill(qp, msquared);
+//                     HistoD4A->Fill(qp, msquared);
 
-                    HistoD24->Fill(qp, NSigmaPr);
-                    HistoD25->Fill(qp, NSigmaKa);
-                    HistoD26->Fill(qp, NSigmaPi);
+//                     HistoD24->Fill(qp, NSigmaPr);
+//                     HistoD25->Fill(qp, NSigmaKa);
+//                     HistoD26->Fill(qp, NSigmaPi);
 
                     // Proton criteria
     //              if(IsProtonToF)
@@ -1441,8 +1632,8 @@ int main(int argc, char *argv[])
 
                         HistoD6->Fill(y - yCMShift);
                         HistoD9->Fill(pt);
-                        HistoD14->Fill(p, dEdx);
-                        HistoD19->Fill(qp, msquared);
+//                         HistoD14->Fill(p, dEdx);
+//                         HistoD19->Fill(qp, msquared);
 
                         if(q > 0)
                         {
@@ -1466,8 +1657,8 @@ int main(int argc, char *argv[])
 
                         HistoD7->Fill(y - yCMShift);
                         HistoD10->Fill(pt);
-                        HistoD13->Fill(p, dEdx);
-                        HistoD20->Fill(qp, msquared);
+//                         HistoD13->Fill(p, dEdx);
+//                         HistoD20->Fill(qp, msquared);
 
                         if(q > 0)
                         {
@@ -1487,7 +1678,7 @@ int main(int argc, char *argv[])
 
                     Double_t y = FlowFunctions::Y(px, py, pz, mass);
 
-                    HistoD16->Fill(p, dEdx);
+//                     HistoD16->Fill(p, dEdx);
                     HistoD27A->Fill(y - yCMShift, pt);
                 }
 
@@ -1497,7 +1688,7 @@ int main(int argc, char *argv[])
 
                     Double_t y = FlowFunctions::Y(px, py, pz, mass);
 
-                    HistoD17->Fill(p, dEdx);
+//                     HistoD17->Fill(p, dEdx);
                     HistoD27B->Fill(y - yCMShift, pt);
                 }
 
@@ -1509,7 +1700,7 @@ int main(int argc, char *argv[])
 
                         HistoD5->Fill(y - yCMShift);
                         HistoD8->Fill(pt);
-                        HistoD15->Fill(p, dEdx);
+//                         HistoD15->Fill(p, dEdx);
 
                         HistoD21->Fill(pt);
 
@@ -1524,8 +1715,8 @@ int main(int argc, char *argv[])
                 HistoD32->Fill(phi);
             }
         }//End of Kinematics Track Loop
-        
-        
+
+       
         Double_t FourierCorrectionTermInnerEPD = 0;
         Double_t FourierCorrectionTermOuterEPD = 0;
         Double_t FourierCorrectionTermOuterTPC = 0;
@@ -1541,38 +1732,44 @@ int main(int argc, char *argv[])
                 Double_t py = Py[TrackNum];
                 Double_t pz = Pz[TrackNum];
                 Int_t q = (Int_t)Charge[TrackNum];
-                Double_t tofBeta = ToFBeta[TrackNum];
-                Double_t dEdx = dedx[TrackNum];
-                Double_t NSigmaPr = nSigmaPr[TrackNum];
-                Double_t NSigmaKa = nSigmaKa[TrackNum];
-                Double_t NSigmaPi = nSigmaPi[TrackNum];
                 Double_t DCA = dca[TrackNum];
                 Int_t NHits = nHits[TrackNum];
                 Int_t NHitsdEdx = nHitsdEdx[TrackNum];
                 Int_t NHitsFit = nHitsFit[TrackNum];
                 Int_t NHitsPoss = nHitsPoss[TrackNum]; 
 
-
-                if (DCA >= DCABound)
-                {
-                    continue;
-                }
-                if (NHits < NHitsBound)
-                {
-                    continue;
-                }
-                if (NHitsdEdx <= NHitsdEdxBound)
-                {
-                    continue;
-                }
-                if ((double)NHitsFit / (double)NHitsPoss <= NHitsFitOverNHitsPossBound)
-                {
-                    continue;
-                }
-
+                
+//                 if(RunIteration == 4)
+//                 {
+//                     OverallTrackCheckNoCuts->Fill(1);
+//                 }
+            
+//                 if (DCA >= DCABound)
+//                 {
+//                     continue;
+//                 }
+//                 if (NHits < NHitsBound)
+//                 {
+//                     continue;
+//                 }
+//                 if (NHitsdEdx <= NHitsdEdxBound)
+//                 {
+//                     continue;
+//                 }
+//                 if ((double)NHitsFit / (double)NHitsPoss <= NHitsFitOverNHitsPossBound)
+//                 {
+//                     continue;
+//                 }
+            
                 if(q == 0)
                 {
                     continue;
+                }
+            
+            
+                if(RunIteration == 4)
+                {
+                    OverallTrackCheckQACuts->Fill(1);
                 }
 
                 Double_t eta = FlowFunctions::Eta(px, py, pz);
@@ -1595,7 +1792,7 @@ int main(int argc, char *argv[])
                 continue;
             }
 
-            TileVector *TVec = new TileVector(EPDID, vx, vy, vz, InnerEPDHighRing, OuterEPDLowRing);
+            TileVector *TVec = new TileVector(epdGeom, EPDID, vx, vy, vz, InnerEPDHighRing, OuterEPDLowRing);
             
             Double_t eta = TVec->EPDEta();
             
@@ -1616,13 +1813,16 @@ int main(int argc, char *argv[])
             delete TVec;
         }//End EPD Hit Counting loop
 
-        if((GoodTracksCounterInnerEPD < NumberOfGoodTracksInnerEPD) || (GoodTracksCounterOuterEPD < NumberOfGoodTracksOuterEPD) || (GoodTracksCounterOuterTPC < NumberOfGoodTracksOuterTPC))
+//         if((GoodTracksCounterInnerEPD < NumberOfGoodTracksInnerEPD) || (GoodTracksCounterOuterEPD < NumberOfGoodTracksOuterEPD) || (GoodTracksCounterOuterTPC < NumberOfGoodTracksOuterTPC))
+//         {
+//             continue;
+//         }
+
+        if(RunIteration == 4)
         {
-            continue;
+            EventCheck->Fill(5);
         }
-        
-        EventCheck->Fill(4);
-        
+         
         //Q Vector Calulator loop (TPC)
         for (Int_t TrackNum = 0; TrackNum < TotalTracks; TrackNum++)
         {
@@ -1630,11 +1830,6 @@ int main(int argc, char *argv[])
                 Double_t py = Py[TrackNum];
                 Double_t pz = Pz[TrackNum];
                 Int_t q = (Int_t)Charge[TrackNum];
-                Double_t tofBeta = ToFBeta[TrackNum];
-                Double_t dEdx = dedx[TrackNum];
-                Double_t NSigmaPr = nSigmaPr[TrackNum];
-                Double_t NSigmaKa = nSigmaKa[TrackNum];
-                Double_t NSigmaPi = nSigmaPi[TrackNum];
                 Double_t DCA = dca[TrackNum];
                 Int_t NHits = nHits[TrackNum];
                 Int_t NHitsdEdx = nHitsdEdx[TrackNum];
@@ -1642,22 +1837,22 @@ int main(int argc, char *argv[])
                 Int_t NHitsPoss = nHitsPoss[TrackNum]; 
 
 
-                if (DCA >= DCABound)
-                {
-                    continue;
-                }
-                if (NHits < NHitsBound)
-                {
-                    continue;
-                }
-                if (NHitsdEdx <= NHitsdEdxBound)
-                {
-                    continue;
-                }
-                if ((double)NHitsFit / (double)NHitsPoss <= NHitsFitOverNHitsPossBound)
-                {
-                    continue;
-                }
+//                 if (DCA >= DCABound)
+//                 {
+//                     continue;
+//                 }
+//                 if (NHits < NHitsBound)
+//                 {
+//                     continue;
+//                 }
+//                 if (NHitsdEdx <= NHitsdEdxBound)
+//                 {
+//                     continue;
+//                 }
+//                 if ((double)NHitsFit / (double)NHitsPoss <= NHitsFitOverNHitsPossBound)
+//                 {
+//                     continue;
+//                 }          
 
                 if(q == 0)
                 {
@@ -1731,7 +1926,7 @@ int main(int argc, char *argv[])
                 continue;
             }
 
-            TileVector *TVec = new TileVector(EPDID, vx, vy, vz, InnerEPDHighRing, OuterEPDLowRing);
+            TileVector *TVec = new TileVector(epdGeom, EPDID, vx, vy, vz, InnerEPDHighRing, OuterEPDLowRing);
 
             Double_t phi = TVec->EPDPhi();
 
@@ -1800,7 +1995,10 @@ int main(int argc, char *argv[])
             continue;
         }
  
-        //EventCheck->Fill(5);
+        if(RunIteration == 4)
+        {
+            EventCheck->Fill(6);
+        }
         
         Double_t PsiInnerEPDRaw = 0;
         Double_t PsiOuterEPDRaw = 0;
@@ -1837,6 +2035,15 @@ int main(int argc, char *argv[])
             HistoD33->Fill(PsiInnerEPDRaw);
             HistoD36->Fill(PsiOuterEPDRaw);
             HistoD39->Fill(PsiOuterTPCRaw);
+            
+            pQxEPDA->Fill(RunId, InnerEPDQx);
+            pQyEPDA->Fill(RunId, InnerEPDQy);
+            pQxEPDB->Fill(RunId, OuterEPDQx);
+            pQyEPDB->Fill(RunId, OuterEPDQy);
+            pQxTPCA->Fill(RunId, InnerTPCQx);
+            pQyTPCA->Fill(RunId, InnerTPCQy);
+            pQxTPCB->Fill(RunId, OuterTPCQx);
+            pQyTPCB->Fill(RunId, OuterTPCQy);
         }
         
         if(RunIteration == 2)
@@ -1914,9 +2121,6 @@ int main(int argc, char *argv[])
         
             const char* CentralityXLabels[12] = {"0-5", "5-10", "10-15", "15-20", "20-25", "25-30", "30-35", "35-40", "40-45", "45-50", "50-55", "55-60"};
 
-            Double_t R11 = 0;
-            Double_t R11Error = 0;
-
             for (int index = 1; index < HistoD51->GetNbinsX() + 1; index++)
             {
                 HistoD51->GetXaxis()->SetBinLabel(index, CentralityXLabels[index - 1]);
@@ -1930,6 +2134,11 @@ int main(int argc, char *argv[])
         if(Centrality < 4)
         {
             continue;
+        }
+        
+        if(RunIteration == 4)
+        {
+            EventCheck->Fill(7);
         }
 
         
@@ -1947,16 +2156,14 @@ int main(int argc, char *argv[])
             }
         }
 
-        EventCheck->Fill(5);
+
 
 
         
         
         //Flow Calulator loop
         for (int TrackNum = 0; TrackNum < TotalTracks; TrackNum++)
-        {
-            OverallTrackCheckNoCuts->Fill(1);
-            
+        {   
             Double_t px = Px[TrackNum];
             Double_t py = Py[TrackNum];
             Double_t pz = Pz[TrackNum];
@@ -1989,23 +2196,30 @@ int main(int argc, char *argv[])
             {
                 continue;
             }
-
+            
             if(q == 0)
             {
                 continue;
             }
 
             
-            OverallTrackCheckQACuts->Fill(1);
+            
             
             
             Double_t pt = FlowFunctions::Pt(px, py);
 
             Double_t p = FlowFunctions::P(px, py, pz);
 
-            Double_t eta = FlowFunctions::Eta(px, py, pz);
+            Double_t eta = FlowFunctions::Eta(px, py, pz); 
+            
+            
+            
+            
+            if(std::isnan(p))
+            {
+                continue;
+            }
 
-            Double_t phi = FlowFunctions::Phi(px, py);
             
             
             
@@ -2014,15 +2228,15 @@ int main(int argc, char *argv[])
             Bool_t IsPion = false;
             Bool_t IsDeuteron = false;
             Bool_t IsTriton = false;
-            Bool_t IsProtonTPC = (abs(NSigmaPr) < NSigmaPrBound) and (q == 1);
+            Bool_t IsProtonTPC = (abs(NSigmaPr) < NSigmaPrBound) && (q == 1);
 
 
             if(tofBeta > 0)
             {
                 Double_t msquared = FlowFunctions::MSquared(px, py, pz, tofBeta);
 
-                IsKaon = (abs(NSigmaKa) < NSigmaKaBound) and (msquared > KaonLowerMSquared) and (msquared < KaonUpperMSquared);
-                IsPion = (abs(NSigmaPi) < NSigmaPiBound) and (msquared > PionLowerMSquared) and (msquared < PionUpperMSquared);
+                IsKaon = (abs(NSigmaKa) < NSigmaKaBound) && (msquared > KaonLowerMSquared) && (msquared < KaonUpperMSquared);
+                IsPion = (abs(NSigmaPi) < NSigmaPiBound) && (msquared > PionLowerMSquared) && (msquared < PionUpperMSquared);
             }
             
             Double_t zDeuteron = TMath::Log(dEdx / BichselZDeuteron->Eval(p));
@@ -2530,6 +2744,7 @@ int main(int argc, char *argv[])
                                     GoodKaonPlusTrackCheck->Fill(1);
 
                                     HistoD54B->Fill(Centrality, VnInnerEPDFourierCorrected / ResolutionCorrectionFactor, 1.0 / (TPCEfficiency * ToFEfficiency));
+                                    HistoD54BB->Fill(Centrality, VnInnerEPDFourierCorrected / ResolutionCorrectionFactor, 1.0 / (TPCEfficiency * ToFEfficiency));
                                     HistoD81->Fill(Centrality, pt, VnInnerEPDFourierCorrected / ResolutionCorrectionFactor, 1.0 / (TPCEfficiency * ToFEfficiency));
                                 }
                             }
@@ -2567,6 +2782,7 @@ int main(int argc, char *argv[])
                                     GoodKaonMinusTrackCheck->Fill(1);
 
                                     HistoD54C->Fill(Centrality, VnInnerEPDFourierCorrected / ResolutionCorrectionFactor, 1.0 / (TPCEfficiency * ToFEfficiency));
+                                    HistoD54CC->Fill(Centrality, VnInnerEPDFourierCorrected / ResolutionCorrectionFactor, 1.0 / (TPCEfficiency * ToFEfficiency));
                                     HistoD83->Fill(Centrality, pt, VnInnerEPDFourierCorrected / ResolutionCorrectionFactor, 1.0 / (TPCEfficiency * ToFEfficiency));
                                 }
                             }
@@ -2800,14 +3016,18 @@ int main(int argc, char *argv[])
                         
                         }
                     }
+                    
+                    if((pt > 1.0) && (pt < 2.5) && ((y - yCMShift) > -0.5) && ((y - yCMShift) < 0.5))
+                    {
+                        VnVsYSymmetricProton->Fill(Centrality, y - yCMShift, VnInnerEPDFourierCorrected / ResolutionCorrectionFactor, 1.0 / (TPCEfficiency));
+                    }
                 }      
             }       
         }//End Flow Calculator loop 
-        
-    }//End Event loop
-    
-    
 
+    }//End Event loop
+   
+   
 
     //Outputting the Histograms
     if(RunIteration == 1)
@@ -2818,6 +3038,27 @@ int main(int argc, char *argv[])
         HistoOuterEPDQyRaw->SetDirectory(0);
         HistoOuterTPCQxRaw->SetDirectory(0);
         HistoOuterTPCQyRaw->SetDirectory(0);
+        ZVertexValues->SetDirectory(0);
+        RVertexValues->SetDirectory(0);
+        DCAValues->SetDirectory(0);
+        NHitsValues->SetDirectory(0);
+        NHitsdEdxValues->SetDirectory(0);
+        NHitsFitOverNHitsPossValues->SetDirectory(0);
+        pVx->SetDirectory(0);
+        pVy->SetDirectory(0);
+        pVz->SetDirectory(0);
+        pPt->SetDirectory(0);
+        pEta->SetDirectory(0);
+        pQxEPDA->SetDirectory(0);
+        pQyEPDA->SetDirectory(0);
+        pQxEPDB->SetDirectory(0);
+        pQyEPDB->SetDirectory(0);
+        pQxTPCA->SetDirectory(0);
+        pQyTPCA->SetDirectory(0);
+        pQxTPCB->SetDirectory(0);
+        pQyTPCB->SetDirectory(0);
+        h2_zd_vs_mom->SetDirectory(0);
+        h2_zt_vs_mom->SetDirectory(0);
         HistoDA->SetDirectory(0);
         HistoDB->SetDirectory(0);
         HistoD0->SetDirectory(0);
@@ -2870,7 +3111,7 @@ int main(int argc, char *argv[])
         HistoD48A->SetDirectory(0);
         
 
-        
+
 
         std::string QVectorHistogramFileString = "/star/data01/pwg/mcgordon/VnFromEPD/V" + std::to_string(nV) + "Histograms/QVectorFirstPass" + argv[3] + argv[2] +".root";
         const char *QVectorHistogramFileChar = &QVectorHistogramFileString[0];
@@ -2887,8 +3128,8 @@ int main(int argc, char *argv[])
 
         QVectorHistogramRootFile->Close();
         
-        
-        
+
+
 
         std::string HistogramRootFileString = "/star/data01/pwg/mcgordon/VnFromEPD/V" + std::to_string(nV) + "Histograms/HistogramFirstPass" + argv[3] + argv[2] + ".root";
         const char *HistogramRootFileChar = &HistogramRootFileString[0];
@@ -2896,6 +3137,27 @@ int main(int argc, char *argv[])
         TFile *HistogramRootFile =TFile::Open(HistogramRootFileChar, "RECREATE");
         HistogramRootFile->cd();
 
+        ZVertexValues->Write();
+        RVertexValues->Write();
+        DCAValues->Write();
+        NHitsValues->Write();
+        NHitsdEdxValues->Write();
+        NHitsFitOverNHitsPossValues->Write();
+        pVx->Write();
+        pVy->Write();
+        pVz->Write();
+        pPt->Write();
+        pEta->Write();
+        pQxEPDA->Write();
+        pQyEPDA->Write();
+        pQxEPDB->Write();
+        pQyEPDB->Write();
+        pQxTPCA->Write();
+        pQyTPCA->Write();
+        pQxTPCB->Write();
+        pQyTPCB->Write();
+        h2_zd_vs_mom->Write();
+        h2_zt_vs_mom->Write();
         HistoDA->Write();
         HistoDB->Write();
         HistoD0->Write();
@@ -2948,8 +3210,8 @@ int main(int argc, char *argv[])
         HistoD48A->Write();
 
         
-        
-        
+ 
+
         
         HistogramRootFile->Close();
     }
@@ -3079,6 +3341,24 @@ int main(int argc, char *argv[])
         std::string YAxisString = "V" + std::to_string(nV) +"";
         const char* YAxisChar = &YAxisString[0];
         
+        
+//         HistoD54B->Rebin();
+//         HistoD54B->Sumw2(kFALSE);
+        
+//         HistoD54C->Rebin();
+//         HistoD54C->Sumw2(kFALSE);
+        
+        
+        
+//         for (int i = 1; i < HistoD54B->GetNbinsX() + 1; i++)
+//         {
+//             HistoD54B->GetXaxis()->SetBinLabel(i, CentralityXLabelsKaon[i - 1]);
+//         }
+        
+//         for (int i = 1; i < HistoD54C->GetNbinsX() + 1; i++)
+//         {
+//             HistoD54C->GetXaxis()->SetBinLabel(i, CentralityXLabelsKaon[i - 1]);
+//         }
         
         
         
@@ -3274,7 +3554,7 @@ int main(int argc, char *argv[])
         std::string HistoD115String = "DataV" + std::to_string(nV) +"VsPtForPionsMinusCentrality40-60";
         const char* HistoD115Char = &HistoD115String[0];
         
-        std::string HistoD116String = "DataV" + std::to_string(nV) +"VsYForPionssMinusCentrality0-10";
+        std::string HistoD116String = "DataV" + std::to_string(nV) +"VsYForPionsMinusCentrality0-10";
         const char* HistoD116Char = &HistoD116String[0];
         
         std::string HistoD117String = "DataV" + std::to_string(nV) +"VsYForPionsMinusCentrality10-40";
@@ -3285,10 +3565,10 @@ int main(int argc, char *argv[])
         
 
 
-        TProfile *HistoD113 = (TProfile*)HistoD87->ProfileY(HistoD103Char, 1, 2);
+        TProfile *HistoD113 = (TProfile*)HistoD87->ProfileY(HistoD113Char, 1, 2);
         HistoD113->SetXTitle("Pt");
         HistoD113->SetYTitle(YAxisChar);
-        TProfile *HistoD114 = (TProfile*)HistoD87->ProfileY(HistoD104Char, 3, 8);
+        TProfile *HistoD114 = (TProfile*)HistoD87->ProfileY(HistoD114Char, 3, 8);
         HistoD114->SetXTitle("Pt");
         HistoD114->SetYTitle(YAxisChar);
         TProfile *HistoD115 = (TProfile*)HistoD87->ProfileY(HistoD115Char, 9, 12);
@@ -3311,7 +3591,7 @@ int main(int argc, char *argv[])
         
         
         
-        std::string HistoD119String = "DataV" + std::to_string(nV) +"VsPtForDeuteronsMinusCentrality0-10";
+        std::string HistoD119String = "DataV" + std::to_string(nV) +"VsPtForDeuteronsCentrality0-10";
         const char* HistoD119Char = &HistoD119String[0];
         
         std::string HistoD120String = "DataV" + std::to_string(nV) +"VsPtForDeuteronsCentrality10-40";
@@ -3356,7 +3636,7 @@ int main(int argc, char *argv[])
         
         
         
-        std::string HistoD125String = "DataV" + std::to_string(nV) +"VsPtForTritonsMinusCentrality0-10";
+        std::string HistoD125String = "DataV" + std::to_string(nV) +"VsPtForTritonsCentrality0-10";
         const char* HistoD125Char = &HistoD125String[0];
         
         std::string HistoD126String = "DataV" + std::to_string(nV) +"VsPtForTritonsCentrality10-40";
@@ -3397,6 +3677,31 @@ int main(int argc, char *argv[])
         
         
         
+
+        std::string VnVsYSymmetricProtonCentrality0_10String = "DataV" + std::to_string(nV) +"VsYSymmetricForProtonsCentrality0-10";
+        const char* VnVsYSymmetricProtonCentrality0_10Char = &VnVsYSymmetricProtonCentrality0_10String[0];
+        
+        std::string VnVsYSymmetricProtonCentrality10_40String = "DataV" + std::to_string(nV) +"VsYSymmetricForProtonsCentrality10-40";
+        const char* VnVsYSymmetricProtonCentrality10_40Char = &VnVsYSymmetricProtonCentrality10_40String[0];
+        
+        std::string VnVsYSymmetricProtonCentrality40_60String = "DataV" + std::to_string(nV) +"VsYSymmetricForProtonsCentrality40-60";
+        const char* VnVsYSymmetricProtonCentrality40_60Char = &VnVsYSymmetricProtonCentrality40_60String[0]; 
+
+
+        TProfile *VnVsYSymmetricProtonCentrality0_10 = (TProfile*)VnVsYSymmetricProton->ProfileY(VnVsYSymmetricProtonCentrality0_10Char, 1, 2);
+        VnVsYSymmetricProtonCentrality0_10->SetXTitle("Y_{CM}");
+        VnVsYSymmetricProtonCentrality0_10->SetYTitle(YAxisChar);
+        TProfile *VnVsYSymmetricProtonCentrality10_40 = (TProfile*)VnVsYSymmetricProton->ProfileY(VnVsYSymmetricProtonCentrality10_40Char, 3, 8);
+        VnVsYSymmetricProtonCentrality10_40->SetXTitle("Y_{CM}");
+        VnVsYSymmetricProtonCentrality10_40->SetYTitle(YAxisChar);
+        TProfile *VnVsYSymmetricProtonCentrality40_60 = (TProfile*)VnVsYSymmetricProton->ProfileY(VnVsYSymmetricProtonCentrality40_60Char, 9, 12);
+        VnVsYSymmetricProtonCentrality40_60->SetXTitle("Y_{CM}");
+        VnVsYSymmetricProtonCentrality40_60->SetYTitle(YAxisChar);       
+
+        
+        
+
+        
         
         EventCheck->SetDirectory(0);
         OverallTrackCheckNoCuts->SetDirectory(0);
@@ -3436,7 +3741,9 @@ int main(int argc, char *argv[])
         HistoD50E->SetDirectory(0);
         HistoD54A->SetDirectory(0);
         HistoD54B->SetDirectory(0);
+        HistoD54BB->SetDirectory(0);
         HistoD54C->SetDirectory(0);
+        HistoD54CC->SetDirectory(0);
         HistoD54D->SetDirectory(0);
         HistoD54E->SetDirectory(0);
         HistoD54F->SetDirectory(0);
@@ -3497,6 +3804,12 @@ int main(int argc, char *argv[])
         HistoD128->SetDirectory(0);
         HistoD129->SetDirectory(0);
         HistoD130->SetDirectory(0);
+        VnVsYSymmetricProton->SetDirectory(0);
+        VnVsYSymmetricProtonCentrality0_10->SetDirectory(0);
+        VnVsYSymmetricProtonCentrality10_40->SetDirectory(0);
+        VnVsYSymmetricProtonCentrality40_60->SetDirectory(0);
+       
+                                                  
 
         
         std::string HistogramRootFileString = "/star/data01/pwg/mcgordon/VnFromEPD/V" + std::to_string(nV) + "Histograms/HistogramFourthPass" + argv[3] + argv[2] + ".root";
@@ -3544,7 +3857,9 @@ int main(int argc, char *argv[])
         HistoD50E->Write();
         HistoD54A->Write();
         HistoD54B->Write();
+        HistoD54BB->Write();
         HistoD54C->Write();
+        HistoD54CC->Write();
         HistoD54D->Write();
         HistoD54E->Write();
         HistoD54F->Write();
@@ -3605,7 +3920,10 @@ int main(int argc, char *argv[])
         HistoD128->Write();
         HistoD129->Write();
         HistoD130->Write();        
-        
+        VnVsYSymmetricProton->Write();
+        VnVsYSymmetricProtonCentrality0_10->Write();
+        VnVsYSymmetricProtonCentrality10_40->Write();
+        VnVsYSymmetricProtonCentrality40_60->Write();
  
             
 
@@ -3658,16 +3976,41 @@ int main(int argc, char *argv[])
         delete HistoD127;
         delete HistoD128;
         delete HistoD129;
-        delete HistoD130;     
+        delete HistoD130;
+        delete VnVsYSymmetricProton;
+        delete VnVsYSymmetricProtonCentrality0_10;
+        delete VnVsYSymmetricProtonCentrality10_40;
+        delete VnVsYSymmetricProtonCentrality40_60;
     }
 
     Data->Close();
 
     delete BichselZDeuteron;
     delete BichselZTriton;
-   
+
     if(RunIteration == 1)
     {
+        delete ZVertexValues;
+        delete RVertexValues;
+        delete DCAValues;
+        delete NHitsValues;
+        delete NHitsdEdxValues;
+        delete NHitsFitOverNHitsPossValues;
+        delete pVx;
+        delete pVy;
+        delete pVz;
+        delete pPt;
+        delete pEta;
+        delete pQxEPDA;
+        delete pQyEPDA;
+        delete pQxEPDB;
+        delete pQyEPDB;
+        delete pQxTPCA;
+        delete pQyTPCA;
+        delete pQxTPCB;
+        delete pQyTPCB;
+        delete h2_zd_vs_mom;
+        delete h2_zt_vs_mom;
         delete HistoInnerEPDQxRaw;
         delete HistoInnerEPDQyRaw;
         delete HistoOuterEPDQxRaw;
@@ -3813,7 +4156,9 @@ int main(int argc, char *argv[])
         delete HistoD50E;
         delete HistoD54A;
         delete HistoD54B;
+        delete HistoD54BB;
         delete HistoD54C;
+        delete HistoD54CC;
         delete HistoD54D;
         delete HistoD54E;
         delete HistoD54F;

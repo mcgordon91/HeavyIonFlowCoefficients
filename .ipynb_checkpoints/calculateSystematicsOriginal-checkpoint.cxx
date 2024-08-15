@@ -218,8 +218,8 @@ struct AverageContributionTracker
 
 
 
-//void calculateSystematics(TString order_n_str = "3")
-void calculateSystematics(TString order_n_str = "1")
+void calculateSystematics(TString order_n_str = "3")
+//void calculateSystematics(TString order_n_str = "1")
 {
   TFile* newFile = new TFile("systematicErrors.root", "RECREATE");
 
@@ -4084,7 +4084,7 @@ void calculateSystematics(TString order_n_str = "1")
       delete copyWithNewErrors1;
       canvas->Clear();
       //===
-
+/*
       //=== Deuteron vs centrality
       copyWithNewErrors1 = new TGraphErrors((TH1D*)Normal->h_vn_de->Clone());
       for (int i = 0; i < v_sys_de.size(); i++)
@@ -4741,7 +4741,7 @@ void calculateSystematics(TString order_n_str = "1")
       delete copyWithNewErrors3;
       delete copyWithNewErrors4;
       delete copyWithNewErrors5;
-
+*/
 
 
       //=== Proton vs rapidity
@@ -4867,7 +4867,7 @@ void calculateSystematics(TString order_n_str = "1")
       delete copyWithNewErrors2;
       delete copyWithNewErrors3;
       //===
-
+/*
       //=== Triton vs rapidity
       THStack *trRapidityStack = new THStack("trRapidityStack", ";y-y_{mid};v_{"+order_n_str+"}");
       trRapidityStack->Add(Normal->h_vn_yCM_00to10_tr);
@@ -4990,7 +4990,7 @@ void calculateSystematics(TString order_n_str = "1")
       delete copyWithNewErrors2;
       delete copyWithNewErrors3;
       //===
-
+*/
       //=== Proton vs pT
       THStack *prPtStack = new THStack("prPtStack", ";p_{T} (GeV);v_{"+order_n_str+"}");
       prPtStack->Add(Normal->h_vn_pT_00to10_pr);
@@ -5031,7 +5031,7 @@ void calculateSystematics(TString order_n_str = "1")
       delete copyWithNewErrors2;
       delete copyWithNewErrors3;
       //===
-
+/*
       //=== Proton yMid vs pT
       THStack *prPtStack_yMid = new THStack("prPtStack_yMid", ";p_{T} (GeV);v_{"+order_n_str+"}");
       prPtStack_yMid->Add(Normal->h_vn_pT_00to10_pr_yMid);

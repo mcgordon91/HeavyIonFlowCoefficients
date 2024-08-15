@@ -8,7 +8,7 @@
     starver SL20d
     setup 64b
     setup root 6.16.00
-    python VnFromInnerEPD.py $INPUTFILE0 $JOBID
+    python VnFromInnerEPDParallel-V3-Parameters-12-31-23-Copy.py $INPUTFILE0 $JOBID Normal
   </command>
 
 

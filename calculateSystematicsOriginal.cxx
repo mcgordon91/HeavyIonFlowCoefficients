@@ -218,8 +218,8 @@ struct AverageContributionTracker
 
 
 
-//void calculateSystematics(TString order_n_str = "3")
-void calculateSystematics(TString order_n_str = "1")
+void calculateSystematics(TString order_n_str = "3")
+//void calculateSystematics(TString order_n_str = "1")
 {
   TFile* newFile = new TFile("systematicErrors.root", "RECREATE");
 
@@ -264,28 +264,28 @@ void calculateSystematics(TString order_n_str = "1")
   //Variation* nSigPi_low_30  = new Variation(directory30Percent+"nSigPi_low", order_n_str);
   //Variation* nSigKa_high_30 = new Variation(directory30Percent+"nSigKa_high", order_n_str);
   //Variation* nSigKa_low_30  = new Variation(directory30Percent+"nSigKa_low", order_n_str);
-  Variation* zDe_high_30 = new Variation(directory30Percent+"08132023v1AveRes_zDe_high/08132023v1AveRes_zDe_high", order_n_str);
-  Variation* zDe_low_30  = new Variation(directory30Percent+"08132023v1AveRes_zDe_low/08132023v1AveRes_zDe_low", order_n_str);
-  Variation* zTr_high_30 = new Variation(directory30Percent+"08132023v1AveRes_zTr_high/08132023v1AveRes_zTr_high", order_n_str);
-  Variation* zTr_low_30  = new Variation(directory30Percent+"08132023v1AveRes_zTr_low/08132023v1AveRes_zTr_low", order_n_str);
-  Variation* zHe3_high_30 = new Variation(directory30Percent+"08132023v1AveRes_zHe3_high/08132023v1AveRes_zHe3_high", order_n_str);
-  Variation* zHe3_low_30  = new Variation(directory30Percent+"08132023v1AveRes_zHe3_low/08132023v1AveRes_zHe3_low", order_n_str);
-  Variation* zHe4_high_30 = new Variation(directory30Percent+"08132023v1AveRes_zHe4_high/08132023v1AveRes_zHe4_high", order_n_str);
-  Variation* zHe4_low_30  = new Variation(directory30Percent+"08132023v1AveRes_zHe4_low/08132023v1AveRes_zHe4_low", order_n_str);
+//   Variation* zDe_high_30 = new Variation(directory30Percent+"08132023v1AveRes_zDe_high/08132023v1AveRes_zDe_high", order_n_str);
+//   Variation* zDe_low_30  = new Variation(directory30Percent+"08132023v1AveRes_zDe_low/08132023v1AveRes_zDe_low", order_n_str);
+//   Variation* zTr_high_30 = new Variation(directory30Percent+"08132023v1AveRes_zTr_high/08132023v1AveRes_zTr_high", order_n_str);
+//   Variation* zTr_low_30  = new Variation(directory30Percent+"08132023v1AveRes_zTr_low/08132023v1AveRes_zTr_low", order_n_str);
+//   Variation* zHe3_high_30 = new Variation(directory30Percent+"08132023v1AveRes_zHe3_high/08132023v1AveRes_zHe3_high", order_n_str);
+//   Variation* zHe3_low_30  = new Variation(directory30Percent+"08132023v1AveRes_zHe3_low/08132023v1AveRes_zHe3_low", order_n_str);
+//   Variation* zHe4_high_30 = new Variation(directory30Percent+"08132023v1AveRes_zHe4_high/08132023v1AveRes_zHe4_high", order_n_str);
+//   Variation* zHe4_low_30  = new Variation(directory30Percent+"08132023v1AveRes_zHe4_low/08132023v1AveRes_zHe4_low", order_n_str);
   Variation* nSigPr_high_30 = new Variation(directory30Percent+"08132023v1AveRes_nSigPr_high/08132023v1AveRes_nSigPr_high", order_n_str);
-  Variation* nSigPr_low_30  = new Variation(directory30Percent+"08132023v1AveRes_nSigPr_low/08132023v1AveRes_nSigPr_low", order_n_str);
-  Variation* rvtx_high_30 = new Variation(directory30Percent+"08132023v1AveRes_rvtx_high/08132023v1AveRes_rvtx_high", order_n_str);
-  Variation* rvtx_low_30  = new Variation(directory30Percent+"08132023v1AveRes_rvtx_low/08132023v1AveRes_rvtx_low", order_n_str);
-  Variation* zvtx_high_30 = new Variation(directory30Percent+"08132023v1AveRes_zvtx_high/08132023v1AveRes_zvtx_high", order_n_str);
-  Variation* zvtx_low_30  = new Variation(directory30Percent+"08142023v1AveRes_zvtx_low/08142023v1AveRes_zvtx_low", order_n_str);
-  Variation* dca_high_30 = new Variation(directory30Percent+"08132023v1AveRes_dca_high/08132023v1AveRes_dca_high", order_n_str);
-  Variation* dca_low_30  = new Variation(directory30Percent+"08142023v1AveRes_dca_low/08142023v1AveRes_dca_low", order_n_str);
-  Variation* nhits_high_30 = new Variation(directory30Percent+"08132023v1AveRes_nhits_high/08132023v1AveRes_nhits_high", order_n_str);
-  Variation* nhits_low_30 = new Variation(directory30Percent+"08132023v1AveRes_nhits_low/08132023v1AveRes_nhits_low", order_n_str);
-  Variation* nhitsdEdx_high_30 = new Variation(directory30Percent+"08132023v1AveRes_nhitsdedx_high/08132023v1AveRes_nhitsdedx_high", order_n_str);
-  //Variation* nhitsdEdx_low_30  = new Variation(directory30Percent+"nhitsdEdx_low", order_n_str);
-  Variation* nhitsratio_high_30 = new Variation(directory30Percent+"08132023v1AveRes_nhitsratio_high/08132023v1AveRes_nhitsratio_high", order_n_str);
-  Variation* nhitsratio_low_30  = new Variation(directory30Percent+"08132023v1AveRes_nhitsratio_low/08132023v1AveRes_nhitsratio_low", order_n_str);
+//   Variation* nSigPr_low_30  = new Variation(directory30Percent+"08132023v1AveRes_nSigPr_low/08132023v1AveRes_nSigPr_low", order_n_str);
+//   Variation* rvtx_high_30 = new Variation(directory30Percent+"08132023v1AveRes_rvtx_high/08132023v1AveRes_rvtx_high", order_n_str);
+//   Variation* rvtx_low_30  = new Variation(directory30Percent+"08132023v1AveRes_rvtx_low/08132023v1AveRes_rvtx_low", order_n_str);
+//   Variation* zvtx_high_30 = new Variation(directory30Percent+"08132023v1AveRes_zvtx_high/08132023v1AveRes_zvtx_high", order_n_str);
+//   Variation* zvtx_low_30  = new Variation(directory30Percent+"08142023v1AveRes_zvtx_low/08142023v1AveRes_zvtx_low", order_n_str);
+//   Variation* dca_high_30 = new Variation(directory30Percent+"08132023v1AveRes_dca_high/08132023v1AveRes_dca_high", order_n_str);
+//   Variation* dca_low_30  = new Variation(directory30Percent+"08142023v1AveRes_dca_low/08142023v1AveRes_dca_low", order_n_str);
+//   Variation* nhits_high_30 = new Variation(directory30Percent+"08132023v1AveRes_nhits_high/08132023v1AveRes_nhits_high", order_n_str);
+//   Variation* nhits_low_30 = new Variation(directory30Percent+"08132023v1AveRes_nhits_low/08132023v1AveRes_nhits_low", order_n_str);
+//   Variation* nhitsdEdx_high_30 = new Variation(directory30Percent+"08132023v1AveRes_nhitsdedx_high/08132023v1AveRes_nhitsdedx_high", order_n_str);
+//   //Variation* nhitsdEdx_low_30  = new Variation(directory30Percent+"nhitsdEdx_low", order_n_str);
+//   Variation* nhitsratio_high_30 = new Variation(directory30Percent+"08132023v1AveRes_nhitsratio_high/08132023v1AveRes_nhitsratio_high", order_n_str);
+//   Variation* nhitsratio_low_30  = new Variation(directory30Percent+"08132023v1AveRes_nhitsratio_low/08132023v1AveRes_nhitsratio_low", order_n_str);
   //Variation* m2Pi_high_30 = new Variation(directory30Percent+"m2Pi_high", order_n_str);
   //Variation* m2Pi_low_30  = new Variation(directory30Percent+"m2Pi_low", order_n_str);
   //Variation* m2Ka_high_30 = new Variation(directory30Percent+"m2Ka_high", order_n_str);
@@ -293,20 +293,20 @@ void calculateSystematics(TString order_n_str = "1")
 
 
   //CompositeData* epd = new CompositeData("epd", Normal, epd_scaled, epd_high);
-  CompositeData* epd = new CompositeData("epd", Normal, epd_low, epd_high);
-  CompositeData* nhits = new CompositeData("nhits", Normal, nhits_low_30, nhits_high_30);  
+//   CompositeData* epd = new CompositeData("epd", Normal, epd_low, epd_high);
+//   CompositeData* nhits = new CompositeData("nhits", Normal, nhits_low_30, nhits_high_30);  
   //CompositeData* nSigPi = new CompositeData("nSigPi", Normal, nSigPi_low_30, nSigPi_high_30);
   //CompositeData* nSigKa = new CompositeData("nSigKa", Normal, nSigKa_low_30, nSigKa_high_30);
-  CompositeData* nSigPr = new CompositeData("nSigPr", Normal, nSigPr_low_30, nSigPr_high_30);
-  CompositeData* zDe = new CompositeData("zDe", Normal, zDe_low_30, zDe_high_30);
-  CompositeData* zTr = new CompositeData("zTr", Normal, zTr_low_30, zTr_high_30);
-  CompositeData* zHe3 = new CompositeData("zHe3", Normal, zHe3_low_30, zHe3_high_30);
-  CompositeData* zHe4 = new CompositeData("zHe4", Normal, zHe4_low_30, zHe4_high_30);
-  CompositeData* rvtx = new CompositeData("rvtx", Normal, rvtx_low_30, rvtx_high_30);
-  CompositeData* zvtx = new CompositeData("zvtx", Normal, zvtx_low_30, zvtx_high_30);
-  CompositeData* dca  = new CompositeData("dca", Normal, dca_low_30, dca_high_30);
-  CompositeData* nhitsdEdx = new CompositeData("nhitsdEdx", Normal, nhitsdEdx_high_30);
-  CompositeData* nhitsratio = new CompositeData("nhitsratio", Normal, nhitsratio_low_30, nhitsratio_high_30);
+  CompositeData* nSigPr = new CompositeData("nSigPr", Normal, nSigPr_high_30);
+//   CompositeData* zDe = new CompositeData("zDe", Normal, zDe_low_30, zDe_high_30);
+//   CompositeData* zTr = new CompositeData("zTr", Normal, zTr_low_30, zTr_high_30);
+//   CompositeData* zHe3 = new CompositeData("zHe3", Normal, zHe3_low_30, zHe3_high_30);
+//   CompositeData* zHe4 = new CompositeData("zHe4", Normal, zHe4_low_30, zHe4_high_30);
+//   CompositeData* rvtx = new CompositeData("rvtx", Normal, rvtx_low_30, rvtx_high_30);
+//   CompositeData* zvtx = new CompositeData("zvtx", Normal, zvtx_low_30, zvtx_high_30);
+//   CompositeData* dca  = new CompositeData("dca", Normal, dca_low_30, dca_high_30);
+//   CompositeData* nhitsdEdx = new CompositeData("nhitsdEdx", Normal, nhitsdEdx_high_30);
+//   CompositeData* nhitsratio = new CompositeData("nhitsratio", Normal, nhitsratio_low_30, nhitsratio_high_30);
   //CompositeData* m2Pi = new CompositeData("m2Pi", Normal, m2Pi_low_30, m2Pi_high_30);
   //CompositeData* m2Ka = new CompositeData("m2Ka", Normal, m2Ka_low_30, m2Ka_high_30);
   /*
@@ -326,19 +326,19 @@ void calculateSystematics(TString order_n_str = "1")
   
   // Any variations applied universally (like epd variation) should not be in this vector.
   std::vector<CompositeData*> composites;
-  composites.push_back(nhits);
+//   composites.push_back(nhits);
   //composites.push_back(nSigPi);
   //composites.push_back(nSigKa);
   composites.push_back(nSigPr);
-  composites.push_back(zDe);
-  composites.push_back(zTr);
-  composites.push_back(zHe3);
-  composites.push_back(zHe4);
-  composites.push_back(rvtx);
-  composites.push_back(zvtx);
-  composites.push_back(dca);
-  composites.push_back(nhitsdEdx);
-  composites.push_back(nhitsratio);
+//   composites.push_back(zDe);
+//   composites.push_back(zTr);
+//   composites.push_back(zHe3);
+//   composites.push_back(zHe4);
+//   composites.push_back(rvtx);
+//   composites.push_back(zvtx);
+//   composites.push_back(dca);
+//   composites.push_back(nhitsdEdx);
+//   composites.push_back(nhitsratio);
   //composites.push_back(m2Pi);
   //composites.push_back(m2Ka);
   ////
@@ -356,7 +356,7 @@ void calculateSystematics(TString order_n_str = "1")
 
   //=== pi+ vs centrality
   //std::cout << "PP VS CENTRALITY" << std::endl;
-  /*
+  
   std::vector<Double_t> v_sys_pp;
   bins = Normal->h_vn_pp->GetNbinsX();
   for (int ithBin = 0; ithBin < bins; ithBin++)
@@ -388,7 +388,7 @@ void calculateSystematics(TString order_n_str = "1")
     ithBinSysErr = TMath::Sqrt(quadSum);
     v_sys_pp.push_back(ithBinSysErr);
   }
-  */
+  
   ithBinSysErr = 0;
   quadSum = 0.0;
   //=== End h_vn_pp loop
@@ -397,7 +397,7 @@ void calculateSystematics(TString order_n_str = "1")
   
   //=== pi- vs centrality
   //std::cout << "PM VS CENTRALITY" << std::endl;
-  /*
+  
   std::vector<Double_t> v_sys_pm;
   bins = Normal->h_vn_pm->GetNbinsX();
   for (int ithBin = 0; ithBin < bins; ithBin++)
@@ -431,14 +431,14 @@ void calculateSystematics(TString order_n_str = "1")
   } 
   ithBinSysErr = 0;
   quadSum = 0.0;
-  */
+  
   //=== End h_vn_pm loop
 
 
   
   //=== K+ vs centrality
   //std::cout << "KP VS CENTRALITY" << std::endl;
-  /*
+  
   std::vector<Double_t> v_sys_kp;
   bins = Normal->h_vn_kp->GetNbinsX();
   for (int ithBin = 0; ithBin < bins; ithBin++)
@@ -472,12 +472,12 @@ void calculateSystematics(TString order_n_str = "1")
   }
   ithBinSysErr = 0;
   quadSum = 0.0;
-  */
+  
   //=== End h_vn_kp loop
 
   //=== K- vs centrality
   //std::cout << "KM VS CENTRALITY" << std::endl;
-  /*
+  
   std::vector<Double_t> v_sys_km;
   bins = Normal->h_vn_km->GetNbinsX();
   for (int ithBin = 0; ithBin < bins; ithBin++)
@@ -512,7 +512,7 @@ void calculateSystematics(TString order_n_str = "1")
   }
   ithBinSysErr = 0;
   quadSum = 0.0;
-  */
+  
   //=== End h_vn_km loop
 
 
@@ -4084,7 +4084,7 @@ void calculateSystematics(TString order_n_str = "1")
       delete copyWithNewErrors1;
       canvas->Clear();
       //===
-
+/*
       //=== Deuteron vs centrality
       copyWithNewErrors1 = new TGraphErrors((TH1D*)Normal->h_vn_de->Clone());
       for (int i = 0; i < v_sys_de.size(); i++)
@@ -4741,7 +4741,7 @@ void calculateSystematics(TString order_n_str = "1")
       delete copyWithNewErrors3;
       delete copyWithNewErrors4;
       delete copyWithNewErrors5;
-
+*/
 
 
       //=== Proton vs rapidity
@@ -4867,7 +4867,7 @@ void calculateSystematics(TString order_n_str = "1")
       delete copyWithNewErrors2;
       delete copyWithNewErrors3;
       //===
-
+/*
       //=== Triton vs rapidity
       THStack *trRapidityStack = new THStack("trRapidityStack", ";y-y_{mid};v_{"+order_n_str+"}");
       trRapidityStack->Add(Normal->h_vn_yCM_00to10_tr);
@@ -4990,7 +4990,7 @@ void calculateSystematics(TString order_n_str = "1")
       delete copyWithNewErrors2;
       delete copyWithNewErrors3;
       //===
-
+*/
       //=== Proton vs pT
       THStack *prPtStack = new THStack("prPtStack", ";p_{T} (GeV);v_{"+order_n_str+"}");
       prPtStack->Add(Normal->h_vn_pT_00to10_pr);
@@ -5031,7 +5031,7 @@ void calculateSystematics(TString order_n_str = "1")
       delete copyWithNewErrors2;
       delete copyWithNewErrors3;
       //===
-
+/*
       //=== Proton yMid vs pT
       THStack *prPtStack_yMid = new THStack("prPtStack_yMid", ";p_{T} (GeV);v_{"+order_n_str+"}");
       prPtStack_yMid->Add(Normal->h_vn_pT_00to10_pr_yMid);

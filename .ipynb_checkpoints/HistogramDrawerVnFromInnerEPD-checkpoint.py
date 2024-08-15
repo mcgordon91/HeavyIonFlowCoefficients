@@ -12,12 +12,251 @@ from math import sin, sqrt, log, atanh, exp
 Canvasas = []
 
 nV = 3
-Date = "1-2-24"
+Date = "7-31-24"
 
 # Open the output Root file
-#HistogramRootFile = ROOT.TFile.Open("/star/u/mcgordon/VnFromEPD/HistogramTest.root")
-HistogramRootFile = ROOT.TFile.Open("/star/data01/pwg/mcgordon/VnFromEPD/V" + str(nV) + "Histograms/" + Date + "-V" + str(nV) + "-HistogramsNormal.root","READ")
-SystematicErrorRootFile = ROOT.TFile.Open("/star/u/mcgordon/VnFromEPD/systematicErrors.root","READ")
+HistogramRootFile = ROOT.TFile.Open("/star/u/mcgordon/HistogramFirstPassNormalTreeTest.root")
+#HistogramRootFile = ROOT.TFile.Open("/star/data01/pwg/mcgordon/VnFromEPD/V" + str(nV) + "Histograms/" + Date + "-V" + str(nV) + "-HistogramNormal.root","READ")
+#SystematicErrorRootFile = ROOT.TFile.Open("/star/u/mcgordon/VnFromEPD/systematicErrors.root","READ")
+
+
+
+Histogram = HistogramRootFile.Get("pVx")
+
+# Change the histogram scope so that it doesn't close when the last file closes
+Histogram.SetDirectory(0)
+
+# Build the canvas
+CanvaspVx = ROOT.TCanvas("CanvaspVx", "", 800, 800)
+# Change the scope to be within the file
+CanvaspVx.cd()
+
+CanvaspVx.SetLogy()
+
+# Delete the stats box
+#Histogram.SetStats(0)
+
+Histogram.Draw("HIST")
+
+# Draw the histogram
+CanvaspVx.Draw()
+
+# Add the histogram to the list of histograms
+Canvasas.append(CanvaspVx)
+
+
+
+
+Histogram = HistogramRootFile.Get("pVy")
+
+# Change the histogram scope so that it doesn't close when the last file closes
+Histogram.SetDirectory(0)
+
+# Build the canvas
+CanvaspVy = ROOT.TCanvas("CanvaspVy", "", 800, 800)
+# Change the scope to be within the file
+CanvaspVy.cd()
+
+CanvaspVy.SetLogy()
+
+# Delete the stats box
+#Histogram.SetStats(0)
+
+Histogram.Draw("HIST")
+
+# Draw the histogram
+CanvaspVy.Draw()
+
+# Add the histogram to the list of histograms
+Canvasas.append(CanvaspVy)
+
+
+
+Histogram = HistogramRootFile.Get("pVz")
+
+# Change the histogram scope so that it doesn't close when the last file closes
+Histogram.SetDirectory(0)
+
+# Build the canvas
+CanvaspVz = ROOT.TCanvas("CanvaspVz", "", 800, 800)
+# Change the scope to be within the file
+CanvaspVz.cd()
+
+CanvaspVz.SetLogy()
+
+# Delete the stats box
+#Histogram.SetStats(0)
+
+Histogram.Draw("HIST")
+
+# Draw the histogram
+CanvaspVz.Draw()
+
+# Add the histogram to the list of histograms
+Canvasas.append(CanvaspVz)
+
+
+
+
+Histogram = HistogramRootFile.Get("ZVertexValues")
+
+# Change the histogram scope so that it doesn't close when the last file closes
+Histogram.SetDirectory(0)
+
+# Build the canvas
+CanvasZVertexValues = ROOT.TCanvas("CanvasZVertexValues", "", 800, 800)
+# Change the scope to be within the file
+CanvasZVertexValues.cd()
+
+CanvasZVertexValues.SetLogy()
+
+# Delete the stats box
+#Histogram.SetStats(0)
+
+Histogram.Draw("HIST")
+
+# Draw the histogram
+CanvasZVertexValues.Draw()
+
+# Add the histogram to the list of histograms
+Canvasas.append(CanvasZVertexValues)
+
+
+
+
+Histogram = HistogramRootFile.Get("RVertexValues")
+
+# Change the histogram scope so that it doesn't close when the last file closes
+Histogram.SetDirectory(0)
+
+# Build the canvas
+CanvasRVertexValues = ROOT.TCanvas("CanvasRVertexValues", "", 800, 800)
+# Change the scope to be within the file
+CanvasRVertexValues.cd()
+
+CanvasRVertexValues.SetLogy()
+
+# Delete the stats box
+#Histogram.SetStats(0)
+
+Histogram.Draw("HIST")
+
+# Draw the histogram
+CanvasRVertexValues.Draw()
+
+# Add the histogram to the list of histograms
+Canvasas.append(CanvasRVertexValues)
+
+
+
+
+Histogram = HistogramRootFile.Get("DCAValues")
+
+# Change the histogram scope so that it doesn't close when the last file closes
+Histogram.SetDirectory(0)
+
+# Build the canvas
+CanvasDCAValues = ROOT.TCanvas("CanvasDCAValues", "", 800, 800)
+# Change the scope to be within the file
+CanvasDCAValues.cd()
+
+CanvasDCAValues.SetLogy()
+
+# Delete the stats box
+#Histogram.SetStats(0)
+
+Histogram.Draw("HIST")
+
+# Draw the histogram
+CanvasDCAValues.Draw()
+
+# Add the histogram to the list of histograms
+Canvasas.append(CanvasDCAValues)
+
+
+
+
+
+
+Histogram = HistogramRootFile.Get("NHitsValues")
+
+# Change the histogram scope so that it doesn't close when the last file closes
+Histogram.SetDirectory(0)
+
+# Build the canvas
+CanvasNHitsValues = ROOT.TCanvas("CanvasNHitsValues", "", 800, 800)
+# Change the scope to be within the file
+CanvasNHitsValues.cd()
+
+CanvasNHitsValues.SetLogy()
+
+# Delete the stats box
+#Histogram.SetStats(0)
+
+Histogram.Draw("HIST")
+
+# Draw the histogram
+CanvasNHitsValues.Draw()
+
+# Add the histogram to the list of histograms
+Canvasas.append(CanvasNHitsValues)
+
+
+
+
+
+Histogram = HistogramRootFile.Get("NHitsdEdxValues")
+
+# Change the histogram scope so that it doesn't close when the last file closes
+Histogram.SetDirectory(0)
+
+# Build the canvas
+CanvasNHitsdEdxValues = ROOT.TCanvas("CanvasNHitsdEdxValues", "", 800, 800)
+# Change the scope to be within the file
+CanvasNHitsdEdxValues.cd()
+
+CanvasNHitsdEdxValues.SetLogy()
+
+# Delete the stats box
+#Histogram.SetStats(0)
+
+Histogram.Draw("HIST")
+
+# Draw the histogram
+CanvasNHitsdEdxValues.Draw()
+
+# Add the histogram to the list of histograms
+Canvasas.append(CanvasNHitsdEdxValues)
+
+
+
+
+
+Histogram = HistogramRootFile.Get("NHitsFitOverNHitsPossValues")
+
+# Change the histogram scope so that it doesn't close when the last file closes
+Histogram.SetDirectory(0)
+
+# Build the canvas
+CanvasNHitsFitOverNHitsPossValues = ROOT.TCanvas("CanvasNHitsFitOverNHitsPossValues", "", 800, 800)
+# Change the scope to be within the file
+CanvasNHitsFitOverNHitsPossValues.cd()
+
+CanvasNHitsFitOverNHitsPossValues.SetLogy()
+
+# Delete the stats box
+#Histogram.SetStats(0)
+
+Histogram.Draw("HIST")
+
+# Draw the histogram
+CanvasNHitsFitOverNHitsPossValues.Draw()
+
+# Add the histogram to the list of histograms
+Canvasas.append(CanvasNHitsFitOverNHitsPossValues)
+
+
+
 
 
 
@@ -135,60 +374,60 @@ SystematicErrorRootFile = ROOT.TFile.Open("/star/u/mcgordon/VnFromEPD/systematic
 
 
 
-Histogram = HistogramRootFile.Get("ProtonTrackCheck")
+# Histogram = HistogramRootFile.Get("ProtonTrackCheck")
 
-# Change the histogram scope so that it doesn't close when the last file closes
-Histogram.SetDirectory(0)
+# # Change the histogram scope so that it doesn't close when the last file closes
+# Histogram.SetDirectory(0)
 
-# Build the canvas
-CanvasProtonTrackCheck = ROOT.TCanvas("ProtonTrackCheck", "", 800, 800)
-# Change the scope to be within the file
-CanvasProtonTrackCheck.cd()
+# # Build the canvas
+# CanvasProtonTrackCheck = ROOT.TCanvas("ProtonTrackCheck", "", 800, 800)
+# # Change the scope to be within the file
+# CanvasProtonTrackCheck.cd()
 
-# Delete the stats box
-Histogram.SetStats(0)
+# # Delete the stats box
+# Histogram.SetStats(0)
 
-Histogram.Draw("HIST")
+# Histogram.Draw("HIST")
 
-#print(Histogram.GetEntries())
+# #print(Histogram.GetEntries())
 
-# for index in range (1, Histogram.GetNbinsX() + 1):
-#     print(Histogram.GetBinContent(index))
+# # for index in range (1, Histogram.GetNbinsX() + 1):
+# #     print(Histogram.GetBinContent(index))
 
-# Draw the histogram
-CanvasProtonTrackCheck.Draw()
+# # Draw the histogram
+# CanvasProtonTrackCheck.Draw()
 
-# Add the histogram to the list of histograms
-Canvasas.append(CanvasProtonTrackCheck)
-
-
+# # Add the histogram to the list of histograms
+# Canvasas.append(CanvasProtonTrackCheck)
 
 
-Histogram = HistogramRootFile.Get("MostlyGoodProtonTrackCheck")
 
-# Change the histogram scope so that it doesn't close when the last file closes
-Histogram.SetDirectory(0)
 
-# Build the canvas
-CanvasMostlyGoodProtonTrackCheck = ROOT.TCanvas("MostlyGoodProtonTrackCheck", "", 800, 800)
-# Change the scope to be within the file
-CanvasMostlyGoodProtonTrackCheck.cd()
+# Histogram = HistogramRootFile.Get("MostlyGoodProtonTrackCheck")
 
-# Delete the stats box
-Histogram.SetStats(0)
+# # Change the histogram scope so that it doesn't close when the last file closes
+# Histogram.SetDirectory(0)
 
-Histogram.Draw("HIST")
+# # Build the canvas
+# CanvasMostlyGoodProtonTrackCheck = ROOT.TCanvas("MostlyGoodProtonTrackCheck", "", 800, 800)
+# # Change the scope to be within the file
+# CanvasMostlyGoodProtonTrackCheck.cd()
 
-#print(Histogram.GetEntries())
+# # Delete the stats box
+# Histogram.SetStats(0)
 
-# for index in range (1, Histogram.GetNbinsX() + 1):
-#     print(Histogram.GetBinContent(index))
+# Histogram.Draw("HIST")
 
-# Draw the histogram
-CanvasMostlyGoodProtonTrackCheck.Draw()
+# #print(Histogram.GetEntries())
 
-# Add the histogram to the list of histograms
-Canvasas.append(CanvasMostlyGoodProtonTrackCheck)
+# # for index in range (1, Histogram.GetNbinsX() + 1):
+# #     print(Histogram.GetBinContent(index))
+
+# # Draw the histogram
+# CanvasMostlyGoodProtonTrackCheck.Draw()
+
+# # Add the histogram to the list of histograms
+# Canvasas.append(CanvasMostlyGoodProtonTrackCheck)
 
 
 
@@ -209,74 +448,74 @@ Canvasas.append(CanvasMostlyGoodProtonTrackCheck)
 
 # Histogram.Draw("HIST")
 
-# print(Histogram.GetEntries())
+# # print(Histogram.GetEntries())
 
-# # for index in range (1, Histogram.GetNbinsX() + 1):
-# #     print(Histogram.GetBinContent(index))
+# # # for index in range (1, Histogram.GetNbinsX() + 1):
+# # #     print(Histogram.GetBinContent(index))
 
-# # Draw the histogram
+# # # Draw the histogram
 # CanvasGoodProtonTrackCheck.Draw()
 
-# # Add the histogram to the list of histograms
+# # # Add the histogram to the list of histograms
 # Canvasas.append(CanvasGoodProtonTrackCheck)
 
 
 
 
-Histogram = HistogramRootFile.Get("KaonPlusTrackCheck")
+# Histogram = HistogramRootFile.Get("KaonPlusTrackCheck")
 
-# Change the histogram scope so that it doesn't close when the last file closes
-Histogram.SetDirectory(0)
+# # Change the histogram scope so that it doesn't close when the last file closes
+# Histogram.SetDirectory(0)
 
-# Build the canvas
-CanvasKaonPlusTrackCheck = ROOT.TCanvas("KaonPlusTrackCheck", "", 800, 800)
-# Change the scope to be within the file
-CanvasKaonPlusTrackCheck.cd()
+# # Build the canvas
+# CanvasKaonPlusTrackCheck = ROOT.TCanvas("KaonPlusTrackCheck", "", 800, 800)
+# # Change the scope to be within the file
+# CanvasKaonPlusTrackCheck.cd()
 
-# Delete the stats box
-Histogram.SetStats(0)
+# # Delete the stats box
+# Histogram.SetStats(0)
 
-Histogram.Draw("HIST")
+# Histogram.Draw("HIST")
 
-#print(Histogram.GetEntries())
+# #print(Histogram.GetEntries())
 
-# for index in range (1, Histogram.GetNbinsX() + 1):
-#     print(Histogram.GetBinContent(index))
+# # for index in range (1, Histogram.GetNbinsX() + 1):
+# #     print(Histogram.GetBinContent(index))
 
-# Draw the histogram
-CanvasKaonPlusTrackCheck.Draw()
+# # Draw the histogram
+# CanvasKaonPlusTrackCheck.Draw()
 
-# Add the histogram to the list of histograms
-Canvasas.append(CanvasKaonPlusTrackCheck)
-
-
+# # Add the histogram to the list of histograms
+# Canvasas.append(CanvasKaonPlusTrackCheck)
 
 
-Histogram = HistogramRootFile.Get("MostlyGoodKaonPlusTrackCheck")
 
-# Change the histogram scope so that it doesn't close when the last file closes
-Histogram.SetDirectory(0)
 
-# Build the canvas
-CanvasMostlyGoodKaonPlusTrackCheck = ROOT.TCanvas("GoodMostlyKaonPlusTrackCheck", "", 800, 800)
-# Change the scope to be within the file
-CanvasMostlyGoodKaonPlusTrackCheck.cd()
+# Histogram = HistogramRootFile.Get("MostlyGoodKaonPlusTrackCheck")
 
-# Delete the stats box
-Histogram.SetStats(0)
+# # Change the histogram scope so that it doesn't close when the last file closes
+# Histogram.SetDirectory(0)
 
-Histogram.Draw("HIST")
+# # Build the canvas
+# CanvasMostlyGoodKaonPlusTrackCheck = ROOT.TCanvas("GoodMostlyKaonPlusTrackCheck", "", 800, 800)
+# # Change the scope to be within the file
+# CanvasMostlyGoodKaonPlusTrackCheck.cd()
 
-#print(Histogram.GetEntries())
+# # Delete the stats box
+# Histogram.SetStats(0)
 
-# for index in range (1, Histogram.GetNbinsX() + 1):
-#     print(Histogram.GetBinContent(index))
+# Histogram.Draw("HIST")
 
-# Draw the histogram
-CanvasMostlyGoodKaonPlusTrackCheck.Draw()
+# #print(Histogram.GetEntries())
 
-# Add the histogram to the list of histograms
-Canvasas.append(CanvasMostlyGoodKaonPlusTrackCheck)
+# # for index in range (1, Histogram.GetNbinsX() + 1):
+# #     print(Histogram.GetBinContent(index))
+
+# # Draw the histogram
+# CanvasMostlyGoodKaonPlusTrackCheck.Draw()
+
+# # Add the histogram to the list of histograms
+# Canvasas.append(CanvasMostlyGoodKaonPlusTrackCheck)
 
 
 
@@ -297,10 +536,10 @@ Canvasas.append(CanvasMostlyGoodKaonPlusTrackCheck)
 
 # Histogram.Draw("HIST")
 
-# print(Histogram.GetEntries())
+# # print(Histogram.GetEntries())
 
-# # for index in range (1, Histogram.GetNbinsX() + 1):
-# #     print(Histogram.GetBinContent(index))
+# # # for index in range (1, Histogram.GetNbinsX() + 1):
+# # #     print(Histogram.GetBinContent(index))
 
 # # Draw the histogram
 # CanvasGoodKaonPlusTrackCheck.Draw()
@@ -311,60 +550,60 @@ Canvasas.append(CanvasMostlyGoodKaonPlusTrackCheck)
 
 
 
-Histogram = HistogramRootFile.Get("KaonMinusTrackCheck")
+# Histogram = HistogramRootFile.Get("KaonMinusTrackCheck")
 
-# Change the histogram scope so that it doesn't close when the last file closes
-Histogram.SetDirectory(0)
+# # Change the histogram scope so that it doesn't close when the last file closes
+# Histogram.SetDirectory(0)
 
-# Build the canvas
-CanvasKaonMinusTrackCheck = ROOT.TCanvas("KaonMinusTrackCheck", "", 800, 800)
-# Change the scope to be within the file
-CanvasKaonMinusTrackCheck.cd()
+# # Build the canvas
+# CanvasKaonMinusTrackCheck = ROOT.TCanvas("KaonMinusTrackCheck", "", 800, 800)
+# # Change the scope to be within the file
+# CanvasKaonMinusTrackCheck.cd()
 
-# Delete the stats box
-Histogram.SetStats(0)
+# # Delete the stats box
+# Histogram.SetStats(0)
 
-Histogram.Draw("HIST")
+# Histogram.Draw("HIST")
 
-#print(Histogram.GetEntries())
+# #print(Histogram.GetEntries())
 
-# for index in range (1, Histogram.GetNbinsX() + 1):
-#     print(Histogram.GetBinContent(index))
+# # for index in range (1, Histogram.GetNbinsX() + 1):
+# #     print(Histogram.GetBinContent(index))
 
-# Draw the histogram
-CanvasKaonMinusTrackCheck.Draw()
+# # Draw the histogram
+# CanvasKaonMinusTrackCheck.Draw()
 
-# Add the histogram to the list of histograms
-Canvasas.append(CanvasKaonMinusTrackCheck)
-
-
+# # Add the histogram to the list of histograms
+# Canvasas.append(CanvasKaonMinusTrackCheck)
 
 
-Histogram = HistogramRootFile.Get("MostlyGoodKaonMinusTrackCheck")
 
-# Change the histogram scope so that it doesn't close when the last file closes
-Histogram.SetDirectory(0)
 
-# Build the canvas
-CanvasMostlyGoodKaonMinusTrackCheck = ROOT.TCanvas("MostlyGoodKaonMinusTrackCheck", "", 800, 800)
-# Change the scope to be within the file
-CanvasMostlyGoodKaonMinusTrackCheck.cd()
+# Histogram = HistogramRootFile.Get("MostlyGoodKaonMinusTrackCheck")
 
-# Delete the stats box
-Histogram.SetStats(0)
+# # Change the histogram scope so that it doesn't close when the last file closes
+# Histogram.SetDirectory(0)
 
-Histogram.Draw("HIST")
+# # Build the canvas
+# CanvasMostlyGoodKaonMinusTrackCheck = ROOT.TCanvas("MostlyGoodKaonMinusTrackCheck", "", 800, 800)
+# # Change the scope to be within the file
+# CanvasMostlyGoodKaonMinusTrackCheck.cd()
 
-#print(Histogram.GetEntries())
+# # Delete the stats box
+# Histogram.SetStats(0)
 
-# for index in range (1, Histogram.GetNbinsX() + 1):
-#     print(Histogram.GetBinContent(index))
+# Histogram.Draw("HIST")
 
-# Draw the histogram
-CanvasMostlyGoodKaonMinusTrackCheck.Draw()
+# #print(Histogram.GetEntries())
 
-# Add the histogram to the list of histograms
-Canvasas.append(CanvasMostlyGoodKaonMinusTrackCheck)
+# # for index in range (1, Histogram.GetNbinsX() + 1):
+# #     print(Histogram.GetBinContent(index))
+
+# # Draw the histogram
+# CanvasMostlyGoodKaonMinusTrackCheck.Draw()
+
+# # Add the histogram to the list of histograms
+# Canvasas.append(CanvasMostlyGoodKaonMinusTrackCheck)
 
 
 
@@ -385,10 +624,10 @@ Canvasas.append(CanvasMostlyGoodKaonMinusTrackCheck)
 
 # Histogram.Draw("HIST")
 
-# print(Histogram.GetEntries())
+# # print(Histogram.GetEntries())
 
-# # for index in range (1, Histogram.GetNbinsX() + 1):
-# #     print(Histogram.GetBinContent(index))
+# # # for index in range (1, Histogram.GetNbinsX() + 1):
+# # #     print(Histogram.GetBinContent(index))
 
 # # Draw the histogram
 # CanvasGoodKaonMinusTrackCheck.Draw()
@@ -400,60 +639,60 @@ Canvasas.append(CanvasMostlyGoodKaonMinusTrackCheck)
 
 
 
-Histogram = HistogramRootFile.Get("PionPlusTrackCheck")
+# Histogram = HistogramRootFile.Get("PionPlusTrackCheck")
 
-# Change the histogram scope so that it doesn't close when the last file closes
-Histogram.SetDirectory(0)
+# # Change the histogram scope so that it doesn't close when the last file closes
+# Histogram.SetDirectory(0)
 
-# Build the canvas
-CanvasPionPlusTrackCheck = ROOT.TCanvas("PionPlusTrackCheck", "", 800, 800)
-# Change the scope to be within the file
-CanvasPionPlusTrackCheck.cd()
+# # Build the canvas
+# CanvasPionPlusTrackCheck = ROOT.TCanvas("PionPlusTrackCheck", "", 800, 800)
+# # Change the scope to be within the file
+# CanvasPionPlusTrackCheck.cd()
 
-# Delete the stats box
-Histogram.SetStats(0)
+# # Delete the stats box
+# Histogram.SetStats(0)
 
-Histogram.Draw("HIST")
+# Histogram.Draw("HIST")
 
-#print(Histogram.GetEntries())
+# #print(Histogram.GetEntries())
 
-# for index in range (1, Histogram.GetNbinsX() + 1):
-#     print(Histogram.GetBinContent(index))
+# # for index in range (1, Histogram.GetNbinsX() + 1):
+# #     print(Histogram.GetBinContent(index))
 
-# Draw the histogram
-CanvasPionPlusTrackCheck.Draw()
+# # Draw the histogram
+# CanvasPionPlusTrackCheck.Draw()
 
-# Add the histogram to the list of histograms
-Canvasas.append(CanvasPionPlusTrackCheck)
-
-
+# # Add the histogram to the list of histograms
+# Canvasas.append(CanvasPionPlusTrackCheck)
 
 
-Histogram = HistogramRootFile.Get("MostlyGoodPionPlusTrackCheck")
 
-# Change the histogram scope so that it doesn't close when the last file closes
-Histogram.SetDirectory(0)
 
-# Build the canvas
-CanvasMostlyGoodPionPlusTrackCheck = ROOT.TCanvas("MostlyGoodPionPlusTrackCheck", "", 800, 800)
-# Change the scope to be within the file
-CanvasMostlyGoodPionPlusTrackCheck.cd()
+# Histogram = HistogramRootFile.Get("MostlyGoodPionPlusTrackCheck")
 
-# Delete the stats box
-Histogram.SetStats(0)
+# # Change the histogram scope so that it doesn't close when the last file closes
+# Histogram.SetDirectory(0)
 
-Histogram.Draw("HIST")
+# # Build the canvas
+# CanvasMostlyGoodPionPlusTrackCheck = ROOT.TCanvas("MostlyGoodPionPlusTrackCheck", "", 800, 800)
+# # Change the scope to be within the file
+# CanvasMostlyGoodPionPlusTrackCheck.cd()
 
-#print(Histogram.GetEntries())
+# # Delete the stats box
+# Histogram.SetStats(0)
 
-# for index in range (1, Histogram.GetNbinsX() + 1):
-#     print(Histogram.GetBinContent(index))
+# Histogram.Draw("HIST")
 
-# Draw the histogram
-CanvasMostlyGoodPionPlusTrackCheck.Draw()
+# #print(Histogram.GetEntries())
 
-# Add the histogram to the list of histograms
-Canvasas.append(CanvasMostlyGoodPionPlusTrackCheck)
+# # for index in range (1, Histogram.GetNbinsX() + 1):
+# #     print(Histogram.GetBinContent(index))
+
+# # Draw the histogram
+# CanvasMostlyGoodPionPlusTrackCheck.Draw()
+
+# # Add the histogram to the list of histograms
+# Canvasas.append(CanvasMostlyGoodPionPlusTrackCheck)
 
 
 
@@ -473,10 +712,10 @@ Canvasas.append(CanvasMostlyGoodPionPlusTrackCheck)
 
 # Histogram.Draw("HIST")
 
-# print(Histogram.GetEntries())
+# # print(Histogram.GetEntries())
 
-# # for index in range (1, Histogram.GetNbinsX() + 1):
-# #     print(Histogram.GetBinContent(index))
+# # # for index in range (1, Histogram.GetNbinsX() + 1):
+# # #     print(Histogram.GetBinContent(index))
 
 # # Draw the histogram
 # CanvasGoodPionPlusTrackCheck.Draw()
@@ -488,59 +727,59 @@ Canvasas.append(CanvasMostlyGoodPionPlusTrackCheck)
 
 
 
-Histogram = HistogramRootFile.Get("PionMinusTrackCheck")
+# Histogram = HistogramRootFile.Get("PionMinusTrackCheck")
 
-# Change the histogram scope so that it doesn't close when the last file closes
-Histogram.SetDirectory(0)
+# # Change the histogram scope so that it doesn't close when the last file closes
+# Histogram.SetDirectory(0)
 
-# Build the canvas
-CanvasPionMinusTrackCheck = ROOT.TCanvas("PionMinusTrackCheck", "", 800, 800)
-# Change the scope to be within the file
-CanvasPionMinusTrackCheck.cd()
+# # Build the canvas
+# CanvasPionMinusTrackCheck = ROOT.TCanvas("PionMinusTrackCheck", "", 800, 800)
+# # Change the scope to be within the file
+# CanvasPionMinusTrackCheck.cd()
 
-# Delete the stats box
-Histogram.SetStats(0)
+# # Delete the stats box
+# Histogram.SetStats(0)
 
-Histogram.Draw("HIST")
+# Histogram.Draw("HIST")
 
-#print(Histogram.GetEntries())
+# #print(Histogram.GetEntries())
 
-# for index in range (1, Histogram.GetNbinsX() + 1):
-#     print(Histogram.GetBinContent(index))
+# # for index in range (1, Histogram.GetNbinsX() + 1):
+# #     print(Histogram.GetBinContent(index))
 
-# Draw the histogram
-CanvasPionMinusTrackCheck.Draw()
+# # Draw the histogram
+# CanvasPionMinusTrackCheck.Draw()
 
-# Add the histogram to the list of histograms
-Canvasas.append(CanvasPionMinusTrackCheck)
+# # Add the histogram to the list of histograms
+# Canvasas.append(CanvasPionMinusTrackCheck)
 
 
 
-Histogram = HistogramRootFile.Get("MostlyGoodPionMinusTrackCheck")
+# Histogram = HistogramRootFile.Get("MostlyGoodPionMinusTrackCheck")
 
-# Change the histogram scope so that it doesn't close when the last file closes
-Histogram.SetDirectory(0)
+# # Change the histogram scope so that it doesn't close when the last file closes
+# Histogram.SetDirectory(0)
 
-# Build the canvas
-CanvasMostlyGoodPionMinusTrackCheck = ROOT.TCanvas("MostlyGoodPionMinusTrackCheck", "", 800, 800)
-# Change the scope to be within the file
-CanvasMostlyGoodPionMinusTrackCheck.cd()
+# # Build the canvas
+# CanvasMostlyGoodPionMinusTrackCheck = ROOT.TCanvas("MostlyGoodPionMinusTrackCheck", "", 800, 800)
+# # Change the scope to be within the file
+# CanvasMostlyGoodPionMinusTrackCheck.cd()
 
-# Delete the stats box
-Histogram.SetStats(0)
+# # Delete the stats box
+# Histogram.SetStats(0)
 
-Histogram.Draw("HIST")
+# Histogram.Draw("HIST")
 
-#print(Histogram.GetEntries())
+# #print(Histogram.GetEntries())
 
-# for index in range (1, Histogram.GetNbinsX() + 1):
-#     print(Histogram.GetBinContent(index))
+# # for index in range (1, Histogram.GetNbinsX() + 1):
+# #     print(Histogram.GetBinContent(index))
 
-# Draw the histogram
-CanvasMostlyGoodPionMinusTrackCheck.Draw()
+# # Draw the histogram
+# CanvasMostlyGoodPionMinusTrackCheck.Draw()
 
-# Add the histogram to the list of histograms
-Canvasas.append(CanvasMostlyGoodPionMinusTrackCheck)
+# # Add the histogram to the list of histograms
+# Canvasas.append(CanvasMostlyGoodPionMinusTrackCheck)
 
 
 
@@ -559,10 +798,10 @@ Canvasas.append(CanvasMostlyGoodPionMinusTrackCheck)
 
 # Histogram.Draw("HIST")
 
-# print(Histogram.GetEntries())
+# # print(Histogram.GetEntries())
 
-# # for index in range (1, Histogram.GetNbinsX() + 1):
-# #     print(Histogram.GetBinContent(index))
+# # # for index in range (1, Histogram.GetNbinsX() + 1):
+# # #     print(Histogram.GetBinContent(index))
 
 # # Draw the histogram
 # CanvasGoodPionMinusTrackCheck.Draw()
@@ -588,10 +827,10 @@ Canvasas.append(CanvasMostlyGoodPionMinusTrackCheck)
 
 # Histogram.Draw("HIST")
 
-# print(Histogram.GetEntries())
+# # print(Histogram.GetEntries())
 
-# # for index in range (1, Histogram.GetNbinsX() + 1):
-# #     print(Histogram.GetBinContent(index))
+# # # for index in range (1, Histogram.GetNbinsX() + 1):
+# # #     print(Histogram.GetBinContent(index))
 
 # # Draw the histogram
 # CanvasDeuteronTrackCheck.Draw()
@@ -616,10 +855,10 @@ Canvasas.append(CanvasMostlyGoodPionMinusTrackCheck)
 
 # Histogram.Draw("HIST")
 
-# print(Histogram.GetEntries())
+# # print(Histogram.GetEntries())
 
-# # for index in range (1, Histogram.GetNbinsX() + 1):
-# #     print(Histogram.GetBinContent(index))
+# # # for index in range (1, Histogram.GetNbinsX() + 1):
+# # #     print(Histogram.GetBinContent(index))
 
 # # Draw the histogram
 # CanvasMostlyGoodDeuteronTrackCheck.Draw()
@@ -645,10 +884,10 @@ Canvasas.append(CanvasMostlyGoodPionMinusTrackCheck)
 
 # Histogram.Draw("HIST")
 
-# print(Histogram.GetEntries())
+# # print(Histogram.GetEntries())
 
-# # for index in range (1, Histogram.GetNbinsX() + 1):
-# #     print(Histogram.GetBinContent(index))
+# # # for index in range (1, Histogram.GetNbinsX() + 1):
+# # #     print(Histogram.GetBinContent(index))
 
 # # Draw the histogram
 # CanvasGoodDeuteronTrackCheck.Draw()
@@ -674,10 +913,10 @@ Canvasas.append(CanvasMostlyGoodPionMinusTrackCheck)
 
 # Histogram.Draw("HIST")
 
-# print(Histogram.GetEntries())
+# # print(Histogram.GetEntries())
 
-# # for index in range (1, Histogram.GetNbinsX() + 1):
-# #     print(Histogram.GetBinContent(index))
+# # # for index in range (1, Histogram.GetNbinsX() + 1):
+# # #     print(Histogram.GetBinContent(index))
 
 # # Draw the histogram
 # CanvasTritonTrackCheck.Draw()
@@ -702,10 +941,10 @@ Canvasas.append(CanvasMostlyGoodPionMinusTrackCheck)
 
 # Histogram.Draw("HIST")
 
-# print(Histogram.GetEntries())
+# # print(Histogram.GetEntries())
 
-# # for index in range (1, Histogram.GetNbinsX() + 1):
-# #     print(Histogram.GetBinContent(index))
+# # # for index in range (1, Histogram.GetNbinsX() + 1):
+# # #     print(Histogram.GetBinContent(index))
 
 # # Draw the histogram
 # CanvasMostlyGoodTritonTrackCheck.Draw()
@@ -730,10 +969,10 @@ Canvasas.append(CanvasMostlyGoodPionMinusTrackCheck)
 
 # Histogram.Draw("HIST")
 
-# print(Histogram.GetEntries())
+# # print(Histogram.GetEntries())
 
-# # for index in range (1, Histogram.GetNbinsX() + 1):
-# #     print(Histogram.GetBinContent(index))
+# # # for index in range (1, Histogram.GetNbinsX() + 1):
+# # #     print(Histogram.GetBinContent(index))
 
 # # Draw the histogram
 # CanvasGoodTritonTrackCheck.Draw()
@@ -965,208 +1204,208 @@ Canvasas.append(CanvasD2)
 
 
 
-Histogram = HistogramRootFile.Get("DataPtVsEta")
+# Histogram = HistogramRootFile.Get("DataPtVsEta")
 
-Histogram.SetDirectory(0)
+# Histogram.SetDirectory(0)
 
-CanvasD3 = ROOT.TCanvas("CanvasD3", "", 800, 800)
-CanvasD3.cd()
+# CanvasD3 = ROOT.TCanvas("CanvasD3", "", 800, 800)
+# CanvasD3.cd()
 
-CanvasD3.SetLogz()
+# CanvasD3.SetLogz()
 
-Histogram.SetStats(0)
-# Change the countour gradient
-Histogram.SetContour(1000)
+# Histogram.SetStats(0)
+# # Change the countour gradient
+# Histogram.SetContour(1000)
 
-# Set the histogram with the colors corresponding to the z-values
-Histogram.Draw("colz")
+# # Set the histogram with the colors corresponding to the z-values
+# Histogram.Draw("colz")
 
-CanvasD3.Draw()
+# CanvasD3.Draw()
 
-Canvasas.append(CanvasD3)
+# Canvasas.append(CanvasD3)
 
 
 
 
 
-Histogram = HistogramRootFile.Get("DataMSquaredVsQP")
+# Histogram = HistogramRootFile.Get("DataMSquaredVsQP")
 
-Histogram.SetDirectory(0)
+# Histogram.SetDirectory(0)
 
-CanvasD4 = ROOT.TCanvas("CanvasD4", "", 800, 800)
-CanvasD4.cd()
+# CanvasD4 = ROOT.TCanvas("CanvasD4", "", 800, 800)
+# CanvasD4.cd()
 
-CanvasD4.SetLogz()
+# CanvasD4.SetLogz()
 
-Histogram.SetStats(0)
-Histogram.SetContour(1000)
+# Histogram.SetStats(0)
+# Histogram.SetContour(1000)
 
-Histogram.Draw("colz")
+# Histogram.Draw("colz")
 
-CanvasD4.Draw()
+# CanvasD4.Draw()
 
-Canvasas.append(CanvasD4)
+# Canvasas.append(CanvasD4)
 
 
 
 
 
-Histogram = HistogramRootFile.Get("DataMSquaredVsQPZoomed")
+# Histogram = HistogramRootFile.Get("DataMSquaredVsQPZoomed")
 
-Histogram.SetDirectory(0)
+# Histogram.SetDirectory(0)
 
-CanvasD4A = ROOT.TCanvas("CanvasD4A", "", 800, 800)
-CanvasD4A.cd()
+# CanvasD4A = ROOT.TCanvas("CanvasD4A", "", 800, 800)
+# CanvasD4A.cd()
 
-CanvasD4A.SetLogz()
+# CanvasD4A.SetLogz()
 
-Histogram.SetStats(0)
-Histogram.SetContour(1000)
+# Histogram.SetStats(0)
+# Histogram.SetContour(1000)
 
-Histogram.Draw("colz")
+# Histogram.Draw("colz")
 
-CanvasD4A.Draw()
+# CanvasD4A.Draw()
 
-Canvasas.append(CanvasD4A)
+# Canvasas.append(CanvasD4A)
 
 
 
 
 
-Histogram = HistogramRootFile.Get("DataYProton")
+# Histogram = HistogramRootFile.Get("DataYProton")
 
-Histogram.SetDirectory(0)
+# Histogram.SetDirectory(0)
 
-CanvasD5 = ROOT.TCanvas("CanvasD5", "", 800, 800)
-CanvasD5.cd()
+# CanvasD5 = ROOT.TCanvas("CanvasD5", "", 800, 800)
+# CanvasD5.cd()
 
-Histogram.SetStats(0)
+# Histogram.SetStats(0)
 
-Histogram.Draw("HIST")
+# Histogram.Draw("HIST")
 
-CanvasD5.Draw()
+# CanvasD5.Draw()
 
-Canvasas.append(CanvasD5)
+# Canvasas.append(CanvasD5)
 
 
 
 
 
-Histogram = HistogramRootFile.Get("DataYKaon")
+# Histogram = HistogramRootFile.Get("DataYKaon")
 
-Histogram.SetDirectory(0)
+# Histogram.SetDirectory(0)
 
-CanvasD6 = ROOT.TCanvas("CanvasD6", "", 800, 800)
-CanvasD6.cd()
+# CanvasD6 = ROOT.TCanvas("CanvasD6", "", 800, 800)
+# CanvasD6.cd()
 
-Histogram.SetStats(0)
+# Histogram.SetStats(0)
 
-Histogram.Draw("HIST")
+# Histogram.Draw("HIST")
 
-CanvasD6.Draw()
+# CanvasD6.Draw()
 
-Canvasas.append(CanvasD6)
+# Canvasas.append(CanvasD6)
 
 
 
 
 
-Histogram = HistogramRootFile.Get("DataYPion")
+# Histogram = HistogramRootFile.Get("DataYPion")
 
-Histogram.SetDirectory(0)
+# Histogram.SetDirectory(0)
 
-CanvasD7 = ROOT.TCanvas("CanvasD7", "", 800, 800)
-CanvasD7.cd()
+# CanvasD7 = ROOT.TCanvas("CanvasD7", "", 800, 800)
+# CanvasD7.cd()
 
-Histogram.SetStats(0)
+# Histogram.SetStats(0)
 
-Histogram.Draw("HIST")
+# Histogram.Draw("HIST")
 
-CanvasD7.Draw()
+# CanvasD7.Draw()
 
-Canvasas.append(CanvasD7)
+# Canvasas.append(CanvasD7)
 
 
 
 
 
-Histogram = HistogramRootFile.Get("DataPtProton")
+# Histogram = HistogramRootFile.Get("DataPtProton")
 
-Histogram.SetDirectory(0)
+# Histogram.SetDirectory(0)
 
-CanvasD8 = ROOT.TCanvas("CanvasD8", "", 800, 800)
-CanvasD8.cd()
+# CanvasD8 = ROOT.TCanvas("CanvasD8", "", 800, 800)
+# CanvasD8.cd()
 
-CanvasD8.SetLogy()
+# CanvasD8.SetLogy()
 
-Histogram.SetStats(0)
+# Histogram.SetStats(0)
 
-Histogram.Draw("HIST")
+# Histogram.Draw("HIST")
 
-CanvasD8.Draw()
+# CanvasD8.Draw()
 
-Canvasas.append(CanvasD8)
+# Canvasas.append(CanvasD8)
 
 
 
 
 
-Histogram = HistogramRootFile.Get("DataPtKaon")
+# Histogram = HistogramRootFile.Get("DataPtKaon")
 
-Histogram.SetDirectory(0)
+# Histogram.SetDirectory(0)
 
-CanvasD9 = ROOT.TCanvas("CanvasD9", "", 800, 800)
-CanvasD9.cd()
+# CanvasD9 = ROOT.TCanvas("CanvasD9", "", 800, 800)
+# CanvasD9.cd()
 
-CanvasD9.SetLogy()
+# CanvasD9.SetLogy()
 
-Histogram.SetStats(0)
+# Histogram.SetStats(0)
 
-Histogram.Draw("HIST")
+# Histogram.Draw("HIST")
 
-CanvasD9.Draw()
+# CanvasD9.Draw()
 
-Canvasas.append(CanvasD9)
+# Canvasas.append(CanvasD9)
 
 
 
 
 
-Histogram = HistogramRootFile.Get("DataPtPion")
+# Histogram = HistogramRootFile.Get("DataPtPion")
 
-Histogram.SetDirectory(0)
+# Histogram.SetDirectory(0)
 
-CanvasD10 = ROOT.TCanvas("CanvasD10", "", 800, 800)
-CanvasD10.cd()
+# CanvasD10 = ROOT.TCanvas("CanvasD10", "", 800, 800)
+# CanvasD10.cd()
 
-CanvasD10.SetLogy()
+# CanvasD10.SetLogy()
 
-Histogram.SetStats(0)
+# Histogram.SetStats(0)
 
-Histogram.Draw("HIST")
+# Histogram.Draw("HIST")
 
-CanvasD10.Draw()
+# CanvasD10.Draw()
 
-Canvasas.append(CanvasD10)
+# Canvasas.append(CanvasD10)
 
 
 
 
 
-Histogram = HistogramRootFile.Get("DataMultiplicity")
+# Histogram = HistogramRootFile.Get("DataMultiplicity")
 
-Histogram.SetDirectory(0)
+# Histogram.SetDirectory(0)
 
-CanvasD11 = ROOT.TCanvas("CanvasD11", "", 800, 800)
-CanvasD11.cd()
+# CanvasD11 = ROOT.TCanvas("CanvasD11", "", 800, 800)
+# CanvasD11.cd()
 
-Histogram.SetStats(0)
+# Histogram.SetStats(0)
 
-Histogram.Draw("HIST")
+# Histogram.Draw("HIST")
 
-CanvasD11.Draw()
+# CanvasD11.Draw()
 
-Canvasas.append(CanvasD11)
+# Canvasas.append(CanvasD11)
 
 
 
@@ -1181,7 +1420,7 @@ CanvasD12.cd()
 
 CanvasD12.SetLogz()
 
-Histogram.SetStats(0)
+#Histogram.SetStats(0)
 # Change the countour gradient
 Histogram.SetContour(1000)
 
@@ -1196,192 +1435,192 @@ Canvasas.append(CanvasD12)
 
 
 
-Histogram = HistogramRootFile.Get("DatadEdxVsPPion")
+# Histogram = HistogramRootFile.Get("DatadEdxVsPPion")
 
-Histogram.SetDirectory(0)
+# Histogram.SetDirectory(0)
 
-CanvasD13 = ROOT.TCanvas("CanvasD13", "", 800, 800)
-CanvasD13.cd()
+# CanvasD13 = ROOT.TCanvas("CanvasD13", "", 800, 800)
+# CanvasD13.cd()
 
-CanvasD13.SetLogz()
+# CanvasD13.SetLogz()
 
-Histogram.SetStats(0)
-# Change the countour gradient
-Histogram.SetContour(1000)
+# Histogram.SetStats(0)
+# # Change the countour gradient
+# Histogram.SetContour(1000)
 
-# Set the histogram with the colors corresponding to the z-values
-Histogram.Draw("colz")
+# # Set the histogram with the colors corresponding to the z-values
+# Histogram.Draw("colz")
 
-CanvasD13.Draw()
+# CanvasD13.Draw()
 
-Canvasas.append(CanvasD13)
+# Canvasas.append(CanvasD13)
 
 
 
 
 
-Histogram = HistogramRootFile.Get("DatadEdxVsPKaon")
+# Histogram = HistogramRootFile.Get("DatadEdxVsPKaon")
 
-Histogram.SetDirectory(0)
+# Histogram.SetDirectory(0)
 
-CanvasD14 = ROOT.TCanvas("CanvasD14", "", 800, 800)
-CanvasD14.cd()
+# CanvasD14 = ROOT.TCanvas("CanvasD14", "", 800, 800)
+# CanvasD14.cd()
 
-CanvasD14.SetLogz()
+# CanvasD14.SetLogz()
 
-Histogram.SetStats(0)
-# Change the countour gradient
-Histogram.SetContour(1000)
+# Histogram.SetStats(0)
+# # Change the countour gradient
+# Histogram.SetContour(1000)
 
-# Set the histogram with the colors corresponding to the z-values
-Histogram.Draw("colz")
+# # Set the histogram with the colors corresponding to the z-values
+# Histogram.Draw("colz")
 
-CanvasD14.Draw()
+# CanvasD14.Draw()
 
-Canvasas.append(CanvasD14)
+# Canvasas.append(CanvasD14)
 
 
 
 
 
-Histogram = HistogramRootFile.Get("DatadEdxVsPProton")
+# Histogram = HistogramRootFile.Get("DatadEdxVsPProton")
 
-Histogram.SetDirectory(0)
+# Histogram.SetDirectory(0)
 
-CanvasD15 = ROOT.TCanvas("CanvasD15", "", 800, 800)
-CanvasD15.cd()
+# CanvasD15 = ROOT.TCanvas("CanvasD15", "", 800, 800)
+# CanvasD15.cd()
 
-CanvasD15.SetLogz()
+# CanvasD15.SetLogz()
 
-Histogram.SetStats(0)
-# Change the countour gradient
-Histogram.SetContour(1000)
+# Histogram.SetStats(0)
+# # Change the countour gradient
+# Histogram.SetContour(1000)
 
-# Set the histogram with the colors corresponding to the z-values
-Histogram.Draw("colz")
+# # Set the histogram with the colors corresponding to the z-values
+# Histogram.Draw("colz")
 
-CanvasD15.Draw()
+# CanvasD15.Draw()
 
-Canvasas.append(CanvasD15)
+# Canvasas.append(CanvasD15)
 
 
 
 
 
-Histogram = HistogramRootFile.Get("DatadEdxVsPDeuteron")
+# Histogram = HistogramRootFile.Get("DatadEdxVsPDeuteron")
 
-Histogram.SetDirectory(0)
+# Histogram.SetDirectory(0)
 
-CanvasD16 = ROOT.TCanvas("CanvasD16", "", 800, 800)
-CanvasD16.cd()
+# CanvasD16 = ROOT.TCanvas("CanvasD16", "", 800, 800)
+# CanvasD16.cd()
 
-CanvasD16.SetLogz()
+# CanvasD16.SetLogz()
 
-Histogram.SetStats(0)
-# Change the countour gradient
-Histogram.SetContour(1000)
+# Histogram.SetStats(0)
+# # Change the countour gradient
+# Histogram.SetContour(1000)
 
-# Set the histogram with the colors corresponding to the z-values
-Histogram.Draw("colz")
+# # Set the histogram with the colors corresponding to the z-values
+# Histogram.Draw("colz")
 
-CanvasD16.Draw()
+# CanvasD16.Draw()
 
-Canvasas.append(CanvasD16)
+# Canvasas.append(CanvasD16)
 
 
 
 
 
-Histogram = HistogramRootFile.Get("DatadEdxVsPTriton")
+# Histogram = HistogramRootFile.Get("DatadEdxVsPTriton")
 
-Histogram.SetDirectory(0)
+# Histogram.SetDirectory(0)
 
-CanvasD17 = ROOT.TCanvas("CanvasD17", "", 800, 800)
-CanvasD17.cd()
+# CanvasD17 = ROOT.TCanvas("CanvasD17", "", 800, 800)
+# CanvasD17.cd()
 
-CanvasD17.SetLogz()
+# CanvasD17.SetLogz()
 
-Histogram.SetStats(0)
-# Change the countour gradient
-Histogram.SetContour(1000)
+# Histogram.SetStats(0)
+# # Change the countour gradient
+# Histogram.SetContour(1000)
 
-# Set the histogram with the colors corresponding to the z-values
-Histogram.Draw("colz")
+# # Set the histogram with the colors corresponding to the z-values
+# Histogram.Draw("colz")
 
-CanvasD17.Draw()
+# CanvasD17.Draw()
 
-Canvasas.append(CanvasD17)
+# Canvasas.append(CanvasD17)
 
 
 
 
 
-Histogram = HistogramRootFile.Get("DataMSquaredVsQPProton")
+# Histogram = HistogramRootFile.Get("DataMSquaredVsQPProton")
 
-Histogram.SetDirectory(0)
+# Histogram.SetDirectory(0)
 
-CanvasD18 = ROOT.TCanvas("CanvasD18", "", 800, 800)
-CanvasD18.cd()
+# CanvasD18 = ROOT.TCanvas("CanvasD18", "", 800, 800)
+# CanvasD18.cd()
 
-CanvasD18.SetLogz()
+# CanvasD18.SetLogz()
 
-Histogram.SetStats(0)
-Histogram.SetContour(1000)
+# Histogram.SetStats(0)
+# Histogram.SetContour(1000)
 
-Histogram.Draw("colz")
+# Histogram.Draw("colz")
 
-CanvasD18.Draw()
+# CanvasD18.Draw()
 
-Canvasas.append(CanvasD18)
+# Canvasas.append(CanvasD18)
 
 
 
 
 
-Histogram = HistogramRootFile.Get("DataMSquaredVsQPKaon")
+# Histogram = HistogramRootFile.Get("DataMSquaredVsQPKaon")
 
-Histogram.SetDirectory(0)
+# Histogram.SetDirectory(0)
 
-CanvasD19 = ROOT.TCanvas("CanvasD19", "", 800, 800)
-CanvasD19.cd()
+# CanvasD19 = ROOT.TCanvas("CanvasD19", "", 800, 800)
+# CanvasD19.cd()
 
-CanvasD19.SetLogz()
+# CanvasD19.SetLogz()
 
-Histogram.SetStats(0)
-Histogram.SetContour(1000)
+# Histogram.SetStats(0)
+# Histogram.SetContour(1000)
 
-Histogram.Draw("colz")
+# Histogram.Draw("colz")
 
-CanvasD19.Draw()
+# CanvasD19.Draw()
 
-Canvasas.append(CanvasD19)
+# Canvasas.append(CanvasD19)
 
 
 
 
 
-Histogram = HistogramRootFile.Get("DataMSquaredVsQPPion")
+# Histogram = HistogramRootFile.Get("DataMSquaredVsQPPion")
 
-Histogram.SetDirectory(0)
+# Histogram.SetDirectory(0)
 
-CanvasD20 = ROOT.TCanvas("CanvasD20", "", 800, 800)
-CanvasD20.cd()
+# CanvasD20 = ROOT.TCanvas("CanvasD20", "", 800, 800)
+# CanvasD20.cd()
 
-CanvasD20.SetLogz()
+# CanvasD20.SetLogz()
 
-Histogram.SetStats(0)
-Histogram.SetContour(1000)
+# Histogram.SetStats(0)
+# Histogram.SetContour(1000)
 
-Histogram.Draw("colz")
+# Histogram.Draw("colz")
 
-CanvasD20.Draw()
+# CanvasD20.Draw()
 
-Canvasas.append(CanvasD20)
+# Canvasas.append(CanvasD20)
 
 
 
 
-
+'''
 Histogram = HistogramRootFile.Get("DataPtProtonBothCuts")
 
 Histogram.SetDirectory(0)
@@ -1445,73 +1684,73 @@ Canvasas.append(CanvasD23)
 
 
 
-Histogram = HistogramRootFile.Get("DataNSigmaPrVsQPProton")
+# Histogram = HistogramRootFile.Get("DataNSigmaPrVsQPProton")
 
-Histogram.SetDirectory(0)
+# Histogram.SetDirectory(0)
 
-CanvasD24 = ROOT.TCanvas("CanvasD24", "", 800, 800)
-CanvasD24.cd()
+# CanvasD24 = ROOT.TCanvas("CanvasD24", "", 800, 800)
+# CanvasD24.cd()
 
-CanvasD24.SetLogz()
+# CanvasD24.SetLogz()
 
-Histogram.SetStats(0)
-# Change the countour gradient
-Histogram.SetContour(1000)
+# Histogram.SetStats(0)
+# # Change the countour gradient
+# Histogram.SetContour(1000)
 
-# Set the histogram with the colors corresponding to the z-values
-Histogram.Draw("colz")
+# # Set the histogram with the colors corresponding to the z-values
+# Histogram.Draw("colz")
 
-CanvasD24.Draw()
+# CanvasD24.Draw()
 
-Canvasas.append(CanvasD24)
-
-
-
-
-
-Histogram = HistogramRootFile.Get("DataNSigmaKaVsQPKaon")
-
-Histogram.SetDirectory(0)
-
-CanvasD25 = ROOT.TCanvas("CanvasD25", "", 800, 800)
-CanvasD25.cd()
-
-CanvasD25.SetLogz()
-
-Histogram.SetStats(0)
-# Change the countour gradient
-Histogram.SetContour(1000)
-
-# Set the histogram with the colors corresponding to the z-values
-Histogram.Draw("colz")
-
-CanvasD25.Draw()
-
-Canvasas.append(CanvasD25)
+# Canvasas.append(CanvasD24)
 
 
 
 
 
-Histogram = HistogramRootFile.Get("DataNSigmaPiVsQPPion")
+# Histogram = HistogramRootFile.Get("DataNSigmaKaVsQPKaon")
 
-Histogram.SetDirectory(0)
+# Histogram.SetDirectory(0)
 
-CanvasD26 = ROOT.TCanvas("CanvasD26", "", 800, 800)
-CanvasD26.cd()
+# CanvasD25 = ROOT.TCanvas("CanvasD25", "", 800, 800)
+# CanvasD25.cd()
 
-CanvasD26.SetLogz()
+# CanvasD25.SetLogz()
 
-Histogram.SetStats(0)
-# Change the countour gradient
-Histogram.SetContour(1000)
+# Histogram.SetStats(0)
+# # Change the countour gradient
+# Histogram.SetContour(1000)
 
-# Set the histogram with the colors corresponding to the z-values
-Histogram.Draw("colz")
+# # Set the histogram with the colors corresponding to the z-values
+# Histogram.Draw("colz")
 
-CanvasD26.Draw()
+# CanvasD25.Draw()
 
-Canvasas.append(CanvasD26)
+# Canvasas.append(CanvasD25)
+
+
+
+
+
+# Histogram = HistogramRootFile.Get("DataNSigmaPiVsQPPion")
+
+# Histogram.SetDirectory(0)
+
+# CanvasD26 = ROOT.TCanvas("CanvasD26", "", 800, 800)
+# CanvasD26.cd()
+
+# CanvasD26.SetLogz()
+
+# Histogram.SetStats(0)
+# # Change the countour gradient
+# Histogram.SetContour(1000)
+
+# # Set the histogram with the colors corresponding to the z-values
+# Histogram.Draw("colz")
+
+# CanvasD26.Draw()
+
+# Canvasas.append(CanvasD26)
 
 
 
@@ -2417,21 +2656,21 @@ Canvasas.append(CanvasD53)
 
 
 
-Histogram = HistogramRootFile.Get("DataResolution")
+# Histogram = HistogramRootFile.Get("DataResolution")
 
-Histogram.SetDirectory(0)
-Histogram.SetLineWidth(3)
+# Histogram.SetDirectory(0)
+# Histogram.SetLineWidth(3)
 
-CanvasD54 = ROOT.TCanvas("CanvasD54", "", 800, 800)
-CanvasD54.cd()
+# CanvasD54 = ROOT.TCanvas("CanvasD54", "", 800, 800)
+# CanvasD54.cd()
 
-Histogram.SetStats(0)
+# Histogram.SetStats(0)
 
-Histogram.Draw("P E1")
+# Histogram.Draw("P E1")
 
-CanvasD54.Draw()
+# CanvasD54.Draw()
 
-Canvasas.append(CanvasD54)
+# Canvasas.append(CanvasD54)
 
 
 
@@ -3468,42 +3707,42 @@ Canvasas.append(CanvasD116_117_118)
 
 
 
-CanvasD119_120_121 = ROOT.TCanvas("CanvasD119_120_121", "", 800, 800)
-CanvasD119_120_121.cd()
+# CanvasD119_120_121 = ROOT.TCanvas("CanvasD119_120_121", "", 800, 800)
+# CanvasD119_120_121.cd()
 
-Histogram = HistogramRootFile.Get("DataV" + str(nV) +"VsPtForDeuteronsCentrality0-10")
+# Histogram = HistogramRootFile.Get("DataV" + str(nV) +"VsPtForDeuteronsCentrality0-10")
 
-Histogram.SetDirectory(0)
+# Histogram.SetDirectory(0)
 
-Histogram.SetStats(0)
+# Histogram.SetStats(0)
 
-Histogram.SetLineColor(ROOT.kRed)
+# Histogram.SetLineColor(ROOT.kRed)
 
-Histogram.Draw("PE 1")
+# Histogram.Draw("PE 1")
 
-Histogram = HistogramRootFile.Get("DataV" + str(nV) +"VsPtForDeuteronsCentrality10-40")
+# Histogram = HistogramRootFile.Get("DataV" + str(nV) +"VsPtForDeuteronsCentrality10-40")
 
-Histogram.SetDirectory(0)
+# Histogram.SetDirectory(0)
 
-Histogram.SetStats(0)
+# Histogram.SetStats(0)
 
-Histogram.SetLineColor(ROOT.kBlue)
+# Histogram.SetLineColor(ROOT.kBlue)
 
-Histogram.Draw("PE 1 SAME")
+# Histogram.Draw("PE 1 SAME")
 
-Histogram = HistogramRootFile.Get("DataV" + str(nV) +"VsPtForDeuteronsCentrality40-60")
+# Histogram = HistogramRootFile.Get("DataV" + str(nV) +"VsPtForDeuteronsCentrality40-60")
 
-Histogram.SetDirectory(0)
+# Histogram.SetDirectory(0)
 
-Histogram.SetStats(0)
+# Histogram.SetStats(0)
 
-Histogram.SetLineColor(ROOT.kGreen)
+# Histogram.SetLineColor(ROOT.kGreen)
 
-Histogram.Draw("PE 1 SAME")
+# Histogram.Draw("PE 1 SAME")
 
-CanvasD119_120_121.Draw()
+# CanvasD119_120_121.Draw()
 
-Canvasas.append(CanvasD119_120_121)
+# Canvasas.append(CanvasD119_120_121)
 
 
 
@@ -3600,42 +3839,42 @@ Canvasas.append(CanvasD122_123_124)
 
 
 
-CanvasD125_126_127 = ROOT.TCanvas("CanvasD125_126_127", "", 800, 800)
-CanvasD125_126_127.cd()
+# CanvasD125_126_127 = ROOT.TCanvas("CanvasD125_126_127", "", 800, 800)
+# CanvasD125_126_127.cd()
 
-Histogram = HistogramRootFile.Get("DataV" + str(nV) +"VsPtForTritonsCentrality0-10")
+# Histogram = HistogramRootFile.Get("DataV" + str(nV) +"VsPtForTritonsCentrality0-10")
 
-Histogram.SetDirectory(0)
+# Histogram.SetDirectory(0)
 
-Histogram.SetStats(0)
+# Histogram.SetStats(0)
 
-Histogram.SetLineColor(ROOT.kRed)
+# Histogram.SetLineColor(ROOT.kRed)
 
-Histogram.Draw("PE 1")
+# Histogram.Draw("PE 1")
 
-Histogram = HistogramRootFile.Get("DataV" + str(nV) +"VsPtForTritonsCentrality10-40")
+# Histogram = HistogramRootFile.Get("DataV" + str(nV) +"VsPtForTritonsCentrality10-40")
 
-Histogram.SetDirectory(0)
+# Histogram.SetDirectory(0)
 
-Histogram.SetStats(0)
+# Histogram.SetStats(0)
 
-Histogram.SetLineColor(ROOT.kBlue)
+# Histogram.SetLineColor(ROOT.kBlue)
 
-Histogram.Draw("PE 1 SAME")
+# Histogram.Draw("PE 1 SAME")
 
-Histogram = HistogramRootFile.Get("DataV" + str(nV) +"VsPtForTritonsCentrality40-60")
+# Histogram = HistogramRootFile.Get("DataV" + str(nV) +"VsPtForTritonsCentrality40-60")
 
-Histogram.SetDirectory(0)
+# Histogram.SetDirectory(0)
 
-Histogram.SetStats(0)
+# Histogram.SetStats(0)
 
-Histogram.SetLineColor(ROOT.kGreen)
+# Histogram.SetLineColor(ROOT.kGreen)
 
-Histogram.Draw("PE 1 SAME")
+# Histogram.Draw("PE 1 SAME")
 
-CanvasD125_126_127.Draw()
+# CanvasD125_126_127.Draw()
 
-Canvasas.append(CanvasD125_126_127)
+# Canvasas.append(CanvasD125_126_127)
 
 
 
@@ -3748,7 +3987,7 @@ Histogram.SetYTitle("")
 
 Histogram.Draw("colz")
 
-BoxA = ROOT.TBox(0, 0.2, 1, 1.6)
+BoxA = ROOT.TBox(0, 0.18, 0.5, 1.6)
 BoxA.SetLineColor(ROOT.kRed)
 BoxA.SetLineWidth(2)
 BoxA.SetFillStyle(0)
@@ -3772,7 +4011,7 @@ Histogram.SetYTitle("")
 
 Histogram.Draw("colz")
 
-BoxB = ROOT.TBox(0, 0.4, 1, 1.6)
+BoxB = ROOT.TBox(0, 0.4, 0.5, 1.6)
 BoxB.SetLineColor(ROOT.kRed)
 BoxB.SetLineWidth(2)
 BoxB.SetFillStyle(0)
@@ -3796,7 +4035,7 @@ Histogram.SetYTitle("")
 
 Histogram.Draw("colz")
 
-BoxC = ROOT.TBox(0, 0.2, 1, 1.6)
+BoxC = ROOT.TBox(0, 0.18, 0.5, 1.6)
 BoxC.SetLineColor(ROOT.kRed)
 BoxC.SetLineWidth(2)
 BoxC.SetFillStyle(0)
@@ -3820,7 +4059,7 @@ Histogram.SetYTitle("")
 
 Histogram.Draw("colz")
 
-BoxD = ROOT.TBox(0, 0.4, 1, 1.6)
+BoxD = ROOT.TBox(0, 0.4, 0.5, 1.6)
 BoxD.SetLineColor(ROOT.kRed)
 BoxD.SetLineWidth(2)
 BoxD.SetFillStyle(0)
@@ -3844,7 +4083,7 @@ Histogram.SetYTitle("")
 
 Histogram.Draw("colz")
 
-BoxE = ROOT.TBox(0, 0.4, 1, 2.0)
+BoxE = ROOT.TBox(0, 0.4, 0.5, 2.0)
 BoxE.SetLineColor(ROOT.kRed)
 BoxE.SetLineWidth(2)
 BoxE.SetFillStyle(0)
@@ -3854,6 +4093,7 @@ BoxE.Draw()
 CanvasD27Through31.Draw()
 
 Canvasas.append(CanvasD27Through31)
+'''
 # #####################################################################################################
 # Histogram = HistogramRootFile.Get("MonteCarloPtVsEta")
 
@@ -5556,7 +5796,7 @@ Canvasas.append(CanvasD27Through31)
 
 # Close the output Root file
 HistogramRootFile.Close()
-SystematicErrorRootFile.Close()
+# SystematicErrorRootFile.Close()
 
 
 # In[ ]:

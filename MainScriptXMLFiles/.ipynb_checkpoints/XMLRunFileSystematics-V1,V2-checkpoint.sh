@@ -1,0 +1,15 @@
+star-submit XMLRunFile-DCA1-V1,V2.xml
+star-submit XMLRunFile-DCA2-V1,V2.xml
+star-submit XMLRunFile-NHits1-V1,V2.xml
+star-submit XMLRunFile-NHits2-V1,V2.xml
+star-submit XMLRunFile-NSigmaProton1-V1,V2.xml
+star-submit XMLRunFile-NSigmaProton2-V1,V2.xml
+star-submit XMLRunFile-NSigmaKaon1-V1,V2.xml
+star-submit XMLRunFile-NSigmaKaon2-V1,V2.xml
+star-submit XMLRunFile-NSigmaPion1-V1,V2.xml
+star-submit XMLRunFile-NSigmaPion2-V1,V2.xml
+star-submit XMLRunFile-MSquaredProton-V1,V2.xml
+star-submit XMLRunFile-MSquaredKaon-V1,V2.xml
+star-submit XMLRunFile-MSquaredPion-V1,V2.xml
+star-submit XMLRunFile-OuterEPDLow-V1,V2.xml
+star-submit XMLRunFile-OuterEPDHigh-V1,V2.xml

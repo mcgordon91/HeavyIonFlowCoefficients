@@ -145,9 +145,9 @@ class CompositeData
   std::vector<DataPoint> v_vn_yCM_10to40_pm;
   std::vector<DataPoint> v_vn_yCM_40to60_pm;
   
-//   std::vector<DataPoint> v_vn_yCM_00to10_pr_symm;
-//   std::vector<DataPoint> v_vn_yCM_10to40_pr_symm;
-//   std::vector<DataPoint> v_vn_yCM_40to60_pr_symm;
+  std::vector<DataPoint> v_vn_yCM_00to10_pr_symm;
+  std::vector<DataPoint> v_vn_yCM_10to40_pr_symm;
+  std::vector<DataPoint> v_vn_yCM_40to60_pr_symm;
 
   std::vector<DataPoint> v_vn_yCM_00to10_de;
   std::vector<DataPoint> v_vn_yCM_10to40_de;
@@ -162,9 +162,9 @@ class CompositeData
 //   std::vector<DataPoint> v_vn_yCM_10to40_he4;
 //   std::vector<DataPoint> v_vn_yCM_40to60_he4;
 
-//   std::vector<DataPoint> v_vn_pT_00to10_pr;
-//   std::vector<DataPoint> v_vn_pT_10to40_pr;
-//   std::vector<DataPoint> v_vn_pT_40to60_pr;
+  std::vector<DataPoint> v_vn_pT_00to10_pr;
+  std::vector<DataPoint> v_vn_pT_10to40_pr;
+  std::vector<DataPoint> v_vn_pT_40to60_pr;
 //   std::vector<DataPoint> v_vn_pT_00to10_kp;
 //   std::vector<DataPoint> v_vn_pT_10to40_kp;
 //   std::vector<DataPoint> v_vn_pT_40to60_kp;
@@ -283,9 +283,9 @@ class CompositeData
   TH1D* barlow_vn_yCM_10to40_pm;
   TH1D* barlow_vn_yCM_40to60_pm;
 
-//   TH1D* barlow_vn_yCM_00to10_pr_symm;
-//   TH1D* barlow_vn_yCM_10to40_pr_symm;
-//   TH1D* barlow_vn_yCM_40to60_pr_symm;
+  TH1D* barlow_vn_yCM_00to10_pr_symm;
+  TH1D* barlow_vn_yCM_10to40_pr_symm;
+  TH1D* barlow_vn_yCM_40to60_pr_symm;
 
   TH1D* barlow_vn_yCM_00to10_de;
   TH1D* barlow_vn_yCM_10to40_de;
@@ -300,9 +300,9 @@ class CompositeData
 //   TH1D* barlow_vn_yCM_10to40_he4;
 //   TH1D* barlow_vn_yCM_40to60_he4;
 
-//   TH1D* barlow_vn_pT_00to10_pr;
-//   TH1D* barlow_vn_pT_10to40_pr;
-//   TH1D* barlow_vn_pT_40to60_pr;
+  TH1D* barlow_vn_pT_00to10_pr;
+  TH1D* barlow_vn_pT_10to40_pr;
+  TH1D* barlow_vn_pT_40to60_pr;
 //   TH1D* barlow_vn_pT_00to10_pr_yMid;
 //   TH1D* barlow_vn_pT_10to40_pr_yMid;
 //   TH1D* barlow_vn_pT_40to60_pr_yMid;

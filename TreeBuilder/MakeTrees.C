@@ -11,7 +11,7 @@ Int_t MakeTrees(Int_t nEvents, Int_t nFiles, TString InputFileList, TString Outp
   // Load libraries
   gROOT->LoadMacro("$STAR/StRoot/StMuDSTMaker/COMMON/macros/loadSharedLibraries.C");
   loadSharedLibraries();
-    
+
   gSystem->Load("StPicoEvent");
   gSystem->Load("StPicoDstMaker");
   gSystem->Load("StEpdUtil");
@@ -35,7 +35,7 @@ Int_t MakeTrees(Int_t nEvents, Int_t nFiles, TString InputFileList, TString Outp
       cout << "Init() Error!" << endl;
       return;
     }
-    
+
   int total = picoMaker->chain()->GetEntries();
   cout << " Total entries = " << total << endl;
   if(nEvents > total) nEvents = total;

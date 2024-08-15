@@ -1,0 +1,53 @@
+
+# DO NOT DELETE
+
+AutoDict_vector_CompositeData__DataPoint__cxx.so: Variation.h
+AutoDict_vector_CompositeData__DataPoint__cxx.so: /afs/rhic.bnl.gov/star/ROOT/36/5.34.38/.sl73_gcc485/rootdeb/include/TString.h
+AutoDict_vector_CompositeData__DataPoint__cxx.so: /afs/rhic.bnl.gov/star/ROOT/36/5.34.38/.sl73_gcc485/rootdeb/include/Riosfwd.h
+AutoDict_vector_CompositeData__DataPoint__cxx.so: /afs/rhic.bnl.gov/star/ROOT/36/5.34.38/.sl73_gcc485/rootdeb/include/RConfig.h
+AutoDict_vector_CompositeData__DataPoint__cxx.so: /afs/rhic.bnl.gov/star/ROOT/36/5.34.38/.sl73_gcc485/rootdeb/include/RVersion.h
+AutoDict_vector_CompositeData__DataPoint__cxx.so: /afs/rhic.bnl.gov/star/ROOT/36/5.34.38/.sl73_gcc485/rootdeb/include/TMathBase.h
+AutoDict_vector_CompositeData__DataPoint__cxx.so: /afs/rhic.bnl.gov/star/ROOT/36/5.34.38/.sl73_gcc485/rootdeb/include/Rtypes.h
+AutoDict_vector_CompositeData__DataPoint__cxx.so: /afs/rhic.bnl.gov/star/ROOT/36/5.34.38/.sl73_gcc485/rootdeb/include/DllImport.h
+AutoDict_vector_CompositeData__DataPoint__cxx.so: /afs/rhic.bnl.gov/star/ROOT/36/5.34.38/.sl73_gcc485/rootdeb/include/Rtypeinfo.h
+AutoDict_vector_CompositeData__DataPoint__cxx.so: /afs/rhic.bnl.gov/star/ROOT/36/5.34.38/.sl73_gcc485/rootdeb/include/snprintf.h
+AutoDict_vector_CompositeData__DataPoint__cxx.so: /afs/rhic.bnl.gov/star/ROOT/36/5.34.38/.sl73_gcc485/rootdeb/include/strlcpy.h
+AutoDict_vector_CompositeData__DataPoint__cxx.so: /afs/rhic.bnl.gov/star/ROOT/36/5.34.38/.sl73_gcc485/rootdeb/include/TGenericClassInfo.h
+AutoDict_vector_CompositeData__DataPoint__cxx.so: /afs/rhic.bnl.gov/star/ROOT/36/5.34.38/.sl73_gcc485/rootdeb/include/TSchemaHelper.h
+AutoDict_vector_CompositeData__DataPoint__cxx.so: /afs/rhic.bnl.gov/star/ROOT/36/5.34.38/.sl73_gcc485/rootdeb/include/TH1D.h
+AutoDict_vector_CompositeData__DataPoint__cxx.so: /afs/rhic.bnl.gov/star/ROOT/36/5.34.38/.sl73_gcc485/rootdeb/include/TH1.h
+AutoDict_vector_CompositeData__DataPoint__cxx.so: /afs/rhic.bnl.gov/star/ROOT/36/5.34.38/.sl73_gcc485/rootdeb/include/TAxis.h
+AutoDict_vector_CompositeData__DataPoint__cxx.so: /afs/rhic.bnl.gov/star/ROOT/36/5.34.38/.sl73_gcc485/rootdeb/include/TNamed.h
+AutoDict_vector_CompositeData__DataPoint__cxx.so: /afs/rhic.bnl.gov/star/ROOT/36/5.34.38/.sl73_gcc485/rootdeb/include/TObject.h
+AutoDict_vector_CompositeData__DataPoint__cxx.so: /afs/rhic.bnl.gov/star/ROOT/36/5.34.38/.sl73_gcc485/rootdeb/include/TStorage.h
+AutoDict_vector_CompositeData__DataPoint__cxx.so: /afs/rhic.bnl.gov/star/ROOT/36/5.34.38/.sl73_gcc485/rootdeb/include/TVersionCheck.h
+AutoDict_vector_CompositeData__DataPoint__cxx.so: /afs/rhic.bnl.gov/star/ROOT/36/5.34.38/.sl73_gcc485/rootdeb/include/TBuffer.h
+AutoDict_vector_CompositeData__DataPoint__cxx.so: /afs/rhic.bnl.gov/star/ROOT/36/5.34.38/.sl73_gcc485/rootdeb/include/TAttAxis.h
+AutoDict_vector_CompositeData__DataPoint__cxx.so: /afs/rhic.bnl.gov/star/ROOT/36/5.34.38/.sl73_gcc485/rootdeb/include/TArrayD.h
+AutoDict_vector_CompositeData__DataPoint__cxx.so: /afs/rhic.bnl.gov/star/ROOT/36/5.34.38/.sl73_gcc485/rootdeb/include/TArray.h
+AutoDict_vector_CompositeData__DataPoint__cxx.so: /afs/rhic.bnl.gov/star/ROOT/36/5.34.38/.sl73_gcc485/rootdeb/include/TAttLine.h
+AutoDict_vector_CompositeData__DataPoint__cxx.so: /afs/rhic.bnl.gov/star/ROOT/36/5.34.38/.sl73_gcc485/rootdeb/include/TAttFill.h
+AutoDict_vector_CompositeData__DataPoint__cxx.so: /afs/rhic.bnl.gov/star/ROOT/36/5.34.38/.sl73_gcc485/rootdeb/include/TAttMarker.h
+AutoDict_vector_CompositeData__DataPoint__cxx.so: /afs/rhic.bnl.gov/star/ROOT/36/5.34.38/.sl73_gcc485/rootdeb/include/TArrayC.h
+AutoDict_vector_CompositeData__DataPoint__cxx.so: /afs/rhic.bnl.gov/star/ROOT/36/5.34.38/.sl73_gcc485/rootdeb/include/TArrayS.h
+AutoDict_vector_CompositeData__DataPoint__cxx.so: /afs/rhic.bnl.gov/star/ROOT/36/5.34.38/.sl73_gcc485/rootdeb/include/TArrayI.h
+AutoDict_vector_CompositeData__DataPoint__cxx.so: /afs/rhic.bnl.gov/star/ROOT/36/5.34.38/.sl73_gcc485/rootdeb/include/TArrayF.h
+AutoDict_vector_CompositeData__DataPoint__cxx.so: /afs/rhic.bnl.gov/star/ROOT/36/5.34.38/.sl73_gcc485/rootdeb/include/Foption.h
+AutoDict_vector_CompositeData__DataPoint__cxx.so: /afs/rhic.bnl.gov/star/ROOT/36/5.34.38/.sl73_gcc485/rootdeb/include/TVectorFfwd.h
+AutoDict_vector_CompositeData__DataPoint__cxx.so: /afs/rhic.bnl.gov/star/ROOT/36/5.34.38/.sl73_gcc485/rootdeb/include/TVectorDfwd.h
+AutoDict_vector_CompositeData__DataPoint__cxx.so: /afs/rhic.bnl.gov/star/ROOT/36/5.34.38/.sl73_gcc485/rootdeb/include/TFitResultPtr.h
+AutoDict_vector_CompositeData__DataPoint__cxx.so: /afs/rhic.bnl.gov/star/ROOT/36/5.34.38/.sl73_gcc485/rootdeb/include/TFile.h
+AutoDict_vector_CompositeData__DataPoint__cxx.so: /afs/rhic.bnl.gov/star/ROOT/36/5.34.38/.sl73_gcc485/rootdeb/include/TDirectoryFile.h
+AutoDict_vector_CompositeData__DataPoint__cxx.so: /afs/rhic.bnl.gov/star/ROOT/36/5.34.38/.sl73_gcc485/rootdeb/include/TDirectory.h
+AutoDict_vector_CompositeData__DataPoint__cxx.so: /afs/rhic.bnl.gov/star/ROOT/36/5.34.38/.sl73_gcc485/rootdeb/include/TList.h
+AutoDict_vector_CompositeData__DataPoint__cxx.so: /afs/rhic.bnl.gov/star/ROOT/36/5.34.38/.sl73_gcc485/rootdeb/include/TSeqCollection.h
+AutoDict_vector_CompositeData__DataPoint__cxx.so: /afs/rhic.bnl.gov/star/ROOT/36/5.34.38/.sl73_gcc485/rootdeb/include/TCollection.h
+AutoDict_vector_CompositeData__DataPoint__cxx.so: /afs/rhic.bnl.gov/star/ROOT/36/5.34.38/.sl73_gcc485/rootdeb/include/TIterator.h
+AutoDict_vector_CompositeData__DataPoint__cxx.so: /afs/rhic.bnl.gov/star/ROOT/36/5.34.38/.sl73_gcc485/rootdeb/include/TDatime.h
+AutoDict_vector_CompositeData__DataPoint__cxx.so: /afs/rhic.bnl.gov/star/ROOT/36/5.34.38/.sl73_gcc485/rootdeb/include/TUUID.h
+AutoDict_vector_CompositeData__DataPoint__cxx.so: /afs/rhic.bnl.gov/star/ROOT/36/5.34.38/.sl73_gcc485/rootdeb/include/TMap.h
+AutoDict_vector_CompositeData__DataPoint__cxx.so: /afs/rhic.bnl.gov/star/ROOT/36/5.34.38/.sl73_gcc485/rootdeb/include/THashTable.h
+AutoDict_vector_CompositeData__DataPoint__cxx.so: /afs/rhic.bnl.gov/star/ROOT/36/5.34.38/.sl73_gcc485/rootdeb/include/TUrl.h
+AutoDict_vector_CompositeData__DataPoint__cxx.so: CompositeData.h
+AutoDict_vector_CompositeData__DataPoint__cxx.so: /afs/rhic.bnl.gov/star/ROOT/36/5.34.38/.sl73_gcc485/rootdeb/include/cintdictversion.h /afs/rhic.bnl.gov/star/ROOT/36/5.34.38/.sl73_gcc485/rootdeb/include/RVersion.h
+AutoDict_vector_CompositeData__DataPoint__cxx__ROOTBUILDVERSION= 5.34/38

@@ -366,7 +366,7 @@ int main(int argc, char *argv[])
     TFile *TPCEfficiencyFile;
     TFile *ToFEfficiencyFile;
     TFile *TPCEfficiencyFileDandT;
-
+    
     
     if(RunIteration == 2)
     {
@@ -3274,7 +3274,7 @@ int main(int argc, char *argv[])
         std::string HistoD115String = "DataV" + std::to_string(nV) +"VsPtForPionsMinusCentrality40-60";
         const char* HistoD115Char = &HistoD115String[0];
         
-        std::string HistoD116String = "DataV" + std::to_string(nV) +"VsYForPionssMinusCentrality0-10";
+        std::string HistoD116String = "DataV" + std::to_string(nV) +"VsYForPionsMinusCentrality0-10";
         const char* HistoD116Char = &HistoD116String[0];
         
         std::string HistoD117String = "DataV" + std::to_string(nV) +"VsYForPionsMinusCentrality10-40";

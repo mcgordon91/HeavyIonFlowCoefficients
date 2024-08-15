@@ -4,8 +4,8 @@
 #include "../StEpdGeom.h"
 #include "TVector3.h"
 #include "TMath.h"
-//#include "../../StPicoEvent/StPicoEpdHit.h"  <---- on your laptop, need explicit path.
-#include "StRoot/StPicoEvent/StPicoEpdHit.h"
+#include "../../StPicoEvent/StPicoEpdHit.h"  <---- on your laptop, need explicit path.
+//#include "StRoot/StPicoEvent/StPicoEpdHit.h"
 #include <iostream>
 
 StEpdFastSim::StEpdFastSim(double WID){

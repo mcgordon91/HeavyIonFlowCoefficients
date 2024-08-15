@@ -49,16 +49,16 @@ Variation::~Variation()
   delete h_vn_yCM_10to40_pm;
   delete h_vn_yCM_40to60_pm;
 
-//   delete h_vn_yCM_00to10_pr_symm;
-//   delete h_vn_yCM_10to40_pr_symm;
-//   delete h_vn_yCM_40to60_pr_symm;
+  delete h_vn_yCM_00to10_pr_symm;
+  delete h_vn_yCM_10to40_pr_symm;
+  delete h_vn_yCM_40to60_pr_symm;
   //std::cout << "h_vn_yCM_00to10_de address: "<<  h_vn_yCM_00to10_de << std::endl;
-  delete h_vn_yCM_00to10_de;
-  delete h_vn_yCM_10to40_de;
-  delete h_vn_yCM_40to60_de;
-  delete h_vn_yCM_00to10_tr;
-  delete h_vn_yCM_10to40_tr;
-  delete h_vn_yCM_40to60_tr;
+//   delete h_vn_yCM_00to10_de;
+//   delete h_vn_yCM_10to40_de;
+//   delete h_vn_yCM_40to60_de;
+//   delete h_vn_yCM_00to10_tr;
+//   delete h_vn_yCM_10to40_tr;
+//   delete h_vn_yCM_40to60_tr;
 //   delete h_vn_yCM_00to10_he3;
 //   delete h_vn_yCM_10to40_he3;
 //   delete h_vn_yCM_40to60_he3;
@@ -66,9 +66,9 @@ Variation::~Variation()
 //   delete h_vn_yCM_10to40_he4;
 //   delete h_vn_yCM_40to60_he4;
 
-//   delete h_vn_pT_00to10_pr;
-//   delete h_vn_pT_10to40_pr;
-//   delete h_vn_pT_40to60_pr;
+  delete h_vn_pT_00to10_pr;
+  delete h_vn_pT_10to40_pr;
+  delete h_vn_pT_40to60_pr;
 //   delete h_vn_pT_00to10_pr_yMid;
 //   delete h_vn_pT_10to40_pr_yMid;
 //   delete h_vn_pT_40to60_pr_yMid;
@@ -159,29 +159,24 @@ void Variation::initialize(TString order_n_str)
   TProfile *p_vn_pr = (TProfile*)file->Get("DataVnVsCentralityProtonCorrected");
   TProfile *p_vn_de = (TProfile*)file->Get("DataVnVsCentralityDeuteronCorrected");
   TProfile *p_vn_tr = (TProfile*)file->Get("DataVnVsCentralityTritonCorrected");
-    
 //   TProfile *p_vn_he3 = (TProfile*)file->Get("p_vn_he3");
 //   TProfile *p_vn_he4 = (TProfile*)file->Get("p_vn_he4");
 
-//   p_vn_kp->Rebin();
+
+//   p_vn_kp->Rebin();  
 //   p_vn_km->Rebin();
+
     
-  h_vn_pp = new TH1D("h_vn_pp", ";Centrality;v_{"+order_n_str+"}", 12, 0, 12);
-  h_vn_pm = new TH1D("h_vn_pm", ";Centrality;v_{"+order_n_str+"}", 12, 0, 12);
-  h_vn_kp = new TH1D("h_vn_kp", ";Centrality;v_{"+order_n_str+"}", 12, 0, 12);
-  h_vn_km = new TH1D("h_vn_km", ";Centrality;v_{"+order_n_str+"}", 12, 0, 12);
-  h_vn_pr = new TH1D("h_vn_pr", ";Centrality;v_{"+order_n_str+"}", 12, 0, 12);
-  h_vn_de = new TH1D("h_vn_de", ";Centrality;v_{"+order_n_str+"}", 12, 0, 12);
-  h_vn_tr = new TH1D("h_vn_tr", ";Centrality;v_{"+order_n_str+"}", 12, 0, 12);
-  
   h_vn_pp = p_vn_pp->ProjectionX();
   h_vn_pm = p_vn_pm->ProjectionX();
+std::cout << "Before" << std::endl;
   h_vn_kp = p_vn_kp->ProjectionX();
   h_vn_km = p_vn_km->ProjectionX();
+std::cout << "After" << std::endl;
   h_vn_pr = p_vn_pr->ProjectionX();
   h_vn_de = p_vn_de->ProjectionX();
   h_vn_tr = p_vn_tr->ProjectionX();
-    
+
 //   h_vn_he3 = p_vn_he3->ProjectionX((TString)p_vn_he3->GetName() +"_"+ ID);
 //   h_vn_he4 = p_vn_he4->ProjectionX((TString)p_vn_he4->GetName() +"_"+ ID);
   
@@ -217,7 +212,7 @@ void Variation::initialize(TString order_n_str)
   TProfile *p_vn_yCM_00to10_pr = (TProfile*)file->Get("DataV3VsYForProtonsCentrality0-10");
   TProfile *p_vn_yCM_10to40_pr = (TProfile*)file->Get("DataV3VsYForProtonsCentrality10-40");
   TProfile *p_vn_yCM_40to60_pr = (TProfile*)file->Get("DataV3VsYForProtonsCentrality40-60");
-    
+
   TProfile *p_vn_yCM_00to10_kp = (TProfile*)file->Get("DataV3VsYForKaonsPlusCentrality0-10");
   TProfile *p_vn_yCM_10to40_kp = (TProfile*)file->Get("DataV3VsYForKaonsPlusCentrality10-40");
   TProfile *p_vn_yCM_40to60_kp = (TProfile*)file->Get("DataV3VsYForKaonsPlusCentrality40-60");
@@ -234,9 +229,9 @@ void Variation::initialize(TString order_n_str)
   TProfile *p_vn_yCM_10to40_pm = (TProfile*)file->Get("DataV3VsYForPionsMinusCentrality10-40");
   TProfile *p_vn_yCM_40to60_pm = (TProfile*)file->Get("DataV3VsYForPionsMinusCentrality40-60");
 
-//   TProfile *p_vn_yCM_00to10_pr_symm = p2_vn_yCM_cent_pr_symmetry->ProfileY("p_vn_yCM_00to10_pr_symm", 15, 16);
-//   TProfile *p_vn_yCM_10to40_pr_symm = p2_vn_yCM_cent_pr_symmetry->ProfileY("p_vn_yCM_10to40_pr_symm", 9, 14);
-//   TProfile *p_vn_yCM_40to60_pr_symm = p2_vn_yCM_cent_pr_symmetry->ProfileY("p_vn_yCM_40to60_pr_symm", 5, 8);
+  TProfile *p_vn_yCM_00to10_pr_symm = (TProfile*)file->Get("DataV3VsYSymmetricForProtonsCentrality0-10");
+  TProfile *p_vn_yCM_10to40_pr_symm = (TProfile*)file->Get("DataV3VsYSymmetricForProtonsCentrality10-40");
+  TProfile *p_vn_yCM_40to60_pr_symm = (TProfile*)file->Get("DataV3VsYSymmetricForProtonsCentrality40-60");
 
   TProfile *p_vn_yCM_00to10_de = (TProfile*)file->Get("DataV3VsYForDeuteronsCentrality0-10");
   TProfile *p_vn_yCM_10to40_de = (TProfile*)file->Get("DataV3VsYForDeuteronsCentrality10-40");
@@ -245,7 +240,7 @@ void Variation::initialize(TString order_n_str)
   TProfile *p_vn_yCM_00to10_tr = (TProfile*)file->Get("DataV3VsYForTritonsCentrality0-10");
   TProfile *p_vn_yCM_10to40_tr = (TProfile*)file->Get("DataV3VsYForTritonsCentrality10-40");
   TProfile *p_vn_yCM_40to60_tr = (TProfile*)file->Get("DataV3VsYForTritonsCentrality40-60");
-    
+
 //   TProfile *p_vn_yCM_00to10_he3 = p2_vn_yCM_cent_he3->ProfileY("p_vn_yCM_00to10_he3", 15, 16); // normal: kT; alt: pT
 //   TProfile *p_vn_yCM_10to40_he3 = p2_vn_yCM_cent_he3->ProfileY("p_vn_yCM_10to40_he3", 9, 14); // normal: kT; alt: pT
 //   TProfile *p_vn_yCM_40to60_he3 = p2_vn_yCM_cent_he3->ProfileY("p_vn_yCM_40to60_he3", 5, 8); // normal: kT; alt: pT
@@ -274,9 +269,9 @@ void Variation::initialize(TString order_n_str)
   h_vn_yCM_10to40_pm = new TH1D("h_vn_yCM_10to40_pm", ";y-y_{mid};v_{"+order_n_str+"}", 10, 0, 1);
   h_vn_yCM_40to60_pm = new TH1D("h_vn_yCM_40to60_pm", ";y-y_{mid};v_{"+order_n_str+"}", 10, 0, 1);
 
-//   h_vn_yCM_00to10_pr_symm = new TH1D("h_vn_yCM_00to10_pr_symm", ";y-y_{mid};v_{"+order_n_str+"}", 20, -1, 1);
-//   h_vn_yCM_10to40_pr_symm = new TH1D("h_vn_yCM_10to40_pr_symm", ";y-y_{mid};v_{"+order_n_str+"}", 20, -1, 1);
-//   h_vn_yCM_40to60_pr_symm = new TH1D("h_vn_yCM_40to60_pr_symm", ";y-y_{mid};v_{"+order_n_str+"}", 20, -1, 1);
+     h_vn_yCM_00to10_pr_symm = new TH1D("h_vn_yCM_00to10_pr_symm", ";y-y_{mid};v_{"+order_n_str+"}", 10, -0.5, 0.5);
+     h_vn_yCM_10to40_pr_symm = new TH1D("h_vn_yCM_10to40_pr_symm", ";y-y_{mid};v_{"+order_n_str+"}", 10, -0.5, 0.5);
+     h_vn_yCM_40to60_pr_symm = new TH1D("h_vn_yCM_40to60_pr_symm", ";y-y_{mid};v_{"+order_n_str+"}", 10, -0.5, 0.5);
 
   h_vn_yCM_00to10_de = new TH1D("h_vn_yCM_00to10_de", ";y-y_{mid};v_{"+order_n_str+"}", 10, 0, 1);
   h_vn_yCM_10to40_de = new TH1D("h_vn_yCM_10to40_de", ";y-y_{mid};v_{"+order_n_str+"}", 10, 0, 1);
@@ -293,11 +288,11 @@ void Variation::initialize(TString order_n_str)
 //   h_vn_yCM_10to40_he4 = new TH1D("h_vn_yCM_10to40_he4", ";y-y_{mid};v_{"+order_n_str+"}", 20, -1, 1);
 //   h_vn_yCM_40to60_he4 = new TH1D("h_vn_yCM_40to60_he4", ";y-y_{mid};v_{"+order_n_str+"}", 20, -1, 1);
 
-  
+
   // Convert profiles to histograms
-  h_vn_yCM_00to10_pr = p_vn_yCM_00to10_pr->ProjectionX();
-  h_vn_yCM_10to40_pr = p_vn_yCM_10to40_pr->ProjectionX();
-  h_vn_yCM_40to60_pr = p_vn_yCM_40to60_pr->ProjectionX();
+    h_vn_yCM_00to10_pr = p_vn_yCM_00to10_pr->ProjectionX();
+    h_vn_yCM_10to40_pr = p_vn_yCM_10to40_pr->ProjectionX();
+    h_vn_yCM_40to60_pr = p_vn_yCM_40to60_pr->ProjectionX();
     
   h_vn_yCM_00to10_kp = p_vn_yCM_00to10_kp->ProjectionX();
   h_vn_yCM_10to40_kp = p_vn_yCM_10to40_kp->ProjectionX();
@@ -315,9 +310,9 @@ void Variation::initialize(TString order_n_str)
   h_vn_yCM_10to40_pm = p_vn_yCM_10to40_pm->ProjectionX();
   h_vn_yCM_40to60_pm = p_vn_yCM_40to60_pm->ProjectionX();
 
-//   h_vn_yCM_00to10_pr_symm = p_vn_yCM_00to10_pr_symm->ProjectionX();
-//   h_vn_yCM_10to40_pr_symm = p_vn_yCM_10to40_pr_symm->ProjectionX();
-//   h_vn_yCM_40to60_pr_symm = p_vn_yCM_40to60_pr_symm->ProjectionX();
+     h_vn_yCM_00to10_pr_symm = p_vn_yCM_00to10_pr_symm->ProjectionX();
+     h_vn_yCM_10to40_pr_symm = p_vn_yCM_10to40_pr_symm->ProjectionX();
+     h_vn_yCM_40to60_pr_symm = p_vn_yCM_40to60_pr_symm->ProjectionX();
 
   h_vn_yCM_00to10_de = p_vn_yCM_00to10_de->ProjectionX();
   h_vn_yCM_10to40_de = p_vn_yCM_10to40_de->ProjectionX();
@@ -326,7 +321,7 @@ void Variation::initialize(TString order_n_str)
   h_vn_yCM_00to10_tr = p_vn_yCM_00to10_tr->ProjectionX();
   h_vn_yCM_10to40_tr = p_vn_yCM_10to40_tr->ProjectionX();
   h_vn_yCM_40to60_tr = p_vn_yCM_40to60_tr->ProjectionX();
-    
+     
 //   h_vn_yCM_00to10_he3 = p_vn_yCM_00to10_he3->ProjectionX();
 //   h_vn_yCM_10to40_he3 = p_vn_yCM_10to40_he3->ProjectionX();
 //   h_vn_yCM_40to60_he3 = p_vn_yCM_40to60_he3->ProjectionX();
@@ -367,9 +362,14 @@ void Variation::initialize(TString order_n_str)
 //   TProfile2D *p2_vn_pT_cent_he4_yExt = (TProfile2D*)file->Get("p2_vn_pT_cent_he4_yExt");
 //   TProfile2D *p2_vn_pT_cent_he4_yEnd = (TProfile2D*)file->Get("p2_vn_pT_cent_he4_yEnd");
 
-//   TProfile *p_vn_pT_00to10_pr = p2_vn_pT_cent_pr->ProfileY("p_vn_pT_00to10_pr", 15, 16);
-//   TProfile *p_vn_pT_10to40_pr = p2_vn_pT_cent_pr->ProfileY("p_vn_pT_10to40_pr", 9, 14);
-//   TProfile *p_vn_pT_40to60_pr = p2_vn_pT_cent_pr->ProfileY("p_vn_pT_40to60_pr", 5, 8);
+  TProfile *p_vn_pT_00to10_pr = (TProfile*)file->Get("DataV3VsPtForProtonsCentrality0-10");
+  TProfile *p_vn_pT_10to40_pr = (TProfile*)file->Get("DataV3VsPtForProtonsCentrality10-40");
+  TProfile *p_vn_pT_40to60_pr = (TProfile*)file->Get("DataV3VsPtForProtonsCentrality40-60");
+
+  p_vn_pT_00to10_pr->Rebin();
+  p_vn_pT_10to40_pr->Rebin();    
+  p_vn_pT_40to60_pr->Rebin();
+
 //   TProfile *p_vn_pT_00to10_pr_yMid = p2_vn_pT_cent_pr_yMid->ProfileY("p_vn_pT_00to10_pr_yMid", 15, 16);
 //   TProfile *p_vn_pT_10to40_pr_yMid = p2_vn_pT_cent_pr_yMid->ProfileY("p_vn_pT_10to40_pr_yMid", 9, 14);
 //   TProfile *p_vn_pT_40to60_pr_yMid = p2_vn_pT_cent_pr_yMid->ProfileY("p_vn_pT_40to60_pr_yMid", 5, 8);
@@ -448,9 +448,9 @@ void Variation::initialize(TString order_n_str)
 //   TProfile *p_vn_pT_40to60_he4_yEnd = p2_vn_pT_cent_he4_yEnd->ProfileY("p_vn_pT_40to60_he4_yEnd", 5, 8);
 
 
-//   h_vn_pT_00to10_pr = new TH1D("h_vn_pT_00to10_pr", ";p_{T} (GeV);v_{"+order_n_str+"}", 10, 0, 2);
-//   h_vn_pT_10to40_pr = new TH1D("h_vn_pT_10to40_pr", ";p_{T} (GeV);v_{"+order_n_str+"}", 10, 0, 2);
-//   h_vn_pT_40to60_pr = new TH1D("h_vn_pT_40to60_pr", ";p_{T} (GeV);v_{"+order_n_str+"}", 10, 0, 2);
+  h_vn_pT_00to10_pr = new TH1D("h_vn_pT_00to10_pr", ";p_{T} (GeV);v_{"+order_n_str+"}", 10, 0, 2);
+  h_vn_pT_10to40_pr = new TH1D("h_vn_pT_10to40_pr", ";p_{T} (GeV);v_{"+order_n_str+"}", 10, 0, 2);
+  h_vn_pT_40to60_pr = new TH1D("h_vn_pT_40to60_pr", ";p_{T} (GeV);v_{"+order_n_str+"}", 10, 0, 2);
 //   h_vn_pT_00to10_pr_yMid = new TH1D("h_vn_pT_00to10_pr_yMid", ";p_{T} (GeV);v_{"+order_n_str+"}", 10, 0, 2);
 //   h_vn_pT_10to40_pr_yMid = new TH1D("h_vn_pT_10to40_pr_yMid", ";p_{T} (GeV);v_{"+order_n_str+"}", 10, 0, 2);
 //   h_vn_pT_40to60_pr_yMid = new TH1D("h_vn_pT_40to60_pr_yMid", ";p_{T} (GeV);v_{"+order_n_str+"}", 10, 0, 2);
@@ -511,10 +511,10 @@ void Variation::initialize(TString order_n_str)
 //   h_vn_pT_00to10_he4_yEnd = new TH1D("h_vn_pT_00to10_he4_yEnd", ";p_{T} (GeV);v_{"+order_n_str+"}", 10, 0, 2);
 //   h_vn_pT_10to40_he4_yEnd = new TH1D("h_vn_pT_10to40_he4_yEnd", ";p_{T} (GeV);v_{"+order_n_str+"}", 10, 0, 2);
 //   h_vn_pT_40to60_he4_yEnd = new TH1D("h_vn_pT_40to60_he4_yEnd", ";p_{T} (GeV);v_{"+order_n_str+"}", 10, 0, 2);
-  
-//   h_vn_pT_00to10_pr = p_vn_pT_00to10_pr->ProjectionX();
-//   h_vn_pT_10to40_pr = p_vn_pT_10to40_pr->ProjectionX();
-//   h_vn_pT_40to60_pr = p_vn_pT_40to60_pr->ProjectionX();
+
+  h_vn_pT_00to10_pr = p_vn_pT_00to10_pr->ProjectionX();
+  h_vn_pT_10to40_pr = p_vn_pT_10to40_pr->ProjectionX();
+  h_vn_pT_40to60_pr = p_vn_pT_40to60_pr->ProjectionX();
 //   h_vn_pT_00to10_pr_yMid = p_vn_pT_00to10_pr_yMid->ProjectionX();
 //   h_vn_pT_10to40_pr_yMid = p_vn_pT_10to40_pr_yMid->ProjectionX();
 //   h_vn_pT_40to60_pr_yMid = p_vn_pT_40to60_pr_yMid->ProjectionX();
@@ -657,7 +657,7 @@ void Variation::fixAttributes(TString order_n_str)
 //       //h_vn_pr->SetMaximum(centralityUpperBounds);
 //       //h_vn_pr->SetMinimum(centralityLowerBounds);
 
-//       h_vn_de->SetTitle(";Centrality (%);v_{"+order_n_str+"}");
+      h_vn_de->SetTitle(";Centrality (%);v_{"+order_n_str+"}");
       h_vn_de->SetMarkerStyle(20);
       h_vn_de->SetMarkerSize(2.5);
       h_vn_de->SetMarkerColor(2);
@@ -666,7 +666,7 @@ void Variation::fixAttributes(TString order_n_str)
 //       h_vn_de->GetYaxis()->SetTitleOffset(1.7);
 //       h_vn_de->GetXaxis()->SetNdivisions(210);
 
-//       h_vn_tr->SetTitle(";Centrality (%);v_{"+order_n_str+"}");
+      h_vn_tr->SetTitle(";Centrality (%);v_{"+order_n_str+"}");
       h_vn_tr->SetMarkerStyle(20);
       h_vn_tr->SetMarkerSize(2.5);
       h_vn_tr->SetMarkerColor(2);
@@ -694,85 +694,85 @@ void Variation::fixAttributes(TString order_n_str)
 //       h_vn_he4->GetXaxis()->SetNdivisions(210);
 
       //=== vn vs rapidity
-      h_vn_yCM_00to10_pr->SetMarkerStyle(20);
-      h_vn_yCM_10to40_pr->SetMarkerStyle(20);
-      h_vn_yCM_40to60_pr->SetMarkerStyle(20);
-      h_vn_yCM_00to10_pr->SetMarkerColor(2);
-      h_vn_yCM_10to40_pr->SetMarkerColor(4);
-      h_vn_yCM_40to60_pr->SetMarkerColor(8);
-      h_vn_yCM_00to10_pr->SetMarkerSize(2);
-      h_vn_yCM_10to40_pr->SetMarkerSize(2);
-      h_vn_yCM_40to60_pr->SetMarkerSize(2);
-      h_vn_yCM_00to10_pr->SetLineColor(2);
-      h_vn_yCM_10to40_pr->SetLineColor(4);
-      h_vn_yCM_40to60_pr->SetLineColor(8);
-      h_vn_yCM_00to10_pr->SetLineWidth(3);
-      h_vn_yCM_10to40_pr->SetLineWidth(3);
-      h_vn_yCM_40to60_pr->SetLineWidth(3);
+//       h_vn_yCM_00to10_pr->SetMarkerStyle(20);
+//       h_vn_yCM_10to40_pr->SetMarkerStyle(20);
+//       h_vn_yCM_40to60_pr->SetMarkerStyle(20);
+//       h_vn_yCM_00to10_pr->SetMarkerColor(2);
+//       h_vn_yCM_10to40_pr->SetMarkerColor(4);
+//       h_vn_yCM_40to60_pr->SetMarkerColor(8);
+//       h_vn_yCM_00to10_pr->SetMarkerSize(2);
+//       h_vn_yCM_10to40_pr->SetMarkerSize(2);
+//       h_vn_yCM_40to60_pr->SetMarkerSize(2);
+//       h_vn_yCM_00to10_pr->SetLineColor(2);
+//       h_vn_yCM_10to40_pr->SetLineColor(4);
+//       h_vn_yCM_40to60_pr->SetLineColor(8);
+//       h_vn_yCM_00to10_pr->SetLineWidth(3);
+//       h_vn_yCM_10to40_pr->SetLineWidth(3);
+//       h_vn_yCM_40to60_pr->SetLineWidth(3);
       
-      h_vn_yCM_00to10_kp->SetMarkerStyle(20);
-      h_vn_yCM_10to40_kp->SetMarkerStyle(20);
-      h_vn_yCM_40to60_kp->SetMarkerStyle(20);
-      h_vn_yCM_00to10_kp->SetMarkerColor(2);
-      h_vn_yCM_10to40_kp->SetMarkerColor(4);
-      h_vn_yCM_40to60_kp->SetMarkerColor(8);
-      h_vn_yCM_00to10_kp->SetMarkerSize(2);
-      h_vn_yCM_10to40_kp->SetMarkerSize(2);
-      h_vn_yCM_40to60_kp->SetMarkerSize(2);
-      h_vn_yCM_00to10_kp->SetLineColor(2);
-      h_vn_yCM_10to40_kp->SetLineColor(4);
-      h_vn_yCM_40to60_kp->SetLineColor(8);
-      h_vn_yCM_00to10_kp->SetLineWidth(3);
-      h_vn_yCM_10to40_kp->SetLineWidth(3);
-      h_vn_yCM_40to60_kp->SetLineWidth(3);
+//       h_vn_yCM_00to10_kp->SetMarkerStyle(20);
+//       h_vn_yCM_10to40_kp->SetMarkerStyle(20);
+//       h_vn_yCM_40to60_kp->SetMarkerStyle(20);
+//       h_vn_yCM_00to10_kp->SetMarkerColor(2);
+//       h_vn_yCM_10to40_kp->SetMarkerColor(4);
+//       h_vn_yCM_40to60_kp->SetMarkerColor(8);
+//       h_vn_yCM_00to10_kp->SetMarkerSize(2);
+//       h_vn_yCM_10to40_kp->SetMarkerSize(2);
+//       h_vn_yCM_40to60_kp->SetMarkerSize(2);
+//       h_vn_yCM_00to10_kp->SetLineColor(2);
+//       h_vn_yCM_10to40_kp->SetLineColor(4);
+//       h_vn_yCM_40to60_kp->SetLineColor(8);
+//       h_vn_yCM_00to10_kp->SetLineWidth(3);
+//       h_vn_yCM_10to40_kp->SetLineWidth(3);
+//       h_vn_yCM_40to60_kp->SetLineWidth(3);
       
-      h_vn_yCM_00to10_km->SetMarkerStyle(20);
-      h_vn_yCM_10to40_km->SetMarkerStyle(20);
-      h_vn_yCM_40to60_km->SetMarkerStyle(20);
-      h_vn_yCM_00to10_km->SetMarkerColor(2);
-      h_vn_yCM_10to40_km->SetMarkerColor(4);
-      h_vn_yCM_40to60_km->SetMarkerColor(8);
-      h_vn_yCM_00to10_km->SetMarkerSize(2);
-      h_vn_yCM_10to40_km->SetMarkerSize(2);
-      h_vn_yCM_40to60_km->SetMarkerSize(2);
-      h_vn_yCM_00to10_km->SetLineColor(2);
-      h_vn_yCM_10to40_km->SetLineColor(4);
-      h_vn_yCM_40to60_km->SetLineColor(8);
-      h_vn_yCM_00to10_km->SetLineWidth(3);
-      h_vn_yCM_10to40_km->SetLineWidth(3);
-      h_vn_yCM_40to60_km->SetLineWidth(3);
+//       h_vn_yCM_00to10_km->SetMarkerStyle(20);
+//       h_vn_yCM_10to40_km->SetMarkerStyle(20);
+//       h_vn_yCM_40to60_km->SetMarkerStyle(20);
+//       h_vn_yCM_00to10_km->SetMarkerColor(2);
+//       h_vn_yCM_10to40_km->SetMarkerColor(4);
+//       h_vn_yCM_40to60_km->SetMarkerColor(8);
+//       h_vn_yCM_00to10_km->SetMarkerSize(2);
+//       h_vn_yCM_10to40_km->SetMarkerSize(2);
+//       h_vn_yCM_40to60_km->SetMarkerSize(2);
+//       h_vn_yCM_00to10_km->SetLineColor(2);
+//       h_vn_yCM_10to40_km->SetLineColor(4);
+//       h_vn_yCM_40to60_km->SetLineColor(8);
+//       h_vn_yCM_00to10_km->SetLineWidth(3);
+//       h_vn_yCM_10to40_km->SetLineWidth(3);
+//       h_vn_yCM_40to60_km->SetLineWidth(3);
       
-      h_vn_yCM_00to10_pp->SetMarkerStyle(20);
-      h_vn_yCM_10to40_pp->SetMarkerStyle(20);
-      h_vn_yCM_40to60_pp->SetMarkerStyle(20);
-      h_vn_yCM_00to10_pp->SetMarkerColor(2);
-      h_vn_yCM_10to40_pp->SetMarkerColor(4);
-      h_vn_yCM_40to60_pp->SetMarkerColor(8);
-      h_vn_yCM_00to10_pp->SetMarkerSize(2);
-      h_vn_yCM_10to40_pp->SetMarkerSize(2);
-      h_vn_yCM_40to60_pp->SetMarkerSize(2);
-      h_vn_yCM_00to10_pp->SetLineColor(2);
-      h_vn_yCM_10to40_pp->SetLineColor(4);
-      h_vn_yCM_40to60_pp->SetLineColor(8);
-      h_vn_yCM_00to10_pp->SetLineWidth(3);
-      h_vn_yCM_10to40_pp->SetLineWidth(3);
-      h_vn_yCM_40to60_pp->SetLineWidth(3);
+//       h_vn_yCM_00to10_pp->SetMarkerStyle(20);
+//       h_vn_yCM_10to40_pp->SetMarkerStyle(20);
+//       h_vn_yCM_40to60_pp->SetMarkerStyle(20);
+//       h_vn_yCM_00to10_pp->SetMarkerColor(2);
+//       h_vn_yCM_10to40_pp->SetMarkerColor(4);
+//       h_vn_yCM_40to60_pp->SetMarkerColor(8);
+//       h_vn_yCM_00to10_pp->SetMarkerSize(2);
+//       h_vn_yCM_10to40_pp->SetMarkerSize(2);
+//       h_vn_yCM_40to60_pp->SetMarkerSize(2);
+//       h_vn_yCM_00to10_pp->SetLineColor(2);
+//       h_vn_yCM_10to40_pp->SetLineColor(4);
+//       h_vn_yCM_40to60_pp->SetLineColor(8);
+//       h_vn_yCM_00to10_pp->SetLineWidth(3);
+//       h_vn_yCM_10to40_pp->SetLineWidth(3);
+//       h_vn_yCM_40to60_pp->SetLineWidth(3);
       
-      h_vn_yCM_00to10_pm->SetMarkerStyle(20);
-      h_vn_yCM_10to40_pm->SetMarkerStyle(20);
-      h_vn_yCM_40to60_pm->SetMarkerStyle(20);
-      h_vn_yCM_00to10_pm->SetMarkerColor(2);
-      h_vn_yCM_10to40_pm->SetMarkerColor(4);
-      h_vn_yCM_40to60_pm->SetMarkerColor(8);
-      h_vn_yCM_00to10_pm->SetMarkerSize(2);
-      h_vn_yCM_10to40_pm->SetMarkerSize(2);
-      h_vn_yCM_40to60_pm->SetMarkerSize(2);
-      h_vn_yCM_00to10_pm->SetLineColor(2);
-      h_vn_yCM_10to40_pm->SetLineColor(4);
-      h_vn_yCM_40to60_pm->SetLineColor(8);
-      h_vn_yCM_00to10_pm->SetLineWidth(3);
-      h_vn_yCM_10to40_pm->SetLineWidth(3);
-      h_vn_yCM_40to60_pm->SetLineWidth(3);
+//       h_vn_yCM_00to10_pm->SetMarkerStyle(20);
+//       h_vn_yCM_10to40_pm->SetMarkerStyle(20);
+//       h_vn_yCM_40to60_pm->SetMarkerStyle(20);
+//       h_vn_yCM_00to10_pm->SetMarkerColor(2);
+//       h_vn_yCM_10to40_pm->SetMarkerColor(4);
+//       h_vn_yCM_40to60_pm->SetMarkerColor(8);
+//       h_vn_yCM_00to10_pm->SetMarkerSize(2);
+//       h_vn_yCM_10to40_pm->SetMarkerSize(2);
+//       h_vn_yCM_40to60_pm->SetMarkerSize(2);
+//       h_vn_yCM_00to10_pm->SetLineColor(2);
+//       h_vn_yCM_10to40_pm->SetLineColor(4);
+//       h_vn_yCM_40to60_pm->SetLineColor(8);
+//       h_vn_yCM_00to10_pm->SetLineWidth(3);
+//       h_vn_yCM_10to40_pm->SetLineWidth(3);
+//       h_vn_yCM_40to60_pm->SetLineWidth(3);
 
 //       h_vn_yCM_00to10_pr_symm->SetMarkerStyle(20);
 //       h_vn_yCM_10to40_pr_symm->SetMarkerStyle(20);

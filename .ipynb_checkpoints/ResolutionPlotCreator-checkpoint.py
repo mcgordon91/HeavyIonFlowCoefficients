@@ -1,21 +1,25 @@
 import ROOT
 import sys
 from math import sqrt
+from array import array
 
 nPsi = 1
-nV = 3
+nV = 1
 
 #HistogramFile = ROOT.TFile.Open("/star/u/mcgordon/VnFromEPD/HistogramThirdPassTest.root", "UPDATE")
 #HistogramFile = ROOT.TFile.Open("/star/data01/pwg/mcgordon/VnFromEPD/V" + str(nV) + "Histograms/HistogramThirdPass" + sys.argv[1] + ".root", "UPDATE")
-HistogramFile = ROOT.TFile.Open("/star/data01/pwg/mcgordon/VnFromEPD/V" + str(nV) + "Histograms/HistogramThirdPassNormal.root", "READ")
+HistogramFile = ROOT.TFile.Open("/star/data01/pwg/mcgordon/VnFromEPD/V" + str(nV) + "Histograms/HistogramThirdPassDandTNormal.root", "READ")
 
-ResolutionFile = ROOT.TFile.Open("/star/data01/pwg/mcgordon/VnFromEPD/V" + str(nV) + "Histograms/R_" + str(nV) + str(nPsi) + "_" + sys.argv[1] + ".root", "RECREATE")
+ResolutionFile = ROOT.TFile.Open("/star/data01/pwg/mcgordon/VnFromEPD/V" + str(nV) + "Histograms/R_" + str(nV) + str(nPsi) + "_DandT" + sys.argv[1] + ".root", "RECREATE")
 
 HistoD51 = HistogramFile.Get("DataResolutionTopLeftTerm")
 HistoD52 = HistogramFile.Get("DataResolutionTopRightTerm")
 HistoD53 = HistogramFile.Get("DataResolutionBottomTerm")
 
-HistoD54 = ROOT.TH1F("DataResolution", "Resolution (R" + str(nV) + "1) (Data); Centrality; Resolution", 12, 0, 12)
+#HistoD54 = ROOT.TH1F("DataResolution", "Resolution (R" + str(nV) + "1) (Data); Centrality; Resolution", 12, 0, 12)
+NumberOfBinsDandT = 7;
+BinEdgesDandT = [0.0, 1.0, 2.0, 4.0, 6.0, 8.0, 10.0, 12.0]
+HistoD54 = ROOT.TH1F("DataResolution", "Resolution (R" + str(nV) + "1) (Data); Centrality; Resolution", NumberOfBinsDandT, array('d', BinEdgesDandT))
 HistoD54.Sumw2()
 
 

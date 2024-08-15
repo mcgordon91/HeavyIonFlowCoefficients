@@ -39,9 +39,9 @@ class Variation
   TH1D *h_vn_yCM_10to40_pm;
   TH1D *h_vn_yCM_40to60_pm;
   
-//   TH1D *h_vn_yCM_00to10_pr_symm;
-//   TH1D *h_vn_yCM_10to40_pr_symm;
-//   TH1D *h_vn_yCM_40to60_pr_symm;
+  TH1D *h_vn_yCM_00to10_pr_symm;
+  TH1D *h_vn_yCM_10to40_pr_symm;
+  TH1D *h_vn_yCM_40to60_pr_symm;
 
   TH1D *h_vn_yCM_00to10_de;
   TH1D *h_vn_yCM_10to40_de;
@@ -56,9 +56,9 @@ class Variation
 //   TH1D *h_vn_yCM_10to40_he4;
 //   TH1D *h_vn_yCM_40to60_he4;
 
-//   TH1D *h_vn_pT_00to10_pr;
-//   TH1D *h_vn_pT_10to40_pr;
-//   TH1D *h_vn_pT_40to60_pr;  
+  TH1D *h_vn_pT_00to10_pr;
+  TH1D *h_vn_pT_10to40_pr;
+  TH1D *h_vn_pT_40to60_pr;  
 //   TH1D *h_vn_pT_00to10_pr_yMid;
 //   TH1D *h_vn_pT_10to40_pr_yMid;
 //   TH1D *h_vn_pT_40to60_pr_yMid;  
