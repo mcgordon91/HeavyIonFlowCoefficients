@@ -1,1 +1,0 @@
-../../../../StRoot/StarClassLibrary/StUpsilon3S.hh

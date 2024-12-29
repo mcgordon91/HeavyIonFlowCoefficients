@@ -1,1 +1,0 @@
-../../../../StRoot/StarClassLibrary/StSigmaMinus1385.cc

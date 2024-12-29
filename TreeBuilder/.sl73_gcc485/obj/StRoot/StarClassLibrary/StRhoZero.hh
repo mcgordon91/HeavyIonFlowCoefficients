@@ -1,1 +1,0 @@
-../../../../StRoot/StarClassLibrary/StRhoZero.hh

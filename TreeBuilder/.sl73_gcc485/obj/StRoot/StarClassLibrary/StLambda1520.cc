@@ -1,1 +1,0 @@
-../../../../StRoot/StarClassLibrary/StLambda1520.cc

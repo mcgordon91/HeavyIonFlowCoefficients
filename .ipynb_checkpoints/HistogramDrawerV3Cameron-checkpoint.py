@@ -9,7 +9,7 @@ import sys
 
 Canvasas = []
 
-Date = '1-2-24'
+Date = '9-4-24'
 
 
 
@@ -17,18 +17,18 @@ Date = '1-2-24'
 
 MyResolutionPlotFile = ROOT.TFile.Open("/star/data01/pwg/mcgordon/VnFromEPD/V3Histograms/R_31_Normal.root","READ")
 #ResolutionPlotFileCameron = ROOT.TFile.Open("/star/u/mcgordon/VnFromEPD/resolutionInfo_INPUT_epd_high.root","READ")
-#ResolutionPlotFileCameron = ROOT.TFile.Open("/star/u/mcgordon/VnFromEPD/resolutionPlot.root","READ")
+ResolutionPlotFileCameron = ROOT.TFile.Open("/star/u/mcgordon/VnFromEPD/LiteratureFiles/resolutionPlot.root","READ")
 
-MyFile = ROOT.TFile.Open("/star/data01/pwg/mcgordon/VnFromEPD/V3Histograms/" + Date + "-V3-HistogramsNormal.root","READ")
+MyFile = ROOT.TFile.Open("/star/data01/pwg/mcgordon/VnFromEPD/V3Histograms/" + Date + "-V3-HistogramNormalNewDataset20000FilesWithCuts.root","READ")
 #MyFile = ROOT.TFile.Open("/star/u/mcgordon/SystematicsCameronResolution/HistogramFourthPassOuterEPDLow.root","READ")
-#MyFile = ROOT.TFile.Open("/star/data01/pwg/mcgordon/VnFromEPD/V4Histograms/HistogramFourthPass.root","READ")
 
 #CameronFile = ROOT.TFile.Open("/star/u/mcgordon/30percentVariations/epd_low.picoDst.result.combined.root", "READ")
 #CameronFile = ROOT.TFile.Open("/star/u/mcgordon/30percentVariations/epd_low.picoDst.result.combined.root", "READ")
-CameronFile = ROOT.TFile.Open("/star/u/mcgordon/VnFromEPD/CameronResults.root","READ")
+#CameronFile = ROOT.TFile.Open("/star/u/mcgordon/VnFromEPD/CameronResults.root","READ")
+CameronFile = ROOT.TFile.Open("/star/data01/pwg/mcgordon/VnFromEPD/V3Histograms/1-3-24-V3-HistogramsNormal.root","OPEN")
 
 SystematicErrorRootFile = ROOT.TFile.Open("/star/u/mcgordon/VnFromEPD/systematicErrors.root","READ")
-#CameronSystematicErrorRootFile = ROOT.TFile.Open("/star/u/mcgordon/VnFromEPD/HEPData-ins2702151-SystematicErrors-root.root", "READ")
+#CameronSystematicErrorRootFile = ROOT.TFile.Open("/star/u/mcgordon/VnFromEPD/LiteratureFiles/HEPData-ins2702151-SystematicErrors-root.root", "READ")
 
 
 
@@ -59,7 +59,7 @@ HistogramA.SetDirectory(0)
 
 HistogramA.SetStats(0)
 
-HistogramA.SetTitle("R_{51}")
+HistogramA.SetTitle("R_{31}")
 HistogramA.GetYaxis().SetTitleOffset(1.5)
 
 HistogramA.SetLineWidth(10)
@@ -170,46 +170,45 @@ HistogramA.Draw("PE 1 X0")
 
 # RescaledHistogram3.Draw("PE 1 X0 SAME")
 
-# HistogramB = ResolutionPlotFileCameron.Get("h_resolutions")
+HistogramB = ResolutionPlotFileCameron.Get("h_resolutions")
 
-# RescaledHistogramAverage = ROOT.TH1F("CameronResolutionRescaledAverage", " ; ; ", 12, 0, 12)
+RescaledHistogramAverage = ROOT.TH1F("CameronResolutionRescaledAverage", " ; ; ", 12, 0, 12)
 
-# RescaledHistogramAverage.SetDirectory(0)
+RescaledHistogramAverage.SetDirectory(0)
 
-# RescaledHistogramAverage.SetStats(0)
+RescaledHistogramAverage.SetStats(0)
 
-# RescaledHistogramAverage.SetLineWidth(3)
+RescaledHistogramAverage.SetLineWidth(3)
+
+for index in range(1, HistogramB.GetNbinsX() + 1):
+    RescaledHistogramAverage.SetBinContent(index, HistogramB.GetBinContent(index))
+    RescaledHistogramAverage.SetBinError(index, HistogramB.GetBinError(index))
 
 # for index in range(1, HistogramB.GetNbinsX() + 1):
 #     RescaledHistogramAverage.SetBinContent(17 - index, HistogramB.GetBinContent(index))
 #     RescaledHistogramAverage.SetBinError(17 - index, HistogramB.GetBinError(index))
 
-# for index in range(1, RescaledHistogramAverage.GetNbinsX() + 1):
-#     RescaledHistogramAverage.GetXaxis().SetBinLabel(index, CentralityXLabels[index - 1])
+for index in range(1, RescaledHistogramAverage.GetNbinsX() + 1):
+    RescaledHistogramAverage.GetXaxis().SetBinLabel(index, CentralityXLabels[index - 1])
 
-# # for index in range(1, Histogram.GetNbinsX() + 1):
-# #     RescaledHistogram1.SetBinContent(index, Histogram.GetBinContent(index))
-# #     RescaledHistogram1.SetBinError(index, Histogram.GetBinError(index))
-# #     RescaledHistogram1.GetXaxis().SetBinLabel(index, CentralityXLabels[index - 1])
+RescaledHistogramAverage.SetLineWidth(3)
+RescaledHistogramAverage.SetMarkerStyle(ROOT.kFullSquare)
+RescaledHistogramAverage.SetMarkerSize(1.5)
+RescaledHistogramAverage.SetMarkerColor(ROOT.kMagenta)
 
-# RescaledHistogramAverage.SetLineWidth(3)
-# RescaledHistogramAverage.SetMarkerStyle(ROOT.kFullSquare)
-# RescaledHistogramAverage.SetMarkerSize(1.5)
-# RescaledHistogramAverage.SetMarkerColor(ROOT.kMagenta)
+RescaledHistogramAverage.SetLineColor(ROOT.kMagenta)
 
-# RescaledHistogramAverage.SetLineColor(ROOT.kMagenta)
-
-# RescaledHistogramAverage.Draw("PE 1 X0 SAME")
+RescaledHistogramAverage.Draw("PE 1 X0 SAME")
 
 Canvas0.Draw()
 
-# Legend0 = ROOT.TLegend(0.7, 0.1, 0.9, 0.2)
-# Legend0.AddEntry(HistogramA, "My Work")
+Legend0 = ROOT.TLegend(0.7, 0.1, 0.9, 0.2)
+Legend0.AddEntry(HistogramA, "New Dataset")
 # Legend0.AddEntry(RescaledHistogram1, "STAR 2023, Variant 1")
 # Legend0.AddEntry(RescaledHistogram2, "STAR 2023, Variant 2")
 # Legend0.AddEntry(RescaledHistogram3, "STAR 2023, Variant 3")
-# Legend0.AddEntry(RescaledHistogramAverage, "STAR 2023, Average")
-# Legend0.Draw()
+Legend0.AddEntry(RescaledHistogramAverage, "STAR 2023")#, Average")
+Legend0.Draw()
 
 Canvasas.append(Canvas0)
 
@@ -224,7 +223,7 @@ MyResolutionPlotFile.Close()
 Canvas1 = ROOT.TCanvas("Canvas1", "", 800, 800)
 Canvas1.cd()
 
-HistogramA = MyFile.Get("DataV3VsYForProtonsCentrality0-10")
+HistogramA = MyFile.Get("DataVnVsYForProtonsCentrality0-10")
 #print(Histogram.GetEntries())
 HistogramA.SetDirectory(0)
 
@@ -257,7 +256,7 @@ HistogramB.SetLineColor(ROOT.kRed)
 
 HistogramB.Draw("PE 1 X0 SAME")
 
-# Histogram = SystematicErrorRootFile.Get("DataV3VsYForProtonsCentrality0-10_px")
+# Histogram = SystematicErrorRootFile.Get("DataVnVsYForProtonsCentrality0-10_px")
 
 # Histogram.SetDirectory(0)
 
@@ -274,7 +273,7 @@ HistogramB.Draw("PE 1 X0 SAME")
 
 # SystematicErrorWidth = Histogram.GetXaxis().GetBinWidth(1) / 2
 
-# Graph = SystematicErrorRootFile.Get("Graph_from_DataV3VsYForProtonsCentrality0-10_px")
+# Graph = SystematicErrorRootFile.Get("Graph_from_DataVnVsYForProtonsCentrality0-10_px")
 
 # Graph.SetFillColorAlpha(ROOT.kBlue, 0.3)
 # Graph.Draw("E2 SAME")
@@ -311,7 +310,7 @@ Canvasas.append(Canvas1)
 Canvas2 = ROOT.TCanvas("Canvas2", "", 800, 800)
 Canvas2.cd()
 
-HistogramA = MyFile.Get("DataV3VsYForProtonsCentrality10-40")
+HistogramA = MyFile.Get("DataVnVsYForProtonsCentrality10-40")
 #print(Histogram.GetEntries())
 HistogramA.SetDirectory(0)
 
@@ -345,7 +344,7 @@ HistogramB.SetLineColor(ROOT.kRed)
 
 HistogramB.Draw("PE 1 X0 SAME")
 
-# Histogram = SystematicErrorRootFile.Get("DataV3VsYForProtonsCentrality10-40_px")
+# Histogram = SystematicErrorRootFile.Get("DataVnVsYForProtonsCentrality10-40_px")
 
 # Histogram.SetDirectory(0)
 
@@ -362,7 +361,7 @@ HistogramB.Draw("PE 1 X0 SAME")
 
 # SystematicErrorWidth = Histogram.GetXaxis().GetBinWidth(1) / 2
 
-# Graph = SystematicErrorRootFile.Get("Graph_from_DataV3VsYForProtonsCentrality10-40_px")
+# Graph = SystematicErrorRootFile.Get("Graph_from_DataVnVsYForProtonsCentrality10-40_px")
 
 # Graph.SetFillColorAlpha(ROOT.kBlue, 0.3)
 
@@ -399,7 +398,7 @@ Canvasas.append(Canvas2)
 Canvas3 = ROOT.TCanvas("Canvas3", "", 800, 800)
 Canvas3.cd()
 
-HistogramA = MyFile.Get("DataV3VsYForProtonsCentrality40-60")
+HistogramA = MyFile.Get("DataVnVsYForProtonsCentrality40-60")
 #print(Histogram.GetEntries())
 HistogramA.SetDirectory(0)
 
@@ -433,7 +432,7 @@ HistogramB.SetLineColor(ROOT.kRed)
 
 HistogramB.Draw("PE 1 X0 SAME")
 
-# Histogram = SystematicErrorRootFile.Get("DataV3VsYForProtonsCentrality40-60_px")
+# Histogram = SystematicErrorRootFile.Get("DataVnVsYForProtonsCentrality40-60_px")
 
 # Histogram.SetDirectory(0)
 
@@ -450,7 +449,7 @@ HistogramB.Draw("PE 1 X0 SAME")
 
 # SystematicErrorWidth = Histogram.GetXaxis().GetBinWidth(1) / 2
 
-# Graph = SystematicErrorRootFile.Get("Graph_from_DataV3VsYForProtonsCentrality40-60_px")
+# Graph = SystematicErrorRootFile.Get("Graph_from_DataVnVsYForProtonsCentrality40-60_px")
 
 # Graph.SetFillColorAlpha(ROOT.kBlue, 0.3)
 
@@ -489,7 +488,7 @@ Canvasas.append(Canvas3)
 Canvas1A = ROOT.TCanvas("Canvas1A", "", 800, 800)
 Canvas1A.cd()
 
-Histogram = MyFile.Get("DataV3VsYForKaonsPlusCentrality0-10")
+Histogram = MyFile.Get("DataVnVsYForKaonsPlusCentrality0-10")
 #print(Histogram.GetEntries())
 Histogram.SetDirectory(0)
 
@@ -522,7 +521,7 @@ Histogram.SetLineColor(ROOT.kRed)
 
 Histogram.Draw("PE 1 X0 SAME")
 
-# Histogram = SystematicErrorRootFile.Get("DataV3VsYForKaonsPlusCentrality0-10_px")
+# Histogram = SystematicErrorRootFile.Get("DataVnVsYForKaonsPlusCentrality0-10_px")
 
 # Histogram.SetDirectory(0)
 
@@ -537,7 +536,7 @@ Histogram.Draw("PE 1 X0 SAME")
 
 # Histogram.Draw("PE 1 X0 SAME")
 
-# Graph = SystematicErrorRootFile.Get("Graph_from_DataV3VsYForKaonsPlusCentrality0-10_px")
+# Graph = SystematicErrorRootFile.Get("Graph_from_DataVnVsYForKaonsPlusCentrality0-10_px")
 
 # Graph.SetFillColorAlpha(ROOT.kBlue, 0.3)
 # Graph.Draw("E2 SAME")
@@ -557,7 +556,7 @@ Canvasas.append(Canvas1A)
 Canvas2A = ROOT.TCanvas("Canvas2A", "", 800, 800)
 Canvas2A.cd()
 
-Histogram = MyFile.Get("DataV3VsYForKaonsPlusCentrality10-40")
+Histogram = MyFile.Get("DataVnVsYForKaonsPlusCentrality10-40")
 #print(Histogram.GetEntries())
 Histogram.SetDirectory(0)
 
@@ -590,7 +589,7 @@ Histogram.SetLineColor(ROOT.kRed)
 
 Histogram.Draw("PE 1 X0 SAME")
 
-# Histogram = SystematicErrorRootFile.Get("DataV3VsYForKaonsPlusCentrality10-40_px")
+# Histogram = SystematicErrorRootFile.Get("DataVnVsYForKaonsPlusCentrality10-40_px")
 
 # Histogram.SetDirectory(0)
 
@@ -605,7 +604,7 @@ Histogram.Draw("PE 1 X0 SAME")
 
 # Histogram.Draw("PE 1 X0 SAME")
 
-# Graph = SystematicErrorRootFile.Get("Graph_from_DataV3VsYForKaonsPlusCentrality10-40_px")
+# Graph = SystematicErrorRootFile.Get("Graph_from_DataVnVsYForKaonsPlusCentrality10-40_px")
 
 # Graph.SetFillColorAlpha(ROOT.kBlue, 0.3)
 # Graph.Draw("E2 SAME")
@@ -622,7 +621,7 @@ Canvasas.append(Canvas2A)
 Canvas3A = ROOT.TCanvas("Canvas3A", "", 800, 800)
 Canvas3A.cd()
 
-Histogram = MyFile.Get("DataV3VsYForKaonsPlusCentrality40-60")
+Histogram = MyFile.Get("DataVnVsYForKaonsPlusCentrality40-60")
 #print(Histogram.GetEntries())
 Histogram.SetDirectory(0)
 
@@ -655,7 +654,7 @@ Histogram.SetLineColor(ROOT.kRed)
 
 Histogram.Draw("PE 1 X0 SAME")
 
-# Histogram = SystematicErrorRootFile.Get("DataV3VsYForKaonsPlusCentrality40-60_px")
+# Histogram = SystematicErrorRootFile.Get("DataVnVsYForKaonsPlusCentrality40-60_px")
 
 # Histogram.SetDirectory(0)
 
@@ -670,7 +669,7 @@ Histogram.Draw("PE 1 X0 SAME")
 
 # Histogram.Draw("PE 1 X0 SAME")
 
-# Graph = SystematicErrorRootFile.Get("Graph_from_DataV3VsYForKaonsPlusCentrality40-60_px")
+# Graph = SystematicErrorRootFile.Get("Graph_from_DataVnVsYForKaonsPlusCentrality40-60_px")
 
 # Graph.SetFillColorAlpha(ROOT.kBlue, 0.3)
 # Graph.Draw("E2 SAME")
@@ -685,7 +684,7 @@ Canvasas.append(Canvas3A)
 Canvas1B = ROOT.TCanvas("Canvas1B", "", 800, 800)
 Canvas1B.cd()
 
-Histogram = MyFile.Get("DataV3VsYForKaonsMinusCentrality0-10")
+Histogram = MyFile.Get("DataVnVsYForKaonsMinusCentrality0-10")
 #print(Histogram.GetEntries())
 Histogram.SetDirectory(0)
 
@@ -718,7 +717,7 @@ Histogram.SetLineColor(ROOT.kRed)
 
 Histogram.Draw("PE 1 X0 SAME")
 
-# Histogram = SystematicErrorRootFile.Get("DataV3VsYForKaonsMinusCentrality0-10_px")
+# Histogram = SystematicErrorRootFile.Get("DataVnVsYForKaonsMinusCentrality0-10_px")
 
 # Histogram.SetDirectory(0)
 
@@ -733,7 +732,7 @@ Histogram.Draw("PE 1 X0 SAME")
 
 # Histogram.Draw("PE 1 X0 SAME")
 
-# Graph = SystematicErrorRootFile.Get("Graph_from_DataV3VsYForKaonsMinusCentrality0-10_px")
+# Graph = SystematicErrorRootFile.Get("Graph_from_DataVnVsYForKaonsMinusCentrality0-10_px")
 
 # Graph.SetFillColorAlpha(ROOT.kBlue, 0.3)
 # Graph.Draw("E2 SAME")
@@ -753,7 +752,7 @@ Canvasas.append(Canvas1B)
 Canvas2B = ROOT.TCanvas("Canvas2B", "", 800, 800)
 Canvas2B.cd()
 
-Histogram = MyFile.Get("DataV3VsYForKaonsMinusCentrality10-40")
+Histogram = MyFile.Get("DataVnVsYForKaonsMinusCentrality10-40")
 #print(Histogram.GetEntries())
 Histogram.SetDirectory(0)
 
@@ -786,7 +785,7 @@ Histogram.SetLineColor(ROOT.kRed)
 
 Histogram.Draw("PE 1 X0 SAME")
 
-# Histogram = SystematicErrorRootFile.Get("DataV3VsYForKaonsMinusCentrality10-40_px")
+# Histogram = SystematicErrorRootFile.Get("DataVnVsYForKaonsMinusCentrality10-40_px")
 
 # Histogram.SetDirectory(0)
 
@@ -801,7 +800,7 @@ Histogram.Draw("PE 1 X0 SAME")
 
 # Histogram.Draw("PE 1 X0 SAME")
 
-# Graph = SystematicErrorRootFile.Get("Graph_from_DataV3VsYForKaonsMinusCentrality10-40_px")
+# Graph = SystematicErrorRootFile.Get("Graph_from_DataVnVsYForKaonsMinusCentrality10-40_px")
 
 # Graph.SetFillColorAlpha(ROOT.kBlue, 0.3)
 # Graph.Draw("E2 SAME")
@@ -818,7 +817,7 @@ Canvasas.append(Canvas2B)
 Canvas3B = ROOT.TCanvas("Canvas3B", "", 800, 800)
 Canvas3B.cd()
 
-Histogram = MyFile.Get("DataV3VsYForKaonsMinusCentrality40-60")
+Histogram = MyFile.Get("DataVnVsYForKaonsMinusCentrality40-60")
 #print(Histogram.GetEntries())
 Histogram.SetDirectory(0)
 
@@ -851,7 +850,7 @@ Histogram.SetLineColor(ROOT.kRed)
 
 Histogram.Draw("PE 1 X0 SAME")
 
-# Histogram = SystematicErrorRootFile.Get("DataV3VsYForKaonsMinusCentrality40-60_px")
+# Histogram = SystematicErrorRootFile.Get("DataVnVsYForKaonsMinusCentrality40-60_px")
 
 # Histogram.SetDirectory(0)
 
@@ -866,7 +865,7 @@ Histogram.Draw("PE 1 X0 SAME")
 
 # Histogram.Draw("PE 1 X0 SAME")
 
-# Graph = SystematicErrorRootFile.Get("Graph_from_DataV3VsYForKaonsMinusCentrality40-60_px")
+# Graph = SystematicErrorRootFile.Get("Graph_from_DataVnVsYForKaonsMinusCentrality40-60_px")
 
 # Graph.SetFillColorAlpha(ROOT.kBlue, 0.3)
 # Graph.Draw("E2 SAME")
@@ -881,7 +880,7 @@ Canvasas.append(Canvas3B)
 Canvas1C = ROOT.TCanvas("Canvas1C", "", 800, 800)
 Canvas1C.cd()
 
-Histogram = MyFile.Get("DataV3VsYForPionsPlusCentrality0-10")
+Histogram = MyFile.Get("DataVnVsYForPionsPlusCentrality0-10")
 #print(Histogram.GetEntries())
 Histogram.SetDirectory(0)
 
@@ -914,7 +913,7 @@ Histogram.SetLineColor(ROOT.kRed)
 
 Histogram.Draw("PE 1 X0 SAME")
 
-# Histogram = SystematicErrorRootFile.Get("DataV3VsYForPionsPlusCentrality0-10_px")
+# Histogram = SystematicErrorRootFile.Get("DataVnVsYForPionsPlusCentrality0-10_px")
 
 # Histogram.SetDirectory(0)
 
@@ -929,7 +928,7 @@ Histogram.Draw("PE 1 X0 SAME")
 
 # Histogram.Draw("PE 1 X0 SAME")
 
-# Graph = SystematicErrorRootFile.Get("Graph_from_DataV3VsYForPionsPlusCentrality0-10_px")
+# Graph = SystematicErrorRootFile.Get("Graph_from_DataVnVsYForPionsPlusCentrality0-10_px")
 
 # Graph.SetFillColorAlpha(ROOT.kBlue, 0.3)
 # Graph.Draw("E2 SAME")
@@ -949,7 +948,7 @@ Canvasas.append(Canvas1C)
 Canvas2C = ROOT.TCanvas("Canvas2C", "", 800, 800)
 Canvas2C.cd()
 
-Histogram = MyFile.Get("DataV3VsYForPionsPlusCentrality10-40")
+Histogram = MyFile.Get("DataVnVsYForPionsPlusCentrality10-40")
 #print(Histogram.GetEntries())
 Histogram.SetDirectory(0)
 
@@ -982,7 +981,7 @@ Histogram.SetLineColor(ROOT.kRed)
 
 Histogram.Draw("PE 1 X0 SAME")
 
-# Histogram = SystematicErrorRootFile.Get("DataV3VsYForPionsPlusCentrality10-40_px")
+# Histogram = SystematicErrorRootFile.Get("DataVnVsYForPionsPlusCentrality10-40_px")
 
 # Histogram.SetDirectory(0)
 
@@ -997,7 +996,7 @@ Histogram.Draw("PE 1 X0 SAME")
 
 # Histogram.Draw("PE 1 X0 SAME")
 
-# Graph = SystematicErrorRootFile.Get("Graph_from_DataV3VsYForPionsPlusCentrality10-40_px")
+# Graph = SystematicErrorRootFile.Get("Graph_from_DataVnVsYForPionsPlusCentrality10-40_px")
 
 # Graph.SetFillColorAlpha(ROOT.kBlue, 0.3)
 # Graph.Draw("E2 SAME")
@@ -1014,7 +1013,7 @@ Canvasas.append(Canvas2C)
 Canvas3C = ROOT.TCanvas("Canvas3C", "", 800, 800)
 Canvas3C.cd()
 
-Histogram = MyFile.Get("DataV3VsYForPionsPlusCentrality40-60")
+Histogram = MyFile.Get("DataVnVsYForPionsPlusCentrality40-60")
 #print(Histogram.GetEntries())
 Histogram.SetDirectory(0)
 
@@ -1047,7 +1046,7 @@ Histogram.SetLineColor(ROOT.kRed)
 
 Histogram.Draw("PE 1 X0 SAME")
 
-# Histogram = SystematicErrorRootFile.Get("DataV3VsYForPionsPlusCentrality40-60_px")
+# Histogram = SystematicErrorRootFile.Get("DataVnVsYForPionsPlusCentrality40-60_px")
 
 # Histogram.SetDirectory(0)
 
@@ -1062,7 +1061,7 @@ Histogram.Draw("PE 1 X0 SAME")
 
 # Histogram.Draw("PE 1 X0 SAME")
 
-# Graph = SystematicErrorRootFile.Get("Graph_from_DataV3VsYForPionsPlusCentrality40-60_px")
+# Graph = SystematicErrorRootFile.Get("Graph_from_DataVnVsYForPionsPlusCentrality40-60_px")
 
 # Graph.SetFillColorAlpha(ROOT.kBlue, 0.3)
 # Graph.Draw("E2 SAME")
@@ -1077,7 +1076,7 @@ Canvasas.append(Canvas3C)
 Canvas1D = ROOT.TCanvas("Canvas1D", "", 800, 800)
 Canvas1D.cd()
 
-Histogram = MyFile.Get("DataV3VsYForPionsMinusCentrality0-10")
+Histogram = MyFile.Get("DataVnVsYForPionsMinusCentrality0-10")
 #print(Histogram.GetEntries())
 Histogram.SetDirectory(0)
 
@@ -1110,7 +1109,7 @@ Histogram.SetLineColor(ROOT.kRed)
 
 Histogram.Draw("PE 1 X0 SAME")
 
-# Histogram = SystematicErrorRootFile.Get("DataV3VsYForPionsMinusCentrality0-10_px")
+# Histogram = SystematicErrorRootFile.Get("DataVnVsYForPionsMinusCentrality0-10_px")
 
 # Histogram.SetDirectory(0)
 
@@ -1125,7 +1124,7 @@ Histogram.Draw("PE 1 X0 SAME")
 
 # Histogram.Draw("PE 1 X0 SAME")
 
-# Graph = SystematicErrorRootFile.Get("Graph_from_DataV3VsYForPionsMinusCentrality0-10_px")
+# Graph = SystematicErrorRootFile.Get("Graph_from_DataVnVsYForPionsMinusCentrality0-10_px")
 
 # Graph.SetFillColorAlpha(ROOT.kBlue, 0.3)
 # Graph.Draw("E2 SAME")
@@ -1145,7 +1144,7 @@ Canvasas.append(Canvas1D)
 Canvas2D = ROOT.TCanvas("Canvas2D", "", 800, 800)
 Canvas2D.cd()
 
-Histogram = MyFile.Get("DataV3VsYForPionsMinusCentrality10-40")
+Histogram = MyFile.Get("DataVnVsYForPionsMinusCentrality10-40")
 #print(Histogram.GetEntries())
 Histogram.SetDirectory(0)
 
@@ -1178,7 +1177,7 @@ Histogram.SetLineColor(ROOT.kRed)
 
 Histogram.Draw("PE 1 X0 SAME")
 
-# Histogram = SystematicErrorRootFile.Get("DataV3VsYForPionsMinusCentrality10-40_px")
+# Histogram = SystematicErrorRootFile.Get("DataVnVsYForPionsMinusCentrality10-40_px")
 
 # Histogram.SetDirectory(0)
 
@@ -1193,7 +1192,7 @@ Histogram.Draw("PE 1 X0 SAME")
 
 # Histogram.Draw("PE 1 X0 SAME")
 
-# Graph = SystematicErrorRootFile.Get("Graph_from_DataV3VsYForPionsMinusCentrality10-40_px")
+# Graph = SystematicErrorRootFile.Get("Graph_from_DataVnVsYForPionsMinusCentrality10-40_px")
 
 # Graph.SetFillColorAlpha(ROOT.kBlue, 0.3)
 # Graph.Draw("E2 SAME")
@@ -1210,7 +1209,7 @@ Canvasas.append(Canvas2D)
 Canvas3D = ROOT.TCanvas("Canvas3D", "", 800, 800)
 Canvas3D.cd()
 
-Histogram = MyFile.Get("DataV3VsYForPionsMinusCentrality40-60")
+Histogram = MyFile.Get("DataVnVsYForPionsMinusCentrality40-60")
 #print(Histogram.GetEntries())
 Histogram.SetDirectory(0)
 
@@ -1243,7 +1242,7 @@ Histogram.SetLineColor(ROOT.kRed)
 
 Histogram.Draw("PE 1 X0 SAME")
 
-# Histogram = SystematicErrorRootFile.Get("DataV3VsYForPionsMinusCentrality40-60_px")
+# Histogram = SystematicErrorRootFile.Get("DataVnVsYForPionsMinusCentrality40-60_px")
 
 # Histogram.SetDirectory(0)
 
@@ -1258,7 +1257,7 @@ Histogram.Draw("PE 1 X0 SAME")
 
 # Histogram.Draw("PE 1 X0 SAME")
 
-# Graph = SystematicErrorRootFile.Get("Graph_from_DataV3VsYForPionsMinusCentrality40-60_px")
+# Graph = SystematicErrorRootFile.Get("Graph_from_DataVnVsYForPionsMinusCentrality40-60_px")
 
 # Graph.SetFillColorAlpha(ROOT.kBlue, 0.3)
 # Graph.Draw("E2 SAME")
@@ -1274,7 +1273,7 @@ Canvasas.append(Canvas3D)
 Canvas1E = ROOT.TCanvas("Canvas1E", "", 800, 800)
 Canvas1E.cd()
 
-Histogram = MyFile.Get("DataV3VsYForDeuteronsCentrality0-10")
+Histogram = MyFile.Get("DataVnVsYForDeuteronsCentrality0-10")
 
 Histogram.SetDirectory(0)
 
@@ -1306,7 +1305,7 @@ Histogram.Draw("PE 1 X0")
 
 # Histogram.Draw("PE 1 X0 SAME")
 
-# Histogram = SystematicErrorRootFile.Get("DataV3VsYForDeuteronsCentrality0-10_px")
+# Histogram = SystematicErrorRootFile.Get("DataVnVsYForDeuteronsCentrality0-10_px")
 
 # Histogram.SetDirectory(0)
 
@@ -1321,7 +1320,7 @@ Histogram.Draw("PE 1 X0")
 
 # Histogram.Draw("PE 1 X0 SAME")
 
-# Graph = SystematicErrorRootFile.Get("Graph_from_DataV3VsYForDeuteronsCentrality0-10_px")
+# Graph = SystematicErrorRootFile.Get("Graph_from_DataVnVsYForDeuteronsCentrality0-10_px")
 
 # Graph.SetFillColorAlpha(ROOT.kBlue, 0.3)
 # Graph.Draw("E2 SAME")
@@ -1341,7 +1340,7 @@ Canvasas.append(Canvas1E)
 Canvas2E = ROOT.TCanvas("Canvas2E", "", 800, 800)
 Canvas2E.cd()
 
-Histogram = MyFile.Get("DataV3VsYForDeuteronsCentrality10-40")
+Histogram = MyFile.Get("DataVnVsYForDeuteronsCentrality10-40")
 
 Histogram.SetDirectory(0)
 
@@ -1373,7 +1372,7 @@ Histogram.Draw("PE 1 X0")
 
 # Histogram.Draw("PE 1 X0 SAME")
 
-# Histogram = SystematicErrorRootFile.Get("DataV3VsYForDeuteronsCentrality10-40_px")
+# Histogram = SystematicErrorRootFile.Get("DataVnVsYForDeuteronsCentrality10-40_px")
 
 # Histogram.SetDirectory(0)
 
@@ -1388,7 +1387,7 @@ Histogram.Draw("PE 1 X0")
 
 # Histogram.Draw("PE 1 X0 SAME")
 
-# Graph = SystematicErrorRootFile.Get("Graph_from_DataV3VsYForDeuteronsCentrality10-40_px")
+# Graph = SystematicErrorRootFile.Get("Graph_from_DataVnVsYForDeuteronsCentrality10-40_px")
 
 # Graph.SetFillColorAlpha(ROOT.kBlue, 0.3)
 # Graph.Draw("E2 SAME")
@@ -1405,7 +1404,7 @@ Canvasas.append(Canvas2E)
 Canvas3E = ROOT.TCanvas("Canvas3E", "", 800, 800)
 Canvas3E.cd()
 
-Histogram = MyFile.Get("DataV3VsYForDeuteronsCentrality40-60")
+Histogram = MyFile.Get("DataVnVsYForDeuteronsCentrality40-60")
 
 Histogram.SetDirectory(0)
 
@@ -1437,7 +1436,7 @@ Histogram.Draw("PE 1 X0")
 
 # Histogram.Draw("PE 1 X0 SAME")
 
-# Histogram = SystematicErrorRootFile.Get("DataV3VsYForDeuteronsCentrality40-60_px")
+# Histogram = SystematicErrorRootFile.Get("DataVnVsYForDeuteronsCentrality40-60_px")
 
 # Histogram.SetDirectory(0)
 
@@ -1452,7 +1451,7 @@ Histogram.Draw("PE 1 X0")
 
 # Histogram.Draw("PE 1 X0 SAME")
 
-# Graph = SystematicErrorRootFile.Get("Graph_from_DataV3VsYForDeuteronsCentrality40-60_px")
+# Graph = SystematicErrorRootFile.Get("Graph_from_DataVnVsYForDeuteronsCentrality40-60_px")
 
 # Graph.SetFillColorAlpha(ROOT.kBlue, 0.3)
 # Graph.Draw("E2 SAME")
@@ -1469,7 +1468,7 @@ Canvasas.append(Canvas3E)
 Canvas1F = ROOT.TCanvas("Canvas1F", "", 800, 800)
 Canvas1F.cd()
 
-Histogram = MyFile.Get("DataV3VsYForTritonsCentrality0-10")
+Histogram = MyFile.Get("DataVnVsYForTritonsCentrality0-10")
 
 Histogram.SetDirectory(0)
 
@@ -1501,7 +1500,7 @@ Histogram.Draw("PE 1 X0")
 
 # Histogram.Draw("PE 1 X0 SAME")
 
-# Histogram = SystematicErrorRootFile.Get("DataV3VsYForTritonsCentrality0-10_px")
+# Histogram = SystematicErrorRootFile.Get("DataVnVsYForTritonsCentrality0-10_px")
 
 # Histogram.SetDirectory(0)
 
@@ -1516,7 +1515,7 @@ Histogram.Draw("PE 1 X0")
 
 # Histogram.Draw("PE 1 X0 SAME")
 
-# Graph = SystematicErrorRootFile.Get("Graph_from_DataV3VsYForTritonsCentrality0-10_px")
+# Graph = SystematicErrorRootFile.Get("Graph_from_DataVnVsYForTritonsCentrality0-10_px")
 
 # Graph.SetFillColorAlpha(ROOT.kBlue, 0.3)
 # Graph.Draw("E2 SAME")
@@ -1536,7 +1535,7 @@ Canvasas.append(Canvas1F)
 Canvas2F = ROOT.TCanvas("Canvas2F", "", 800, 800)
 Canvas2F.cd()
 
-Histogram = MyFile.Get("DataV3VsYForTritonsCentrality10-40")
+Histogram = MyFile.Get("DataVnVsYForTritonsCentrality10-40")
 
 Histogram.SetDirectory(0)
 
@@ -1568,7 +1567,7 @@ Histogram.Draw("PE 1 X0")
 
 # Histogram.Draw("PE 1 X0 SAME")
 
-# Histogram = SystematicErrorRootFile.Get("DataV3VsYForTritonsCentrality10-40_px")
+# Histogram = SystematicErrorRootFile.Get("DataVnVsYForTritonsCentrality10-40_px")
 
 # Histogram.SetDirectory(0)
 
@@ -1583,7 +1582,7 @@ Histogram.Draw("PE 1 X0")
 
 # Histogram.Draw("PE 1 X0 SAME")
 
-# Graph = SystematicErrorRootFile.Get("Graph_from_DataV3VsYForTritonsCentrality10-40_px")
+# Graph = SystematicErrorRootFile.Get("Graph_from_DataVnVsYForTritonsCentrality10-40_px")
 
 # Graph.SetFillColorAlpha(ROOT.kBlue, 0.3)
 # Graph.Draw("E2 SAME")
@@ -1600,7 +1599,7 @@ Canvasas.append(Canvas2F)
 Canvas3F = ROOT.TCanvas("Canvas3F", "", 800, 800)
 Canvas3F.cd()
 
-Histogram = MyFile.Get("DataV3VsYForTritonsCentrality40-60")
+Histogram = MyFile.Get("DataVnVsYForTritonsCentrality40-60")
 
 Histogram.SetDirectory(0)
 
@@ -1632,7 +1631,7 @@ Histogram.Draw("PE 1 X0")
 
 # Histogram.Draw("PE 1 X0 SAME")
 
-# Histogram = SystematicErrorRootFile.Get("DataV3VsYForTritonsCentrality40-60_px")
+# Histogram = SystematicErrorRootFile.Get("DataVnVsYForTritonsCentrality40-60_px")
 
 # Histogram.SetDirectory(0)
 
@@ -1647,7 +1646,7 @@ Histogram.Draw("PE 1 X0")
 
 # Histogram.Draw("PE 1 X0 SAME")
 
-# Graph = SystematicErrorRootFile.Get("Graph_from_DataV3VsYForTritonsCentrality40-60_px")
+# Graph = SystematicErrorRootFile.Get("Graph_from_DataVnVsYForTritonsCentrality40-60_px")
 
 # Graph.SetFillColorAlpha(ROOT.kBlue, 0.3)
 # Graph.Draw("E2 SAME")
@@ -1655,7 +1654,7 @@ Histogram.Draw("PE 1 X0")
 Canvas3F.Draw()
 
 Canvasas.append(Canvas3F)
-'''
+
 
 
 
@@ -1683,47 +1682,43 @@ for index in range(1, Histogram.GetNbinsX() + 1):
 
 Histogram.Draw("PE 1 X0")
 
-# Histogram = CameronFile.Get("p_vn_pr")
-# #print(Histogram.GetEntries())
+RescaledHistogram4 = CameronFile.Get("DataVnVsCentralityProtonCorrected")#("p_vn_pr")
+
 # RescaledHistogram4 = ROOT.TH1F("CameronV3VsCentralityProtonRescaled", "V3 vs Centrality for Protons; Centrality; V3", 12, 0, 12)
 
-# RescaledHistogram4.SetDirectory(0)
+RescaledHistogram4.SetDirectory(0)
 
-# RescaledHistogram4.SetStats(0)
-# #print(Histogram.GetNbinsX())
-# for index in range(1, Histogram.GetNbinsX() + 1):
-#     RescaledHistogram4.SetBinContent(17 - index, Histogram.GetBinContent(index))
-#     RescaledHistogram4.SetBinError(17 - index, Histogram.GetBinError(index))
+RescaledHistogram4.SetStats(0)
 
     
-# RescaledHistogram4.SetLineWidth(3)
-# RescaledHistogram4.SetMarkerStyle(ROOT.kFullSquare)
-# RescaledHistogram4.SetMarkerSize(1.5)
-# RescaledHistogram4.SetMarkerColor(ROOT.kRed)
-# RescaledHistogram4.SetLineColor(ROOT.kRed)
+RescaledHistogram4.SetLineWidth(3)
+RescaledHistogram4.SetMarkerStyle(ROOT.kFullSquare)
+RescaledHistogram4.SetMarkerSize(1.5)
+RescaledHistogram4.SetMarkerColor(ROOT.kRed)
+RescaledHistogram4.SetLineColor(ROOT.kRed)
 
-# RescaledHistogram4.Draw("PE 1 X0 SAME")
+RescaledHistogram4.Draw("PE 1 X0 SAME")
 
-SystematicErrorWidth = Histogram.GetXaxis().GetBinWidth(1) / 2
+# SystematicErrorWidth = Histogram.GetXaxis().GetBinWidth(1) / 2
 
-Graph = SystematicErrorRootFile.Get("Graph_from_DataVnVsCentralityProtonCorrected_px")
+# Graph = SystematicErrorRootFile.Get("Graph_from_DataVnVsCentralityProtonCorrected_px")
 
-Graph.SetFillColorAlpha(ROOT.kBlue, 0.3)
+# Graph.SetFillColorAlpha(ROOT.kBlue, 0.3)
 
-NewGraph = ROOT.TGraphAsymmErrors()
-NewGraph.SetMarkerSize(3)
-NewGraph.SetMarkerColor(ROOT.kBlue)
-NewGraph.SetLineWidth(3)
-NewGraph.SetLineColor(ROOT.kBlue)
+# NewGraph = ROOT.TGraphAsymmErrors()
+# NewGraph.SetMarkerSize(3)
+# NewGraph.SetMarkerColor(ROOT.kBlue)
+# NewGraph.SetLineWidth(3)
+# NewGraph.SetLineColor(ROOT.kBlue)
 
-NewGraph.SetFillColorAlpha(ROOT.kBlue, 0.3)
+# NewGraph.SetFillColorAlpha(ROOT.kBlue, 0.3)
 
-for index in range(0, Graph.GetN()):
-    NewGraph.SetPoint(index, index + 0.5, Graph.GetY()[index])
-    NewGraph.SetPointError(index, Graph.GetErrorX(index), Graph.GetErrorX(index), Graph.GetErrorY(index), Graph.GetErrorY(index))
+# for index in range(0, Graph.GetN()):
+#     NewGraph.SetPoint(index, index + 0.5, Graph.GetY()[index])
+#     NewGraph.SetPointError(index, Graph.GetErrorX(index), Graph.GetErrorX(index), Graph.GetErrorY(index), Graph.GetErrorY(index))
 
 
-NewGraph.Draw("E2 SAME")
+# NewGraph.Draw("E2 SAME")
 
 # Graph = CameronSystematicErrorRootFile.Get("/Figure 4/Graph1D_y3")
 
@@ -1775,14 +1770,14 @@ for index in range(1, Histogram.GetNbinsX() + 1):
 
 Histogram.Draw("PE 1 X0")
 
-Histogram = CameronFile.Get("p_vn_kp")
+RescaledHistogram5 = CameronFile.Get("DataVnVsCentralityKaonPlusCorrected")#("p_vn_kp")
 #print(Histogram.GetEntries())
 
-RescaledHistogram5 = ROOT.TH1F("CameronV3VsCentralityKaonPlusRescaled", "V3 vs Centrality for K+; Centrality; V3", 12, 0, 12)
+# RescaledHistogram5 = ROOT.TH1F("CameronV3VsCentralityKaonPlusRescaled", "V3 vs Centrality for K+; Centrality; V3", 12, 0, 12)
 
-for index in range(1, Histogram.GetNbinsX() + 1):
-    RescaledHistogram5.SetBinContent(17 - index, Histogram.GetBinContent(index))
-    RescaledHistogram5.SetBinError(17 - index, Histogram.GetBinError(index))
+# for index in range(1, Histogram.GetNbinsX() + 1):
+#     RescaledHistogram5.SetBinContent(17 - index, Histogram.GetBinContent(index))
+#     RescaledHistogram5.SetBinError(17 - index, Histogram.GetBinError(index))
 
 RescaledHistogram5.SetDirectory(0)
 
@@ -1866,7 +1861,7 @@ for index in range(1, Histogram.GetNbinsX() + 1):
 
 Histogram.Draw("PE 1 X0")
 
-# Histogram = CameronFile.Get("p_vn_km")
+RescaledHistogram6 = CameronFile.Get("DataVnVsCentralityKaonMinusCorrected")#("p_vn_km")
 # # print(Histogram.GetEntries())
 # RescaledHistogram6 = ROOT.TH1F("CameronV3VsCentralityKaonMinusRescaled", "V3 vs Centrality for K-; Centrality; V3", 12, 0, 12)
 
@@ -1874,17 +1869,17 @@ Histogram.Draw("PE 1 X0")
 #     RescaledHistogram6.SetBinContent(17 - index, Histogram.GetBinContent(index))
 #     RescaledHistogram6.SetBinError(17 - index, Histogram.GetBinError(index))
 
-# RescaledHistogram6.SetDirectory(0)
+RescaledHistogram6.SetDirectory(0)
 
-# RescaledHistogram6.SetStats(0)
+RescaledHistogram6.SetStats(0)
 
-# RescaledHistogram6.SetLineWidth(3)
-# RescaledHistogram6.SetMarkerStyle(ROOT.kFullSquare)
-# RescaledHistogram6.SetMarkerSize(1.5)
-# RescaledHistogram6.SetMarkerColor(ROOT.kRed)
-# RescaledHistogram6.SetLineColor(ROOT.kRed)
+RescaledHistogram6.SetLineWidth(3)
+RescaledHistogram6.SetMarkerStyle(ROOT.kFullSquare)
+RescaledHistogram6.SetMarkerSize(1.5)
+RescaledHistogram6.SetMarkerColor(ROOT.kRed)
+RescaledHistogram6.SetLineColor(ROOT.kRed)
 
-# RescaledHistogram6.Draw("PE 1 X0 SAME")
+RescaledHistogram6.Draw("PE 1 X0 SAME")
 
 # Histogram = SystematicErrorRootFile.Get("DataVnVsCentralityKaonMinusCorrected_px")
 
@@ -1901,10 +1896,10 @@ Histogram.Draw("PE 1 X0")
 
 # Histogram.Draw("PE 1 X0 SAME")
 
-Graph = SystematicErrorRootFile.Get("Graph_from_DataVnVsCentralityKaonMinusCorrected_px")
+# Graph = SystematicErrorRootFile.Get("Graph_from_DataVnVsCentralityKaonMinusCorrected_px")
 
-Graph.SetFillColorAlpha(ROOT.kBlue, 0.3)
-Graph.Draw("E2 SAME")
+# Graph.SetFillColorAlpha(ROOT.kBlue, 0.3)
+# Graph.Draw("E2 SAME")
 
 # Graph = CameronSystematicErrorRootFile.Get("/Figure 5/Graph1D_y2")
 
@@ -1932,7 +1927,7 @@ Canvasas.append(Canvas6)
 
 
 
-'''
+
 Canvas7 = ROOT.TCanvas("Canvas7", "", 800, 800)
 Canvas7.cd()
 
@@ -1951,25 +1946,19 @@ Histogram.SetLineColor(ROOT.kBlue)
 
 Histogram.Draw("PE 1 X0")
 
-# Histogram = CameronFile.Get("p_vn_pp")
-# #print(Histogram.GetEntries())
-# RescaledHistogram7 = ROOT.TH1F("CameronV3VsCentralityPionPlusRescaled", "V3 vs Centrality for Pi+; Centrality; V3", 12, 0, 12)
+Histogram = CameronFile.Get("DataVnVsCentralityPionPlusCorrected")#("p_vn_pp")
 
-# for index in range(1, Histogram.GetNbinsX() + 1):
-#     RescaledHistogram7.SetBinContent(17 - index, Histogram.GetBinContent(index))
-#     RescaledHistogram7.SetBinError(17 - index, Histogram.GetBinError(index))
+Histogram.SetDirectory(0)
 
-# RescaledHistogram7.SetDirectory(0)
+Histogram.SetStats(0)
 
-# RescaledHistogram7.SetStats(0)
+Histogram.SetLineWidth(3)
+Histogram.SetMarkerStyle(ROOT.kFullSquare)
+Histogram.SetMarkerSize(1.5)
+Histogram.SetMarkerColor(ROOT.kRed)
+Histogram.SetLineColor(ROOT.kRed)
 
-# RescaledHistogram7.SetLineWidth(3)
-# RescaledHistogram7.SetMarkerStyle(ROOT.kFullSquare)
-# RescaledHistogram7.SetMarkerSize(1.5)
-# RescaledHistogram7.SetMarkerColor(ROOT.kRed)
-# RescaledHistogram7.SetLineColor(ROOT.kRed)
-
-# RescaledHistogram7.Draw("PE 1 X0 SAME")
+Histogram.Draw("PE 1 X0 SAME")
 
 # Histogram = SystematicErrorRootFile.Get("DataVnVsCentralityPionPlusCorrected_px")
 
@@ -1986,10 +1975,10 @@ Histogram.Draw("PE 1 X0")
 
 # Histogram.Draw("PE 1 X0 SAME")
 
-Graph = SystematicErrorRootFile.Get("Graph_from_DataVnVsCentralityPionPlusCorrected_px")
+# Graph = SystematicErrorRootFile.Get("Graph_from_DataVnVsCentralityPionPlusCorrected_px")
 
-Graph.SetFillColorAlpha(ROOT.kBlue, 0.3)
-Graph.Draw("E2 SAME")
+# Graph.SetFillColorAlpha(ROOT.kBlue, 0.3)
+# Graph.Draw("E2 SAME")
 
 # Graph = CameronSystematicErrorRootFile.Get("/Figure 4/Graph1D_y1")
 
@@ -2035,45 +2024,39 @@ Histogram.SetLineColor(ROOT.kBlue)
 
 Histogram.Draw("PE 1 X0")
 
-# Histogram = CameronFile.Get("p_vn_pm")
-# #print(Histogram.GetEntries())
-# RescaledHistogram8 = ROOT.TH1F("CameronV3VsCentralityPionMinusRescaled", "V3 vs Centrality for Pi-; Centrality; V3", 12, 0, 12)
-
-# for index in range(1, Histogram.GetNbinsX() + 1):
-#     RescaledHistogram8.SetBinContent(17 - index, Histogram.GetBinContent(index))
-#     RescaledHistogram8.SetBinError(17 - index, Histogram.GetBinError(index))
-
-# RescaledHistogram8.SetDirectory(0)
-
-# RescaledHistogram8.SetStats(0)
-
-# RescaledHistogram8.SetLineWidth(3)
-# RescaledHistogram8.SetMarkerStyle(ROOT.kFullSquare)
-# RescaledHistogram8.SetMarkerSize(1.5)
-# RescaledHistogram8.SetMarkerColor(ROOT.kRed)
-# RescaledHistogram8.SetLineColor(ROOT.kRed)
-
-# RescaledHistogram8.Draw("PE 1 X0 SAME")
-
-Histogram = SystematicErrorRootFile.Get("DataVnVsCentralityPionMinusCorrected_px")
+Histogram = CameronFile.Get("DataVnVsCentralityPionMinusCorrected")#("p_vn_pm")
 
 Histogram.SetDirectory(0)
 
 Histogram.SetStats(0)
 
-Histogram.SetLineWidth(0)
-Histogram.SetMarkerStyle(ROOT.kFullCircle)
-Histogram.SetMarkerSize(0)
-Histogram.SetMarkerColor(ROOT.kBlue)
-
-Histogram.SetLineColor(ROOT.kWhite)
+Histogram.SetLineWidth(3)
+Histogram.SetMarkerStyle(ROOT.kFullSquare)
+Histogram.SetMarkerSize(1.5)
+Histogram.SetMarkerColor(ROOT.kRed)
+Histogram.SetLineColor(ROOT.kRed)
 
 Histogram.Draw("PE 1 X0 SAME")
 
-Graph = SystematicErrorRootFile.Get("Graph_from_DataVnVsCentralityPionMinusCorrected_px")
+# Histogram = SystematicErrorRootFile.Get("DataVnVsCentralityPionMinusCorrected_px")
 
-Graph.SetFillColorAlpha(ROOT.kBlue, 0.3)
-Graph.Draw("E2 SAME")
+# Histogram.SetDirectory(0)
+
+# Histogram.SetStats(0)
+
+# Histogram.SetLineWidth(0)
+# Histogram.SetMarkerStyle(ROOT.kFullCircle)
+# Histogram.SetMarkerSize(0)
+# Histogram.SetMarkerColor(ROOT.kBlue)
+
+# Histogram.SetLineColor(ROOT.kWhite)
+
+# Histogram.Draw("PE 1 X0 SAME")
+
+# Graph = SystematicErrorRootFile.Get("Graph_from_DataVnVsCentralityPionMinusCorrected_px")
+
+# Graph.SetFillColorAlpha(ROOT.kBlue, 0.3)
+# Graph.Draw("E2 SAME")
 
 # Graph = CameronSystematicErrorRootFile.Get("/Figure 4/Graph1D_y2")
 
@@ -2133,12 +2116,12 @@ Histogram.SetLineColor(ROOT.kWhite)
 
 Histogram.Draw("PE 1 X0 SAME")
 
-Graph = SystematicErrorRootFile.Get("Graph_from_DataVnVsCentralityDeuteronCorrected_px")
+# Graph = SystematicErrorRootFile.Get("Graph_from_DataVnVsCentralityDeuteronCorrected_px")
 
-Graph.SetFillColorAlpha(ROOT.kBlue, 0.3)
-Graph.Draw("E2 SAME")
+# Graph.SetFillColorAlpha(ROOT.kBlue, 0.3)
+# Graph.Draw("E2 SAME")
 
-Canvas9.Draw()
+# Canvas9.Draw()
 
 Canvasas.append(Canvas9)
 
@@ -2193,7 +2176,7 @@ Canvasas.append(Canvas10)
 Canvas11 = ROOT.TCanvas("Canvas11", "", 800, 800)
 Canvas11.cd()
 
-HistogramA = MyFile.Get("DataV3VsYSymmetricForProtonsCentrality0-10")
+HistogramA = MyFile.Get("DataVnVsYSymmetricForProtonsCentrality0-10")
 #print(Histogram.GetEntries())
 HistogramA.SetDirectory(0)
 
@@ -2226,7 +2209,7 @@ HistogramB.SetLineColor(ROOT.kRed)
 
 HistogramB.Draw("PE 1 X0 SAME")
 
-# Histogram = SystematicErrorRootFile.Get("DataV3VsYSymmetricForProtonsCentrality0-10_px")
+# Histogram = SystematicErrorRootFile.Get("DataVnVsYSymmetricForProtonsCentrality0-10_px")
 
 # Histogram.SetDirectory(0)
 
@@ -2243,7 +2226,7 @@ HistogramB.Draw("PE 1 X0 SAME")
 
 # SystematicErrorWidth = Histogram.GetXaxis().GetBinWidth(1) / 2
 
-# Graph = SystematicErrorRootFile.Get("Graph_from_DataV3VsYSymmetricForProtonsCentrality0-10_px")
+# Graph = SystematicErrorRootFile.Get("Graph_from_DataVnVsYSymmetricForProtonsCentrality0-10_px")
 
 # Graph.SetFillColorAlpha(ROOT.kBlue, 0.3)
 
@@ -2281,7 +2264,7 @@ Canvasas.append(Canvas11)
 Canvas12 = ROOT.TCanvas("Canvas12", "", 800, 800)
 Canvas12.cd()
 
-HistogramA = MyFile.Get("DataV3VsYSymmetricForProtonsCentrality10-40")
+HistogramA = MyFile.Get("DataVnVsYSymmetricForProtonsCentrality10-40")
 #print(Histogram.GetEntries())
 HistogramA.SetDirectory(0)
 
@@ -2315,7 +2298,7 @@ HistogramB.SetLineColor(ROOT.kRed)
 
 HistogramB.Draw("PE 1 X0 SAME")
 
-# Histogram = SystematicErrorRootFile.Get("DataV3VsYSymmetricForProtonsCentrality10-40_px")
+# Histogram = SystematicErrorRootFile.Get("DataVnVsYSymmetricForProtonsCentrality10-40_px")
 
 # Histogram.SetDirectory(0)
 
@@ -2332,7 +2315,7 @@ HistogramB.Draw("PE 1 X0 SAME")
 
 # SystematicErrorWidth = Histogram.GetXaxis().GetBinWidth(1) / 2
 
-# Graph = SystematicErrorRootFile.Get("Graph_from_DataV3VsYSymmetricForProtonsCentrality10-40_px")
+# Graph = SystematicErrorRootFile.Get("Graph_from_DataVnVsYSymmetricForProtonsCentrality10-40_px")
 
 # Graph.SetFillColorAlpha(ROOT.kBlue, 0.3)
 
@@ -2369,7 +2352,7 @@ Canvasas.append(Canvas12)
 Canvas13 = ROOT.TCanvas("Canvas13", "", 800, 800)
 Canvas13.cd()
 
-HistogramA = MyFile.Get("DataV3VsYSymmetricForProtonsCentrality40-60")
+HistogramA = MyFile.Get("DataVnVsYSymmetricForProtonsCentrality40-60")
 #print(Histogram.GetEntries())
 HistogramA.SetDirectory(0)
 
@@ -2403,7 +2386,7 @@ HistogramB.SetLineColor(ROOT.kRed)
 
 HistogramB.Draw("PE 1 X0 SAME")
 
-# Histogram = SystematicErrorRootFile.Get("DataV3VsYSymmetricForProtonsCentrality40-60_px")
+# Histogram = SystematicErrorRootFile.Get("DataVnVsYSymmetricForProtonsCentrality40-60_px")
 
 # Histogram.SetDirectory(0)
 
@@ -2420,7 +2403,7 @@ HistogramB.Draw("PE 1 X0 SAME")
 
 # SystematicErrorWidth = Histogram.GetXaxis().GetBinWidth(1) / 2
 
-# Graph = SystematicErrorRootFile.Get("Graph_from_DataV3VsYSymmetricForProtonsCentrality40-60_px")
+# Graph = SystematicErrorRootFile.Get("Graph_from_DataVnVsYSymmetricForProtonsCentrality40-60_px")
 
 # Graph.SetFillColorAlpha(ROOT.kBlue, 0.3)
 
@@ -2458,7 +2441,7 @@ Canvasas.append(Canvas13)
 Canvas14 = ROOT.TCanvas("Canvas14", "", 800, 800)
 Canvas14.cd()
 
-HistogramA = MyFile.Get("DataV3VsPtForProtonsCentrality0-10")
+HistogramA = MyFile.Get("DataVnVsPtForProtonsCentrality0-10")
 
 #print(Histogram.GetEntries())
 HistogramA.SetDirectory(0)
@@ -2494,7 +2477,7 @@ HistogramB.SetLineColor(ROOT.kRed)
 
 HistogramB.Draw("PE 1 X0 SAME")
 
-# Histogram = SystematicErrorRootFile.Get("DataV3VsPtForProtonsCentrality0-10_px")
+# Histogram = SystematicErrorRootFile.Get("DataVnVsPtForProtonsCentrality0-10_px")
 
 # Histogram.SetDirectory(0)
 
@@ -2511,7 +2494,7 @@ HistogramB.Draw("PE 1 X0 SAME")
 
 # SystematicErrorWidth = Histogram.GetXaxis().GetBinWidth(1) / 2
 
-# Graph = SystematicErrorRootFile.Get("Graph_from_DataV3VsPtForProtonsCentrality0-10_px")
+# Graph = SystematicErrorRootFile.Get("Graph_from_DataVnVsPtForProtonsCentrality0-10_px")
 
 # Graph.SetFillColorAlpha(ROOT.kBlue, 0.3)
 
@@ -2549,7 +2532,7 @@ Canvasas.append(Canvas14)
 Canvas15 = ROOT.TCanvas("Canvas15", "", 800, 800)
 Canvas15.cd()
 
-HistogramA = MyFile.Get("DataV3VsPtForProtonsCentrality10-40")
+HistogramA = MyFile.Get("DataVnVsPtForProtonsCentrality10-40")
 
 #print(Histogram.GetEntries())
 HistogramA.SetDirectory(0)
@@ -2584,7 +2567,7 @@ HistogramB.SetLineColor(ROOT.kRed)
 
 HistogramB.Draw("PE 1 X0 SAME")
 
-# Histogram = SystematicErrorRootFile.Get("DataV3VsPtForProtonsCentrality10-40_px")
+# Histogram = SystematicErrorRootFile.Get("DataVnVsPtForProtonsCentrality10-40_px")
 
 # Histogram.SetDirectory(0)
 
@@ -2601,7 +2584,7 @@ HistogramB.Draw("PE 1 X0 SAME")
 
 # SystematicErrorWidth = Histogram.GetXaxis().GetBinWidth(1) / 2
 
-# Graph = SystematicErrorRootFile.Get("Graph_from_DataV3VsPtForProtonsCentrality10-40_px")
+# Graph = SystematicErrorRootFile.Get("Graph_from_DataVnVsPtForProtonsCentrality10-40_px")
 
 # Graph.SetFillColorAlpha(ROOT.kBlue, 0.3)
 
@@ -2638,7 +2621,7 @@ Canvasas.append(Canvas15)
 Canvas16 = ROOT.TCanvas("Canvas16", "", 800, 800)
 Canvas16.cd()
 
-HistogramA = MyFile.Get("DataV3VsPtForProtonsCentrality40-60")
+HistogramA = MyFile.Get("DataVnVsPtForProtonsCentrality40-60")
 
 HistogramA.Rebin()
 
@@ -2675,7 +2658,7 @@ HistogramB.SetLineColor(ROOT.kRed)
 
 HistogramB.Draw("PE 1 X0 SAME")
 
-# Histogram = SystematicErrorRootFile.Get("DataV3VsPtForProtonsCentrality40-60_px")
+# Histogram = SystematicErrorRootFile.Get("DataVnVsPtForProtonsCentrality40-60_px")
 
 # Histogram.SetDirectory(0)
 
@@ -2692,7 +2675,7 @@ HistogramB.Draw("PE 1 X0 SAME")
 
 # SystematicErrorWidth = Histogram.GetXaxis().GetBinWidth(1) / 2
 
-# Graph = SystematicErrorRootFile.Get("Graph_from_DataV3VsPtForProtonsCentrality40-60_px")
+# Graph = SystematicErrorRootFile.Get("Graph_from_DataVnVsPtForProtonsCentrality40-60_px")
 
 # Graph.SetFillColorAlpha(ROOT.kBlue, 0.3)
 
@@ -2827,7 +2810,7 @@ RescaledHistogram17.Draw("P E0 X0 SAME")
 Canvas17.Draw()
 
 Canvasas.append(Canvas17)
-'''
+
 
 
 
@@ -2944,7 +2927,7 @@ LegendScaling.AddEntry(NewHistogramScaled2, "Tritons")
 LegendScaling.Draw()
 
 Canvasas.append(CanvasScaling)
-
+'''
 
 
 

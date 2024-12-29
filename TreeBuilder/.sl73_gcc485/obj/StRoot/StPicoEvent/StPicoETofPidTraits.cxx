@@ -1,1 +1,0 @@
-../../../../StRoot/StPicoEvent/StPicoETofPidTraits.cxx

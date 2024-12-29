@@ -1,0 +1,15 @@
+python ResolutionPlotCreator-V1,V2.py DCA1
+python ResolutionPlotCreator-V1,V2.py DCA2
+python ResolutionPlotCreator-V1,V2.py NHits1
+python ResolutionPlotCreator-V1,V2.py NHits2
+python ResolutionPlotCreator-V1,V2.py NSigmaProton1
+python ResolutionPlotCreator-V1,V2.py NSigmaProton2
+python ResolutionPlotCreator-V1,V2.py NSigmaKaon1
+python ResolutionPlotCreator-V1,V2.py NSigmaKaon2
+python ResolutionPlotCreator-V1,V2.py NSigmaPion1
+python ResolutionPlotCreator-V1,V2.py NSigmaPion2
+python ResolutionPlotCreator-V1,V2.py MSquaredProton
+python ResolutionPlotCreator-V1,V2.py MSquaredKaon
+python ResolutionPlotCreator-V1,V2.py MSquaredPion
+python ResolutionPlotCreator-V1,V2.py OuterEPDLow
+python ResolutionPlotCreator-V1,V2.py OuterEPDHigh

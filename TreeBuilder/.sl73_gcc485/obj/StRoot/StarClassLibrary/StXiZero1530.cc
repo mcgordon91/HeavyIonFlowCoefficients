@@ -1,1 +1,0 @@
-../../../../StRoot/StarClassLibrary/StXiZero1530.cc

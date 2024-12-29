@@ -1,1 +1,0 @@
-../../../../StRoot/ConfigReader/ConfigReader.cxx

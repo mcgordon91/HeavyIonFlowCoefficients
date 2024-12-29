@@ -1,1 +1,0 @@
-../../../../StRoot/St_base/tableredef.h
