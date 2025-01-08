@@ -19,11 +19,11 @@
   <!-- Necessary files -->
   <SandBox installer="ZIP">
     <Package>
-      <File>file:/star/u/mcgordon/VnFromEPD/TreeAnalysisMichael-V1,V2/VnFromInnerEPD-V1,V2</File>
-      <File>file:/star/u/mcgordon/VnFromEPD/TreeAnalysisMichael-V1,V2/FlowFunctions.h</File>
-      <File>file:/star/u/mcgordon/VnFromEPD/TreeAnalysisMichael-V1,V2/DeuteronsAndTritons.h</File>
-      <File>file:/star/u/mcgordon/VnFromEPD/TreeAnalysisMichael-V1,V2/TileVector.h</File>
-      <File>file:/star/u/mcgordon/VnFromEPD/TreeAnalysisMichael-V1,V2/libs/</File>
+      <File>file:/star/u/mcgordon/VnFromEPD/TreeAnalysis-V1,V2/VnFromInnerEPD-V1,V2</File>
+      <File>file:/star/u/mcgordon/VnFromEPD/TreeAnalysis-V1,V2/FlowFunctions.h</File>
+      <File>file:/star/u/mcgordon/VnFromEPD/TreeAnalysis-V1,V2/DeuteronsAndTritons.h</File>
+      <File>file:/star/u/mcgordon/VnFromEPD/TreeAnalysis-V1,V2/TileVector.h</File>
+      <File>file:/star/u/mcgordon/VnFromEPD/TreeAnalysis-V1,V2/libs/</File>
     </Package>
   </SandBox>
 

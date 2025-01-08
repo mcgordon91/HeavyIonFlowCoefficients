@@ -1,12 +1,12 @@
 import os
 import glob
 
-nV = 3
-OrdinalPassNumber = "Fourth"
-Date = "11-19-24"
+nV = 1
+OrdinalPassNumber = "First"
+Date = "1-8-25"
 
-#Files = glob.glob("/star/data01/pwg/mcgordon/VnFromEPD/V" + str(nV) + "Histograms/QVector" + OrdinalPassNumber + "PassNormal*.root")
-Files = glob.glob("/star/data01/pwg/mcgordon/VnFromEPD/V" + str(nV) + "Histograms/Histogram" + OrdinalPassNumber + "PassNormal*_*.root")
+Files = glob.glob("/star/data01/pwg/mcgordon/VnFromEPD/V" + str(nV) + "Histograms/QVector" + OrdinalPassNumber + "PassNormal*.root")
+#Files = glob.glob("/star/data01/pwg/mcgordon/VnFromEPD/V" + str(nV) + "Histograms/Histogram" + OrdinalPassNumber + "PassNormal*_*.root")
 #Files = glob.glob("/star/data01/pwg/mcgordon/VnFromEPD/V" + str(nV) + "Histograms/Histogram*PassNormal.root")
 #Files = glob.glob("/star/u/mcgordon/VnFromEPD/Histogram*PassTest.root")
 
@@ -17,8 +17,8 @@ for file in Files:
 
 os.environ["FileNameString"] = FileNameString
 
-#command = "hadd -f /star/data01/pwg/mcgordon/VnFromEPD/V" + str(nV) + "Histograms/QVector" + OrdinalPassNumber + "PassNormal.root $FileNameString"
-command = "hadd -f /star/data01/pwg/mcgordon/VnFromEPD/V" + str(nV) + "Histograms/Histogram" + OrdinalPassNumber + "PassNormal.root $FileNameString"
+command = "hadd -f /star/data01/pwg/mcgordon/VnFromEPD/V" + str(nV) + "Histograms/QVector" + OrdinalPassNumber + "PassNormal.root $FileNameString"
+#command = "hadd -f /star/data01/pwg/mcgordon/VnFromEPD/V" + str(nV) + "Histograms/Histogram" + OrdinalPassNumber + "PassNormal.root $FileNameString"
 #command = "hadd -f /star/data01/pwg/mcgordon/VnFromEPD/V" + str(nV) + "Histograms/" + Date + "-V" + str(nV) + "-HistogramNormal.root $FileNameString"
 #command = "hadd -f /star/u/mcgordon/VnFromEPD/HistogramTest.root $FileNameString"
 

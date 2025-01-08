@@ -15,9 +15,9 @@
   
   <SandBox installer="ZIP">
     <Package>
-      <File>file:/star/u/mcgordon/VnFromEPD/TreeAnalysisMichael/source/MakeTrees.C</File>
-      <File>file:/star/u/mcgordon/VnFromEPD/TreeAnalysisMichael/Configs/fxt_3p0GeV/config_3p0GeV.txt</File>
-      <File>file:/star/u/mcgordon/VnFromEPD/TreeAnalysisMichael/StRoot/</File>
+      <File>file:/star/u/mcgordon/VnFromEPD/TreeAnalysis/source/MakeTrees.C</File>
+      <File>file:/star/u/mcgordon/VnFromEPD/TreeAnalysis/Configs/fxt_3p0GeV/config_3p0GeV.txt</File>
+      <File>file:/star/u/mcgordon/VnFromEPD/TreeAnalysis/StRoot/</File>
     </Package>
   </SandBox>
 
