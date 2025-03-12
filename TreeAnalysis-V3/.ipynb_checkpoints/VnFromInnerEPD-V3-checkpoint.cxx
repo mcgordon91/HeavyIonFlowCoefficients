@@ -127,6 +127,7 @@ int main(int argc, char *argv[])
     
     Int_t InnerEPDHighRing = 8;
     Int_t OuterEPDLowRing = 9;
+    Int_t OuterEPDLowRingNormal = 9;
     
     
     
@@ -574,7 +575,7 @@ int main(int argc, char *argv[])
 
     
     //Histograms
-    
+
     //First Pass Histograms
     TH1D *HistoInnerEPDQxRaw = new TH1D("InnerEPDQxRaw", "Qx Raw for Inner EPD; Qx; Events", 250, -QBounds, QBounds);
     TH1D *HistoInnerEPDQyRaw = new TH1D("InnerEPDQyRaw", "Qy Raw for Inner EPD; Qy; Events", 250, -QBounds, QBounds);
@@ -1001,11 +1002,29 @@ int main(int argc, char *argv[])
     
     
     
+    
+    
     //Fourth Pass Histograms  
     
+    TH1D *EventCheckOriginal = (TH1D*)Data->Get("h_eventCheck");
     
-
-    TH1D *EventCheck = (TH1D*)Data->Get("h_eventCheck");
+    TH1D *EventCheck = new TH1D("EventCheck","Event number after each cut;;Events", 8, 0, 8);
+    EventCheck->GetXaxis()->SetBinLabel(1,"No Cuts");
+    EventCheck->GetXaxis()->SetBinLabel(2,"Bad Run Cut");
+    EventCheck->GetXaxis()->SetBinLabel(3,"Minbias Cut");
+    EventCheck->GetXaxis()->SetBinLabel(4,"V_{Z} Cut");
+    EventCheck->GetXaxis()->SetBinLabel(5,"V_{r} Cut");
+    EventCheck->GetXaxis()->SetBinLabel(6,"Min # of Events and Tracks Cut");
+    EventCheck->GetXaxis()->SetBinLabel(7,"No QVec = 0 Cut");
+    EventCheck->GetXaxis()->SetBinLabel(8,"Centrality Cut");
+    
+    for(int index = 1; index < 4; index++)
+    {
+        EventCheck->SetBinContent(index, EventCheckOriginal->GetBinContent(index)); 
+    }
+    
+    TH1D *RunCount = new TH1D("RunCount", "Run Count; Run Index; Count", 509, 1, 510);
+    RunCount->Sumw2();
     
     TH1F *OverallTrackCheckNoCuts = new TH1F("OverallTrackCheckNoCuts","Overall Tracks No Cut; One; Tracks", 2, 0, 2);
     OverallTrackCheckNoCuts->Sumw2();
@@ -1401,7 +1420,7 @@ int main(int argc, char *argv[])
         }
 
         AutreeData->GetEntry(EventNum);
-        
+     
         RunIndex = 0;
 
         Int_t TotalTracks = (Int_t)tracknumber;
@@ -1411,18 +1430,20 @@ int main(int argc, char *argv[])
         Int_t Centrality = (Int_t)centrality;
         Int_t RunId = (Int_t)runId;
         
-//         RunId -= 22100000;
+        RunId -= 22100000;
   
-//         auto iterator = std::find(RunIDs.begin(), RunIDs.end(), RunId);
+        auto iterator = std::find(RunIDs.begin(), RunIDs.end(), RunId);
         
-//         if(iterator != RunIDs.end())
-//         {
-//             RunIndex = std::distance(RunIDs.begin(), iterator);
-//         }
+        if(iterator != RunIDs.end())
+        {
+            RunIndex = std::distance(RunIDs.begin(), iterator);
+        }
 
-//         pVx->Fill(RunIndex, vx);
-//         pVy->Fill(RunIndex, vy);
-//         pVz->Fill(RunIndex, vz);
+        RunCount->Fill(RunIndex);
+
+        pVx->Fill(RunIndex, vx);
+        pVy->Fill(RunIndex, vy);
+        pVz->Fill(RunIndex, vz);
 
         HistoD0->Fill(vx, vy);
 
@@ -1811,7 +1832,7 @@ int main(int argc, char *argv[])
                 continue;
             }
 
-            TileVector *TVec = new TileVector(epdGeom, EPDID, vx, vy, vz, InnerEPDHighRing, OuterEPDLowRing);
+            TileVector *TVec = new TileVector(epdGeom, EPDID, vx, vy, vz, InnerEPDHighRing, OuterEPDLowRingNormal);
             
             Double_t eta = TVec->EPDEta();
             Double_t phi = TVec->EPDPhi();
@@ -2029,7 +2050,7 @@ int main(int argc, char *argv[])
             continue;
         }
  
-//         EventCheck->Fill(6);
+        EventCheck->Fill(6);
         
 
         
@@ -2172,7 +2193,7 @@ int main(int argc, char *argv[])
         }
         
 
-//         EventCheck->Fill(7);
+        EventCheck->Fill(7);
 
 
         
@@ -3078,6 +3099,7 @@ int main(int argc, char *argv[])
         NHitsValues->SetDirectory(0);
         NHitsdEdxValues->SetDirectory(0);
         NHitsFitOverNHitsPossValues->SetDirectory(0);
+        RunCount->SetDirectory(0);
         pVx->SetDirectory(0);
         pVy->SetDirectory(0);
         pVz->SetDirectory(0);
@@ -3177,6 +3199,7 @@ int main(int argc, char *argv[])
         NHitsValues->Write();
         NHitsdEdxValues->Write();
         NHitsFitOverNHitsPossValues->Write();
+        RunCount->Write();
         pVx->Write();
         pVy->Write();
         pVz->Write();

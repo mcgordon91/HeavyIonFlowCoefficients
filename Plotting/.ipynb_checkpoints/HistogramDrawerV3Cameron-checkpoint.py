@@ -17,16 +17,18 @@ Date = '9-29-24'
 
 MyResolutionPlotFile = ROOT.TFile.Open("/star/data01/pwg/mcgordon/VnFromEPD/V3Histograms/R_31_Normal.root","READ")
 ResolutionPlotFileCameron = ROOT.TFile.Open("/star/u/mcgordon/VnFromEPD/LiteratureFiles/resolutionPlot.root","READ")
-# ResolutionPlotFileCameron = ROOT.TFile.Open("/star/u/mcgordon/SystematicsCameronResolution/resolutionInfo_INPUT_epd_high.root","READ")
 
-MyFile = ROOT.TFile.Open("/star/data01/pwg/mcgordon/VnFromEPD/V3Histograms/" + Date + "-V3-HistogramNormal.root","READ")
+# MyFile = ROOT.TFile.Open("/star/data01/pwg/mcgordon/VnFromEPD/V3Histograms/" + Date + "-V3-HistogramNormal.root","READ")
+MyFile = ROOT.TFile.Open("/star/data01/pwg/mcgordon/VnFromEPD/V3Histograms/2-14-25-V3-HistogramNormal.root","READ")
+MyFileA = ROOT.TFile.Open("/star/data01/pwg/mcgordon/VnFromEPD/V3Histograms/9-15-24-V3-HistogramNormalNewDataset20000FilesWithCuts.root","READ")
+MyFileB = ROOT.TFile.Open("/star/data01/pwg/mcgordon/VnFromEPD/V3Histograms/HistogramFirstPassNormal.root","READ")
 CameronFile = ROOT.TFile.Open("/star/u/mcgordon/VnFromEPD/LiteratureFiles/CameronResults.root","READ")
 
 # SystematicErrorRootFile = ROOT.TFile.Open("/star/u/mcgordon/VnFromEPD/systematicErrors.root","READ")
 # CameronSystematicErrorRootFile = ROOT.TFile.Open("/star/u/mcgordon/VnFromEPD/LiteratureFiles/HEPData-ins2702151-SystematicErrors-root.root", "READ")
 
 
-
+CentralityXLabels = ["0-5", "5-10", "10-15", "15-20", "20-25", "25-30", "30-35", "35-40", "40-45", "45-50", "50-55", "55-60"]
 
 
  
@@ -164,13 +166,13 @@ RescaledHistogramAverage.SetStats(0)
 
 RescaledHistogramAverage.SetLineWidth(3)
 
-# for index in range(1, HistogramB.GetNbinsX() + 1):
-#     RescaledHistogramAverage.SetBinContent(index, HistogramB.GetBinContent(index))
-#     RescaledHistogramAverage.SetBinError(index, HistogramB.GetBinError(index))
-
 for index in range(1, HistogramB.GetNbinsX() + 1):
-    RescaledHistogramAverage.SetBinContent(17 - index, HistogramB.GetBinContent(index))
-    RescaledHistogramAverage.SetBinError(17 - index, HistogramB.GetBinError(index))
+    RescaledHistogramAverage.SetBinContent(index, HistogramB.GetBinContent(index))
+    RescaledHistogramAverage.SetBinError(index, HistogramB.GetBinError(index))
+
+# for index in range(1, HistogramB.GetNbinsX() + 1):
+#     RescaledHistogramAverage.SetBinContent(17 - index, HistogramB.GetBinContent(index))
+#     RescaledHistogramAverage.SetBinError(17 - index, HistogramB.GetBinError(index))
 
 RescaledHistogramAverage.SetLineWidth(3)
 RescaledHistogramAverage.SetMarkerStyle(ROOT.kFullSquare)
@@ -200,6 +202,246 @@ ResolutionPlotFileCameron.Close()
 
 
 
+
+Canvas_h_eventCheck = ROOT.TCanvas("Canvas_h_eventCheck", "", 800, 800)
+# Change the scope to be within the file
+Canvas_h_eventCheck.cd()
+
+HistogramA = MyFileA.Get("h_eventCheck")
+
+# Change the histogram scope so that it doesn't close when the last file closes
+HistogramA.SetDirectory(0)
+
+# Build the canvas
+
+# Delete the stats box
+HistogramA.SetStats(0)
+
+HistogramA.SetLineColor(ROOT.kBlue)
+
+HistogramA.Draw("HIST")
+
+HistogramB = MyFileB.Get("EventCheck")
+
+# Change the histogram scope so that it doesn't close when the last file closes
+HistogramB.SetDirectory(0)
+
+# Delete the stats box
+HistogramB.SetStats(0)
+
+HistogramB.SetLineColor(ROOT.kRed)
+
+HistogramB.Draw("HIST SAME")
+
+for index in range (1, HistogramA.GetNbinsX() + 1):
+    print(HistogramA.GetBinContent(index), HistogramB.GetBinContent(index))
+
+# Draw the histogram
+Canvas_h_eventCheck.Draw()
+
+LegendEv = ROOT.TLegend(0.6, 0.8, 0.9, 0.9)
+LegendEv.AddEntry(HistogramA, "From Trees")
+LegendEv.AddEntry(HistogramB, "From PicoDST Files Directly")
+LegendEv.Draw()
+
+# Add the histogram to the list of histograms
+Canvasas.append(Canvas_h_eventCheck)
+
+'''
+
+# Build the canvas
+CanvasRunEntries = ROOT.TCanvas("CanvasRunEntries", "", 800, 800)
+# Change the scope to be within the file
+CanvasRunEntries.cd()
+
+CanvasRunEntries.SetLogy()
+
+HistogramA = MyFileA.Get("RunCount")
+
+# Change the histogram scope so that it doesn't close when the last file closes
+HistogramA.SetDirectory(0)
+
+HistogramA.SetLineColor(ROOT.kBlue)
+
+# Delete the stats box
+HistogramA.SetStats(0)
+
+HistogramA.SetAxisRange(300, 510, "X")
+HistogramA.SetAxisRange(10, 10000000, "Y")
+
+HistogramA.Draw("HIST")
+
+HistogramB = MyFileB.Get("RunCount")
+
+# Change the histogram scope so that it doesn't close when the last file closes
+HistogramB.SetDirectory(0)
+
+HistogramB.SetLineColor(ROOT.kRed)
+
+# Delete the stats box
+HistogramB.SetStats(0)
+
+HistogramB.SetAxisRange(300, 510, "X")
+HistogramB.SetAxisRange(10, 10000000, "Y")
+
+HistogramB.Draw("HIST SAME")
+print("ABCDEFG", HistogramA.GetEntries(), HistogramB.GetEntries())
+# # Draw the histogram
+# CanvasRunEntries.Draw()
+
+# L0 = ROOT.TLegend(0.1, 0.8, 0.3, 0.9)
+# L0.AddEntry(HistogramA, "From Trees")
+# L0.AddEntry(HistogramB, "From PicoDSTs")
+# L0.Draw()
+
+# Add the histogram to the list of histograms
+Canvasas.append(CanvasRunEntries)
+
+
+
+
+# Build the canvas
+CanvasZVertexValues = ROOT.TCanvas("CanvasZVertexValues", "", 800, 800)
+# Change the scope to be within the file
+CanvasZVertexValues.cd()
+
+CanvasZVertexValues.SetLogy()
+
+HistogramA = MyFileA.Get("ZVertexValues")
+
+# Change the histogram scope so that it doesn't close when the last file closes
+HistogramA.SetDirectory(0)
+
+HistogramA.SetLineColor(ROOT.kBlue)
+
+# Delete the stats box
+HistogramA.SetStats(0)
+
+HistogramA.Draw("HIST")
+
+HistogramB = MyFileB.Get("ZVertexValues")
+
+# Change the histogram scope so that it doesn't close when the last file closes
+HistogramB.SetDirectory(0)
+
+HistogramB.SetLineColor(ROOT.kRed)
+
+# Delete the stats box
+HistogramB.SetStats(0)
+
+HistogramB.Draw("HIST SAME")
+
+# Draw the histogram
+CanvasZVertexValues.Draw()
+
+L1 = ROOT.TLegend(0.1, 0.8, 0.3, 0.9)
+L1.AddEntry(HistogramA, "From Trees")
+L1.AddEntry(HistogramB, "From PicoDSTs")
+L1.Draw()
+
+# Add the histogram to the list of histograms
+Canvasas.append(CanvasZVertexValues)
+
+
+
+
+
+# Build the canvas
+CanvasRVertexValues = ROOT.TCanvas("CanvasRVertexValues", "", 800, 800)
+# Change the scope to be within the file
+CanvasRVertexValues.cd()
+
+CanvasRVertexValues.SetLogy()
+
+HistogramA = MyFileA.Get("RVertexValues")
+
+# Change the histogram scope so that it doesn't close when the last file closes
+HistogramA.SetDirectory(0)
+
+# Delete the stats box
+HistogramA.SetStats(0)
+
+HistogramA.SetLineColor(ROOT.kBlue)
+
+HistogramA.Draw("HIST")
+
+HistogramB = MyFileB.Get("RVertexValues")
+
+# Change the histogram scope so that it doesn't close when the last file closes
+HistogramB.SetDirectory(0)
+
+HistogramB.SetLineColor(ROOT.kRed)
+
+# Delete the stats box
+HistogramB.SetStats(0)
+
+HistogramB.Draw("HIST SAME")
+
+# Draw the histogram
+CanvasRVertexValues.Draw()
+
+L2 = ROOT.TLegend(0.1, 0.1, 0.3, 0.2)
+L2.AddEntry(HistogramA, "From Trees")
+L2.AddEntry(HistogramB, "From PicoDSTs")
+L2.Draw()
+
+# Add the histogram to the list of histograms
+Canvasas.append(CanvasRVertexValues)
+
+
+
+
+
+# Build the canvas
+CanvasCentralities = ROOT.TCanvas("CanvasCentralities", "", 800, 800)
+# Change the scope to be within the file
+CanvasCentralities.cd()
+
+CanvasCentralities.SetLogy()
+
+HistogramA = MyFileA.Get("Centralities")
+
+# Change the histogram scope so that it doesn't close when the last file closes
+HistogramA.SetDirectory(0)
+
+# Delete the stats box
+HistogramA.SetStats(0)
+
+HistogramA.SetLineColor(ROOT.kBlue)
+
+HistogramA.Draw("HIST")
+
+HistogramB = MyFileB.Get("Centralities")
+
+# Change the histogram scope so that it doesn't close when the last file closes
+# HistogramB.SetDirectory(0)
+
+FlippedCentralities = ROOT.TH1F("FlippedCentralities", "Centralities; Centrality; Count", 16, 0, 16)
+
+for index in range(1, HistogramB.GetNbinsX() + 1):
+    FlippedCentralities.SetBinContent(17 - index, HistogramB.GetBinContent(index))
+    FlippedCentralities.SetBinError(17 - index, HistogramB.GetBinError(index))
+
+FlippedCentralities.SetDirectory(0)
+    
+FlippedCentralities.SetLineColor(ROOT.kRed)
+
+# Delete the stats box
+FlippedCentralities.SetStats(0)
+
+FlippedCentralities.Draw("HIST SAME")
+
+# Draw the histogram
+CanvasCentralities.Draw()
+
+L3 = ROOT.TLegend(0.1, 0.1, 0.3, 0.2)
+L3.AddEntry(HistogramA, "From Trees")
+L3.AddEntry(FlippedCentralities, "From PicoDSTs")
+L3.Draw()
+
+# Add the histogram to the list of histograms
+Canvasas.append(CanvasCentralities)
+'''
 ####################################################################################################### V3 vs Centrality
 
 
@@ -285,8 +527,8 @@ RescaledHistogram4.Draw("PE 1 X0 SAME")
 Canvas4.Draw()
 
 Legend4 = ROOT.TLegend(0.1, 0.1, 0.3, 0.2)
-Legend4.AddEntry(Histogram, "My Work")
-Legend4.AddEntry(RescaledHistogram4, "STAR 2023")
+Legend4.AddEntry(Histogram, "New Data")
+Legend4.AddEntry(RescaledHistogram4, "Old Data")
 Legend4.Draw()
 
 Canvasas.append(Canvas4)
@@ -379,8 +621,8 @@ RescaledHistogram5.Draw("PE 1 X0 SAME")
 Canvas5.Draw()
 
 Legend5 = ROOT.TLegend(0.1, 0.1, 0.3, 0.2)
-Legend5.AddEntry(Histogram, "My Work")
-Legend5.AddEntry(RescaledHistogram5, "STAR 2023")
+Legend5.AddEntry(Histogram, "New Data")
+Legend5.AddEntry(RescaledHistogram5, "Old Data")
 Legend5.Draw()
 
 Canvasas.append(Canvas5)
@@ -474,8 +716,8 @@ RescaledHistogram6.Draw("PE 1 X0 SAME")
 Canvas6.Draw()
 
 Legend6 = ROOT.TLegend(0.1, 0.1, 0.3, 0.2)
-Legend6.AddEntry(Histogram, "My Work")
-Legend6.AddEntry(RescaledHistogram6, "STAR 2023")
+Legend6.AddEntry(Histogram, "New Data")
+Legend6.AddEntry(RescaledHistogram6, "Old Data")
 Legend6.Draw()
 
 Canvasas.append(Canvas6)
@@ -568,8 +810,8 @@ RescaledHistogram7.Draw("PE 1 X0 SAME")
 Canvas7.Draw()
 
 Legend7 = ROOT.TLegend(0.1, 0.1, 0.3, 0.2)
-Legend7.AddEntry(Histogram, "My Work")
-Legend7.AddEntry(RescaledHistogram7, "STAR 2023")
+Legend7.AddEntry(Histogram, "New Data")
+Legend7.AddEntry(RescaledHistogram7, "Old Data")
 Legend7.Draw()
 
 Canvasas.append(Canvas7)
@@ -590,6 +832,8 @@ Histogram.SetLineWidth(10)
 Histogram.SetMarkerStyle(ROOT.kFullCircle)
 Histogram.SetMarkerSize(3)
 Histogram.SetMarkerColor(ROOT.kBlue)
+
+Histogram.SetLineColor(ROOT.kBlue)
 
 Histogram.SetLineColor(ROOT.kBlue)
 
@@ -681,6 +925,8 @@ Histogram.SetMarkerColor(ROOT.kBlue)
 
 Histogram.SetLineColor(ROOT.kBlue)
 
+Histogram.SetLineColor(ROOT.kBlue)
+
 Histogram.Draw("PE 1 X0")
 
 # Histogram = SystematicErrorRootFile.Get("DataVnVsCentralityDeuteronCorrected_px")
@@ -730,7 +976,7 @@ Histogram.SetMarkerColor(ROOT.kBlue)
 
 Histogram.SetLineColor(ROOT.kBlue)
 
-Histogram.SetAxisRange(-0.5, 0.5, "Y")
+Histogram.SetAxisRange(-0.08, 0.02, "Y")
 
 Histogram.Draw("PE 1 X0")
 
@@ -792,7 +1038,7 @@ HistogramA.SetLineColor(ROOT.kBlue)
 HistogramA.SetTitle("V3 vs Pt for Protons, 0-10% Centrality")
 HistogramA.GetYaxis().SetTitleOffset(1)
 
-HistogramA.SetAxisRange(-0.07, 0.0, "Y")
+HistogramA.SetAxisRange(-0.07, 0.02, "Y")
 
 HistogramA.Draw("PE 1 X0")
 
@@ -809,7 +1055,7 @@ HistogramB.SetMarkerColor(ROOT.kRed)
 
 HistogramB.SetLineColor(ROOT.kRed)
 
-HistogramB.SetAxisRange(-0.07, 0.0, "Y")
+HistogramB.SetAxisRange(-0.07, 0.02, "Y")
 
 HistogramB.Draw("PE 1 X0 SAME")
 
@@ -886,7 +1132,7 @@ HistogramA.SetLineColor(ROOT.kBlue)
 HistogramA.SetTitle("V3 vs Pt for Protons, 10-40% Centrality")
 HistogramA.GetYaxis().SetTitleOffset(1)
 
-HistogramA.SetAxisRange(-0.07, 0.0, "Y")
+HistogramA.SetAxisRange(-0.07, 0.02, "Y")
 
 HistogramA.Draw("PE 1 X0")
 
@@ -904,7 +1150,7 @@ HistogramB.SetMarkerColor(ROOT.kRed)
 
 HistogramB.SetLineColor(ROOT.kRed)
 
-HistogramB.SetAxisRange(-0.07, 0.0, "Y")
+HistogramB.SetAxisRange(-0.07, 0.02, "Y")
 
 HistogramB.Draw("PE 1 X0 SAME")
 

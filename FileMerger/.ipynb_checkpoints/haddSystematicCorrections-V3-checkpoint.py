@@ -4,8 +4,8 @@ import glob
 
 
 nV = 3
-PassNumber = 4
-PassOrdinalNumber = "Fourth"
+PassNumber = 3
+PassOrdinalNumber = "Third"
 Date = "12-16-24"
 
 

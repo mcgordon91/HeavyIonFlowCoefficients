@@ -64,7 +64,7 @@ my $DEBUG = 0;                           #Debug mode for printing only
 #my $LOC = $ENV{'PWD'};
 my $DIR1;          #Main/First directory to merge
 my $DIR2;          #Second directory to merge
-my $FILTER = "HistogramFourthPass";   #Name of input file (assumes files end in _runnumber_iteration.root)
+my $FILTER = "HistogramFirstPassNormal";   #Name of input file (assumes files end in _runnumber_iteration.root)
 my $NAME = "All";  #Name of final output file 
 my $TEST;          #Boolean test mode to check what program will do without doing it
 my $NFILES = 50;   #Number of files to merge at once

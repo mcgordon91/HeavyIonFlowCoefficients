@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<job maxFilesPerProcess="20" filesPerHour="1" fileListSyntax="xrootd" simulateSubmission="false">
+  
+  <command>
+    starver SL20d
+    bash Remove_ipynb_checkpoint_files.sh
+    cons
+    root4star -q -b -l RunTreeAnalyzer.C\(\"$FILELIST\",\"$JOBID\",\"Normal\"\)
+  </command>
+    
+  <ResourceUsage> 
+    <Memory> 
+        <MinMemory>2048</MinMemory> 
+    </Memory> 
+  </ResourceUsage> 
+  
+  <SandBox installer="ZIP">
+    <Package>
+      <File>file:/star/u/mcgordon/VnFromEPD/TreeAnalysis/RunTreeAnalyzer.C</File>
+      <File>file:/star/u/mcgordon/VnFromEPD/TreeAnalysis/Remove_ipynb_checkpoint_files.sh</File>
+      <File>file:/star/u/mcgordon/VnFromEPD/TreeAnalysis/StRoot/</File>
+    </Package>
+  </SandBox>
+
+  <!-- Get input files from get_file_lis.pl -->
+  <input URL="filelist:/star/u/mcgordon/VnFromEPD/TreeAnalysis/fxt_3p0GeV_SL24a.list" nFiles="20"/>
+
+  
+  <!-- Run log & error messages -->
+  <stdout URL="file:/star/data01/pwg/mcgordon/Logs/VnFromEPD/$JOBID.out" />
+  <stderr URL="file:/star/data01/pwg/mcgordon/Logs/VnFromEPD/$JOBID.err" />
+  <output fromScratch="$JOBID.root" toURL="file:/star/data01/pwg/mcgordon/Logs/VnFromEPD/"/>
+
+</job>

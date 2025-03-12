@@ -64,7 +64,7 @@ my $DEBUG = 0;                           #Debug mode for printing only
 #my $LOC = $ENV{'PWD'};
 my $DIR1;          #Main/First directory to merge
 my $DIR2;          #Second directory to merge
-my $FILTER = "HistogramFourthPass";   #Name of input file (assumes files end in _runnumber_iteration.root)
+my $FILTER = "HistogramFirstPassNormal";   #Name of input file (assumes files end in _runnumber_iteration.root)
 my $NAME = "All";  #Name of final output file 
 my $TEST;          #Boolean test mode to check what program will do without doing it
 my $NFILES = 50;   #Number of files to merge at once
@@ -196,7 +196,7 @@ if( $RUNNUM ){
 			       chomp $input;
 			       if( $input ne "y" ){ exit(0); }
 	    }
-	    system( "hadd $DIR1/../${NAME}_$runnum.root $finalmergefiles1" );#  or die "Unable to hadd: $!";
+	    system( "hadd $DIR1/${NAME}_$runnum.root $finalmergefiles1" );#  or die "Unable to hadd: $!";
 	}
     }
     print "Total files processed: $numfiles\n";
@@ -210,8 +210,8 @@ if( ! $DIR2 ){
 	if( !$TEST ){ system( "hadd -f $DIR1/Merge$numfiles.root$mergefiles1" ); }# or die "Unable to hadd: $!";
     }
     
-    if( !$TEST ){ system( "hadd -f $DIR1/../${NAME}.root${finalmergefiles1}" ); }
-    print "Merged $numfiles files in $DIR1 to ../${NAME}.root\n";
+    if( !$TEST ){ system( "hadd -f $DIR1/${NAME}.root${finalmergefiles1}" ); }
+    print "Merged $numfiles files in $DIR1 to ${NAME}.root\n";
     exit(0);
 }
 
@@ -256,10 +256,10 @@ foreach my $key (keys %Compare){
     if( $numfiles % $NFILES==0 ){
 	#print "hadd StFcsPi0invariantmass$numfiles.root$mergefiles\n";
 	#print "$numfiles\n";
-	$finalmergefiles1 = $finalmergefiles1 . " $DIR1/../Merge$numfiles.root";
-	$finalmergefiles2 = $finalmergefiles2 . " $DIR2/../Merge$numfiles.root";
-	if( !$TEST ){ system( "hadd -f $DIR1/../Merge$numfiles.root$mergefiles1" ); }# or die "Unable to hadd: $!";
-	if( !$TEST ){ system( "hadd -f $DIR2/../Merge$numfiles.root$mergefiles2" ); }# or die "Unable to hadd: $!";
+	$finalmergefiles1 = $finalmergefiles1 . " $DIR1/Merge$numfiles.root";
+	$finalmergefiles2 = $finalmergefiles2 . " $DIR2/Merge$numfiles.root";
+	if( !$TEST ){ system( "hadd -f $DIR1/Merge$numfiles.root$mergefiles1" ); }# or die "Unable to hadd: $!";
+	if( !$TEST ){ system( "hadd -f $DIR2/Merge$numfiles.root$mergefiles2" ); }# or die "Unable to hadd: $!";
 	$mergefiles1 = "";
 	$mergefiles2 = "";
     }
@@ -268,14 +268,14 @@ foreach my $key (keys %Compare){
 
 if( $numfiles % $NFILES != 0 ){
     #print "hadd StFcsPi0invariantmass$numfiles.root$mergefiles\n";
-    $finalmergefiles1 = $finalmergefiles1 . " $DIR1/../Merge$numfiles.root";
-    $finalmergefiles2 = $finalmergefiles2 . " $DIR2/../Merge$numfiles.root";
-    if( !$TEST ){ system( "hadd -f $DIR1/../Merge$numfiles.root$mergefiles1" ); }# or die "Unable to hadd: $!";
-    if( !$TEST ){ system( "hadd -f $DIR2/../Merge$numfiles.root$mergefiles2" ); }# or die "Unable to hadd: $!";
+    $finalmergefiles1 = $finalmergefiles1 . " $DIR1/Merge$numfiles.root";
+    $finalmergefiles2 = $finalmergefiles2 . " $DIR2/Merge$numfiles.root";
+    if( !$TEST ){ system( "hadd -f $DIR1/Merge$numfiles.root$mergefiles1" ); }# or die "Unable to hadd: $!";
+    if( !$TEST ){ system( "hadd -f $DIR2/Merge$numfiles.root$mergefiles2" ); }# or die "Unable to hadd: $!";
 }
 
-if( !$TEST ){ system( "hadd -f $DIR1/../${NAME}.root${finalmergefiles1}" ); }
-if( !$TEST ){ system( "hadd -f $DIR2/../${NAME}.root${finalmergefiles2}" ); }
+if( !$TEST ){ system( "hadd -f $DIR1/${NAME}.root${finalmergefiles1}" ); }
+if( !$TEST ){ system( "hadd -f $DIR2/${NAME}.root${finalmergefiles2}" ); }
 
 print "Total files processed: $numfiles\n";
 
