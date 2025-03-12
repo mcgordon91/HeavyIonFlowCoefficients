@@ -1,69 +1,67 @@
 #include <TSystem>
 
-
 class StMaker;
 class StChain;
 class StPicoDstMaker;
-class StPicoDst;
 class StPicoEvent;
 
 
-Int_t RunTreeAnalyzer(TString InputFileList, TString JobIdName, TString SystematicName)
+void RunTreeAnalyzer(const Char_t *InputFile,  Char_t *JobID, const Char_t *Systematic)
 {
-  Int_t nEvents = 999999999;
-    
-  // Load libraries
-  gROOT->LoadMacro("$STAR/StRoot/StMuDSTMaker/COMMON/macros/loadSharedLibraries.C");
-  loadSharedLibraries();
+    Long64_t TotalEvents = 999999999;
 
-  gSystem->Load("StPicoEvent");
-  gSystem->Load("StPicoDstMaker");
-  gSystem->Load("StEpdUtil");
-  gSystem->Load("TreeAnalyzer.so");
+    gROOT->LoadMacro("$STAR/StRoot/StMuDSTMaker/COMMON/macros/loadSharedLibraries.C");
+    loadSharedLibraries();
 
-  std::cout << "Loaded" << std::endl;
-  // List of member links in the chain
-  StChain* chain = new StChain;
-  std::cout << "chain" << std::endl;
-  StPicoDstMaker* picoMaker = new StPicoDstMaker(2,InputFileList,"picoDst");
-  std::cout << "picoMaker" << std::endl;
-  TreeAnalyzer* doAnalysis = new TreeAnalyzer(picoMaker,JobIdName,SystematicName);
-  std::cout << "doAnalysis" << std::endl;
+    gSystem->Load("StPicoEvent");
+    gSystem->Load("StPicoDstMaker");
+    gSystem->Load("StEpdUtil");
+    gSystem->Load("TreeAnalyzer.so");
+    std::cout << "Shared Libraries Loaded" << std::endl;
+
+
     
-  // Loop over the links in the chain
-  if(chain->Init() == kStErr)
+    // List of member links in the chain
+    StChain* chain = new StChain;
+    std::cout << "Chain Created" << std::endl;
+    
+    StPicoDstMaker* picoMaker = new StPicoDstMaker(2, InputFile, "picoDst");
+    std::cout << "picoMaker Created" << std::endl;
+
+    TreeAnalyzer *Analyzer = new TreeAnalyzer(picoMaker, JobID, Systematic);
+    std::cout << "Analyzer Created" << std::endl;
+
+    if(chain->Init() == kStErr)
     {
       cout << "Init() Error!" << endl;
       return;
     }
     
-  int total = picoMaker->chain()->GetEntries();
-  cout << " Total entries = " << total << endl;
-  if(nEvents > total) nEvents = total;
-    
-  for (Int_t i = 0; i < nEvents; i++)
+    int total = picoMaker->chain()->GetEntries();
+    cout << " Total entries = " << total << endl;
+
+    if (TotalEvents > total) TotalEvents = total;
+    for (Int_t EventNum = 0; EventNum < TotalEvents; EventNum++)
     {
+        if(EventNum % 5000 == 0) cout << "Working on eventNumber " << EventNum << endl;
+        
+        chain->Clear();
+        int iret = chain->Make(EventNum);
 
-      // if(i % 10000 == 0) cout << "Working on eventNumber " << i << endl;
-      
-      chain->Clear();
-      int iret = chain->Make(i);      
-      if (iret) { cout << "Bad return code!" << iret << endl; break;}
-
-      total++;
+        if (iret)
+        {
+            cout << "Bad return code!" << iret << endl;
+            break;
+        }
     }
-    
-  cout << "****************************************** " << endl;
-  cout << "Work done... now its time to close up shop!" << endl;
-  cout << "****************************************** " << endl;
-  chain->Finish();
-  cout << "****************************************** " << endl;
-  cout << "total number of events  " << nEvents << endl;
-  cout << "****************************************** " << endl;
-    
-  // Cleanup
-  delete doAnalysis;
-  delete picoMaker;
-  delete chain;
-  return 0;
+
+    cout << "****************************************** " << endl;
+    cout << "Work done... now its time to close up shop!" << endl;
+    cout << "****************************************** " << endl;
+    chain->Finish();
+
+    delete picoMaker;
+    delete Analyzer;
+    delete chain;
+
 }

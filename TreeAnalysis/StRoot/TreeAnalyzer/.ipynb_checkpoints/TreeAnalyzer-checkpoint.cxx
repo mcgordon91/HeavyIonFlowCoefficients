@@ -4297,7 +4297,7 @@ Int_t TreeAnalyzer::Make()
             }      
         }       
     }//End Flow Calculator loop
-    std::cout << "1" << std::endl;
+
     delete BichselZDeuteron;
     delete BichselZTriton;
 
