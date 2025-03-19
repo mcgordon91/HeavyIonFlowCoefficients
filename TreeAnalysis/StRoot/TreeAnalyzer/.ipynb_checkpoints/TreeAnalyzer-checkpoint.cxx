@@ -36,7 +36,7 @@
 #include "StEpdUtil/StEpdGeom.h"
 #include "StEpdUtil/StEpdEpFinder.h"
 
-
+#include <Math/Vector4D.h>
 
 ClassImp(TreeAnalyzer)
 
@@ -141,6 +141,8 @@ Int_t TreeAnalyzer::Finish()
         HistoD39->SetDirectory(0);
         InvariantMasses->SetDirectory(0);
         LambdaAcceptance->SetDirectory(0);
+        ProtonMultiplicity->SetDirectory(0);
+        PionMinusMultiplicity->SetDirectory(0);
 
         
 
@@ -228,6 +230,8 @@ EventCheck->Write();
         HistoD39->Write();
         InvariantMasses->Write();
         LambdaAcceptance->Write();
+        ProtonMultiplicity->Write();
+        PionMinusMultiplicity->Write();
 
      
         HistogramRootFile->Close();
@@ -1256,6 +1260,8 @@ EventCheck->Write();
         delete HistoD39;
         delete InvariantMasses;
         delete LambdaAcceptance;
+        delete ProtonMultiplicity;
+        delete PionMinusMultiplicity;
     }
    
     
@@ -1678,7 +1684,11 @@ Int_t TreeAnalyzer::Init()
     LambdaAcceptance = new TH2F("DataPtVsYLambda", "Pt vs Y for Lambda-0 (Data); y_{CM}; Pt (Gev)", 200, -1, 1, 200, 0, 2.5);
     LambdaAcceptance->Sumw2();
 
-    
+    ProtonMultiplicity = new TH1F("ProtonMultiplicity", "Proton Multiplicity; # of Protons; Count", 101, -1, 100);
+    ProtonMultiplicity->Sumw2();
+
+    PionMinusMultiplicity = new TH1F("PionMinusMultiplicity", "$Pi^{-}$ Multiplicity; # of $Pi^{-}$; Count", 16, -1, 15);
+    PionMinusMultiplicity->Sumw2();    
 
 
     
@@ -2309,8 +2319,8 @@ Int_t TreeAnalyzer::Make()
     
     
     
-    Double_t ProtonLowerMSquared = 0.6;
-    Double_t ProtonUpperMSquared = 1.2;
+    // Double_t ProtonLowerMSquared = 0.6;
+    // Double_t ProtonUpperMSquared = 1.2;
     Double_t KaonLowerMSquared = 0.15;
     Double_t KaonUpperMSquared = 0.34;
     Double_t PionLowerMSquared = -0.1;
@@ -2747,22 +2757,11 @@ Int_t TreeAnalyzer::Make()
     std::vector<double> ProtonEtaVec;
     std::vector<double> ProtonPhiVec;
     std::vector<double> ProtonMassVec;
-    std::vector<double> ProtonPxVec;
-    std::vector<double> ProtonPyVec;
-    std::vector<double> ProtonPzVec;
     std::vector<double> PionMinusPtVec;
     std::vector<double> PionMinusEtaVec;
     std::vector<double> PionMinusPhiVec;
     std::vector<double> PionMinusMassVec;
-    std::vector<double> PionMinusPxVec;
-    std::vector<double> PionMinusPyVec;
-    std::vector<double> PionMinusPzVec;
-    std::vector<double> CombinedPtVec;
-    std::vector<double> CombinedEtaVec;
-    std::vector<double> CombinedPhiVec;
-    std::vector<double> CombinedMassVec;
     
-
     if(RunIteration == 1)
     {
         //Kinematics Track Loop
@@ -2774,7 +2773,7 @@ Int_t TreeAnalyzer::Make()
             {
                 continue;
             }
-
+            
             Double_t px = pTrack->pMom().X();
             Double_t py = pTrack->pMom().Y();
             Double_t pz = pTrack->pMom().Z();
@@ -2849,7 +2848,7 @@ Int_t TreeAnalyzer::Make()
             //Particle Identification
             Bool_t IsKaon = false;
             Bool_t IsPion = false;
-            Bool_t IsProtonToF = false;
+            // Bool_t IsProtonToF = false;
             Bool_t IsDeuteron = false;
             Bool_t IsTriton = false;
             Bool_t IsProtonTPC = (abs(NSigmaPr) < NSigmaPrBound) && (q == 1);
@@ -2862,33 +2861,13 @@ Int_t TreeAnalyzer::Make()
 
                 IsKaon = (abs(NSigmaKa) < NSigmaKaBound) && (msquared > KaonLowerMSquared) && (msquared < KaonUpperMSquared);
                 IsPion = (abs(NSigmaPi) < NSigmaPiBound) && (msquared > PionLowerMSquared) && (msquared < PionUpperMSquared);
-                IsProtonToF = (abs(NSigmaPr) < NSigmaPrBound) && (msquared > ProtonLowerMSquared) && (msquared < ProtonUpperMSquared) && (q == 1);
+                // IsProtonToF = (abs(NSigmaPr) < NSigmaPrBound) && (msquared > ProtonLowerMSquared) && (msquared < ProtonUpperMSquared) && (q == 1);
             }
 
             Double_t zDeuteron = TMath::Log(dEdx / BichselZDeuteron->Eval(p));
             Double_t zTriton = TMath::Log(dEdx / BichselZTriton->Eval(p));
 
             DeuteronsAndTritons DAndT (p, dEdx, tofBeta, zDeuteron, zTriton);
-
-
-
-                        
-
-            if(!(IsKaon) && !(IsPion))
-            {
-                IsDeuteron = DAndT.IsDeuteron() and (q == 1);
-                IsTriton = DAndT.IsTriton() and (q == 1);
-            }
-
-            if(!(IsKaon) && !(IsPion))
-            {
-                if(q == 1)
-                {
-                    h2_zd_vs_mom->Fill(p, zDeuteron);
-                    h2_zt_vs_mom->Fill(p, zTriton);
-                }
-            }
-
 
 
 
@@ -2919,50 +2898,16 @@ Int_t TreeAnalyzer::Make()
                 IsProtonTPC = false;
             }
 
-            if((IsDeuteron) && (IsProtonToF))
-            {
-                IsProtonToF = false;
-            }
-
-            if((IsTriton) && (IsProtonToF))
-            {
-                IsProtonToF = false;
-            }            
-
-            if((IsProtonTPC) && (IsProtonToF))
-            {
-                IsProtonTPC = false;
-            }
 
 
-            
 
-            if(IsProtonToF)
+            if(IsProtonTPC)
             {
                 ProtonPtVec.push_back(pt);
                 ProtonEtaVec.push_back(eta);
                 ProtonPhiVec.push_back(phi);
-
-                if(!(std::isnan(sqrt(msquared))))
-                {
-                    ProtonMassVec.push_back(sqrt(msquared));
-                }
-                
-                ProtonPxVec.push_back(px);
-                ProtonPyVec.push_back(py);
-                ProtonPzVec.push_back(pz);
+                ProtonMassVec.push_back(ProtonMass);
             }
-
-            // if(IsProtonTPC)
-            // {
-            //     ProtonPtVec.push_back(pt);
-            //     ProtonEtaVec.push_back(eta);
-            //     ProtonPhiVec.push_back(phi);
-            //     ProtonMassVec.push_back(ProtonMass);
-            //     ProtonPxVec.push_back(px);
-            //     ProtonPyVec.push_back(py);
-            //     ProtonPzVec.push_back(pz);
-            // }
 
 
             if((IsPion) && (q == -1))
@@ -2970,20 +2915,28 @@ Int_t TreeAnalyzer::Make()
                 PionMinusPtVec.push_back(pt);
                 PionMinusEtaVec.push_back(eta);
                 PionMinusPhiVec.push_back(phi);
+                PionMinusMassVec.push_back(PionMass);   
+            }
 
-                if(!(std::isnan(sqrt(msquared))))
+
+            
+
+
+            if(!(IsKaon) && !(IsPion))
+            {
+                IsDeuteron = DAndT.IsDeuteron() and (q == 1);
+                IsTriton = DAndT.IsTriton() and (q == 1);
+
+                if(q == 1)
                 {
-                    PionMinusMassVec.push_back(sqrt(msquared));   
+                    h2_zd_vs_mom->Fill(p, zDeuteron);
+                    h2_zt_vs_mom->Fill(p, zTriton);
                 }
-                
-                PionMinusPxVec.push_back(px);
-                PionMinusPyVec.push_back(py);
-                PionMinusPzVec.push_back(pz);
             }
 
 
 
-
+            
 
             if(tofBeta > 0)
             {
@@ -2998,21 +2951,21 @@ Int_t TreeAnalyzer::Make()
 //                     HistoD26->Fill(qp, NSigmaPi);
 
                 // Proton criteria
-                if(IsProtonToF)
-                {
-                    double mass = ProtonMass;
+                // if(IsProtonToF)
+                // {
+                //     double mass = ProtonMass;
 
-                    double y = FlowFunctions::Y(px, py, pz, mass);
+                //     double y = FlowFunctions::Y(px, py, pz, mass);
 
-                    HistoD5->Fill(y - yCMShift);
-                    HistoD8->Fill(pt);
-                        HistoD15->Fill(p, dEdx);
-                        HistoD18->Fill(qp, msquared);
+                //     HistoD5->Fill(y - yCMShift);
+                //     HistoD8->Fill(pt);
+                //         HistoD15->Fill(p, dEdx);
+                //         HistoD18->Fill(qp, msquared);
 
-                    HistoD21->Fill(pt);
+                //     HistoD21->Fill(pt);
 
-                    HistoD27->Fill(y - yCMShift, pt);
-                }
+                //     HistoD27->Fill(y - yCMShift, pt);
+                // }
 
                 // Kaon criteria
                 if(IsKaon)
@@ -3025,7 +2978,7 @@ Int_t TreeAnalyzer::Make()
 
                     HistoD6->Fill(y - yCMShift);
                     HistoD9->Fill(pt);
-//                         HistoD14->Fill(p, dEdx);
+                        // HistoD14->Fill(p, dEdx);
 //                         HistoD19->Fill(qp, msquared);
 
                     if(q > 0)
@@ -3050,7 +3003,7 @@ Int_t TreeAnalyzer::Make()
 
                     HistoD7->Fill(y - yCMShift);
                     HistoD10->Fill(pt);
-//                         HistoD13->Fill(p, dEdx);
+                        // HistoD13->Fill(p, dEdx);
 //                         HistoD20->Fill(qp, msquared);
 
                     if(q > 0)
@@ -3071,7 +3024,7 @@ Int_t TreeAnalyzer::Make()
 
                 Double_t y = FlowFunctions::Y(px, py, pz, mass);
 
-//                     HistoD16->Fill(p, dEdx);
+                    // HistoD16->Fill(p, dEdx);
                 HistoD27A->Fill(y - yCMShift, pt);
             }
 
@@ -3081,7 +3034,7 @@ Int_t TreeAnalyzer::Make()
 
                 Double_t y = FlowFunctions::Y(px, py, pz, mass);
 
-//                     HistoD17->Fill(p, dEdx);
+                    // HistoD17->Fill(p, dEdx);
                 HistoD27B->Fill(y - yCMShift, pt);
             }
 
@@ -3093,7 +3046,7 @@ Int_t TreeAnalyzer::Make()
 
                     HistoD5->Fill(y - yCMShift);
                     HistoD8->Fill(pt);
-//                         HistoD15->Fill(p, dEdx);
+                        // HistoD15->Fill(p, dEdx);
 
                     HistoD21->Fill(pt);
 
@@ -3109,40 +3062,32 @@ Int_t TreeAnalyzer::Make()
         }
     }//End of Kinematics Track Loop
 
+    ProtonMultiplicity->Fill(ProtonPtVec.size());
+    PionMinusMultiplicity->Fill(PionMinusPtVec.size());
+    
     if(RunIteration == 1)
     {
         double im;
-        // std::cout << ProtonPtVec.size() << " " << PionMinusPtVec.size() << std::endl;
+// std::cout << ProtonPtVec.size() << " " << PionMinusPtVec.size() << std::endl;
         for(size_t i = 0; i < ProtonPtVec.size(); i++)
         {
             for(size_t j = 0; j < PionMinusPtVec.size(); j++)
-            {   //std::cout << ProtonPtVec[i] << " " << ProtonEtaVec[i] << " " << ProtonPhiVec[i] << " " << ProtonMassVec[i] << std::endl;
-                CombinedPtVec.push_back(ProtonPtVec[i]);
-                CombinedEtaVec.push_back(ProtonEtaVec[i]);
-                CombinedPhiVec.push_back(ProtonPhiVec[i]);
-                CombinedMassVec.push_back(ProtonMassVec[i]);
+            {   //std::cout << ProtonPtVec[i] << " " << ProtonEtaVec[i] << " " << ProtonPhiVec[i] << " " << ProtonMassVec[i] << " " << PionMinusPtVec[j] << " " << PionMinusEtaVec[j] << " " << PionMinusPhiVec[j] << " " << PionMinusMassVec[j] << std::endl;
+                ROOT::Math::PtEtaPhiMVector ProtonFourVector(ProtonPtVec[i], ProtonEtaVec[i], ProtonPhiVec[i], ProtonMassVec[i]);
 
-                CombinedPtVec.push_back(PionMinusPtVec[j]);
-                CombinedEtaVec.push_back(PionMinusEtaVec[j]);
-                CombinedPhiVec.push_back(PionMinusPhiVec[j]);
-                CombinedMassVec.push_back(PionMinusMassVec[j]);
-                
-                im = FlowFunctions::InvariantMass(CombinedPtVec, CombinedEtaVec, CombinedPhiVec, CombinedMassVec);
+                ROOT::Math::PtEtaPhiMVector PionMinusFourVector(PionMinusPtVec[j], PionMinusEtaVec[j], PionMinusPhiVec[j], PionMinusMassVec[j]);
+
+                im = (ProtonFourVector + PionMinusFourVector).M();
 // std::cout << im << std::endl;
                 InvariantMasses->Fill(im);
 
-                CombinedPtVec.clear();
-                CombinedEtaVec.clear();
-                CombinedPhiVec.clear();
-                CombinedMassVec.clear();
-
                 if((im > LambdaLowerMSquared) && (im < LambdaUpperMSquared))
-                {                   
-                    Double_t px = ProtonPxVec[i] + PionMinusPxVec[j];
+                {                    
+                    Double_t px = (ProtonFourVector + PionMinusFourVector).Px();
 
-                    Double_t py = ProtonPyVec[i] + PionMinusPyVec[j];
+                    Double_t py = (ProtonFourVector + PionMinusFourVector).Py();
     
-                    Double_t pz = ProtonPzVec[i] + PionMinusPzVec[j];
+                    Double_t pz = (ProtonFourVector + PionMinusFourVector).Pz();
     
                     Double_t pt = sqrt(pow(px,2)+pow(py,2));
                     
@@ -3160,16 +3105,10 @@ Int_t TreeAnalyzer::Make()
     ProtonEtaVec.clear();
     ProtonPhiVec.clear();
     ProtonMassVec.clear();
-    ProtonPxVec.clear();
-    ProtonPyVec.clear();
-    ProtonPzVec.clear();
     PionMinusPtVec.clear();
     PionMinusEtaVec.clear();
     PionMinusPhiVec.clear();
     PionMinusMassVec.clear();
-    PionMinusPxVec.clear();
-    PionMinusPyVec.clear();
-    PionMinusPzVec.clear();
 
     Double_t FourierCorrectionTermInnerEPD = 0;
     Double_t FourierCorrectionTermOuterEPD = 0;

@@ -22,7 +22,7 @@
     </Package>
   </SandBox>
 
-  <!-- Get input files from get_file_lis.pl -->
+  <!-- Get input files from get_file_lis.pl --> 
   <input URL="filelist:/star/u/mcgordon/VnFromEPD/TreeAnalysis/fxt_3p0GeV_SL24a.list" nFiles="20"/>
 
   

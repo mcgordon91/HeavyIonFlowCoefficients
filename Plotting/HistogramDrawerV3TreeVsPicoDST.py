@@ -19,8 +19,8 @@ FirstResolutionPlotFile = ROOT.TFile.Open("/star/data01/pwg/mcgordon/VnFromEPD/R
 SecondResolutionPlotFile = ROOT.TFile.Open("/star/data01/pwg/mcgordon/VnFromEPD/V3Histograms/R_31_Normal.root","READ")
 
 MyFileFirst = ROOT.TFile.Open("/star/data01/pwg/mcgordon/VnFromEPD/V3Histograms/9-15-24-V3-HistogramNormalNewDataset20000FilesFromTrees.root","READ")
-MyFileSecond = ROOT.TFile.Open("/star/data01/pwg/mcgordon/VnFromEPD/V3Histograms/9-29-24-V3-HistogramNormal.root","READ")
 # MyFileSecond = ROOT.TFile.Open("/star/data01/pwg/mcgordon/VnFromEPD/V3Histograms/1-27-25-V3-HistogramNormalNewDataset20000FilesPicoDST.root","READ")
+MyFileSecond = ROOT.TFile.Open("/star/data01/pwg/mcgordon/VnFromEPD/V3Histograms/2-14-25-V3-HistogramNormal.root","READ")
 
 # SystematicErrorRootFile = ROOT.TFile.Open("/star/u/mcgordon/VnFromEPD/systematicErrors.root","READ")
 # CameronSystematicErrorRootFile = ROOT.TFile.Open("/star/u/mcgordon/VnFromEPD/LiteratureFiles/HEPData-ins2702151-SystematicErrors-root.root", "READ")
@@ -633,7 +633,7 @@ HistogramA.SetMarkerColor(ROOT.kBlue)
 
 HistogramA.SetLineColor(ROOT.kBlue)
 
-HistogramA.SetTitle("V3 vs Pt for Protons, 0-10% Centrality")
+HistogramA.SetTitle("V3 vs Pt for Protons, 40-60% Centrality")
 HistogramA.GetYaxis().SetTitleOffset(1)
 
 HistogramA.SetAxisRange(-0.07, 0.0, "Y")

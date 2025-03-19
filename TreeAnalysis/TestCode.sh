@@ -1,0 +1,2 @@
+bash Remove_ipynb_checkpoint_files.sh
+root4star -q -b -l RunTreeAnalyzer.C\(\"root://xrdstar.rcf.bnl.gov:1095//home/starlib/home/starreco/reco/production_3p85GeV_fixedTarget_2021/ReversedFullField/P24ia/2021/121/22121037/st_physics_22121037_raw_5500012.picoDst.root\",\"Test\",\"Normal\"\)

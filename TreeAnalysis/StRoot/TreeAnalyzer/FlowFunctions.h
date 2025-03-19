@@ -55,31 +55,7 @@ namespace FlowFunctions
         Double_t phi = Phi(px, py);
 
         return (cos(n*(phi - Psi_n)));
-    }
-
-    Double_t InvariantMass(std::vector<double>& pt, std::vector<double>& eta, std::vector<double>& phi, std::vector<double>& mass)
-    {
-        Double_t XSum = 0;
-        Double_t YSum = 0;
-        Double_t ZSum = 0;
-        Double_t ESum = 0;
-
-        for(size_t i = 0; i < pt.size(); i++)
-        {
-            double X = pt[i] * cos(phi[i]);
-            XSum += X;
-            double Y = pt[i] * sin(phi[i]);
-            YSum += Y;
-            double Z = pt[i] * sinh(eta[i]);
-            ZSum += Z;
-            double E = sqrt(X*X + Y*Y + Z*Z + mass[i]*mass[i]);
-            ESum += E;
-        }
-
-        return sqrt(ESum*ESum - XSum*XSum - YSum*YSum - ZSum*ZSum);
-    }
-
-    
+    }    
 }
 
 #endif

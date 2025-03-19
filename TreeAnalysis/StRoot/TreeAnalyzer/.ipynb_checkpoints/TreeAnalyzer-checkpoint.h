@@ -169,6 +169,8 @@ class TreeAnalyzer : public StMaker
 
         TH1F *InvariantMasses;
         TH2F *LambdaAcceptance;
+        TH1F *ProtonMultiplicity;
+        TH1F *PionMinusMultiplicity;
 
 
 

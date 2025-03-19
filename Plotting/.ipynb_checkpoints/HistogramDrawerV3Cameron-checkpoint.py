@@ -18,10 +18,7 @@ Date = '9-29-24'
 MyResolutionPlotFile = ROOT.TFile.Open("/star/data01/pwg/mcgordon/VnFromEPD/V3Histograms/R_31_Normal.root","READ")
 ResolutionPlotFileCameron = ROOT.TFile.Open("/star/u/mcgordon/VnFromEPD/LiteratureFiles/resolutionPlot.root","READ")
 
-# MyFile = ROOT.TFile.Open("/star/data01/pwg/mcgordon/VnFromEPD/V3Histograms/" + Date + "-V3-HistogramNormal.root","READ")
-MyFile = ROOT.TFile.Open("/star/data01/pwg/mcgordon/VnFromEPD/V3Histograms/2-14-25-V3-HistogramNormal.root","READ")
-MyFileA = ROOT.TFile.Open("/star/data01/pwg/mcgordon/VnFromEPD/V3Histograms/9-15-24-V3-HistogramNormalNewDataset20000FilesWithCuts.root","READ")
-MyFileB = ROOT.TFile.Open("/star/data01/pwg/mcgordon/VnFromEPD/V3Histograms/HistogramFirstPassNormal.root","READ")
+MyFile = ROOT.TFile.Open("/star/data01/pwg/mcgordon/VnFromEPD/V3Histograms/" + Date + "-V3-HistogramNormal.root","READ")
 CameronFile = ROOT.TFile.Open("/star/u/mcgordon/VnFromEPD/LiteratureFiles/CameronResults.root","READ")
 
 # SystematicErrorRootFile = ROOT.TFile.Open("/star/u/mcgordon/VnFromEPD/systematicErrors.root","READ")
@@ -201,7 +198,7 @@ MyResolutionPlotFile.Close()
 ResolutionPlotFileCameron.Close()
 
 
-
+'''
 
 Canvas_h_eventCheck = ROOT.TCanvas("Canvas_h_eventCheck", "", 800, 800)
 # Change the scope to be within the file
@@ -247,7 +244,7 @@ LegendEv.Draw()
 # Add the histogram to the list of histograms
 Canvasas.append(Canvas_h_eventCheck)
 
-'''
+
 
 # Build the canvas
 CanvasRunEntries = ROOT.TCanvas("CanvasRunEntries", "", 800, 800)
