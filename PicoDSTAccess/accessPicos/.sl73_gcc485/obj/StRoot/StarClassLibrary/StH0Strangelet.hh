@@ -1,0 +1,1 @@
+../../../../StRoot/StarClassLibrary/StH0Strangelet.hh

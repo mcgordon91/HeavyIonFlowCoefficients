@@ -1,0 +1,1 @@
+../../../../StRoot/StarClassLibrary/StXiZero1530.hh

@@ -1,0 +1,4 @@
+[ libCompositeData.so ]
+# List of selected classes
+class CompositeData
+
